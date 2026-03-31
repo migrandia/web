@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelos de Baby Shower | Mi Gran Día</title>
+
+    <script>
+        /* ==========================================
+           CONFIGURACIÓN DE ENLACES Y TEXTOS
+           ========================================== */
+        const CONFIG = {
+            whatsapp_contacto: "https://wa.me/525654252153",
+            // ENLACES A TUS MODELOS
+            modelo_estandar_url: "https://migrandia.mx/Baby-Estandar/",
+            modelo_premium_url: "https://migrandia.mx/Baby-Premium/",
+            modelo_vip_url: "https://migrandia.mx/Baby-VIP/",
+            // IMÁGENES DE MUESTRA (Sugerencia: fotos de globos, pasteles o detalles tiernos)
+            img_estandar: "https://www.dropbox.com/scl/fi/pd9mjnnpuz1awyw4memr7/novios-de-frente.jpg?rlkey=fzbs6iftt0125yat387uxnbei&raw=1",
+            img_premium: "https://www.dropbox.com/scl/fi/yxcamxu6ark6qj5jf9da1/novios-corriendo.jpg?rlkey=wt1aapl5nh89afj7n53zou3qt&raw=1",
+            img_vip: "https://www.dropbox.com/scl/fi/snutqjlkrv7oglqswicq2/novios-besandoce.jpg?rlkey=ad7z44z08wgr0f4wcd20et7nz&raw=1"
+        };
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;600&family=Montserrat:wght@200;400;700&family=Pacifico&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --menta: #b7e4c7;  /* Verde Menta */
+            --rosa: #ffcad4;   /* Rosa Pastel */
+            --azul: #bee1e6;   /* Azul Bebé */
+            --texto: #4a4a4a;
+            --fondo: #fbfdff;
+        }
+
+        /* Bloqueo de seguridad */
+        body { 
+            -webkit-user-select: none; user-select: none;
+            margin: 0; font-family: 'Montserrat', sans-serif; background-color: var(--fondo); color: var(--texto);
+        }
+
+        header { padding: 60px 20px; text-align: center; background: white; border-bottom: 5px solid var(--menta); }
+        .logo-text { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; letter-spacing: 4px; text-transform: uppercase; margin: 0; color: #333; }
+        .sub-logo { font-family: 'Pacifico', cursive; font-size: 2.2rem; color: #ff8fa3; margin-top: 5px; text-shadow: 1px 1px 0 rgba(0,0,0,0.05); }
+
+        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+        .grid-modelos { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+
+        .card { background: white; border-radius: 30px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.04); transition: 0.4s; position: relative; border: 2px solid #f0f0f0; }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(183, 228, 199, 0.4); border-color: var(--menta); }
+
+        .card-img { width: 100%; height: 380px; object-fit: cover; pointer-events: none; }
+        
+        .card-info { padding: 35px; text-align: center; }
+        .tag-genero { color: #888; font-weight: bold; font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 8px; }
+        .card-title { font-family: 'Cormorant Garamond', serif; font-size: 2rem; margin: 5px 0; color: #222; font-weight: bold; }
+        .card-desc { font-size: 0.85rem; color: #777; line-height: 1.6; margin-bottom: 25px; height: 50px; }
+
+        .btn-ver { 
+            display: inline-block; padding: 12px 40px; background: #ffca3a; color: #705e00; 
+            text-decoration: none; border-radius: 50px; font-size: 0.8rem; font-weight: bold; 
+            letter-spacing: 1px; transition: 0.3s; text-transform: uppercase; box-shadow: 0 5px 0 #cc9a00;
+        }
+        .btn-ver:hover { transform: translateY(3px); box-shadow: 0 2px 0 #cc9a00; background: #ffd166; }
+
+        .footer-cta { margin-top: 60px; text-align: center; padding: 70px 20px; background: white; border-radius: 50px 50px 0 0; border-top: 1px solid #eee; }
+        .footer-cta h3 { font-family: 'Pacifico', cursive; font-size: 2.5rem; color: #4a4a4a; margin-bottom: 10px; }
+
+        @media (max-width: 600px) {
+            .logo-text { font-size: 1.8rem; }
+            .card-img { height: 320px; }
+            .card-info { padding: 25px; }
+        }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <header>
+        <h1 class="logo-text">Mi Gran Día</h1>
+        <div class="sub-logo">Baby Shower</div>
+    </header>
+
+    <div class="container">
+        <div class="grid-modelos">
+            
+            <div class="card">
+                <img id="img-estandar" src="" alt="Baby Shower Estandar" class="card-img">
+                <div class="card-info">
+                    <span class="tag-genero">DISEÑOS PARA NIÑO Y NIÑA</span>
+                    <h2 class="card-title">Modelo Nube</h2>
+                    <p class="card-desc">Sencillez y alegría para compartir los datos básicos de la llegada de tu bebé de forma clara.</p>
+                    <a id="link-estandar" href="#" class="btn-ver">VER MODELO</a>
+                </div>
+            </div>
+
+            <div class="card" style="border: 2px solid var(--menta);">
+                <img id="img-premium" src="" alt="Baby Shower Premium" class="card-img">
+                <div class="card-info">
+                    <span class="tag-genero" style="color: #6a994e;">PERSONALIZADO A TU GUSTO</span>
+                    <h2 class="card-title">Modelo Estrella</h2>
+                    <p class="card-desc">Incluye cuenta regresiva, animaciones tiernas y enlace a tu Mesa de Regalos.</p>
+                    <a id="link-premium" href="#" class="btn-ver">VER MODELO</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img id="img-vip" src="" alt="Baby Shower VIP" class="card-img">
+                <div class="card-info">
+                    <span class="tag-genero">EL MÁS COMPLETO</span>
+                    <h2 class="card-title">Modelo Luna</h2>
+                    <p class="card-desc">Lo máximo: Música relajante, galería de ultrasonidos, juegos interactivos y confirmación instantánea.</p>
+                    <a id="link-vip" href="#" class="btn-ver">VER MODELO</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <section class="footer-cta">
+        <h3>¿Ya sabes el color?</h3>
+        <p>Creamos invitaciones únicas para celebrar la dulce espera, sin importar si es niño, niña o sorpresa.</p>
+        <a id="btn-whatsapp" href="#" class="btn-ver" style="background: #25d366; box-shadow: 0 5px 0 #128c7e; color: white;">INICIAR PEDIDO POR WHATSAPP</a>
+    </section>
+
+    <script>
+        document.getElementById('img-estandar').src = CONFIG.img_estandar;
+        document.getElementById('img-premium').src = CONFIG.img_premium;
+        document.getElementById('img-vip').src = CONFIG.img_vip;
+        
+        document.getElementById('link-estandar').href = CONFIG.modelo_estandar_url;
+        document.getElementById('link-premium').href = CONFIG.modelo_premium_url;
+        document.getElementById('link-vip').href = CONFIG.modelo_vip_url;
+        
+        document.getElementById('btn-whatsapp').href = CONFIG.whatsapp_contacto;
+
+        document.onkeydown = function(e) {
+            if(e.keyCode == 123 || (e.ctrlKey && (e.keyCode == 85 || e.keyCode == 83))) {
+                return false;
+            }
+        };
+    </script>
+</body>
+</html>
