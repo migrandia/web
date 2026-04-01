@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Mis XV | Isabella</title>
+    <meta property="og:title" content="Mis XV | Isabella">
+    <meta property="og:description" content="Te invito a mi sueño mágico. ¡Acompáñame a celebrar mis XV años!">
+    <meta property="og:image" content="https://www.dropbox.com/scl/fi/nm44i882g13044o8idz6k/xv1.jpg?rlkey=wn8xf4ne3yp5fz4vkzpsvbz4p&raw=1">
+    <meta property="og:type" content="website">
+    <link rel="apple-touch-icon" href="https://www.dropbox.com/scl/fi/nm44i882g13044o8idz6k/xv1.jpg?rlkey=wn8xf4ne3yp5fz4vkzpsvbz4p&raw=1">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Dancing+Script:wght@600&family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --emerald: #064e3b;
+            --dark-garden: #020617;
+            --gold-glow: #fbbf24;
+            --glass: rgba(255, 255, 255, 0.07);
+            --ancho-max: 480px;
+        }
+
+        body {
+            margin: 0; padding: 0;
+            background-color: #000;
+            color: #e2e8f0;
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+        }
+
+        .app-wrapper {
+            max-width: var(--ancho-max);
+            margin: 0 auto;
+            background-color: var(--dark-garden);
+            position: relative;
+            min-height: 100vh;
+            overflow: hidden;
+            border: 1px solid #1e293b;
+        }
+
+        /* Efecto de Luces de Jardín */
+        .glow {
+            position: absolute; width: 150px; height: 150px;
+            background: var(--emerald); filter: blur(100px);
+            border-radius: 50%; z-index: 1; opacity: 0.4;
+        }
+
+        /* Reproductor Flotante Moderno */
+        #music-pill {
+            position: fixed; bottom: 20px; right: 20px; z-index: 1000;
+            background: rgba(6, 78, 59, 0.6);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--gold-glow);
+            padding: 10px 20px; border-radius: 50px;
+            display: flex; align-items: center; gap: 10px;
+            cursor: pointer; box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
+
+        /* Portada Angular */
+        .hero-v3 {
+            height: 80vh;
+            background: url('https://www.dropbox.com/scl/fi/nm44i882g13044o8idz6k/xv1.jpg?rlkey=wn8xf4ne3yp5fz4vkzpsvbz4p&raw=1') center center no-repeat;
+            background-size: cover;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+            position: relative;
+        }
+
+        .hero-info {
+            position: absolute; bottom: 15%; width: 100%;
+            padding: 20px; box-sizing: border-box;
+            background: linear-gradient(to top, var(--dark-garden), transparent);
+        }
+
+        .xv-tag {
+            background: var(--gold-glow); color: black;
+            padding: 5px 15px; border-radius: 20px;
+            font-size: 0.7rem; font-weight: bold; letter-spacing: 2px;
+        }
+
+        h1.main-name {
+            font-family: 'Cinzel', serif; font-size: 2.8rem;
+            margin: 15px 0 0; color: white;
+        }
+
+        /* Tarjetas Estilo Glassmorphism */
+        .glass-card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            margin: 20px; padding: 30px 20px;
+            border-radius: 24px; position: relative; z-index: 2;
+        }
+
+        .section-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem; color: var(--gold-glow);
+            margin-bottom: 20px;
+        }
+
+        .img-rounded {
+            width: 100%; border-radius: 20px;
+            margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Padrinos & Padres (Cuadro de Honor) */
+        .honor-grid {
+            display: grid; grid-template-columns: 1fr; gap: 20px;
+        }
+
+        .person-tag {
+            border-left: 3px solid var(--gold-glow);
+            padding-left: 15px; text-align: left;
+        }
+
+        .role { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 2px; color: #94a3b8; }
+        .p-name { font-size: 1.1rem; font-weight: 600; color: white; margin: 5px 0; }
+
+        /* Botones Acción */
+        .btn-emerald {
+            display: block; background: var(--emerald);
+            color: white; padding: 18px; border-radius: 16px;
+            text-decoration: none; font-weight: bold;
+            margin-top: 15px; border: 1px solid rgba(255,255,255,0.2);
+            transition: transform 0.2s;
+        }
+
+        /* Contador Neón */
+        .timer-v3 {
+            display: flex; justify-content: center; gap: 10px;
+        }
+
+        .t-unit {
+            background: rgba(255,255,255,0.05);
+            padding: 15px; border-radius: 12px; min-width: 60px;
+        }
+
+        .t-num { font-size: 1.8rem; display: block; color: var(--gold-glow); font-weight: 700; }
+        .t-txt { font-size: 0.6rem; opacity: 0.6; }
+
+        .rsvp-footer {
+            padding: 60px 20px; background: linear-gradient(to bottom, var(--dark-garden), #064e3b);
+        }
+
+        .btn-confirm {
+            background: white; color: black;
+            padding: 20px; border-radius: 50px;
+            display: block; text-decoration: none;
+            font-weight: 800; font-size: 1rem;
+            box-shadow: 0 10px 30px rgba(251, 191, 36, 0.3);
+        }
+    </style>
+</head>
+<body onclick="initAudio()">
+
+    <div class="glow" style="top: 10%; left: -50px;"></div>
+    <div class="glow" style="bottom: 20%; right: -50px;"></div>
+
+    <div id="music-pill" onclick="toggleMusic()">
+        <span id="m-status">▶</span>
+        <span style="font-size: 0.7rem; font-weight: bold; letter-spacing: 1px;">ON / OFF</span>
+    </div>
+
+    <audio id="track" loop>
+        <source src="https://www.dropbox.com/scl/fi/80hypdxkg24wx6x7oael2/En-Tus-Manos-Se-or.mp3?rlkey=j4di62c9sgj4txgwbpikcngp3&raw=1" type="audio/mpeg">
+    </audio>
+
+    <div class="app-wrapper">
+        
+        <div class="hero-v3">
+            <div class="hero-info">
+                <span class="xv-tag">MIS QUINCE AÑOS</span>
+                <h1 class="main-name">ISABELLA</h1>
+                <p style="letter-spacing: 4px; font-size: 0.9rem;">24 . OCT . 2026</p>
+            </div>
+        </div>
+
+        <div class="glass-card">
+            <h2 class="section-title">Mi Sueño Mágico</h2>
+            <img src="https://www.dropbox.com/scl/fi/tmehprhryocd8vr9hfphl/xv2.jpg?rlkey=nzdubrk5wd1cg68gpbnck9r5t&raw=1" class="img-rounded">
+            <p style="font-weight: 200; line-height: 1.8; font-style: italic;">
+                "Bajo la luz de las estrellas, comienzo una nueva etapa. Gracias por ser parte de este jardín de ilusiones."
+            </p>
+        </div>
+
+        <div class="glass-card" style="text-align: left;">
+            <p class="role" style="color: var(--gold-glow); margin-bottom: 20px;">Corte de Honor</p>
+            <div class="honor-grid">
+                <div class="person-tag">
+                    <p class="role">Mis Padres</p>
+                    <p class="p-name">Roberto Martínez & Lucía Ferré</p>
+                </div>
+                <div class="person-tag">
+                    <p class="role">Mis Padrinos</p>
+                    <p class="p-name">Julián Soto & María Elena Paz</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-card">
+            <p class="role">Celebración Eucarística</p>
+            <h2 style="font-family: 'Cinzel'; margin: 10px 0;">Parroquia del Prado</h2>
+            <p>17:00 Horas</p>
+            <a href="#" class="btn-emerald">CÓMO LLEGAR</a>
+        </div>
+
+        <div class="glass-card">
+            <div class="timer-v3">
+                <div class="t-unit"><span class="t-num" id="d">00</span><span class="t-txt">DÍAS</span></div>
+                <div class="t-unit"><span class="t-num" id="h">00</span><span class="t-txt">HRS</span></div>
+                <div class="t-unit"><span class="t-num" id="m">00</span><span class="t-txt">MIN</span></div>
+                <div class="t-unit"><span class="t-num" id="s">00</span><span class="t-txt">SEG</span></div>
+            </div>
+        </div>
+
+        <div class="glass-card">
+            <img src="https://www.dropbox.com/scl/fi/x8aif8za8u6dbfyqvxx6k/xv3.jpg?rlkey=0gnog533q3fpm5xl0ouxmhrou&raw=1" class="img-rounded">
+            <p class="role">Gran Gala</p>
+            <h2 style="font-family: 'Cinzel'; margin: 10px 0;">Salón Terraza Real</h2>
+            <p>20:00 Horas</p>
+            <a href="#" class="btn-emerald">UBICACIÓN RECEPCIÓN</a>
+        </div>
+
+        <div class="rsvp-footer">
+            <h2 class="section-title" style="color: white; font-size: 3rem;">¿Vienes?</h2>
+            <p style="margin-bottom: 30px; opacity: 0.8;">Confirma tu asistencia antes del 10 de octubre</p>
+            <a href="https://wa.me/521234567890" class="btn-confirm">CONFIRMAR POR WHATSAPP</a>
+        </div>
+
+    </div>
+
+    <script>
+        var track = document.getElementById('track');
+        var mStatus = document.getElementById('m-status');
+        var playing = false;
+
+        function initAudio() {
+            if (!playing) {
+                track.play(); playing = true;
+                mStatus.innerText = "⏸";
+            }
+        }
+
+        function toggleMusic() {
+            playing = true;
+            if (track.paused) {
+                track.play(); mStatus.innerText = "⏸";
+            } else {
+                track.pause(); mStatus.innerText = "▶";
+            }
+        }
+
+        function timer() {
+            const end = new Date("Oct 24, 2026 17:00:00").getTime();
+            const now = new Date().getTime();
+            const d = end - now;
+
+            if (d > 0) {
+                document.getElementById('d').innerText = Math.floor(d / (1000*60*60*24));
+                document.getElementById('h').innerText = Math.floor((d % (1000*60*60*24)) / (1000*60*60));
+                document.getElementById('m').innerText = Math.floor((d % (1000*60*60)) / (1000*60));
+                document.getElementById('s').innerText = Math.floor((d % (1000*60)) / 1000);
+            }
+        }
+        setInterval(timer, 1000);
+    </script>
+</body>
+</html>
