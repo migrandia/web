@@ -19,7 +19,6 @@ const MI_CONFIGURACION = {
     enlaceBautizo: "https://migrandia.mx/bautizo-catalogo",
     enlaceBaby: "https://migrandia.mx/babyshower-infantiles",
     
-    // 👇 DATOS DE CONTACTO
     telefono: "525654252153",
     horario: "Lunes a Sábado: 9:00 AM - 10:00 PM",
     
@@ -171,20 +170,40 @@ body{font-family:'Poppins',sans-serif;background:var(--fondo);color:var(--primar
 .card img{width:100%;height:330px;object-fit:cover;margin-bottom:25px;}
 .card h3{font-family:'Playfair Display',serif;margin-bottom:18px; font-size: 2rem;}
 
-/* SECCIÓN CANCIONES */
-.canciones-seccion {
-    background: #fff;
-    padding: 60px 20px 100px;
-    text-align: center;
-}
-.canciones-box {
-    max-width: 900px;
+/* SECCIÓN CANCIONES + VIDEO (NUEVO DISEÑO) */
+.media-container {
+    max-width: 1400px;
     margin: 0 auto;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    padding: 40px 20px 100px;
+}
+
+.canciones-box {
+    flex: 1.2;
     border: 1px solid var(--dorado-solido);
     padding: 40px;
     border-radius: 4px;
     background: linear-gradient(to bottom, #ffffff, #fdfbfb);
+    text-align: center;
 }
+
+.video-box {
+    flex: 0.8;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    background: #000;
+    line-height: 0;
+}
+
+.video-box video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 .canciones-box h4 {
     font-family: 'Playfair Display', serif;
     font-size: 2.2rem;
@@ -223,15 +242,16 @@ body{font-family:'Poppins',sans-serif;background:var(--fondo);color:var(--primar
     .logo { height: 120px; border: none; padding: 0; margin: 0; } 
     .brand-text-wrapper { align-items: center; text-align: center; }
     .brand-name { font-size: 2.2rem; letter-spacing: 3px; }
-    .brand-slogan { font-size: 1rem; margin-top: 5px; }
     .header-contact { display: none; }
     .hero{flex-direction:column;text-align:center;padding:60px 20px;}
     .hero h1{font-size:3rem;}
     .phones { display: flex !important; flex-direction: row !important; justify-content: center; margin-top: 30px; }
     .phone1, .phone2 { width: 160px !important; display: block !important; transform: none !important; }
     .grid { grid-template-columns: 1fr; }
-    .canciones-box { padding: 25px; }
-    .canciones-box h4 { font-size: 1.8rem; }
+    
+    .media-container { flex-direction: column; padding: 20px; }
+    .canciones-box { padding: 25px; width: 100%; }
+    .video-box { width: 100%; }
 }
 </style>
 </head>
@@ -279,12 +299,21 @@ body{font-family:'Poppins',sans-serif;background:var(--fondo);color:var(--primar
     </div>
 </section>
 
-<section class="canciones-seccion">
-    <div class="canciones-box">
-        <h4>Melodías que cuentan su Historia</h4>
-        <p>También hacemos canciones personalizadas para su gran día, ya sea Boda o XV Años, con sus nombres y su historia. Ideales para su invitación digital y su primer baile en la fiesta.</p>
-        <p style="font-size: 0.9rem; color: #6f5a4f;">Es una composición especial para su evento que nadie más tendrá igual.</p>
-        <div style="font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--dorado-solido); font-weight: bold; letter-spacing: 2px;">MÁS INFORMACIÓN EN LOS SEGMENTOS DE CDA CATALOGO</div>
+<section style="background: #fff;">
+    <div class="media-container">
+        <div class="canciones-box">
+            <h4>Melodías que cuentan su Historia</h4>
+            <p>También hacemos canciones personalizadas para su gran día, ya sea Boda o XV Años, con sus nombres y su historia. Ideales para su invitación digital y su primer baile en la fiesta.</p>
+            <p style="font-size: 0.9rem; color: #6f5a4f;">Es una composición especial para su evento que nadie más tendrá igual.</p>
+            <div style="font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--dorado-solido); font-weight: bold; letter-spacing: 2px;">MÁS INFORMACIÓN EN NUESTRO CATÁLOGO</div>
+        </div>
+        
+        <div class="video-box">
+            <video controls preload="metadata" poster="https://www.dropbox.com/scl/fi/e56oijqyqox41yphxsfjx/boda-web.png?rlkey=r6dkxn3fu3q2vm51jlk74qjq3&raw=1">
+                <source src="https://www.dropbox.com/scl/fi/h1fuyk1uorkemclw6m0wb/video-publicidad.mp4?rlkey=po4k9cgu0fyn8rmqdhbj7nqzb&raw=1" type="video/mp4">
+                Tu navegador no soporta videos.
+            </video>
+        </div>
     </div>
 </section>
 
@@ -307,7 +336,6 @@ body{font-family:'Poppins',sans-serif;background:var(--fondo);color:var(--primar
     // MOTOR DE LA PÁGINA
     document.getElementById('txtTelefono').innerText = "📞 TEL: " + MI_CONFIGURACION.telefono;
     document.getElementById('txtHorario').innerText = "🕒 " + MI_CONFIGURACION.horario;
-    
     document.getElementById('elNombreMarca').innerText = MI_CONFIGURACION.nombreMarca;
     document.getElementById('elSlogan').innerText = MI_CONFIGURACION.slogan;
     document.getElementById('elLogo').src = MI_CONFIGURACION.fotoLogo;
@@ -328,14 +356,25 @@ body{font-family:'Poppins',sans-serif;background:var(--fondo);color:var(--primar
     document.getElementById('laFrase').innerText = MI_CONFIGURACION.fraseFinal;
     document.getElementById('elPie').innerText = MI_CONFIGURACION.pieDePagina;
 
-    // LÓGICA DEL CONTADOR (BASE 9855 + VISITAS REALES)
-    function cb(response) {
+    // LÓGICA DEL CONTADOR CORREGIDA (PERSISTENTE POR DISPOSITIVO)
+    function updateCounter() {
         const base = 9855;
-        const total = base + response.value;
+        let visits = localStorage.getItem('visit_count');
+        
+        if (visits === null) {
+            visits = 1;
+        } else {
+            visits = parseInt(visits) + 1;
+        }
+        
+        localStorage.setItem('visit_count', visits);
+        const total = base + visits;
         document.getElementById('count').innerText = total.toLocaleString();
     }
+    
+    // Llamar a la función al cargar
+    updateCounter();
 </script>
-<script async src="https://api.countapi.xyz/hit/migrandia.mx/puntos_especiales?callback=cb"></script>
 
 </body>
 </html>
