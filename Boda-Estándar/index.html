@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación Estándar | Mi Gran Día</title>
+
+    <script>
+        const CONFIG = {
+            whatsapp_contacto: "https://wa.me/525654252153",
+            foto_portada: "https://www.dropbox.com/scl/fi/pd9mjnnpuz1awyw4memr7/novios-de-frente.jpg?rlkey=fzbs6iftt0125yat387uxnbei&raw=1",
+            foto_final: "https://www.dropbox.com/scl/fi/snutqjlkrv7oglqswicq2/novios-besandoce.jpg?rlkey=ad7z44z08wgr0f4wcd20et7nz&raw=1"
+        };
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;600&family=Montserrat:wght@200;400;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --gris-suave: #888;
+            --dorado-mate: #bca080;
+            --fondo: #ffffff;
+            --ancho-max: 480px;
+        }
+
+        /* Seguridad anti-copia */
+        body { 
+            -webkit-user-select: none; user-select: none;
+            margin: 0; padding: 0; background-color: #f8f8f8; font-family: 'Montserrat', sans-serif; text-align: center; color: #333; 
+        }
+
+        .main-wrapper { max-width: var(--ancho-max); margin: 0 auto; background-color: var(--fondo); box-shadow: 0 0 30px rgba(0,0,0,0.05); }
+
+        .foto-estatica { width: 100%; height: 75vh; object-fit: cover; display: block; }
+
+        section { padding: 60px 30px; }
+        
+        h1 { font-family: 'Cormorant Garamond', serif; font-size: 3.2rem; margin: 10px 0; color: #444; font-weight: 300; }
+        .conector { font-family: 'Great Vibes', cursive; font-size: 3.5rem; color: var(--dorado-mate); display: block; margin: -15px 0; }
+        
+        h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--dorado-mate); margin-bottom: 20px; }
+
+        .texto-detalle { font-size: 1rem; letter-spacing: 1px; color: var(--gris-suave); margin-bottom: 5px; }
+        .dato-principal { font-size: 1.2rem; font-weight: bold; margin-bottom: 25px; display: block; }
+
+        /* Estilo Lluvia de Sobres */
+        .sobre-box { border: 1px solid #eee; padding: 30px; border-radius: 15px; background: #fafafa; }
+        .icon-sobre { font-size: 2rem; color: var(--dorado-mate); margin-bottom: 10px; display: block; }
+
+        .btn-confirmar { 
+            display: inline-block; margin-top: 20px; padding: 16px 45px; 
+            background-color: #25d366; color: white; text-decoration: none; 
+            font-size: 0.85rem; font-weight: bold; letter-spacing: 1px; 
+            text-transform: uppercase; border-radius: 50px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .footer-logo { font-size: 0.6rem; color: #ccc; margin-top: 50px; letter-spacing: 2px; }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+
+    <div class="main-wrapper">
+        <img id="portada" src="" class="foto-estatica" alt="Portada Boda">
+        
+        <section>
+            <span class="texto-detalle" style="text-transform: uppercase;">Nuestra Boda</span>
+            <h1>Cecilia <span class="conector">&</span> Rubén</h1>
+            <p style="font-style: italic; color: #999; margin-top: 20px;">
+                "Sencillez y elegancia para anunciar este día especial."
+            </p>
+        </section>
+
+        <section style="background-color: #fcfcfc;">
+            <h2>Cuándo & Dónde</h2>
+            <span class="texto-detalle">SÁBADO</span>
+            <span class="dato-principal">15 de Agosto, 2026</span>
+            
+            <span class="texto-detalle">LUGAR</span>
+            <span class="dato-principal">Tlaltizapán, Morelos</span>
+            
+            <p style="font-size: 0.75rem; color: #aaa;">Ubicación exacta disponible en versión Premium</p>
+        </section>
+
+        <section>
+            <div class="sobre-box">
+                <span class="icon-sobre">✉</span>
+                <h2>Lluvia de Sobres</h2>
+                <p>Tu presencia es nuestro mejor regalo, pero si deseas darnos un obsequio, contamos con lluvia de sobres el día del evento.</p>
+            </div>
+        </section>
+
+        <img id="final" src="" class="foto-estatica" style="height: 45vh;" alt="Cierre Boda">
+
+        <section>
+            <h2>Confirmar Asistencia</h2>
+            <p class="texto-detalle">Tu respuesta es muy importante para nosotros.</p>
+            <a id="whatsapp" href="#" class="btn-confirmar">CONFIRMAR ASISTENCIA</a>
+            
+            <div class="footer-logo">MI GRAN DÍA - INVITACIONES DIGITALES</div>
+        </section>
+    </div>
+
+    <script>
+        // Cargar links dinámicos
+        document.getElementById('portada').src = CONFIG.foto_portada;
+        document.getElementById('final').src = CONFIG.foto_final;
+        document.getElementById('whatsapp').href = CONFIG.whatsapp_contacto;
+
+        // Bloqueo de teclas de inspección
+        document.onkeydown = function(e) {
+            if(e.keyCode == 123 || (e.ctrlKey && (e.keyCode == 85 || e.keyCode == 83))) {
+                return false;
+            }
+        };
+    </script>
+</body>
+</html>
