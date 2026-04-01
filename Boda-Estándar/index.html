@@ -30,6 +30,35 @@
             margin: 0; padding: 0; background-color: #e8e4e1; font-family: 'Montserrat', sans-serif; text-align: center; color: #333; 
         }
 
+        /* --- BOTÓN REGRESAR FLOTANTE --- */
+        .btn-regresar {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 10000;
+            background: white;
+            color: var(--dorado-mate);
+            padding: 10px 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.7rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid var(--dorado-mate);
+            display: flex;
+            align-items: center;
+            transition: 0.3s ease;
+        }
+
+        .btn-regresar:hover {
+            background: var(--dorado-mate);
+            color: white;
+            transform: translateX(-3px);
+        }
+
+        .btn-regresar svg { margin-right: 8px; }
+
         .main-wrapper { 
             max-width: var(--ancho-max); 
             margin: 0 auto; 
@@ -56,7 +85,7 @@
         .texto-detalle { font-size: 0.9rem; letter-spacing: 2px; color: var(--gris-suave); margin-bottom: 5px; text-transform: uppercase; }
         .dato-principal { font-size: 1.3rem; font-weight: 600; margin-bottom: 25px; display: block; color: #222; }
 
-        /* Bloques con fondo blanco para que resalten sobre el color de fondo */
+        /* Bloques con fondo blanco */
         .info-card {
             background: var(--blanco-tarjeta);
             margin: 10px 0;
@@ -86,9 +115,21 @@
         .btn-confirmar:hover { transform: translateY(-3px); background-color: #128c7e; }
 
         .footer-logo { font-size: 0.6rem; color: #999; margin-top: 40px; letter-spacing: 2px; padding-bottom: 30px; }
+
+        @media (max-width: 600px) {
+            .btn-regresar { padding: 8px 12px; font-size: 0.6rem; top: 15px; left: 15px; }
+        }
     </style>
 </head>
 <body oncontextmenu="return false;">
+
+    <a href="javascript:history.back()" class="btn-regresar">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        VOLVER
+    </a>
 
     <div class="main-wrapper">
         <img id="portada" src="" class="foto-estatica" alt="Portada Boda">
