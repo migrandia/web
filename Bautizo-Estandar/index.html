@@ -30,80 +30,70 @@
     
     <style>
         :root { --principal: #5DADE2; --texto: #444; --fondo: #F4F7F9; --fuente-e: 'Cormorant Garamond', serif; --fuente-m: 'Montserrat', sans-serif; }
-        body, html { margin: 0; padding: 0; background-color: #e5e5e5; color: var(--texto); font-family: var(--fuente-m); text-align: center; scroll-behavior: smooth;}
         
-        /* --- BOTÓN VOLVER --- */
-        .btn-regresar-bauti {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.9);
-            border: 1.5px solid var(--principal);
-            color: var(--principal);
-            padding: 8px 15px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-size: 0.7rem;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+        body, html { 
+            margin: 0; padding: 0; background-color: #e5e5e5; color: var(--texto); 
+            font-family: var(--fuente-m); text-align: center; scroll-behavior: smooth;
+            /* SEGURIDAD: Evita selección de texto */
+            -webkit-user-select: none; user-select: none;
+        }
+        
+        .invitation-container { max-width: 480px; margin: 0 auto; background-color: #fff; position: relative; overflow: hidden; }
+
+        /* CAPA PROTECTORA PARA IMÁGENES */
+        .protected-img { position: relative; width: 100%; overflow: hidden; }
+        .protected-img::after {
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10;
         }
 
-        .btn-regresar-bauti:hover {
-            background: var(--principal);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .invitation-container { max-width: 480px; margin: 0 auto; background-color: #fff; position: relative; }
-        
         .hero { 
             width: 100%; height: 75vh; 
             background-position: center; background-size: cover;
             position: relative; display: flex; align-items: center; justify-content: center; 
         }
 
-        .hero::after { content: ""; position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(255,255,255,0.2); }
+        .hero::before { content: ""; position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(255,255,255,0.2); z-index: 1;}
         
         h1.nombre-portada { font-family: var(--fuente-e); font-size: 3.5rem; color: #222; z-index: 2; margin: 0; font-weight: 300; }
         .tagline { font-size: 0.8rem; letter-spacing: 5px; color: #222; z-index: 2; margin-bottom: 10px; text-transform: uppercase; }
 
-        section { padding: 50px 25px; }
+        section { padding: 50px 25px; position: relative; z-index: 5; }
         .separador { width: 50px; height: 2px; background: var(--principal); margin: 20px auto; }
         
         .countdown-container { display: flex; justify-content: center; gap: 10px; margin-top: 20px; }
-        .count-item { background: var(--fondo); padding: 10px; min-width: 60px; border-radius: 8px; }
+        .count-item { background: var(--fondo); padding: 10px; min-width: 60px; border-radius: 8px; border: 1px solid #eee; }
         .count-num { display: block; font-size: 1.4rem; font-weight: bold; color: var(--principal); }
         .count-lab { font-size: 0.6rem; text-transform: uppercase; color: #888; }
 
-        .btn-wa { background: var(--principal); color: white; width: 85%; margin: 20px auto; padding: 18px; display: block; text-decoration: none; border-radius: 5px; font-weight: bold; letter-spacing: 1px; font-size: 0.9rem; transition: 0.3s; }
-        .btn-wa:hover { opacity: 0.9; transform: scale(1.02); }
+        .btn-wa { background: var(--principal); color: white; width: 85%; margin: 20px auto; padding: 18px; display: block; text-decoration: none; border-radius: 5px; font-weight: bold; font-size: 0.9rem; }
         
         .info-box { margin: 30px 0; border-left: 3px solid var(--principal); padding-left: 15px; text-align: left; }
         .info-box h3 { font-size: 0.7rem; letter-spacing: 2px; color: var(--principal); margin: 0; text-transform: uppercase; }
-        .info-box p { margin: 5px 0; font-size: 1.1rem; color: #333; }
 
         .img-grid { width: 100%; height: 300px; background-size: cover; background-position: center; }
+
+        /* BOTÓN VOLVER */
+        .btn-regresar-bauti {
+            position: fixed; top: 20px; left: 20px; z-index: 1000;
+            background: rgba(255, 255, 255, 0.9); border: 1.5px solid var(--principal);
+            color: var(--principal); padding: 8px 15px; border-radius: 30px;
+            text-decoration: none; font-size: 0.7rem; font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
     </style>
 </head>
-<body>
+<body oncontextmenu="return false;">
 
-    <a href="javascript:history.back()" class="btn-regresar-bauti">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 5px;">
-            <polyline points="15 18 9 12 15 6"></polyline>
-        </svg>
-        VOLVER
-    </a>
+    <a href="javascript:history.back()" class="btn-regresar-bauti">VOLVER</a>
 
     <div class="invitation-container">
         
-        <div id="img-1" class="hero">
-            <div style="z-index: 2;">
-                <p class="tagline">Mi Bautizo</p>
-                <h1 id="baby-name" class="nombre-portada"></h1>
+        <div class="protected-img">
+            <div id="img-1" class="hero">
+                <div style="z-index: 2;">
+                    <p class="tagline">Mi Bautizo</p>
+                    <h1 id="baby-name" class="nombre-portada"></h1>
+                </div>
             </div>
         </div>
 
@@ -120,27 +110,29 @@
             </div>
         </section>
 
-        <div id="img-2" class="img-grid"></div>
+        <div class="protected-img">
+            <div id="img-2" class="img-grid"></div>
+        </div>
 
         <section>
             <h2 style="font-family: var(--fuente-e); font-size: 2rem;">Nuestra Familia</h2>
-            <p style="color: #999; font-size: 0.8rem; letter-spacing: 1px;">PADRES</p>
+            <p style="color: #999; font-size: 0.8rem;">PADRES</p>
             <p id="p-names" style="font-size: 1.2rem;"></p>
-            <p style="color: #999; font-size: 0.8rem; letter-spacing: 1px; margin-top: 20px;">PADRINOS</p>
+            <p style="color: #999; font-size: 0.8rem; margin-top: 20px;">PADRINOS</p>
             <p id="g-names" style="font-size: 1.2rem;"></p>
         </section>
 
-        <div id="img-3" class="img-grid"></div>
+        <div class="protected-img">
+            <div id="img-3" class="img-grid"></div>
+        </div>
 
         <section style="text-align: left;">
             <h2 style="font-family: var(--fuente-e); font-size: 2rem; text-align: center;">¿Dónde nos vemos?</h2>
-            
             <div class="info-box">
                 <h3>Ceremonia</h3>
                 <p id="iglesia"></p>
                 <p id="hora-i" style="font-weight: bold;"></p>
             </div>
-
             <div class="info-box">
                 <h3>Recepción</h3>
                 <p id="salon"></p>
@@ -148,13 +140,15 @@
             </div>
         </section>
 
-        <div id="img-4" class="img-grid"></div>
+        <div class="protected-img">
+            <div id="img-4" class="img-grid"></div>
+        </div>
 
         <section style="background-color: var(--fondo);">
             <p style="font-size: 1rem; color: #666; margin-bottom: 30px;">
-                Acompáñanos a celebrar este día tan especial. Tu confirmación nos ayuda mucho a organizar mejor el evento.
+                Acompáñanos a celebrar este día tan especial.
             </p>
-            <a id="btn-wa" href="#" target="_blank" class="btn-wa">📲 CONTACTO / CONFIRMAR</a>
+            <a id="btn-wa" href="#" target="_blank" class="btn-wa">📲 CONFIRMAR ASISTENCIA</a>
             
             <p id="footer-name" style="margin-top: 50px; font-family: var(--fuente-e); font-size: 2.2rem; color: var(--principal);"></p>
             <p style="font-size: 0.7rem; color: #999;">2026</p>
@@ -162,6 +156,7 @@
     </div>
 
     <script>
+        // Cargar datos
         document.getElementById('baby-name').innerText = CONFIG.nombre_bebe;
         document.getElementById('footer-name').innerText = CONFIG.nombre_bebe;
         document.getElementById('frase').innerText = CONFIG.frase_biblica;
@@ -179,20 +174,28 @@
         document.getElementById('img-3').style.backgroundImage = `url('${CONFIG.foto_3}')`;
         document.getElementById('img-4').style.backgroundImage = `url('${CONFIG.foto_4}')`;
 
+        // Countdown
         const countdownDate = new Date(CONFIG.fecha_countdown).getTime();
-        const x = setInterval(function() {
+        setInterval(function() {
             const now = new Date().getTime();
             const distance = countdownDate - now;
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById("days").innerText = days < 10 ? "0"+days : days;
-            document.getElementById("hours").innerText = hours < 10 ? "0"+hours : hours;
-            document.getElementById("minutes").innerText = minutes < 10 ? "0"+minutes : minutes;
-            document.getElementById("seconds").innerText = seconds < 10 ? "0"+seconds : seconds;
+            if (distance > 0) {
+                document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+                document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+                document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+                document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
+            }
         }, 1000);
+
+        // SEGURIDAD: Bloqueo de teclado
+        document.onkeydown = function(e) {
+            if(e.keyCode == 123 || (e.ctrlKey && (e.keyCode == 85 || e.keyCode == 83 || e.keyCode == 67 || e.keyCode == 73))) {
+                return false;
+            }
+        };
+
+        // SEGURIDAD: Bloqueo de arrastre
+        document.addEventListener('dragstart', function (e) { e.preventDefault(); }, false);
     </script>
 </body>
 </html>
