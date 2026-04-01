@@ -7,18 +7,18 @@
 
     <script>
         /* ==========================================
-           CONFIGURACIÓN DE LA BODA
-           ========================================== */
+            CONFIGURACIÓN DE LA BODA
+            ========================================== */
         const CONFIG = {
             nombres: "Cecilia & Rubén",
-            fecha_boda: "August 15, 2026 17:00:00", // Formato: Mes Dia, Año Hora:Min:Seg
+            fecha_boda: "August 15, 2026 17:00:00", 
             whatsapp_contacto: "https://wa.me/525654252153",
-            musica_url: "https://www.bensound.com/bensound-music/bensound-love.mp3", // Reemplaza con tu link de audio directo
+            musica_url: "https://www.bensound.com/bensound-music/bensound-love.mp3",
             foto_portada: "https://www.dropbox.com/scl/fi/pd9mjnnpuz1awyw4memr7/novios-de-frente.jpg?rlkey=fzbs6iftt0125yat387uxnbei&raw=1",
             foto_final: "https://www.dropbox.com/scl/fi/snutqjlkrv7oglqswicq2/novios-besandoce.jpg?rlkey=ad7z44z08wgr0f4wcd20et7nz&raw=1",
-            maps_ceremonia: "https://maps.app.goo.gl/...", // Link de Google Maps
-            maps_recepcion: "https://maps.app.goo.gl/...",
-            regalos_url: "https://www.amazon.com.mx/baby-regalist"
+            maps_ceremonia: "https://maps.google.com", 
+            maps_recepcion: "https://maps.google.com",
+            regalos_url: "https://www.amazon.com.mx/"
         };
     </script>
 
@@ -38,6 +38,35 @@
             margin: 0; padding: 0; background-color: #1a1a1a; 
             font-family: 'Montserrat', sans-serif; text-align: center; color: var(--blanco-suave); 
         }
+
+        /* --- BOTÓN REGRESAR PREMIUM --- */
+        .btn-regresar {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 10000;
+            background: rgba(6, 78, 59, 0.8);
+            color: var(--dorado);
+            padding: 10px 18px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 0.7rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            backdrop-filter: blur(5px);
+            border: 1px solid var(--dorado);
+            display: flex;
+            align-items: center;
+            transition: 0.3s ease;
+        }
+
+        .btn-regresar:hover {
+            background: var(--dorado);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .btn-regresar svg { margin-right: 8px; }
 
         .main-wrapper { 
             max-width: var(--ancho-max); margin: 0 auto; 
@@ -66,7 +95,6 @@
         .time-box span { display: block; font-size: 1.5rem; font-weight: bold; }
         .time-box label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* Tarjetas de Información */
         .info-card {
             background: rgba(255, 255, 255, 0.05);
             margin: 20px 0; padding: 40px 20px;
@@ -90,9 +118,21 @@
         }
 
         .footer-logo { font-size: 0.6rem; color: var(--dorado); opacity: 0.6; padding: 40px 0; letter-spacing: 3px; }
+
+        @media (max-width: 600px) {
+            .btn-regresar { padding: 8px 12px; font-size: 0.6rem; top: 15px; left: 15px; }
+        }
     </style>
 </head>
 <body oncontextmenu="return false;">
+
+    <a href="javascript:history.back()" class="btn-regresar">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        VOLVER
+    </a>
 
     <div class="music-control" onclick="toggleMusic()">
         <span id="music-icon">🎵</span>
@@ -152,7 +192,6 @@
     </div>
 
     <script>
-        // Cargar Configuración
         document.getElementById('nombres-display').innerText = "Cecilia";
         document.getElementById('portada').src = CONFIG.foto_portada;
         document.getElementById('final').src = CONFIG.foto_final;
@@ -163,7 +202,6 @@
         document.getElementById('link-regalos').href = CONFIG.regalos_url;
         document.getElementById('bg-music').load();
 
-        // Lógica Música
         function toggleMusic() {
             const music = document.getElementById('bg-music');
             const icon = document.getElementById('music-icon');
@@ -176,19 +214,18 @@
             }
         }
 
-        // Lógica Contador
         const countdownDate = new Date(CONFIG.fecha_boda).getTime();
         setInterval(function() {
             const now = new Date().getTime();
             const distance = countdownDate - now;
-
-            document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
-            document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            document.getElementById("mins").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            document.getElementById("secs").innerText = Math.floor((distance % (1000 * 60)) / 1000);
+            if (distance > 0) {
+                document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
+                document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                document.getElementById("mins").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                document.getElementById("secs").innerText = Math.floor((distance % (1000 * 60)) / 1000);
+            }
         }, 1000);
 
-        // Bloqueo F12 y Ctrl+U
         document.onkeydown = function(e) {
             if(e.keyCode == 123 || (e.ctrlKey && (e.keyCode == 85 || e.keyCode == 83))) return false;
         };
