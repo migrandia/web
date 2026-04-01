@@ -1,209 +1,251 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Gran Día | Invitaciones Digitales Premium</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mi Gran Día | Invitaciones Digitales</title>
 
-    <script>
-        const MI_CONFIGURACION = {
-            nombreMarca: "Mi Gran Día",
-            slogan: "Eventos Inolvidables",
-            tituloHero: "La primera impresión de tu Gran Día comienza aquí.",
-            subtituloHero: "Invitaciones digitales e interactivas que enamoran a tus invitados.",
-            fraseFinal: '"Porque los mejores momentos de la vida merecen ser anunciados con elegancia."',
-            pieDePagina: "Mi Gran Día | Experiencias Digitales",
-            whatsappUrl: "https://wa.me/525654252153",
-            telefono: "525654252153",
-            horario: "Lunes a Sábado: 9:00 AM - 10:00 PM",
-            
-            // ENLACES DE IMÁGENES
-            fotoLogo: "https://www.dropbox.com/scl/fi/7xqcc54jy4qtpgcmn0zhx/logo.png?rlkey=mwuejhlyagpz2r92gestu6yd2&raw=1",
-            fotoCelular1: "https://www.dropbox.com/scl/fi/zux2sxkc0jkjm3wl6bah8/celular-boda.png?rlkey=h87ne4ctts5pnmiwtt208tnpj&raw=1",
-            fotoCelular2: "https://www.dropbox.com/scl/fi/jez673lm5uja0bp7d4qv8/15.png?rlkey=lizifto81n577oscj8861xo1f&raw=1",
-            
-            // PORTADAS CATÁLOGO
-            fotoPortadaBoda: "https://www.dropbox.com/scl/fi/e56oijqyqox41yphxsfjx/boda-web.png?rlkey=r6dkxn3fu3q2vm51jlk74qjq3&raw=1",
-            fotoPortadaXV: "https://www.dropbox.com/scl/fi/45vsrjiwvg7rlubvc1g51/xv-a-os.png?rlkey=1poaqg5g3z2b1897s9u7poxj2&raw=1",
-            fotoPortadaBautizo: "https://www.dropbox.com/scl/fi/xgrkr563fnhu4bbxoimn6/Bautizo-12.png?rlkey=ng4c8jy07ud2gz5jqgkx8e6pc&raw=1",
-            fotoPortadaBaby: "https://www.dropbox.com/scl/fi/0qs4ysv243u1dnfy2eumo/baby-shower.png?rlkey=cd206qfq48u7lqfaheu8k17jb&raw=1"
-        };
-    </script>
+<script>
+const MI_CONFIGURACION = {
+    nombreMarca: "Mi Gran Día",
+    slogan: "Eventos Inolvidables",
+    coleccion: "Colección by Maria Montenegro",
+    tituloHero: "La primera impresión de tu Gran Día comienza aquí.",
+    subtituloHero: "Invitaciones digitales e interactivas que enamoran a tus invitados.",
+    fraseFinal: '"Porque los mejores momentos de la vida merecen ser anunciados con elegancia."',
+    pieDePagina: "Mi Gran Día | Experiencias Digitales",
+    whatsappUrl: "https://wa.me/525654252153",
+    enlaceBoda: "https://migrandia.mx/boda-catalogo",
+    enlaceXV: "https://migrandia.mx/xv-catalogo",
+    enlaceBautizo: "https://migrandia.mx/bautizo-catalogo",
+    enlaceBaby: "https://migrandia.mx/babyshower-infantiles",
+    
+    telefono: "525654252153",
+    horario: "Lunes a Sábado: 9:00 AM - 10:00 PM",
+    
+    fotoLogo: "https://www.dropbox.com/scl/fi/7xqcc54jy4qtpgcmn0zhx/logo.png?rlkey=mwuejhlyagpz2r92gestu6yd2&raw=1",
+    fotoCelular1: "https://www.dropbox.com/scl/fi/zux2sxkc0jkjm3wl6bah8/celular-boda.png?rlkey=h87ne4ctts5pnmiwtt208tnpj&raw=1",
+    fotoCelular2: "https://www.dropbox.com/scl/fi/jez673lm5uja0bp7d4qv8/15.png?rlkey=lizifto81n577oscj8861xo1f&raw=1",
+    fotoPortadaBoda: "https://www.dropbox.com/scl/fi/e56oijqyqox41yphxsfjx/boda-web.png?rlkey=r6dkxn3fu3q2vm51jlk74qjq3&raw=1",
+    fotoPortadaXV: "https://www.dropbox.com/scl/fi/45vsrjiwvg7rlubvc1g51/xv-a-os.png?rlkey=1poaqg5g3z2b1897s9u7poxj2&raw=1",
+    fotoPortadaBautizo: "https://www.dropbox.com/scl/fi/xgrkr563fnhu4bbxoimn6/Bautizo-12.png?rlkey=ng4c8jy07ud2gz5jqgkx8e6pc&raw=1",
+    fotoPortadaBaby: "https://www.dropbox.com/scl/fi/0qs4ysv243u1dnfy2eumo/baby-shower.png?rlkey=cd206qfq48u7lqfaheu8k17jb&raw=1"
+};
+</script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600&family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-    <style>
-        :root {
-            --primario: #3e2c24;
-            --guinda: #660000;
-            --dorado-brillante: linear-gradient(45deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
-            --dorado-solido: #c9a96a;
-            --fondo: linear-gradient(135deg, #fdfbfb 0%, #f1e3d8 100%);
-        }
+<style>
+:root{
+    --primario: #3e2c24;
+    --guinda: #660000;
+    --dorado-brillante: linear-gradient(45deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+    --dorado-solido: #c9a96a;
+    --fondo-suave: linear-gradient(135deg, #fdfbfb 0%, #f1e3d8 100%);
+    --fondo-blanco-warm: #fdfaf8;
+}
 
-        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-user-select: none; user-select: none; }
-        body { font-family: 'Poppins', sans-serif; background: var(--fondo); color: var(--primario); overflow-x: hidden; }
+*{margin:0;padding:0;box-sizing:border-box; -webkit-user-select: none; user-select: none;}
+img { -webkit-user-drag: none; pointer-events: none; }
 
-        /* BARRA SUPERIOR */
-        .top-bar { background: #fff; padding: 10px; font-size: 0.75rem; text-align: center; border-bottom: 1px solid rgba(201,169,106,0.2); color: var(--dorado-solido); letter-spacing: 1px; font-weight: 600; }
+body{font-family:'Poppins',sans-serif; background: var(--fondo-suave); color:var(--primario); overflow-x:hidden;}
 
-        /* HEADER */
-        .header { background: rgba(255,255,255,0.9); backdrop-filter: blur(10px); padding: 20px; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid var(--guinda); }
-        .brand-container { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
-        .logo { height: 100px; margin-bottom: 10px; }
-        .brand-name { font-family: 'Playfair Display', serif; font-size: 2.5rem; letter-spacing: 4px; text-transform: uppercase; font-weight: 700; }
-        .brand-slogan { font-size: 0.9rem; letter-spacing: 3px; color: var(--dorado-solido); text-transform: uppercase; }
+/* BARRA SUPERIOR */
+.top-bar { background: #fff; border-bottom: 1px solid rgba(201, 169, 106, 0.3); padding: 8px 40px; font-size: 0.75rem; letter-spacing: 1.5px; display: flex; justify-content: center; gap: 30px; color: var(--dorado-solido); font-weight: 600; text-transform: uppercase; }
 
-        /* SECCIÓN EXCLUSIVA: MARIA MONTENEGRO */
-        .collection-banner {
-            background: #fff; padding: 40px 20px; text-align: center; border-bottom: 1px solid #eee;
-        }
-        .collection-title { font-family: 'Pacifico', cursive; font-size: 2rem; color: var(--guinda); margin-bottom: 5px; }
-        .collection-sub { font-size: 0.8rem; letter-spacing: 5px; text-transform: uppercase; color: var(--dorado-solido); font-weight: bold; }
+/* HEADER ESCALONADO */
+.header { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(10px); padding: 15px 40px; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(102, 0, 0, 0.1); }
+.brand-container { display: flex; align-items: center; justify-content: space-between; max-width: 1400px; margin: 0 auto; padding: 10px 0; border-top: 1.5px solid var(--guinda); border-bottom: 1.5px solid var(--guinda); }
+.logo-nombre-grupo { display: flex; align-items: center; gap: 30px; }
+.logo { height: 160px; width: auto; border-right: 1.5px solid var(--guinda); padding-right: 30px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1)); }
+.brand-text-wrapper { display: flex; flex-direction: column; }
+.brand-name { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: var(--primario); letter-spacing: 5px; text-transform: uppercase; font-weight: 700; line-height: 1; }
+.brand-slogan { font-family: 'Poppins', sans-serif; font-size: 1rem; color: var(--dorado-solido); letter-spacing: 4px; margin-top: 8px; text-transform: uppercase; }
+.brand-collection { font-family: 'Poppins', sans-serif; font-size: 0.7rem; color: var(--primario); letter-spacing: 2px; margin-top: 4px; opacity: 0.8; }
+.header-contact { font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; color: var(--guinda); font-weight: 600; border: 1.5px solid var(--guinda); padding: 10px 25px; border-radius: 50px; text-decoration: none; transition: 0.3s; }
 
-        /* HERO */
-        .hero { max-width: 1200px; margin: auto; padding: 60px 20px; display: flex; align-items: center; flex-wrap: wrap; gap: 40px; }
-        .hero-text { flex: 1; min-width: 300px; text-align: center; }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; color: var(--guinda); margin-bottom: 20px; }
-        .hero p { font-size: 1.2rem; margin-bottom: 30px; color: #6f5a4f; }
+/* HERO */
+.hero{max-width:1400px; margin:auto; display:flex; align-items:center; justify-content:space-between; padding:100px 20px; gap:60px;}
+.hero h1{font-family:'Playfair Display',serif; font-size:4.5rem; color: var(--guinda); line-height:1.1; margin-bottom:25px;}
+.hero p{font-size:1.5rem; color:#6f5a4f; margin-bottom:45px;}
+.btn{background:var(--dorado-brillante); background-size:200% auto; color:#3e2c24; padding:20px 55px; border-radius:50px; text-decoration:none; font-weight:700; box-shadow:0 10px 25px rgba(181, 146, 76, 0.25); transition:.4s; display:inline-block; cursor:pointer; border: none;}
 
-        /* CELULARES HERO */
-        .phones { flex: 1; display: flex; justify-content: center; gap: 10px; min-width: 300px; }
-        .phone-img { width: 220px; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.1)); transition: 0.5s; }
-        .phone-img:hover { transform: translateY(-10px) rotate(2deg); }
+/* CELULARES */
+.phones{position:relative; flex:1; display:flex; justify-content:center;}
+.phone1{width:340px; transform:rotate(-5deg) translateX(45px); filter:drop-shadow(20px 30px 50px rgba(0,0,0,0.15));}
+.phone2{width:340px; transform:rotate(5deg) translateX(-45px); filter:drop-shadow(-20px 30px 50px rgba(0,0,0,0.15));}
 
-        /* BOTONES */
-        .btn { background: var(--dorado-brillante); padding: 18px 40px; border-radius: 50px; text-decoration: none; color: #3e2c24; font-weight: bold; display: inline-block; transition: 0.4s; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; }
-        .btn:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+/* MODELOS */
+.modelos{background: var(--fondo-blanco-warm); padding:100px 20px; text-align:center; border-radius:50px 50px 0 0;}
+.grid{max-width:1400px; margin:auto; display:grid; grid-template-columns: repeat(4, 1fr); gap:30px;}
+.card{background:#fff; border-radius:25px; overflow:hidden; box-shadow:0 12px 25px rgba(0,0,0,0.06); border:1px solid #f1e3d8; padding-bottom:30px; transition: transform 0.4s ease;}
+.card:hover { transform: translateY(-15px); }
+.card img{width:100%; height:330px; object-fit:cover; margin-bottom:25px;}
 
-        /* GRID DE MODELOS */
-        .modelos { background: #fff; padding: 80px 20px; text-align: center; }
-        .grid { max-width: 1200px; margin: 40px auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .card { background: #fff; border-radius: 20px; overflow: hidden; border: 1px solid #f1e3d8; transition: 0.4s; padding-bottom: 25px; }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
-        .card img { width: 100%; height: 350px; object-fit: cover; }
-        .card h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; padding: 20px 0; }
+/* PERSONALIZACIÓN CON DEGRADADO */
+.section-customization { background: linear-gradient(to bottom, var(--fondo-blanco-warm) 0%, #fdfbfb 100%); padding: 20px 20px 80px; }
+.exclusividad-box { max-width: 1100px; margin: 0 auto; padding: 60px 40px; background: #fff; border-radius: 20px; border: 1px solid rgba(201, 169, 106, 0.2); text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+.exclusividad-box h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: var(--guinda); margin-bottom: 25px; }
+.ventajas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 40px;}
 
-        /* SECCIÓN VIDEO INVITACIONES */
-        .video-section {
-            background: #fdfbfb; padding: 80px 20px; text-align: center;
-        }
-        .video-container {
-            max-width: 800px; margin: 40px auto; border: 10px solid #fff; border-radius: 30px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.1);
-            position: relative; aspect-ratio: 9/16; max-height: 600px;
-        }
-        .video-container video { width: 100%; height: 100%; object-fit: cover; }
+/* MÚSICA CON DEGRADADO */
+.section-music { background: linear-gradient(to top, #f1e3d8 0%, #fdfbfb 100%); padding: 80px 20px; }
+.media-container { max-width: 1200px; margin: 0 auto; display: flex; gap: 60px; align-items: center; }
+.canciones-box { flex: 1; border: 1px solid var(--dorado-solido); padding: 50px; border-radius: 15px; background: #fff; text-align: center; }
+.video-box { width: 280px; border-radius: 35px; overflow: hidden; border: 8px solid #1a1a1a; background: #000; }
+.video-box video { width: 100%; display: block; }
 
-        /* FOOTER */
-        .footer { padding: 80px 20px; text-align: center; background: #fff; }
-        .la-frase { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-style: italic; margin-bottom: 20px; }
-        .whatsapp { position: fixed; bottom: 30px; right: 30px; background: #25D366; width: 65px; height: 65px; border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 2000; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+.footer-message{padding:100px 20px; text-align:center; background: #f1e3d8;}
+.whatsapp{position:fixed; bottom:35px; right:35px; background:#25D366; width:70px; height:70px; border-radius:50%; display:flex; align-items:center; justify-content:center; z-index:2000; transition: 0.3s;}
 
-        @media (max-width: 600px) {
-            .hero h1 { font-size: 2.5rem; }
-            .phone-img { width: 160px; }
-            .brand-name { font-size: 1.8rem; }
-        }
-    </style>
+@media(max-width:900px){
+    .header-contact { display: none; }
+    .brand-container { flex-direction: column; gap: 15px; }
+    .logo-nombre-grupo { flex-direction: column; gap: 15px; }
+    .logo { border: none; padding: 0; height: 120px; }
+    .brand-text-wrapper { text-align: center; }
+    .ventajas-grid { grid-template-columns: 1fr; }
+    .media-container { flex-direction: column; }
+    .hero h1{font-size:3rem;}
+    .grid { grid-template-columns: 1fr; }
+}
+</style>
 </head>
+
 <body oncontextmenu="return false;">
 
-    <div class="top-bar">
-        <span id="txtContacto"></span> | <span id="txtHorario"></span>
+<div class="top-bar">
+    <span id="txtTelefono"></span>
+    <span id="txtHorario"></span>
+</div>
+
+<header class="header">
+    <div class="brand-container">
+        <div class="logo-nombre-grupo">
+            <img id="elLogo" class="logo">
+            <div class="brand-text-wrapper">
+                <span id="elNombreMarca" class="brand-name"></span>
+                <span id="elSlogan" class="brand-slogan"></span>
+                <span id="elColeccion" class="brand-collection"></span>
+            </div>
+        </div>
+        <a id="linkWAHeader" href="#" class="header-contact">Contacto</a>
     </div>
+</header>
 
-    <header class="header">
-        <div class="brand-container">
-            <img id="elLogo" class="logo" alt="Logo">
-            <h1 id="elNombreMarca" class="brand-name"></h1>
-            <span id="elSlogan" class="brand-slogan"></span>
-        </div>
-    </header>
+<section class="hero">
+    <div class="hero-text">
+        <h1 id="elTitulo"></h1>
+        <p id="elSubtitulo"></p>
+        <a id="elBtnHero" class="btn">¡Cotizar mi Invitación!</a>
+    </div>
+    <div class="phones">
+        <img id="elCel1" class="phone1">
+        <img id="elCel2" class="phone2">
+    </div>
+</section>
 
-    <section class="collection-banner">
-        <div class="collection-title">Colección by Maria Montenegro</div>
-        <div class="collection-sub">Alta Costura en Invitaciones Digitales</div>
-    </section>
+<section class="modelos">
+    <h2 style="font-family:'Playfair Display',serif; font-size:3.2rem; margin-bottom:60px; color: var(--primario);">Nuestros Modelos</h2>
+    <div class="grid">
+        <div class="card"><img id="fBoda"><h3>Bodas</h3><div style="padding:0 25px;"><a id="linkBoda" class="btn" style="padding:12px 25px; width:100%; text-align: center;">Ver Ejemplo</a></div></div>
+        <div class="card"><img id="fXV"><h3>XV Años</h3><div style="padding:0 25px;"><a id="linkXV" class="btn" style="padding:12px 25px; width:100%; text-align: center;">Ver Ejemplo</a></div></div>
+        <div class="card"><img id="fBautizo"><h3>Bautizos</h3><div style="padding:0 25px;"><a id="linkBautizo" class="btn" style="padding:12px 25px; width:100%; text-align: center;">Ver Ejemplo</a></div></div>
+        <div class="card"><img id="fBaby"><h3>Baby Showers</h3><div style="padding:0 25px;"><a id="linkBaby" class="btn" style="padding:12px 25px; width:100%; text-align: center;">Ver Ejemplo</a></div></div>
+    </div>
+</section>
 
-    <section class="hero">
-        <div class="hero-text">
-            <h1 id="elTitulo"></h1>
-            <p id="elSubtitulo"></p>
-            <a id="elBtnHero" class="btn">¡Cotizar mi Invitación!</a>
-        </div>
-        <div class="phones">
-            <img id="elCel1" class="phone-img">
-            <img id="elCel2" class="phone-img">
-        </div>
-    </section>
-
-    <section class="modelos">
-        <h2 style="font-family:'Playfair Display',serif; font-size: 2.5rem; color: var(--guinda);">Catálogo Exclusivo</h2>
-        <div class="grid">
-            <div class="card">
-                <img id="fBoda">
-                <h3>Bodas</h3>
-                <a href="https://migrandia.mx/boda-catalogo" class="btn" style="padding:10px 20px; font-size:0.8rem;">Ver Ejemplo</a>
+<section class="section-customization">
+    <div class="exclusividad-box">
+        <h2>Diseño Único, Como Tu Historia</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 40px; color: var(--primario);">En nuestro taller digital, <strong>no creemos en las plantillas</strong>. Cada invitación es un lienzo en blanco diseñado desde cero.</p>
+        
+        <div class="ventajas-grid">
+            <div class="ventaja-item">
+                <h4 style="font-family:'Playfair Display',serif; color:var(--dorado-solido); font-size:1.4rem;">Personalización sin límites</h4>
+                <p>Tú eliges los colores, las tipografías y el estilo que mejor se adapte a tu temática.</p>
             </div>
-            <div class="card">
-                <img id="fXV">
-                <h3>XV Años</h3>
-                <a href="https://migrandia.mx/xv-catalogo" class="btn" style="padding:10px 20px; font-size:0.8rem;">Ver Ejemplo</a>
+            <div class="ventaja-item">
+                <h4 style="font-family:'Playfair Display',serif; color:var(--dorado-solido); font-size:1.4rem;">Flexibilidad total</h4>
+                <p>Agregamos o quitamos secciones (mapas, pases, hoteles) según tus necesidades exactas.</p>
             </div>
-            <div class="card">
-                <img id="fBautizo">
-                <h3>Bautizos</h3>
-                <a href="https://migrandia.mx/bautizo-catalogo" class="btn" style="padding:10px 20px; font-size:0.8rem;">Ver Ejemplo</a>
-            </div>
-            <div class="card">
-                <img id="fBaby">
-                <h3>Baby Showers</h3>
-                <a href="https://migrandia.mx/babyshower-infantiles" class="btn" style="padding:10px 20px; font-size:0.8rem;">Ver Ejemplo</a>
+            <div class="ventaja-item">
+                <h4 style="font-family:'Playfair Display',serif; color:var(--dorado-solido); font-size:1.4rem;">Piezas irrepetibles</h4>
+                <p>Creamos una experiencia digital única y exclusiva para tus invitados.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section class="video-section">
-        <h2 style="font-family:'Playfair Display',serif; font-size: 2.5rem; color: var(--guinda);">Invitaciones Animadas</h2>
-        <p style="margin-bottom: 30px;">Dale vida a tu invitación con nuestros modelos en Video Premium.</p>
-        <div class="video-container">
-            <video autoplay muted loop playsinline>
-                <source src="https://www.dropbox.com/scl/fi/jwjvngbrghb0284j4j7xr/video-de-ni-o-SP.mp4?rlkey=ii3a6xb9es3lr3q5rujajxs4p&raw=1" type="video/mp4">
+<section class="section-music">
+    <div class="media-container">
+        <div class="canciones-box">
+            <h4>Melodías que cuentan su Historia</h4>
+            <p style="margin-bottom: 20px;">También hacemos canciones personalizadas para su gran día, con sus nombres y su historia. Ideales para su invitación digital y su primer baile.</p>
+            <p style="font-size: 0.9rem; color: #6f5a4f; margin-bottom: 30px;">Es una composición especial para su evento que nadie más tendrá igual.</p>
+            <div style="font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--dorado-solido); font-weight: bold; letter-spacing: 2px;">MÁS INFORMACIÓN EN NUESTRO CATÁLOGO</div>
+        </div>
+        
+        <div class="video-box">
+            <video controls preload="metadata">
+                <source src="https://www.dropbox.com/scl/fi/h1fuyk1uorkemclw6m0wb/video-publicidad.mp4?rlkey=po4k9cgu0fyn8rmqdhbj7nqzb&raw=1" type="video/mp4">
             </video>
         </div>
-        <br>
-        <a href="https://wa.me/525654252153" class="btn">Solicitar Video Animado</a>
-    </section>
+    </div>
+</section>
 
-    <section class="footer">
-        <h2 id="laFrase" class="la-frase"></h2>
-        <p id="elPie" style="color: var(--dorado-solido); font-weight: bold; letter-spacing: 3px;"></p>
-        <div style="margin-top: 40px; color: #ccc;">© 2026 Mi Gran Día - Todos los derechos reservados</div>
-    </section>
+<section class="footer-message">
+    <h2 id="laFrase"></h2>
+    <p id="elPie" style="color:var(--dorado-solido); letter-spacing:4px; text-transform:uppercase; font-weight:600; font-size: 1.2rem;"></p>
+    <div style="margin-top:50px; color:#bbb; font-size: 1rem;">© 2024 Mi Gran Día - Todos los derechos reservados.</div>
+    <div class="visitor-counter" style="margin-top:20px; color:#a8a8a8; font-size:0.75rem; letter-spacing:2px;">
+        Experiencias compartidas: <span id="count">9,855</span>
+    </div>
+</section>
 
-    <a id="elWA" class="whatsapp" target="_blank">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="35" alt="WhatsApp">
-    </a>
+<a id="elWA" class="whatsapp" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="42" alt="WA">
+</a>
 
-    <script>
-        // MOTOR DE CARGA
-        document.getElementById('txtContacto').innerText = "📞 " + MI_CONFIGURACION.telefono;
-        document.getElementById('txtHorario').innerText = "🕒 " + MI_CONFIGURACION.horario;
-        document.getElementById('elNombreMarca').innerText = MI_CONFIGURACION.nombreMarca;
-        document.getElementById('elSlogan').innerText = MI_CONFIGURACION.slogan;
-        document.getElementById('elLogo').src = MI_CONFIGURACION.fotoLogo;
-        document.getElementById('elTitulo').innerText = MI_CONFIGURACION.tituloHero;
-        document.getElementById('elSubtitulo').innerText = MI_CONFIGURACION.subtituloHero;
-        document.getElementById('elCel1').src = MI_CONFIGURACION.fotoCelular1;
-        document.getElementById('elCel2').src = MI_CONFIGURACION.fotoCelular2;
-        document.getElementById('fBoda').src = MI_CONFIGURACION.fotoPortadaBoda;
-        document.getElementById('fXV').src = MI_CONFIGURACION.fotoPortadaXV;
-        document.getElementById('fBautizo').src = MI_CONFIGURACION.fotoPortadaBautizo;
-        document.getElementById('fBaby').src = MI_CONFIGURACION.fotoPortadaBaby;
-        document.getElementById('laFrase').innerText = MI_CONFIGURACION.fraseFinal;
-        document.getElementById('elPie').innerText = MI_CONFIGURACION.pieDePagina;
-        document.getElementById('elBtnHero').href = MI_CONFIGURACION.whatsappUrl;
-        document.getElementById('elWA').href = MI_CONFIGURACION.whatsappUrl;
-    </script>
+<script>
+    // MOTOR DE LA PÁGINA
+    document.getElementById('txtTelefono').innerText = "📞 TEL: " + MI_CONFIGURACION.telefono;
+    document.getElementById('txtHorario').innerText = "🕒 " + MI_CONFIGURACION.horario;
+    document.getElementById('elNombreMarca').innerText = MI_CONFIGURACION.nombreMarca;
+    document.getElementById('elSlogan').innerText = MI_CONFIGURACION.slogan;
+    document.getElementById('elColeccion').innerText = MI_CONFIGURACION.coleccion;
+    document.getElementById('elLogo').src = MI_CONFIGURACION.fotoLogo;
+    document.getElementById('elTitulo').innerText = MI_CONFIGURACION.tituloHero;
+    document.getElementById('elSubtitulo').innerText = MI_CONFIGURACION.subtituloHero;
+    document.getElementById('elBtnHero').href = MI_CONFIGURACION.whatsappUrl;
+    document.getElementById('elWA').href = MI_CONFIGURACION.whatsappUrl;
+    document.getElementById('linkWAHeader').href = MI_CONFIGURACION.whatsappUrl;
+    document.getElementById('elCel1').src = MI_CONFIGURACION.fotoCelular1;
+    document.getElementById('elCel2').src = MI_CONFIGURACION.fotoCelular2;
+    document.getElementById('fBoda').src = MI_CONFIGURACION.fotoPortadaBoda;
+    document.getElementById('linkBoda').href = MI_CONFIGURACION.enlaceBoda;
+    document.getElementById('fXV').src = MI_CONFIGURACION.fotoPortadaXV;
+    document.getElementById('linkXV').href = MI_CONFIGURACION.enlaceXV;
+    document.getElementById('fBautizo').src = MI_CONFIGURACION.fotoPortadaBautizo;
+    document.getElementById('linkBautizo').href = MI_CONFIGURACION.enlaceBautizo;
+    document.getElementById('fBaby').src = MI_CONFIGURACION.fotoPortadaBaby;
+    document.getElementById('linkBaby').href = MI_CONFIGURACION.enlaceBaby;
+    document.getElementById('laFrase').innerText = MI_CONFIGURACION.fraseFinal;
+    document.getElementById('elPie').innerText = MI_CONFIGURACION.pieDePagina;
+
+    function updateCounter() {
+        const base = 9855;
+        let visits = localStorage.getItem('visit_count');
+        visits = visits === null ? 1 : parseInt(visits) + 1;
+        localStorage.setItem('visit_count', visits);
+        document.getElementById('count').innerText = (base + visits).toLocaleString();
+    }
+    updateCounter();
+
+    document.onkeydown = function(e) {
+        if(e.keyCode == 123 || (e.ctrlKey && (e.keyCode == 85 || e.keyCode == 83 || e.keyCode == 73))) return false;
+    };
+</script>
+
 </body>
 </html>
