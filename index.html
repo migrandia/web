@@ -51,7 +51,6 @@
 
         .card { background: white; border-radius: 30px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.04); transition: 0.4s; border: 1px solid #eee; display: flex; flex-direction: column; position: relative;}
         
-        /* FRAME DE CELULAR */
         .phone-frame {
             margin: 20px auto;
             width: 280px;
@@ -75,7 +74,6 @@
 
         .card-video { width: 100%; height: 100%; object-fit: cover; }
 
-        /* OVERLAY DE PLAY INICIAL */
         .play-overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -184,7 +182,7 @@
                             <span>▶</span>
                             <p>Toca para reproducir con sonido y controles</p>
                         </div>
-                        <video class="card-video" loop playsinline muted>
+                        <video class="card-video" loop playsinline muted controlsList="nodownload" oncontextmenu="return false;">
                             <source src="https://www.dropbox.com/scl/fi/jwjvngbrghb0284j4j7xr/video-de-ni-o-SP.mp4?rlkey=ii3a6xb9es3lr3q5rujajxs4p&raw=1" type="video/mp4">
                         </video>
                     </div>
@@ -202,7 +200,7 @@
                             <span>▶</span>
                             <p>Toca para reproducir con sonido y controles</p>
                         </div>
-                        <video class="card-video" loop playsinline muted>
+                        <video class="card-video" loop playsinline muted controlsList="nodownload" oncontextmenu="return false;">
                             <source src="https://www.dropbox.com/scl/fi/fxjmcwvo1m7wyg2rfl9mf/video-de-ni-a-princesa.mp4?rlkey=httjvih52e1k64jk7yff0rnik&raw=1" type="video/mp4">
                         </video>
                     </div>
@@ -222,9 +220,9 @@
     <script>
         function activarVideo(overlay) {
             const video = overlay.nextElementSibling;
-            overlay.style.display = 'none'; // Quita el aviso
-            video.muted = false; // Activa sonido
-            video.controls = true; // Activa botón de pausa, volumen y barra de tiempo
+            overlay.style.display = 'none';
+            video.muted = false;
+            video.controls = true; // Activa los controles pero sin el botón de descarga gracias a controlsList
             video.play();
         }
 
