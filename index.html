@@ -19,7 +19,7 @@ const MI_CONFIGURACION = {
     enlaceBautizo: "https://migrandia.mx/bautizo-catalogo",
     enlaceBaby: "https://migrandia.mx/babyshower-infantiles",
     
-    // 👇 DATOS DE CONTACTO NUEVOS 👇
+    // 👇 DATOS DE CONTACTO
     telefono: "525654252153",
     horario: "Lunes a Sábado: 9:00 AM - 10:00 PM",
     
@@ -49,7 +49,7 @@ img { -webkit-user-drag: none; pointer-events: none; }
 
 body{font-family:'Poppins',sans-serif;background:var(--fondo);color:var(--primario);overflow-x:hidden;}
 
-/* --- BARRA DE CONTACTO SUPERIOR --- */
+/* BARRA DE CONTACTO */
 .top-bar {
     background: #fff;
     border-bottom: 1px solid rgba(201, 169, 106, 0.3);
@@ -205,6 +205,16 @@ body{font-family:'Poppins',sans-serif;background:var(--fondo);color:var(--primar
 .whatsapp{position:fixed;bottom:35px;right:35px;background:#25D366;width:70px;height:70px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 25px rgba(0,0,0,0.2);z-index:2000; transition: 0.3s;}
 .whatsapp:hover { transform: scale(1.1); }
 
+/* ESTILO PARA EL CONTADOR */
+.visitor-counter {
+    margin-top: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.75rem;
+    color: #a8a8a8;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
 @media(max-width:900px){
     .top-bar { flex-direction: column; gap: 5px; padding: 10px; font-size: 0.6rem; }
     .header { padding: 10px; }
@@ -274,14 +284,19 @@ body{font-family:'Poppins',sans-serif;background:var(--fondo);color:var(--primar
         <h4>Melodías que cuentan su Historia</h4>
         <p>También hacemos canciones personalizadas para su gran día, ya sea Boda o XV Años, con sus nombres y su historia. Ideales para su invitación digital y su primer baile en la fiesta.</p>
         <p style="font-size: 0.9rem; color: #6f5a4f;">Es una composición especial para su evento que nadie más tendrá igual.</p>
-        <div style="font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--dorado-solido); font-weight: bold; letter-spacing: 2px;">MÁS INFORMACIÓN EN LOS SEGMENTOS DE CADA CATÁLOGO</div>
+        <div style="font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--dorado-solido); font-weight: bold; letter-spacing: 2px;">MÁS INFORMACIÓN EN LOS SEGMENTOS DE CDA CATALOGO</div>
     </div>
 </section>
 
 <section class="footer-message">
     <h2 id="laFrase"></h2>
     <p id="elPie" style="color:var(--dorado-solido); letter-spacing:4px; text-transform:uppercase; font-weight:600; font-size: 1.2rem;"></p>
+    
     <div style="margin-top:50px; color:#bbb; font-size: 1rem;">© 2024 Mi Gran Día - Todos los derechos reservados.</div>
+
+    <div class="visitor-counter">
+        Experiencias compartidas: <span id="count">9,855</span>
+    </div>
 </section>
 
 <a id="elWA" class="whatsapp" target="_blank">
@@ -312,7 +327,15 @@ body{font-family:'Poppins',sans-serif;background:var(--fondo);color:var(--primar
     document.getElementById('linkBaby').href = MI_CONFIGURACION.enlaceBaby;
     document.getElementById('laFrase').innerText = MI_CONFIGURACION.fraseFinal;
     document.getElementById('elPie').innerText = MI_CONFIGURACION.pieDePagina;
+
+    // LÓGICA DEL CONTADOR (BASE 9855 + VISITAS REALES)
+    function cb(response) {
+        const base = 9855;
+        const total = base + response.value;
+        document.getElementById('count').innerText = total.toLocaleString();
+    }
 </script>
+<script async src="https://api.countapi.xyz/hit/migrandia.mx/puntos_especiales?callback=cb"></script>
 
 </body>
 </html>
