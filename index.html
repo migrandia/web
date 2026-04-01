@@ -3,20 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modelos de Baby Shower | Mi Gran Día</title>
-
-    <script>
-        const CONFIG = {
-            whatsapp_contacto: "https://wa.me/525654252153",
-            modelo_estandar_url: "https://migrandia.mx/babyshower/",
-            modelo_premium_url: "https://migrandia.mx/fiesta-nino/",
-            modelo_vip_url: "https://migrandia.mx/fiesta-nina/",
-            img_estandar: "https://www.dropbox.com/scl/fi/qz9pfa1r7yvqxqa3z47n9/baby-shower1.jpg?rlkey=05oucwslf9fy4l8whgalpiyw2&raw=1",
-            img_premium: "https://www.dropbox.com/scl/fi/cgtlo6zynxej7r0ri87jk/ni-o-cumpleaa-os.jpg?rlkey=jkwdrdi4splhfi436amaeviyj&raw=1",
-            img_vip: "https://www.dropbox.com/scl/fi/v7qqm4x7eq9dyrctvjg10/ni-a-cumplea-os.jpg?rlkey=o1ahg6aurd2qigklajd66d4xn&raw=1"
-        };
-    </script>
-
+    <title>Mi Gran Día | Invitaciones Digitales</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;600&family=Montserrat:wght@200;400;700&family=Pacifico&display=swap" rel="stylesheet">
     
     <style>
@@ -26,213 +14,119 @@
             --azul: #bee1e6;
             --texto: #4a4a4a;
             --fondo: #fbfdff;
-            --dorado: #c9a96a;
         }
 
-        body { 
-            -webkit-user-select: none; user-select: none;
-            margin: 0; font-family: 'Montserrat', sans-serif; background-color: var(--fondo); color: var(--texto);
-        }
-
-        .btn-regresar {
-            position: fixed; top: 20px; left: 20px; z-index: 10000;
-            background: white; color: #4a4a4a; padding: 10px 18px;
-            border-radius: 50px; text-decoration: none; font-size: 0.7rem;
-            font-weight: bold; letter-spacing: 1px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border: 2px solid var(--menta); display: flex; align-items: center; transition: 0.3s ease;
-        }
-
-        header { padding: 60px 20px; text-align: center; background: white; border-bottom: 5px solid var(--menta); }
-        .logo-text { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; letter-spacing: 4px; text-transform: uppercase; margin: 0; color: #333; }
-        .sub-logo { font-family: 'Pacifico', cursive; font-size: 2.2rem; color: #ff8fa3; margin-top: 5px; }
-
-        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
-        .grid-modelos { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
-
-        .card { background: white; border-radius: 30px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.04); transition: 0.4s; border: 1px solid #eee; display: flex; flex-direction: column; position: relative;}
-        
-        .phone-frame {
-            margin: 20px auto;
-            width: 280px;
-            height: 500px;
-            border-radius: 40px;
-            padding: 12px;
-            position: relative;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-        }
-        .phone-frame.azul { background: #3d5a80; border: 4px solid #2b4162; }
-        .phone-frame.rosa { background: #ff8fa3; border: 4px solid #e57a91; }
-
-        .video-wrapper {
-            width: 100%;
+        body, html {
+            margin: 0;
+            padding: 0;
             height: 100%;
-            border-radius: 30px;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--fondo);
+            color: var(--texto);
+            display: flex;
+            flex-direction: column;
             overflow: hidden;
-            position: relative;
-            background: #000;
         }
 
-        .card-video { width: 100%; height: 100%; object-fit: cover; }
-
-        .play-overlay {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.5);
+        /* Pantalla de Bienvenida */
+        .welcome-screen {
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            cursor: pointer;
-            z-index: 10;
-        }
-        .play-overlay span {
-            background: white; width: 60px; height: 60px;
-            border-radius: 50%; display: flex; justify-content: center;
-            align-items: center; font-size: 1.5rem; margin-bottom: 15px;
-        }
-        .play-overlay p { color: white; font-weight: bold; font-size: 0.8rem; text-transform: uppercase; text-align: center; padding: 0 15px;}
-
-        .card-img { width: 100%; height: 300px; object-fit: cover; }
-        .card-info { padding: 30px; text-align: center; flex-grow: 1; }
-        .card-title { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; margin: 10px 0; color: #222; }
-
-        .price-text {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #2d6a4f;
-            margin-bottom: 15px;
-            display: block;
+            text-align: center;
+            background: linear-gradient(135deg, #fdfcfb 0%, #e2d1c3 100%);
+            padding: 20px;
         }
 
-        .btn-ver { 
-            display: block; padding: 15px; background: #ffca3a; color: #705e00; 
-            text-decoration: none; border-radius: 50px; font-size: 0.8rem; font-weight: bold; 
-            letter-spacing: 1px; transition: 0.3s; text-transform: uppercase; margin-top: auto;
+        .logo-container {
+            margin-bottom: 30px;
+            animation: fadeInDown 1.2s ease-out;
         }
 
-        .seccion-titulo {
-            text-align: center; font-family: 'Cormorant Garamond', serif; font-size: 2.8rem;
-            margin: 60px 0 10px; color: var(--dorado);
+        .logo-main {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            margin: 0;
+            color: #333;
         }
 
-        .promo-texto {
-            max-width: 900px; margin: 0 auto 40px; text-align: center;
-            font-size: 1.1rem; line-height: 1.7; color: #555;
-            padding: 0 20px;
+        .logo-sub {
+            font-family: 'Pacifico', cursive;
+            font-size: 2.5rem;
+            color: #ff8fa3;
+            margin-top: -10px;
         }
 
-        .footer-cta { margin-top: 60px; text-align: center; padding: 70px 20px; }
+        .welcome-text {
+            max-width: 600px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            color: #666;
+            font-weight: 300;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .btn-entrar {
+            padding: 18px 50px;
+            background-color: white;
+            color: #4a4a4a;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            border: 2px solid var(--menta);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            transition: all 0.4s ease;
+            animation: fadeIn 2s ease-in;
+        }
+
+        .btn-entrar:hover {
+            background-color: var(--menta);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Animaciones */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
 
         @media (max-width: 600px) {
-            .grid-modelos { grid-template-columns: 1fr; }
+            .logo-main { font-size: 2.2rem; }
+            .logo-sub { font-size: 1.8rem; }
         }
     </style>
 </head>
-<body oncontextmenu="return false;">
+<body>
 
-    <a href="javascript:history.back()" class="btn-regresar">VOLVER</a>
-
-    <header>
-        <h1 class="logo-text">Mi Gran Día</h1>
-        <div class="sub-logo">Invitaciones Digitales</div>
-    </header>
-
-    <div class="container">
-        <div class="grid-modelos">
-            <div class="card">
-                <img id="img-estandar" class="card-img">
-                <div class="card-info">
-                    <h2 class="card-title">Baby Shower</h2>
-                    <span class="price-text">$299</span>
-                    <a id="link-estandar" href="#" class="btn-ver">VER MODELO</a>
-                </div>
-            </div>
-
-            <div class="card" style="border: 2px solid var(--azul);">
-                <img id="img-premium" class="card-img">
-                <div class="card-info">
-                    <h2 class="card-title">Fiesta Niño</h2>
-                    <span class="price-text" style="color: #3d5a80;">$399</span>
-                    <a id="link-premium" href="#" class="btn-ver" style="background: #bee1e6; color: #3d5a80;">VER MODELO</a>
-                </div>
-            </div>
-
-            <div class="card" style="border: 2px solid var(--rosa);">
-                <img id="img-vip" class="card-img">
-                <div class="card-info">
-                    <h2 class="card-title">Fiesta Niña</h2>
-                    <span class="price-text" style="color: #660000;">$399</span>
-                    <a id="link-vip" href="#" class="btn-ver" style="background: #ffcad4; color: #660000;">VER MODELO</a>
-                </div>
-            </div>
+    <div class="welcome-screen">
+        <div class="logo-container">
+            <h1 class="logo-main">Mi Gran Día</h1>
+            <div class="logo-sub">Invitaciones Digitales</div>
         </div>
 
-        <h2 class="seccion-titulo">Invitaciones Animadas en Video</h2>
-        <p class="promo-texto">
-            ¡Dale a tu evento un toque espectacular! Puedes adquirir tu video animado de forma <strong>individual</strong> para enviarlo por WhatsApp, o integrarlo como un complemento premium a tu invitación web en un <strong>paquete especial</strong> para que tus invitados vivan una experiencia única desde el primer clic. 
-            <br><br>
-            Nuestros videos incluyen música personalizada, efectos visuales de alta calidad y toda la información de tu gran día en un formato moderno y dinámico.
+        <p class="welcome-text">
+            ¡Hazla espectacular! Adquiere tu video animado de forma <strong>individual</strong> o intégralo como un complemento premium a tu invitación web.
         </p>
 
-        <div class="grid-modelos">
-            <div class="card" style="border-top: 8px solid #3d5a80;">
-                <div class="phone-frame azul">
-                    <div class="video-wrapper">
-                        <div class="play-overlay" onclick="activarVideo(this)">
-                            <span>▶</span>
-                            <p>Toca para reproducir con sonido y controles</p>
-                        </div>
-                        <video class="card-video" loop playsinline muted controlsList="nodownload" oncontextmenu="return false;">
-                            <source src="https://www.dropbox.com/scl/fi/jwjvngbrghb0284j4j7xr/video-de-ni-o-SP.mp4?rlkey=ii3a6xb9es3lr3q5rujajxs4p&raw=1" type="video/mp4">
-                        </video>
-                    </div>
-                </div>
-                <div class="card-info">
-                    <h2 class="card-title">Video Premium Niño</h2>
-                    <span class="price-text" style="color: #3d5a80;">$399</span>
-                </div>
-            </div>
-
-            <div class="card" style="border-top: 8px solid #ff8fa3;">
-                <div class="phone-frame rosa">
-                    <div class="video-wrapper">
-                        <div class="play-overlay" onclick="activarVideo(this)">
-                            <span>▶</span>
-                            <p>Toca para reproducir con sonido y controles</p>
-                        </div>
-                        <video class="card-video" loop playsinline muted controlsList="nodownload" oncontextmenu="return false;">
-                            <source src="https://www.dropbox.com/scl/fi/fxjmcwvo1m7wyg2rfl9mf/video-de-ni-a-princesa.mp4?rlkey=httjvih52e1k64jk7yff0rnik&raw=1" type="video/mp4">
-                        </video>
-                    </div>
-                </div>
-                <div class="card-info">
-                    <h2 class="card-title">Video Premium Niña</h2>
-                    <span class="price-text" style="color: #660000;">$399</span>
-                </div>
-            </div>
-        </div>
+        <a href="modelos.html" class="btn-entrar">Explorar Modelos</a>
     </div>
 
-    <section class="footer-cta">
-        <a id="btn-whatsapp" href="#" class="btn-ver" style="background: #25d366; color: white; display: inline-block; padding: 15px 50px;">ORDENAR MI VIDEO O PAQUETE</a>
-    </section>
-
-    <script>
-        function activarVideo(overlay) {
-            const video = overlay.nextElementSibling;
-            overlay.style.display = 'none';
-            video.muted = false;
-            video.controls = true; // Activa los controles pero sin el botón de descarga gracias a controlsList
-            video.play();
-        }
-
-        document.getElementById('img-estandar').src = CONFIG.img_estandar;
-        document.getElementById('img-premium').src = CONFIG.img_premium;
-        document.getElementById('img-vip').src = CONFIG.img_vip;
-        document.getElementById('link-estandar').href = CONFIG.modelo_estandar_url;
-        document.getElementById('link-premium').href = CONFIG.modelo_premium_url;
-        document.getElementById('link-vip').href = CONFIG.modelo_vip_url;
-        document.getElementById('btn-whatsapp').href = CONFIG.whatsapp_contacto;
-    </script>
 </body>
 </html>
