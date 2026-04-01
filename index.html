@@ -85,65 +85,13 @@ body{font-family:'Poppins',sans-serif;background:var(--fondo);color:var(--primar
     border-bottom: 1.5px solid var(--guinda);
 }
 
-.logo-nombre-grupo {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
-
-.logo {
-    height: 160px;
-    width: auto;
-    border-right: 1.5px solid var(--guinda);
-    padding-right: 30px;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
-}
-
-.brand-text-wrapper {
-    display: flex;
-    flex-direction: column;
-}
-
-.brand-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.8rem;
-    color: var(--primario);
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    font-weight: 700;
-    line-height: 1;
-}
-
-.brand-slogan {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
-    color: var(--dorado-solido);
-    letter-spacing: 4px;
-    margin-top: 8px;
-    text-transform: uppercase;
-}
-
-.brand-collection {
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.7rem;
-    color: var(--primario);
-    letter-spacing: 2px;
-    margin-top: 4px;
-    opacity: 0.8;
-}
-
-.header-contact {
-    font-size: 0.9rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--guinda);
-    font-weight: 600;
-    border: 1.5px solid var(--guinda);
-    padding: 10px 25px;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: 0.3s;
-}
+.logo-nombre-grupo { display: flex; align-items: center; gap: 30px; }
+.logo { height: 160px; width: auto; border-right: 1.5px solid var(--guinda); padding-right: 30px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1)); }
+.brand-text-wrapper { display: flex; flex-direction: column; }
+.brand-name { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: var(--primario); letter-spacing: 5px; text-transform: uppercase; font-weight: 700; line-height: 1; }
+.brand-slogan { font-family: 'Poppins', sans-serif; font-size: 1rem; color: var(--dorado-solido); letter-spacing: 4px; margin-top: 8px; text-transform: uppercase; }
+.brand-collection { font-family: 'Poppins', sans-serif; font-size: 0.7rem; color: var(--primario); letter-spacing: 2px; margin-top: 4px; opacity: 0.8; }
+.header-contact { font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; color: var(--guinda); font-weight: 600; border: 1.5px solid var(--guinda); padding: 10px 25px; border-radius: 50px; text-decoration: none; transition: 0.3s; }
 
 /* HERO */
 .hero{max-width:1400px;margin:auto;display:flex;align-items:center;justify-content:space-between;padding:100px 20px;gap:60px;}
@@ -161,108 +109,78 @@ body{font-family:'Poppins',sans-serif;background:var(--fondo);color:var(--primar
 /* MODELOS */
 .modelos{background:#fff;padding:100px 20px;text-align:center;border-radius:50px 50px 0 0;}
 .grid{max-width:1400px;margin:auto;display:grid;grid-template-columns: repeat(4, 1fr); gap:30px;}
-
-.card{
-    background:#fff;
-    border-radius:25px;
-    overflow:hidden;
-    box-shadow:0 12px 25px rgba(0,0,0,0.06);
-    border:1px solid #f1e3d8;
-    padding-bottom:30px;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.card:hover {
-    transform: translateY(-18px);
-    box-shadow: 0 25px 50px rgba(181, 146, 76, 0.2);
-}
-
+.card{background:#fff; border-radius:25px; overflow:hidden; box-shadow:0 12px 25px rgba(0,0,0,0.06); border:1px solid #f1e3d8; padding-bottom:30px; transition: transform 0.4s ease, box-shadow 0.4s ease;}
+.card:hover { transform: translateY(-18px); box-shadow: 0 25px 50px rgba(181, 146, 76, 0.2); }
 .card img{width:100%;height:330px;object-fit:cover;margin-bottom:25px;}
-.card h3{font-family:'Playfair Display',serif;margin-bottom:18px; font-size: 2rem;}
+.card h3{font-family:'Playfair Display', serif; margin-bottom:18px; font-size: 2rem;}
 
-/* SECCIÓN CANCIONES + VIDEO (DISEÑO TIPO CELULAR FINO) */
-.media-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    gap: 60px;
-    align-items: center;
-    padding: 40px 20px 100px;
-}
-
-.canciones-box {
-    flex: 1;
+/* NUEVA SECCIÓN: DISEÑO ÚNICO (EXCLUSIVIDAD) */
+.exclusividad-box {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 60px 40px;
+    background: #fff;
     border: 1px solid var(--dorado-solido);
-    padding: 40px;
-    border-radius: 4px;
-    background: linear-gradient(to bottom, #ffffff, #fdfbfb);
+    position: relative;
     text-align: center;
 }
-
-.video-box {
-    width: 280px; 
-    flex-shrink: 0;
-    border-radius: 35px;
-    overflow: hidden;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.2);
-    border: 8px solid #1a1a1a; 
-    background: #000;
-    line-height: 0;
+.exclusividad-box::before {
+    content: "✦";
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    padding: 0 15px;
+    color: var(--dorado-solido);
+    font-size: 1.5rem;
 }
-
-.video-box video {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.canciones-box h4 {
+.exclusividad-box h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
+    font-size: 2.8rem;
     color: var(--guinda);
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
-.canciones-box p {
-    font-size: 1rem;
-    line-height: 1.8;
+.exclusividad-box p.intro {
+    font-size: 1.2rem;
     color: var(--primario);
-    margin: 0 auto 20px;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
 }
+.ventajas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+.ventaja-item h4 {
+    font-family: 'Playfair Display', serif;
+    color: var(--dorado-solido);
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+.ventaja-item p {
+    font-size: 0.9rem;
+    color: #6f5a4f;
+    line-height: 1.5;
+}
+
+/* MEDIA & VIDEO */
+.media-container { max-width: 1200px; margin: 0 auto; display: flex; gap: 60px; align-items: center; padding: 40px 20px 100px; }
+.canciones-box { flex: 1; border: 1px solid var(--dorado-solido); padding: 40px; border-radius: 4px; background: linear-gradient(to bottom, #ffffff, #fdfbfb); text-align: center; }
+.video-box { width: 280px; border-radius: 35px; overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.2); border: 8px solid #1a1a1a; background: #000; }
+.video-box video { width: 100%; display: block; }
+.canciones-box h4 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--guinda); margin-bottom: 20px; }
 
 .footer-message{padding:120px 20px;text-align:center;background:#fdfbfb;}
-.footer-message h2{font-family:'Playfair Display',serif;font-size:3rem;font-style:italic;color:var(--primario);max-width:950px;margin:0 auto 35px;}
-
 .whatsapp{position:fixed;bottom:35px;right:35px;background:#25D366;width:70px;height:70px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 25px rgba(0,0,0,0.2);z-index:2000; transition: 0.3s;}
-.whatsapp:hover { transform: scale(1.1); }
-
-/* ESTILO PARA EL CONTADOR */
-.visitor-counter {
-    margin-top: 20px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.75rem;
-    color: #a8a8a8;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
 
 @media(max-width:900px){
-    .top-bar { flex-direction: column; gap: 5px; padding: 10px; font-size: 0.6rem; }
-    .header { padding: 10px; }
-    .brand-container { flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 15px 0; }
-    .logo-nombre-grupo { flex-direction: column; align-items: center; gap: 10px; }
-    .logo { height: 120px; border: none; padding: 0; margin: 0; } 
-    .brand-text-wrapper { align-items: center; text-align: center; }
-    .brand-name { font-size: 2.2rem; letter-spacing: 3px; }
-    .header-contact { display: none; }
-    .hero{flex-direction:column;text-align:center;padding:60px 20px;}
+    .ventajas-grid { grid-template-columns: 1fr; gap: 40px; }
+    .exclusividad-box h2 { font-size: 2rem; }
     .hero h1{font-size:3rem;}
-    .phones { display: flex !important; flex-direction: row !important; justify-content: center; margin-top: 30px; }
-    .phone1, .phone2 { width: 160px !important; display: block !important; transform: none !important; }
     .grid { grid-template-columns: 1fr; }
-    
-    .media-container { flex-direction: column; padding: 20px; gap: 30px;}
-    .canciones-box { padding: 25px; width: 100%; order: 1;}
-    .video-box { width: 220px; order: 2;} 
+    .media-container { flex-direction: column; }
 }
 </style>
 </head>
@@ -294,7 +212,6 @@ body{font-family:'Poppins',sans-serif;background:var(--fondo);color:var(--primar
         <p id="elSubtitulo"></p>
         <a id="elBtnHero" class="btn">¡Cotizar mi Invitación!</a>
     </div>
-
     <div class="phones">
         <img id="elCel1" class="phone1">
         <img id="elCel2" class="phone2">
@@ -304,10 +221,30 @@ body{font-family:'Poppins',sans-serif;background:var(--fondo);color:var(--primar
 <section class="modelos">
     <h2 style="font-family:'Playfair Display',serif;font-size:3.2rem;margin-bottom:60px; color: var(--primario);">Nuestros Modelos</h2>
     <div class="grid">
-        <div class="card"><img id="fBoda"><h3>Bodas</h3><div style="padding:0 25px;"><a id="linkBoda" class="btn" style="padding:12px 25px; font-size:1rem; width:100%; text-align: center;">Ver Ejemplo</a></div></div>
-        <div class="card"><img id="fXV"><h3>XV Años</h3><div style="padding:0 25px;"><a id="linkXV" class="btn" style="padding:12px 25px; font-size:1rem; width:100%; text-align: center;">Ver Ejemplo</a></div></div>
-        <div class="card"><img id="fBautizo"><h3>Bautizos</h3><div style="padding:0 25px;"><a id="linkBautizo" class="btn" style="padding:12px 25px; font-size:1rem; width:100%; text-align: center;">Ver Ejemplo</a></div></div>
-        <div class="card"><img id="fBaby"><h3>Baby Showers</h3><div style="padding:0 25px;"><a id="linkBaby" class="btn" style="padding:12px 25px; font-size:1rem; width:100%; text-align: center;">Ver Ejemplo</a></div></div>
+        <div class="card"><img id="fBoda"><h3>Bodas</h3><div style="padding:0 25px;"><a id="linkBoda" class="btn" style="padding:12px 25px; width:100%; text-align: center;">Ver Ejemplo</a></div></div>
+        <div class="card"><img id="fXV"><h3>XV Años</h3><div style="padding:0 25px;"><a id="linkXV" class="btn" style="padding:12px 25px; width:100%; text-align: center;">Ver Ejemplo</a></div></div>
+        <div class="card"><img id="fBautizo"><h3>Bautizos</h3><div style="padding:0 25px;"><a id="linkBautizo" class="btn" style="padding:12px 25px; width:100%; text-align: center;">Ver Ejemplo</a></div></div>
+        <div class="card"><img id="fBaby"><h3>Baby Showers</h3><div style="padding:0 25px;"><a id="linkBaby" class="btn" style="padding:12px 25px; width:100%; text-align: center;">Ver Ejemplo</a></div></div>
+    </div>
+
+    <div class="exclusividad-box">
+        <h2>Diseño Único, Como Tu Historia</h2>
+        <p class="intro">En nuestro taller digital, <strong>no creemos en las plantillas</strong>. Cada invitación es un lienzo en blanco diseñado desde cero para reflejar la esencia de tu evento.</p>
+        
+        <div class="ventajas-grid">
+            <div class="ventaja-item">
+                <h4>Personalización sin límites</h4>
+                <p>Tú eliges los colores, las tipografías y el estilo que mejor se adapte a tu temática.</p>
+            </div>
+            <div class="ventaja-item">
+                <h4>Flexibilidad total</h4>
+                <p>Agregamos o quitamos secciones (mapas, pases, hoteles) según tus necesidades exactas.</p>
+            </div>
+            <div class="ventaja-item">
+                <h4>Piezas irrepetibles</h4>
+                <p>Creamos una experiencia digital única y exclusiva para tus invitados.</p>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -323,7 +260,6 @@ body{font-family:'Poppins',sans-serif;background:var(--fondo);color:var(--primar
         <div class="video-box">
             <video controls preload="metadata">
                 <source src="https://www.dropbox.com/scl/fi/h1fuyk1uorkemclw6m0wb/video-publicidad.mp4?rlkey=po4k9cgu0fyn8rmqdhbj7nqzb&raw=1" type="video/mp4">
-                Tu navegador no soporta videos.
             </video>
         </div>
     </div>
@@ -332,10 +268,8 @@ body{font-family:'Poppins',sans-serif;background:var(--fondo);color:var(--primar
 <section class="footer-message">
     <h2 id="laFrase"></h2>
     <p id="elPie" style="color:var(--dorado-solido); letter-spacing:4px; text-transform:uppercase; font-weight:600; font-size: 1.2rem;"></p>
-    
     <div style="margin-top:50px; color:#bbb; font-size: 1rem;">© 2024 Mi Gran Día - Todos los derechos reservados.</div>
-
-    <div class="visitor-counter">
+    <div class="visitor-counter" style="margin-top:20px; color:#a8a8a8; font-size:0.75rem; letter-spacing:2px;">
         Experiencias compartidas: <span id="count">9,855</span>
     </div>
 </section>
@@ -369,7 +303,7 @@ body{font-family:'Poppins',sans-serif;background:var(--fondo);color:var(--primar
     document.getElementById('laFrase').innerText = MI_CONFIGURACION.fraseFinal;
     document.getElementById('elPie').innerText = MI_CONFIGURACION.pieDePagina;
 
-    // CONTADOR PERSISTENTE
+    // CONTADOR
     function updateCounter() {
         const base = 9855;
         let visits = localStorage.getItem('visit_count');
@@ -378,6 +312,11 @@ body{font-family:'Poppins',sans-serif;background:var(--fondo);color:var(--primar
         document.getElementById('count').innerText = (base + visits).toLocaleString();
     }
     updateCounter();
+
+    // PROTECCIONES
+    document.onkeydown = function(e) {
+        if(e.keyCode == 123 || (e.ctrlKey && (e.keyCode == 85 || e.keyCode == 83 || e.keyCode == 73))) return false;
+    };
 </script>
 
 </body>
