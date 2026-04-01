@@ -49,19 +49,21 @@
         .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
         .grid-modelos { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
 
-        .card { background: white; border-radius: 30px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.04); transition: 0.4s; border: 1px solid #eee; display: flex; flex-direction: column; }
+        .card { background: white; border-radius: 30px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.04); transition: 0.4s; border: 1px solid #eee; display: flex; flex-direction: column; position: relative;}
         .card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(183, 228, 199, 0.4); border-color: var(--menta); }
 
         .card-img { width: 100%; height: 300px; object-fit: cover; }
         
-        .price-tag { 
-            background: var(--menta); color: #2d6a4f; font-weight: 700; font-size: 1.5rem; 
-            padding: 10px; position: absolute; top: 20px; right: 20px; border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
         .card-info { padding: 30px; text-align: center; flex-grow: 1; }
         .card-title { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; margin: 10px 0; color: #222; }
+
+        .price-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2d6a4f; /* Verde oscuro para contraste */
+            margin-bottom: 15px;
+            display: block;
+        }
 
         /* ESTILO DEL CHART / LISTA */
         .feature-list { 
@@ -102,11 +104,11 @@
     <div class="container">
         <div class="grid-modelos">
             
-            <div class="card" style="position: relative;">
-                <div class="price-tag">$399</div>
+            <div class="card">
                 <img id="img-estandar" class="card-img">
                 <div class="card-info">
                     <h2 class="card-title">Baby Shower</h2>
+                    <span class="price-text">$299</span>
                     <ul class="feature-list">
                         <li>Hasta 3 fotos personalizadas</li>
                         <li>Botón de Ubicación de Fiesta</li>
@@ -119,11 +121,11 @@
                 </div>
             </div>
 
-            <div class="card" style="position: relative; border: 2px solid var(--azul);">
-                <div class="price-tag">$399</div>
+            <div class="card" style="border: 2px solid var(--azul);">
                 <img id="img-premium" class="card-img">
                 <div class="card-info">
                     <h2 class="card-title">Fiesta Niño</h2>
+                    <span class="price-text" style="color: #3d5a80;">$399</span>
                     <ul class="feature-list">
                         <li>Hasta 3 fotos del festejado</li>
                         <li>Ubicación de Fiesta e Iglesia</li>
@@ -136,11 +138,11 @@
                 </div>
             </div>
 
-            <div class="card" style="position: relative; border: 2px solid var(--rosa);">
-                <div class="price-tag">$399</div>
+            <div class="card" style="border: 2px solid var(--rosa);">
                 <img id="img-vip" class="card-img">
                 <div class="card-info">
                     <h2 class="card-title">Fiesta Niña</h2>
+                    <span class="price-text" style="color: #660000;">$399</span>
                     <ul class="feature-list">
                         <li>Hasta 3 fotos de la festejada</li>
                         <li>Ubicación de Fiesta e Iglesia</li>
