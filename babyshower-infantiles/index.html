@@ -7,8 +7,8 @@
 
     <script>
         /* ==========================================
-            CONFIGURACIÓN DE ENLACES Y TEXTOS
-            ========================================== */
+           CONFIGURACIÓN DE ENLACES Y TEXTOS
+           ========================================== */
         const CONFIG = {
             whatsapp_contacto: "https://wa.me/525654252153",
             modelo_estandar_url: "https://migrandia.mx/Baby-Estandar/",
@@ -31,40 +31,20 @@
             --fondo: #fbfdff;
         }
 
-        /* Bloqueo de seguridad */
         body { 
             -webkit-user-select: none; user-select: none;
             margin: 0; font-family: 'Montserrat', sans-serif; background-color: var(--fondo); color: var(--texto);
         }
 
-        /* --- BOTÓN REGRESAR FLOTANTE --- */
+        /* --- BOTÓN REGRESAR --- */
         .btn-regresar {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 10000;
-            background: white;
-            color: #4a4a4a;
-            padding: 10px 18px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 0.7rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border: 2px solid var(--menta);
-            display: flex;
-            align-items: center;
-            transition: 0.3s ease;
+            position: fixed; top: 20px; left: 20px; z-index: 10000;
+            background: white; color: #4a4a4a; padding: 10px 18px;
+            border-radius: 50px; text-decoration: none; font-size: 0.7rem;
+            font-weight: bold; letter-spacing: 1px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 2px solid var(--menta); display: flex; align-items: center; transition: 0.3s ease;
         }
-
-        .btn-regresar:hover {
-            background: var(--menta);
-            color: #2d6a4f;
-            transform: translateX(-3px);
-        }
-
-        .btn-regresar svg { margin-right: 8px; }
+        .btn-regresar:hover { background: var(--menta); color: #2d6a4f; transform: translateX(-3px); }
 
         header { padding: 60px 20px; text-align: center; background: white; border-bottom: 5px solid var(--menta); }
         .logo-text { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; letter-spacing: 4px; text-transform: uppercase; margin: 0; color: #333; }
@@ -77,7 +57,6 @@
         .card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(183, 228, 199, 0.4); border-color: var(--menta); }
 
         .card-img { width: 100%; height: 380px; object-fit: cover; pointer-events: none; }
-        
         .card-info { padding: 35px; text-align: center; }
         .tag-genero { color: #888; font-weight: bold; font-size: 0.65rem; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 8px; }
         .card-title { font-family: 'Cormorant Garamond', serif; font-size: 2rem; margin: 5px 0; color: #222; font-weight: bold; }
@@ -97,23 +76,19 @@
             .logo-text { font-size: 1.8rem; }
             .card-img { height: 320px; }
             .card-info { padding: 25px; }
-            .btn-regresar { padding: 8px 12px; font-size: 0.6rem; }
         }
     </style>
 </head>
 <body oncontextmenu="return false;">
 
     <a href="javascript:history.back()" class="btn-regresar">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="19" y1="12" x2="5" y2="12"></line>
-            <polyline points="12 19 5 12 12 5"></polyline>
-        </svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
         VOLVER
     </a>
 
     <header>
         <h1 class="logo-text">Mi Gran Día</h1>
-        <div class="sub-logo">Baby Shower y Fiesta Infantiles</div>
+        <div class="sub-logo">Baby Shower e Infantiles</div>
     </header>
 
     <div class="container">
@@ -123,28 +98,28 @@
                 <img id="img-estandar" src="" alt="Baby Shower Estandar" class="card-img">
                 <div class="card-info">
                     <span class="tag-genero">DISEÑOS PARA NIÑO Y NIÑA</span>
-                    <h2 class="card-title">Modelo Baby Shower</h2>
-                    <p class="card-desc">"La forma más tierna de anunciar la dulce espera. Un diseño limpio y encantador con todos los detalles de tu festejo."</p>
+                    <h2 class="card-title">Baby Shower</h2>
+                    <p class="card-desc">"La forma más tierna de anunciar la dulce espera con todos los detalles de tu festejo."</p>
                     <a id="link-estandar" href="#" class="btn-ver">VER MODELO</a>
                 </div>
             </div>
 
             <div class="card" style="border: 2px solid var(--menta);">
-                <img id="img-premium" src="" alt="Baby Shower Premium" class="card-img">
+                <img id="img-premium" src="" alt="Fiesta Niño" class="card-img">
                 <div class="card-info">
                     <span class="tag-genero" style="color: #6a994e;">PERSONALIZADO A TU GUSTO</span>
                     <h2 class="card-title">Modelo Niño</h2>
-                    <p class="card-desc">"Diseños llenos de color y alegría para celebrar un año más de vida. La forma más sencilla y práctica de invitar a todos."</p>
-                    <a id="https://migrandia.mx/Fiesta-Nino" href="#" class="btn-ver">VER MODELO</a>
+                    <p class="card-desc">"Diseños llenos de color y alegría para celebrar un año más de vida. Práctica y divertida."</p>
+                    <a id="link-premium" href="#" class="btn-ver">VER MODELO</a>
                 </div>
             </div>
 
             <div class="card">
-                <img id="img-vip" src="" alt="Baby Shower VIP" class="card-img">
+                <img id="img-vip" src="" alt="Fiesta Niña" class="card-img">
                 <div class="card-info">
                     <span class="tag-genero">EL MÁS COMPLETO</span>
                     <h2 class="card-title">Modelo Niña</h2>
-                    <p class="card-desc">¡Un cuento de hadas hecho realidad! Incluye cuenta regresiva, efectos visuales brillantes y ubicación directa."</p>
+                    <p class="card-desc">"¡Un cuento de hadas hecho realidad! Incluye cuenta regresiva y efectos visuales brillantes."</p>
                     <a id="link-vip" href="#" class="btn-ver">VER MODELO</a>
                 </div>
             </div>
@@ -154,11 +129,12 @@
 
     <section class="footer-cta">
         <h3>¿Ya sabes el color?</h3>
-        <p>Creamos invitaciones únicas para celebrar la dulce espera, sin importar si es niño, niña o sorpresa.</p>
+        <p>Creamos invitaciones únicas para celebrar la dulce espera o el cumple de tus pequeños.</p>
         <a id="btn-whatsapp" href="#" class="btn-ver" style="background: #25d366; box-shadow: 0 5px 0 #128c7e; color: white;">INICIAR PEDIDO POR WHATSAPP</a>
     </section>
 
     <script>
+        /* Asignación dinámica de URLs y Fotos */
         document.getElementById('img-estandar').src = CONFIG.img_estandar;
         document.getElementById('img-premium').src = CONFIG.img_premium;
         document.getElementById('img-vip').src = CONFIG.img_vip;
@@ -169,6 +145,7 @@
         
         document.getElementById('btn-whatsapp').href = CONFIG.whatsapp_contacto;
 
+        /* Protección de código */
         document.onkeydown = function(e) {
             if(e.keyCode == 123 || (e.ctrlKey && (e.keyCode == 85 || e.keyCode == 83))) {
                 return false;
