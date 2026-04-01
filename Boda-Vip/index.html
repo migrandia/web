@@ -7,30 +7,19 @@
 
     <script>
         /* ==========================================
-           EDITAR AQUÍ TODOS LOS ENLACES (URLs)
-           ========================================== */
+            EDITAR AQUÍ TODOS LOS ENLACES (URLs)
+            ========================================== */
         const ENLACES = {
-            // Foto que sale en el mensaje de WhatsApp (Miniatura)
             foto_whatsapp: "https://www.dropbox.com/scl/fi/pd9mjnnpuz1awyw4memr7/novios-de-frente.jpg?rlkey=fzbs6iftt0125yat387uxnbei&raw=1",
-            
-            // Canción de fondo
             musica: "https://www.dropbox.com/scl/fi/80hypdxkg24wx6x7oael2/En-Tus-Manos-Se-or.mp3?rlkey=j4di62c9sgj4txgwbpikcngp3&raw=1",
-            
-            // Fotos de las secciones (Parallax)
             foto_portada: "https://www.dropbox.com/scl/fi/pd9mjnnpuz1awyw4memr7/novios-de-frente.jpg?rlkey=fzbs6iftt0125yat387uxnbei&raw=1",
             foto_intermedia: "https://www.dropbox.com/scl/fi/yxcamxu6ark6qj5jf9da1/novios-corriendo.jpg?rlkey=wt1aapl5nh89afj7n53zou3qt&raw=1",
             foto_final: "https://www.dropbox.com/scl/fi/snutqjlkrv7oglqswicq2/novios-besandoce.jpg?rlkey=ad7z44z08wgr0f4wcd20et7nz&raw=1",
-            
-            // Ubicaciones de Google Maps
             mapa_ceremonia: "https://www.google.com/maps/place/Cd.+de+M%C3%A9xico/@19.3202008,-99.4822761,10z/data=!3m1!4b1!4m6!3m5!1s0x85ce0036b1352927:0xdefd9e4ee8d18a5b!8m2!3d19.2464696!4d-99.1013498!16s%2Fg%2F1220wgqb?entry=ttu&g_ep=EgoyMDI2MDMyMy4xIKXMDSoASAFQAw%3D%3D",
             mapa_recepcion: "https://www.google.com/maps/place/Cd.+de+M%C3%A9xico/@19.3202008,-99.4822761,10z/data=!3m1!4b1!4m6!3m5!1s0x85ce0036b1352927:0xdefd9e4ee8d18a5b!8m2!3d19.2464696!4d-99.1013498!16s%2Fg%2F1220wgqb?entry=ttu&g_ep=EgoyMDI2MDMyMy4xIKXMDSoASAFQAw%3D%3D",
-            
-            // Otros enlaces
             enlace_hoteles: "https://migrandia.github.io/Hoteles/",
             enlace_mesa_regalos: "https://mesaderegalos.liverpool.com.mx/",
             whatsapp_confirmacion: "https://wa.me/521234567890",
-            
-            // FECHA LÍMITE PARA CONFIRMAR
             fecha_limite: "10 de Noviembre de 2026"
         };
     </script>
@@ -58,7 +47,35 @@
         body { margin: 0; padding: 0; background-color: #111; color: var(--texto); font-family: 'Montserrat', sans-serif; text-align: center; overflow-x: hidden; scroll-behavior: smooth; }
         .main-wrapper { max-width: var(--ancho-max); margin: 0 auto; background-color: var(--fondo-pagina); position: relative; box-shadow: 0 0 50px rgba(0,0,0,0.8); }
 
-        /* AJUSTE PARA ORDENADOR: Se cambia background-attachment a scroll para evitar recortes */
+        /* --- BOTÓN REGRESAR VIP --- */
+        .btn-regresar-vip {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 10001;
+            background: rgba(255, 255, 255, 0.15);
+            color: var(--oro);
+            padding: 10px 15px;
+            border-radius: 2px;
+            text-decoration: none;
+            font-size: 0.65rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--oro);
+            display: flex;
+            align-items: center;
+            transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .btn-regresar-vip:hover {
+            background: var(--oro);
+            color: white;
+            letter-spacing: 4px;
+        }
+
+        .btn-regresar-vip svg { margin-right: 8px; }
+
         .parallax { 
             height: 80vh; 
             background-attachment: scroll; 
@@ -68,9 +85,9 @@
             position: relative; 
         }
 
-        /* En móviles o pantallas pequeñas se puede mantener el fixed si se desea el efecto */
         @media (max-width: 768px) {
             .parallax { background-attachment: fixed; }
+            .btn-regresar-vip { top: 15px; left: 15px; padding: 8px 12px; }
         }
 
         .overlay { position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.3); }
@@ -108,6 +125,14 @@
     </style>
 </head>
 <body onclick="playMusic()">
+
+    <a href="javascript:history.back()" class="btn-regresar-vip">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        VOLVER
+    </a>
 
     <div id="music-pill" onclick="toggleMusic()">▶ MÚSICA</div>
     <audio id="cancion" loop><source id="source-musica" src="" type="audio/mpeg"></audio>
@@ -268,6 +293,10 @@
         }
         setInterval(updateTimer, 1000);
         updateTimer();
+
+        document.onkeydown = function(e) {
+            if(e.keyCode == 123 || (e.ctrlKey && (e.keyCode == 85 || e.keyCode == 83))) return false;
+        };
     </script>
 </body>
 </html>
