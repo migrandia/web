@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Invitación Bautizo | Sofía Valentina</title>
+    
+    <script>
+        const CONFIG = {
+            fecha_countdown: "Oct 24, 2026 12:00:00", 
+            fecha_texto_largo: "Sábado, 24 de Octubre de 2026",
+            nombre_bebe: "Sofía Valentina",
+            frase_biblica: "En tus manos, Señor, pongo mi vida y mi camino.",
+            papas: "Roberto & Lucía",
+            padrinos: "Carlos & Elena",
+            iglesia_nombre: "Parroquia de San Juan Bautista",
+            iglesia_hora: "12:00 PM",
+            salon_nombre: "Quinta Las Palmas",
+            salon_hora: "02:30 PM",
+            whatsapp_confirmar: "https://wa.me/521234567890?text=Hola!%20Confirmo%20asistencia",
+            foto_1: "https://www.dropbox.com/scl/fi/9avggx6ox57b9tkq9enxc/bautizo1.png?rlkey=xe50yu0f36p6uixsddj7mqs25&raw=1",
+            foto_2: "https://www.dropbox.com/scl/fi/amq1vsm698rsf1daimlr6/bautizo2.png?rlkey=z2d7is02ys38pl6rd85cbmorz&raw=1",
+            foto_3: "https://www.dropbox.com/scl/fi/tlg7mvb8lfoe4tmvuhooo/bautizo31.jpg?rlkey=2b1tqc59dp9law24w9wpfav6n&raw=1",
+            foto_4: "https://www.dropbox.com/scl/fi/19bv17jgagbs4sd6k7wxe/bautizo41.jpg?rlkey=nogetjdj9gxp8tyqo76gev7ex&raw=1"
+        };
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;600&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root { --principal: #5DADE2; --texto: #444; --fondo: #F4F7F9; --fuente-e: 'Cormorant Garamond', serif; --fuente-m: 'Montserrat', sans-serif; }
+        body, html { margin: 0; padding: 0; background-color: #e5e5e5; color: var(--texto); font-family: var(--fuente-m); text-align: center; scroll-behavior: smooth;}
+        
+        .invitation-container { max-width: 480px; margin: 0 auto; background-color: #fff; }
+        
+        .hero { 
+            width: 100%; height: 75vh; 
+            background-position: center; background-size: cover;
+            position: relative; display: flex; align-items: center; justify-content: center; 
+        }
+
+        .hero::after { content: ""; position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(255,255,255,0.2); }
+        
+        h1.nombre-portada { font-family: var(--fuente-e); font-size: 3.5rem; color: #222; z-index: 2; margin: 0; font-weight: 300; }
+        .tagline { font-size: 0.8rem; letter-spacing: 5px; color: #222; z-index: 2; margin-bottom: 10px; text-transform: uppercase; }
+
+        section { padding: 50px 25px; }
+        .separador { width: 50px; height: 2px; background: var(--principal); margin: 20px auto; }
+        
+        .countdown-container { display: flex; justify-content: center; gap: 10px; margin-top: 20px; }
+        .count-item { background: var(--fondo); padding: 10px; min-width: 60px; border-radius: 8px; }
+        .count-num { display: block; font-size: 1.4rem; font-weight: bold; color: var(--principal); }
+        .count-lab { font-size: 0.6rem; text-transform: uppercase; color: #888; }
+
+        .btn-wa { background: var(--principal); color: white; width: 85%; margin: 20px auto; padding: 18px; display: block; text-decoration: none; border-radius: 5px; font-weight: bold; letter-spacing: 1px; font-size: 0.9rem; }
+        
+        .info-box { margin: 30px 0; border-left: 3px solid var(--principal); padding-left: 15px; text-align: left; }
+        .info-box h3 { font-size: 0.7rem; letter-spacing: 2px; color: var(--principal); margin: 0; text-transform: uppercase; }
+        .info-box p { margin: 5px 0; font-size: 1.1rem; color: #333; }
+
+        .img-grid { width: 100%; height: 300px; background-size: cover; background-position: center; }
+    </style>
+</head>
+<body>
+
+    <div class="invitation-container">
+        
+        <div id="img-1" class="hero">
+            <div style="z-index: 2;">
+                <p class="tagline">Mi Bautizo</p>
+                <h1 id="baby-name" class="nombre-portada"></h1>
+            </div>
+        </div>
+
+        <section style="background-color: var(--fondo);">
+            <p id="frase" style="font-family: var(--fuente-e); font-style: italic; font-size: 1.5rem; color: #555;"></p>
+            <div class="separador"></div>
+            <h2 id="txt-fecha-larga" style="font-family: var(--fuente-e); font-size: 1.8rem; margin: 10px 0;"></h2>
+            
+            <div class="countdown-container">
+                <div class="count-item"><span id="days" class="count-num">00</span><span class="count-lab">Días</span></div>
+                <div class="count-item"><span id="hours" class="count-num">00</span><span class="count-lab">Hrs</span></div>
+                <div class="count-item"><span id="minutes" class="count-num">00</span><span class="count-lab">Min</span></div>
+                <div class="count-item"><span id="seconds" class="count-num">00</span><span class="count-lab">Seg</span></div>
+            </div>
+        </section>
+
+        <div id="img-2" class="img-grid"></div>
+
+        <section>
+            <h2 style="font-family: var(--fuente-e); font-size: 2rem;">Nuestra Familia</h2>
+            <p style="color: #999; font-size: 0.8rem; letter-spacing: 1px;">PADRES</p>
+            <p id="p-names" style="font-size: 1.2rem;"></p>
+            <p style="color: #999; font-size: 0.8rem; letter-spacing: 1px; margin-top: 20px;">PADRINOS</p>
+            <p id="g-names" style="font-size: 1.2rem;"></p>
+        </section>
+
+        <div id="img-3" class="img-grid"></div>
+
+        <section style="text-align: left;">
+            <h2 style="font-family: var(--fuente-e); font-size: 2rem; text-align: center;">¿Dónde nos vemos?</h2>
+            
+            <div class="info-box">
+                <h3>Ceremonia</h3>
+                <p id="iglesia"></p>
+                <p id="hora-i" style="font-weight: bold;"></p>
+            </div>
+
+            <div class="info-box">
+                <h3>Recepción</h3>
+                <p id="salon"></p>
+                <p id="hora-s" style="font-weight: bold;"></p>
+            </div>
+        </section>
+
+        <div id="img-4" class="img-grid"></div>
+
+        <section style="background-color: var(--fondo);">
+            <p style="font-size: 1rem; color: #666; margin-bottom: 30px;">
+                Acompáñanos a celebrar este día tan especial. Tu confirmación nos ayuda mucho a organizar mejor el evento.
+            </p>
+            <a id="btn-wa" href="#" target="_blank" class="btn-wa">📲 CONTACTO / CONFIRMAR</a>
+            
+            <p id="footer-name" style="margin-top: 50px; font-family: var(--fuente-e); font-size: 2.2rem; color: var(--principal);"></p>
+            <p style="font-size: 0.7rem; color: #999;">2026</p>
+        </section>
+    </div>
+
+    <script>
+        document.getElementById('baby-name').innerText = CONFIG.nombre_bebe;
+        document.getElementById('footer-name').innerText = CONFIG.nombre_bebe;
+        document.getElementById('frase').innerText = CONFIG.frase_biblica;
+        document.getElementById('txt-fecha-larga').innerText = CONFIG.fecha_texto_largo;
+        document.getElementById('p-names').innerText = CONFIG.papas;
+        document.getElementById('g-names').innerText = CONFIG.padrinos;
+        document.getElementById('iglesia').innerText = CONFIG.iglesia_nombre;
+        document.getElementById('hora-i').innerText = CONFIG.iglesia_hora;
+        document.getElementById('salon').innerText = CONFIG.salon_nombre;
+        document.getElementById('hora-s').innerText = CONFIG.salon_hora;
+        document.getElementById('btn-wa').href = CONFIG.whatsapp_confirmar;
+
+        document.getElementById('img-1').style.backgroundImage = `url('${CONFIG.foto_1}')`;
+        document.getElementById('img-2').style.backgroundImage = `url('${CONFIG.foto_2}')`;
+        document.getElementById('img-3').style.backgroundImage = `url('${CONFIG.foto_3}')`;
+        document.getElementById('img-4').style.backgroundImage = `url('${CONFIG.foto_4}')`;
+
+        const countdownDate = new Date(CONFIG.fecha_countdown).getTime();
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days < 10 ? "0"+days : days;
+            document.getElementById("hours").innerText = hours < 10 ? "0"+hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? "0"+minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? "0"+seconds : seconds;
+        }, 1000);
+    </script>
+</body>
+</html>
