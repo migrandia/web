@@ -10,7 +10,8 @@
             nombres: "Cecilia & Rubén",
             fecha_boda: "August 15, 2026 17:00:00", 
             whatsapp_contacto: "https://wa.me/525654252153",
-            musica_url: "https://www.bensound.com/bensound-music/bensound-love.mp3",
+            // Enlace de Dropbox actualizado con el parámetro directo
+            musica_url: "https://www.dropbox.com/scl/fi/80hypdxkg24wx6x7oael2/En-Tus-Manos-Se-or.mp3?rlkey=j4di62c9sgj4txgwbpikcngp3&raw=1",
             foto_portada: "https://www.dropbox.com/scl/fi/pd9mjnnpuz1awyw4memr7/novios-de-frente.jpg?rlkey=fzbs6iftt0125yat387uxnbei&raw=1",
             foto_final: "https://www.dropbox.com/scl/fi/snutqjlkrv7oglqswicq2/novios-besandoce.jpg?rlkey=ad7z44z08wgr0f4wcd20et7nz&raw=1",
             maps_ceremonia: "https://maps.google.com", 
@@ -40,17 +41,16 @@
             background: rgba(6, 78, 59, 0.8); color: var(--dorado); padding: 10px 18px;
             border-radius: 5px; text-decoration: none; font-size: 0.7rem;
             font-weight: bold; letter-spacing: 2px; backdrop-filter: blur(5px);
-            border: 1px solid var(--dorado); display: flex; align-items: center; transition: 0.3s ease;
+            border: 1px solid var(--dorado); display: flex; align-items: center;
         }
 
         .main-wrapper { max-width: var(--ancho-max); margin: 0 auto; background-color: var(--verde-esmeralda); box-shadow: 0 0 50px rgba(0,0,0,0.5); }
 
-        /* Música mejorada */
         .music-control {
             position: fixed; top: 20px; right: 20px; z-index: 1000;
             background: rgba(0,0,0,0.6); border-radius: 50%; width: 50px; height: 50px;
             display: flex; align-items: center; justify-content: center; cursor: pointer; 
-            border: 2px solid var(--dorado); box-shadow: 0 0 15px rgba(0,0,0,0.3);
+            border: 2px solid var(--dorado);
         }
 
         .foto-premium { width: 100%; height: auto; display: block; }
@@ -74,7 +74,7 @@
     <div class="music-control" onclick="toggleMusic(event)">
         <span id="music-icon">🎵</span>
         <audio id="bg-music" loop preload="auto">
-            <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+            <source id="music-src" src="" type="audio/mpeg">
         </audio>
     </div>
 
@@ -122,40 +122,47 @@
     </div>
 
     <script>
-        // Cargar datos de CONFIG
+        // Cargar datos de imágenes y enlaces
         document.getElementById('portada').src = CONFIG.foto_portada;
         document.getElementById('final').src = CONFIG.foto_final;
         document.getElementById('whatsapp').href = CONFIG.whatsapp_contacto;
         document.getElementById('link-ceremonia').href = CONFIG.maps_ceremonia;
         document.getElementById('link-recepcion').href = CONFIG.maps_recepcion;
         document.getElementById('link-regalos').href = CONFIG.regalos_url;
-
+        
+        // Cargar música
         const music = document.getElementById('bg-music');
+        const musicSrc = document.getElementById('music-src');
         const icon = document.getElementById('music-icon');
+        musicSrc.src = CONFIG.musica_url;
+        music.load();
+
         let hasStarted = false;
 
-        // Función para intentar play al primer clic en la pantalla
+        // Función para iniciar música al primer toque en la pantalla
         function autoPlayMusic() {
             if (!hasStarted) {
                 music.play().then(() => {
                     icon.innerText = "🔇";
                     hasStarted = true;
-                }).catch(e => console.log("Esperando interacción..."));
+                }).catch(e => console.log("Interacción requerida para audio"));
             }
         }
 
+        // Control manual del botón de música
         function toggleMusic(event) {
-            event.stopPropagation(); // Evita que se dispare autoPlayMusic al mismo tiempo
+            event.stopPropagation();
             if (music.paused) {
                 music.play();
                 icon.innerText = "🔇";
+                hasStarted = true;
             } else {
                 music.pause();
                 icon.innerText = "🎵";
             }
         }
 
-        // Contador
+        // Contador de tiempo
         const countdownDate = new Date(CONFIG.fecha_boda).getTime();
         setInterval(function() {
             const now = new Date().getTime();
