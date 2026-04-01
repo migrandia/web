@@ -50,25 +50,25 @@ img { -webkit-user-drag: none; pointer-events: none; }
 
 body{font-family:'Poppins',sans-serif; background: var(--fondo-suave); color:var(--primario); overflow-x:hidden;}
 
-/* BARRA DE CONTACTO */
+/* BARRA SUPERIOR */
 .top-bar { background: #fff; border-bottom: 1px solid rgba(201, 169, 106, 0.3); padding: 8px 40px; font-size: 0.75rem; letter-spacing: 1.5px; display: flex; justify-content: center; gap: 30px; color: var(--dorado-solido); font-weight: 600; text-transform: uppercase; }
 
+/* HEADER ESCALONADO */
 .header { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(10px); padding: 15px 40px; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(102, 0, 0, 0.1); }
-
 .brand-container { display: flex; align-items: center; justify-content: space-between; max-width: 1400px; margin: 0 auto; padding: 10px 0; border-top: 1.5px solid var(--guinda); border-bottom: 1.5px solid var(--guinda); }
 .logo-nombre-grupo { display: flex; align-items: center; gap: 30px; }
 .logo { height: 160px; width: auto; border-right: 1.5px solid var(--guinda); padding-right: 30px; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1)); }
+.brand-text-wrapper { display: flex; flex-direction: column; }
 .brand-name { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: var(--primario); letter-spacing: 5px; text-transform: uppercase; font-weight: 700; line-height: 1; }
 .brand-slogan { font-family: 'Poppins', sans-serif; font-size: 1rem; color: var(--dorado-solido); letter-spacing: 4px; margin-top: 8px; text-transform: uppercase; }
+.brand-collection { font-family: 'Poppins', sans-serif; font-size: 0.7rem; color: var(--primario); letter-spacing: 2px; margin-top: 4px; opacity: 0.8; }
 .header-contact { font-size: 0.9rem; letter-spacing: 2px; text-transform: uppercase; color: var(--guinda); font-weight: 600; border: 1.5px solid var(--guinda); padding: 10px 25px; border-radius: 50px; text-decoration: none; transition: 0.3s; }
 
 /* HERO */
 .hero{max-width:1400px; margin:auto; display:flex; align-items:center; justify-content:space-between; padding:100px 20px; gap:60px;}
 .hero h1{font-family:'Playfair Display',serif; font-size:4.5rem; color: var(--guinda); line-height:1.1; margin-bottom:25px;}
 .hero p{font-size:1.5rem; color:#6f5a4f; margin-bottom:45px;}
-
 .btn{background:var(--dorado-brillante); background-size:200% auto; color:#3e2c24; padding:20px 55px; border-radius:50px; text-decoration:none; font-weight:700; box-shadow:0 10px 25px rgba(181, 146, 76, 0.25); transition:.4s; display:inline-block; cursor:pointer; border: none;}
-.btn:hover{transform:translateY(-3px); background-position: right center;}
 
 /* CELULARES */
 .phones{position:relative; flex:1; display:flex; justify-content:center;}
@@ -79,43 +79,31 @@ body{font-family:'Poppins',sans-serif; background: var(--fondo-suave); color:var
 .modelos{background: var(--fondo-blanco-warm); padding:100px 20px; text-align:center; border-radius:50px 50px 0 0;}
 .grid{max-width:1400px; margin:auto; display:grid; grid-template-columns: repeat(4, 1fr); gap:30px;}
 .card{background:#fff; border-radius:25px; overflow:hidden; box-shadow:0 12px 25px rgba(0,0,0,0.06); border:1px solid #f1e3d8; padding-bottom:30px; transition: transform 0.4s ease;}
-.card:hover { transform: translateY(-15px); box-shadow: 0 25px 50px rgba(181, 146, 76, 0.2); }
+.card:hover { transform: translateY(-15px); }
 .card img{width:100%; height:330px; object-fit:cover; margin-bottom:25px;}
 
-/* SECCIÓN: DISEÑO ÚNICO (DEGRADADO DE FONDO) */
-.section-customization {
-    background: linear-gradient(to bottom, var(--fondo-blanco-warm) 0%, #fdfbfb 100%);
-    padding: 20px 20px 80px;
-}
-.exclusividad-box {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 60px 40px;
-    background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.03);
-    border: 1px solid rgba(201, 169, 106, 0.2);
-    position: relative;
-    text-align: center;
-}
+/* PERSONALIZACIÓN CON DEGRADADO */
+.section-customization { background: linear-gradient(to bottom, var(--fondo-blanco-warm) 0%, #fdfbfb 100%); padding: 20px 20px 80px; }
+.exclusividad-box { max-width: 1100px; margin: 0 auto; padding: 60px 40px; background: #fff; border-radius: 20px; border: 1px solid rgba(201, 169, 106, 0.2); text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
 .exclusividad-box h2 { font-family: 'Playfair Display', serif; font-size: 2.8rem; color: var(--guinda); margin-bottom: 25px; }
 .ventajas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 40px;}
-.ventaja-item h4 { font-family: 'Playfair Display', serif; color: var(--dorado-solido); font-size: 1.3rem; margin-bottom: 10px; }
 
-/* SECCIÓN MÚSICA (DEGRADADO DE FONDO) */
-.section-music {
-    background: linear-gradient(to top, #f1e3d8 0%, #fdfbfb 100%);
-    padding: 80px 20px;
-}
+/* MÚSICA CON DEGRADADO */
+.section-music { background: linear-gradient(to top, #f1e3d8 0%, #fdfbfb 100%); padding: 80px 20px; }
 .media-container { max-width: 1200px; margin: 0 auto; display: flex; gap: 60px; align-items: center; }
-.canciones-box { flex: 1; border: 1px solid var(--dorado-solido); padding: 50px; border-radius: 15px; background: #fff; text-align: center; box-shadow: 0 15px 35px rgba(0,0,0,0.05); }
-.video-box { width: 280px; border-radius: 35px; overflow: hidden; box-shadow: 0 25px 50px rgba(0,0,0,0.2); border: 8px solid #1a1a1a; background: #000; }
+.canciones-box { flex: 1; border: 1px solid var(--dorado-solido); padding: 50px; border-radius: 15px; background: #fff; text-align: center; }
+.video-box { width: 280px; border-radius: 35px; overflow: hidden; border: 8px solid #1a1a1a; background: #000; }
 .video-box video { width: 100%; display: block; }
 
 .footer-message{padding:100px 20px; text-align:center; background: #f1e3d8;}
-.whatsapp{position:fixed; bottom:35px; right:35px; background:#25D366; width:70px; height:70px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 10px 25px rgba(0,0,0,0.2); z-index:2000; transition: 0.3s;}
+.whatsapp{position:fixed; bottom:35px; right:35px; background:#25D366; width:70px; height:70px; border-radius:50%; display:flex; align-items:center; justify-content:center; z-index:2000; transition: 0.3s;}
 
 @media(max-width:900px){
+    .header-contact { display: none; }
+    .brand-container { flex-direction: column; gap: 15px; }
+    .logo-nombre-grupo { flex-direction: column; gap: 15px; }
+    .logo { border: none; padding: 0; height: 120px; }
+    .brand-text-wrapper { text-align: center; }
     .ventajas-grid { grid-template-columns: 1fr; }
     .media-container { flex-direction: column; }
     .hero h1{font-size:3rem;}
@@ -141,7 +129,7 @@ body{font-family:'Poppins',sans-serif; background: var(--fondo-suave); color:var
                 <span id="elColeccion" class="brand-collection"></span>
             </div>
         </div>
-        <a href="https://wa.me/525654252153" class="header-contact">Contacto</a>
+        <a id="linkWAHeader" href="#" class="header-contact">Contacto</a>
     </div>
 </header>
 
@@ -174,15 +162,15 @@ body{font-family:'Poppins',sans-serif; background: var(--fondo-suave); color:var
         
         <div class="ventajas-grid">
             <div class="ventaja-item">
-                <h4>Personalización sin límites</h4>
+                <h4 style="font-family:'Playfair Display',serif; color:var(--dorado-solido); font-size:1.4rem;">Personalización sin límites</h4>
                 <p>Tú eliges los colores, las tipografías y el estilo que mejor se adapte a tu temática.</p>
             </div>
             <div class="ventaja-item">
-                <h4>Flexibilidad total</h4>
+                <h4 style="font-family:'Playfair Display',serif; color:var(--dorado-solido); font-size:1.4rem;">Flexibilidad total</h4>
                 <p>Agregamos o quitamos secciones (mapas, pases, hoteles) según tus necesidades exactas.</p>
             </div>
             <div class="ventaja-item">
-                <h4>Piezas irrepetibles</h4>
+                <h4 style="font-family:'Playfair Display',serif; color:var(--dorado-solido); font-size:1.4rem;">Piezas irrepetibles</h4>
                 <p>Creamos una experiencia digital única y exclusiva para tus invitados.</p>
             </div>
         </div>
@@ -231,6 +219,7 @@ body{font-family:'Poppins',sans-serif; background: var(--fondo-suave); color:var
     document.getElementById('elSubtitulo').innerText = MI_CONFIGURACION.subtituloHero;
     document.getElementById('elBtnHero').href = MI_CONFIGURACION.whatsappUrl;
     document.getElementById('elWA').href = MI_CONFIGURACION.whatsappUrl;
+    document.getElementById('linkWAHeader').href = MI_CONFIGURACION.whatsappUrl;
     document.getElementById('elCel1').src = MI_CONFIGURACION.fotoCelular1;
     document.getElementById('elCel2').src = MI_CONFIGURACION.fotoCelular2;
     document.getElementById('fBoda').src = MI_CONFIGURACION.fotoPortadaBoda;
@@ -244,7 +233,6 @@ body{font-family:'Poppins',sans-serif; background: var(--fondo-suave); color:var
     document.getElementById('laFrase').innerText = MI_CONFIGURACION.fraseFinal;
     document.getElementById('elPie').innerText = MI_CONFIGURACION.pieDePagina;
 
-    // CONTADOR
     function updateCounter() {
         const base = 9855;
         let visits = localStorage.getItem('visit_count');
@@ -254,7 +242,6 @@ body{font-family:'Poppins',sans-serif; background: var(--fondo-suave); color:var
     }
     updateCounter();
 
-    // PROTECCIONES
     document.onkeydown = function(e) {
         if(e.keyCode == 123 || (e.ctrlKey && (e.keyCode == 85 || e.keyCode == 83 || e.keyCode == 73))) return false;
     };
