@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>👑 Una Invitación Real | Sofía #6</title>
+    <meta property="og:title" content="🌸 ¡Estás invitada al Gran Baile de Sofía!">
+    <meta property="og:description" content="14 de Marzo. Un cuento de hadas se hace realidad. ¡Acompáñanos!">
+    <meta property="og:image" content="https://www.dropbox.com/scl/fi/7nb9t6vs617f3jjmwxnet/NI-A-7.jpg?rlkey=e2on8qq3iu1ic5jk4fe0rvjf7&raw=1">
+    <meta property="og:type" content="website">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --oro-real: #d4af37;
+            --crema: #fdfcf9;
+            --rosa-pastel: #fce4ec;
+            --texto: #5a4a42;
+            --blanco: #ffffff;
+        }
+
+        body {
+            margin: 0; padding: 0;
+            background-color: #fff5f8;
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+        }
+
+        .wrapper {
+            max-width: 480px;
+            margin: 0 auto;
+            background-color: var(--blanco);
+            position: relative;
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);
+            border: 10px double var(--oro-real);
+            background-image: url('https://www.transparenttextures.com/patterns/dotted-white.png');
+        }
+
+        /* PORTADA ESPECTACULAR */
+        .header {
+            padding: 40px 20px;
+            background-color: var(--crema);
+        }
+
+        .img-main {
+            width: 100%;
+            height: auto;
+            border: 4px solid var(--oro-real);
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 4px;
+        }
+
+        h1.nombre {
+            font-family: 'Great Vibes', cursive;
+            font-size: 5.5rem;
+            color: var(--oro-real);
+            margin: 20px 0 0px;
+            text-shadow: 2px 2px 0px rgba(0,0,0,0.05);
+        }
+
+        .cumple-n {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            letter-spacing: 5px;
+            color: var(--texto);
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        /* SECCIONES */
+        section { padding: 45px 30px; border-bottom: 1px solid #eee; }
+
+        .historia { background-color: var(--rosa-pastel); }
+
+        h2.titulo-seccion {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem;
+            color: var(--oro-real);
+            margin-bottom: 15px;
+        }
+
+        .texto-magico {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: var(--texto);
+        }
+
+        /* TARJETA DE DATOS */
+        .info-card {
+            background: var(--crema);
+            padding: 30px;
+            border: 1px solid var(--oro-real);
+            position: relative;
+        }
+
+        .btn-gps {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            padding: 15px 30px;
+            background-color: var(--oro-real);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        /* CONTADOR */
+        .timer-container {
+            display: flex; justify-content: center; gap: 12px; margin-top: 20px;
+        }
+
+        .t-block {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            min-width: 65px;
+            border: 1px solid var(--oro-real);
+        }
+
+        .t-val { display: block; font-size: 2rem; color: var(--oro-real); font-weight: bold; }
+        .t-lab { font-size: 0.6rem; text-transform: uppercase; font-weight: bold; }
+
+        /* RSVP */
+        .btn-rsvp {
+            display: inline-block;
+            width: 85%;
+            padding: 22px 0;
+            background-color: var(--oro-real);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-top: 30px;
+            box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper">
+        
+        <div class="header">
+            <img src="https://www.dropbox.com/scl/fi/7nb9t6vs617f3jjmwxnet/NI-A-7.jpg?rlkey=e2on8qq3iu1ic5jk4fe0rvjf7&raw=1" class="img-main" alt="Princesa">
+            <h1 class="nombre">Sofía</h1>
+            <p class="cumple-n">Mis 6 Años</p>
+            <p style="font-weight: bold; letter-spacing: 3px; color: var(--oro-real);">14 DE MARZO, 2027</p>
+        </div>
+
+        <section class="historia">
+            <h2 class="titulo-seccion">Un Cuento de Hadas</h2>
+            <img src="https://www.dropbox.com/scl/fi/0f0yf4ihbcmu4hqzkk9lb/NI-A6.jpg?rlkey=z19uii2f73mxofmj9j8bshebq&raw=1" class="img-main" style="margin-bottom: 25px;">
+            <p class="texto-magico">
+                "Había una vez una pequeña princesa que soñaba con un baile mágico rodeada de sus mejores amigos... ¡Ese día ha llegado!"
+            </p>
+        </section>
+
+        <section>
+            <div class="info-card">
+                <p style="letter-spacing: 4px; font-size: 0.7rem; font-weight: bold;">LUGAR DEL EVENTO</p>
+                <h3 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin: 10px 0;">Palacio de Cristal</h3>
+                <p>Calle Real #123, Jardines de la Corona</p>
+                <p><strong>4:00 PM</strong></p>
+                
+                <a href="https://maps.google.com" target="_blank" class="btn-gps">
+                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    VER UBICACIÓN
+                </a>
+            </div>
+        </section>
+
+        <section style="background-color: var(--crema);">
+            <p style="font-size: 0.8rem; letter-spacing: 3px; font-weight: bold;">EL SUEÑO COMIENZA EN:</p>
+            <div class="timer-container">
+                <div class="t-block"><span class="t-val" id="d">00</span><span class="t-lab">Días</span></div>
+                <div class="t-block"><span class="t-val" id="h">00</span><span class="t-lab">Hrs</span></div>
+                <div class="t-block"><span class="t-val" id="m">00</span><span class="t-lab">Min</span></div>
+                <div class="t-block"><span class="t-val" id="s">00</span><span class="t-lab">Seg</span></div>
+            </div>
+        </section>
+
+        <section style="padding-bottom: 80px;">
+            <h2 class="titulo-seccion" style="font-size: 4rem;">¡Te esperamos!</h2>
+            <p>Por favor confirma tu asistencia al baile real</p>
+            <a href="https://wa.me/521234567890?text=Confirmo+asistencia+al+cumple+de+Sofia" class="btn-rsvp">CONFIRMAR POR WHATSAPP</a>
+        </section>
+
+    </div>
+
+    <script>
+        function timer() {
+            const dest = new Date("March 14, 2027 16:00:00").getTime();
+            const now = new Date().getTime();
+            const diff = dest - now;
+            if (diff > 0) {
+                document.getElementById('d').innerText = String(Math.floor(diff / (1000*60*60*24))).padStart(2, '0');
+                document.getElementById('h').innerText = String(Math.floor((diff % (1000*60*60*24)) / (1000*60*60))).padStart(2, '0');
+                document.getElementById('m').innerText = String(Math.floor((diff % (1000*60*60)) / (1000*60))).padStart(2, '0');
+                document.getElementById('s').innerText = String(Math.floor((diff % (1000*60)) / 1000)).padStart(2, '0');
+            }
+        }
+        timer(); setInterval(timer, 1000);
+    </script>
+</body>
+</html>
