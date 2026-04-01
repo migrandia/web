@@ -84,19 +84,13 @@
             align-items: center;
             cursor: pointer;
             z-index: 10;
-            transition: 0.3s;
         }
         .play-overlay span {
-            background: white;
-            width: 60px; height: 60px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.5rem;
-            margin-bottom: 10px;
+            background: white; width: 60px; height: 60px;
+            border-radius: 50%; display: flex; justify-content: center;
+            align-items: center; font-size: 1.5rem; margin-bottom: 15px;
         }
-        .play-overlay p { color: white; font-weight: bold; font-size: 0.8rem; text-transform: uppercase; padding: 0 10px; text-align: center; }
+        .play-overlay p { color: white; font-weight: bold; font-size: 0.8rem; text-transform: uppercase; text-align: center; padding: 0 15px;}
 
         .card-img { width: 100%; height: 300px; object-fit: cover; }
         .card-info { padding: 30px; text-align: center; flex-grow: 1; }
@@ -123,7 +117,7 @@
 
         .promo-texto {
             max-width: 900px; margin: 0 auto 40px; text-align: center;
-            font-size: 1.1rem; line-height: 1.6; color: #555;
+            font-size: 1.1rem; line-height: 1.7; color: #555;
             padding: 0 20px;
         }
 
@@ -175,20 +169,20 @@
 
         <h2 class="seccion-titulo">Invitaciones Animadas en Video</h2>
         <p class="promo-texto">
-            ¡Dale a tu invitación un toque espectacular! Nuestros videos premium son el complemento ideal: puedes <strong>agregarlos a tus invitaciones web</strong> para sorprender a todos al abrir el enlace, o simplemente <strong>obtener el video</strong> para enviarlo de forma independiente. 
+            ¡Dale a tu evento un toque espectacular! Puedes adquirir tu video animado de forma <strong>individual</strong> para enviarlo por WhatsApp, o integrarlo como un complemento premium a tu invitación web en un <strong>paquete especial</strong> para que tus invitados vivan una experiencia única desde el primer clic. 
             <br><br>
-            Disponibles para venta <strong>por separado o en paquete</strong> con tus invitaciones digitales.
+            Nuestros videos incluyen música personalizada, efectos visuales de alta calidad y toda la información de tu gran día en un formato moderno y dinámico.
         </p>
 
         <div class="grid-modelos">
             <div class="card" style="border-top: 8px solid #3d5a80;">
                 <div class="phone-frame azul">
                     <div class="video-wrapper">
-                        <div class="play-overlay" onclick="enableControls(this)">
+                        <div class="play-overlay" onclick="activarVideo(this)">
                             <span>▶</span>
-                            <p>Toca para ver con sonido y controles</p>
+                            <p>Toca para reproducir con sonido y controles</p>
                         </div>
-                        <video id="videoNino" class="card-video" loop playsinline muted>
+                        <video class="card-video" loop playsinline muted controlsList="nodownload" oncontextmenu="return false;">
                             <source src="https://www.dropbox.com/scl/fi/jwjvngbrghb0284j4j7xr/video-de-ni-o-SP.mp4?rlkey=ii3a6xb9es3lr3q5rujajxs4p&raw=1" type="video/mp4">
                         </video>
                     </div>
@@ -202,11 +196,11 @@
             <div class="card" style="border-top: 8px solid #ff8fa3;">
                 <div class="phone-frame rosa">
                     <div class="video-wrapper">
-                        <div class="play-overlay" onclick="enableControls(this)">
+                        <div class="play-overlay" onclick="activarVideo(this)">
                             <span>▶</span>
-                            <p>Toca para ver con sonido y controles</p>
+                            <p>Toca para reproducir con sonido y controles</p>
                         </div>
-                        <video id="videoNina" class="card-video" loop playsinline muted>
+                        <video class="card-video" loop playsinline muted controlsList="nodownload" oncontextmenu="return false;">
                             <source src="https://www.dropbox.com/scl/fi/fxjmcwvo1m7wyg2rfl9mf/video-de-ni-a-princesa.mp4?rlkey=httjvih52e1k64jk7yff0rnik&raw=1" type="video/mp4">
                         </video>
                     </div>
@@ -220,15 +214,15 @@
     </div>
 
     <section class="footer-cta">
-        <a id="btn-whatsapp" href="#" class="btn-ver" style="background: #25d366; color: white; display: inline-block; padding: 15px 50px;">ORDENAR POR WHATSAPP</a>
+        <a id="btn-whatsapp" href="#" class="btn-ver" style="background: #25d366; color: white; display: inline-block; padding: 15px 50px;">ORDENAR MI VIDEO O PAQUETE</a>
     </section>
 
     <script>
-        function enableControls(overlay) {
+        function activarVideo(overlay) {
             const video = overlay.nextElementSibling;
-            overlay.style.display = 'none'; // Quita el overlay
-            video.muted = false; // Activa sonido
-            video.controls = true; // Activa pausa, barra de tiempo y volumen
+            overlay.style.display = 'none';
+            video.muted = false;
+            video.controls = true; // Activa los controles pero sin el botón de descarga gracias a controlsList
             video.play();
         }
 
