@@ -7,15 +7,13 @@
 
     <script>
         /* ==========================================
-           CONFIGURACIÓN DE ENLACES Y TEXTOS
-           ========================================== */
+            CONFIGURACIÓN DE ENLACES Y TEXTOS
+            ========================================== */
         const CONFIG = {
             whatsapp_contacto: "https://wa.me/525654252153",
-            // ENLACES A TUS MODELOS
             modelo_estandar_url: "https://migrandia.mx/Bautizo-Estandar/",
             modelo_premium_url: "https://migrandia.mx/Bautizo-Premium/",
             modelo_vip_url: "https://migrandia.mx/Bautizo-Vip/",
-            // IMÁGENES DE MUESTRA (Sugerencia: fotos de bebés o detalles de ropón)
             img_estandar: "https://www.dropbox.com/scl/fi/7d6z0ji1ip3el5ijciae4/bautizo4.png?rlkey=5e3uypk20ipb9kge7l0kfv727&raw=1",
             img_premium: "https://www.dropbox.com/scl/fi/tlg7mvb8lfoe4tmvuhooo/bautizo31.jpg?rlkey=2b1tqc59dp9law24w9wpfav6n&raw=1",
             img_vip: "https://www.dropbox.com/scl/fi/amq1vsm698rsf1daimlr6/bautizo2.png?rlkey=z2d7is02ys38pl6rd85cbmorz&raw=1"
@@ -38,6 +36,35 @@
             -webkit-user-select: none; user-select: none;
             margin: 0; font-family: 'Montserrat', sans-serif; background-color: var(--fondo); color: var(--texto);
         }
+
+        /* --- BOTÓN REGRESAR FLOTANTE --- */
+        .btn-regresar {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 10000;
+            background: white;
+            color: #2a6a6c;
+            padding: 10px 18px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 0.7rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(168, 218, 220, 0.2);
+            border: 1px solid var(--primario);
+            display: flex;
+            align-items: center;
+            transition: 0.3s ease;
+        }
+
+        .btn-regresar:hover {
+            background: var(--primario);
+            color: #2a6a6c;
+            transform: translateX(-3px);
+        }
+
+        .btn-regresar svg { margin-right: 8px; }
 
         header { padding: 50px 20px; text-align: center; background: white; border-bottom: 2px solid var(--primario); }
         .logo-text { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; letter-spacing: 4px; text-transform: uppercase; margin: 0; color: #333; }
@@ -69,10 +96,19 @@
         @media (max-width: 600px) {
             .logo-text { font-size: 1.8rem; }
             .card-img { height: 320px; }
+            .btn-regresar { padding: 8px 12px; font-size: 0.6rem; }
         }
     </style>
 </head>
 <body oncontextmenu="return false;">
+
+    <a href="javascript:history.back()" class="btn-regresar">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        VOLVER
+    </a>
 
     <header>
         <h1 class="logo-text">Mi Gran Día</h1>
