@@ -19,9 +19,11 @@ const MI_CONFIGURACION = {
     enlaceBautizo: "https://migrandia.mx/bautizo-catalogo",
     enlaceBaby: "https://migrandia.mx/babyshower-infantiles",
     
-    // 👇 PEGA AQUÍ EL ENLACE DE DROPBOX DE TU LOGO 👇
-    fotoLogo: "https://www.dropbox.com/scl/fi/7xqcc54jy4qtpgcmn0zhx/logo.png?rlkey=mwuejhlyagpz2r92gestu6yd2&raw=1",
+    // 👇 DATOS DE CONTACTO NUEVOS 👇
+    telefono: "525654252153",
+    horario: "Lunes a Sábado: 9:00 AM - 10:00 PM",
     
+    fotoLogo: "https://www.dropbox.com/scl/fi/7xqcc54jy4qtpgcmn0zhx/logo.png?rlkey=mwuejhlyagpz2r92gestu6yd2&raw=1",
     fotoCelular1: "https://www.dropbox.com/scl/fi/zux2sxkc0jkjm3wl6bah8/celular-boda.png?rlkey=h87ne4ctts5pnmiwtt208tnpj&raw=1",
     fotoCelular2: "https://www.dropbox.com/scl/fi/jez673lm5uja0bp7d4qv8/15.png?rlkey=lizifto81n577oscj8861xo1f&raw=1",
     fotoPortadaBoda: "https://www.dropbox.com/scl/fi/e56oijqyqox41yphxsfjx/boda-web.png?rlkey=r6dkxn3fu3q2vm51jlk74qjq3&raw=1",
@@ -47,7 +49,21 @@ img { -webkit-user-drag: none; pointer-events: none; }
 
 body{font-family:'Poppins',sans-serif;background:var(--fondo);color:var(--primario);overflow-x:hidden;}
 
-/* --- HEADER TRANSPARENTE CON SUPER LOGO (WEB) --- */
+/* --- BARRA DE CONTACTO SUPERIOR --- */
+.top-bar {
+    background: #fff;
+    border-bottom: 1px solid rgba(201, 169, 106, 0.3);
+    padding: 8px 40px;
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    color: var(--dorado-solido);
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
 .header {
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(10px);
@@ -76,7 +92,7 @@ body{font-family:'Poppins',sans-serif;background:var(--fondo);color:var(--primar
 }
 
 .logo {
-    height: 160px; /* Tamaño grande para Web */
+    height: 160px;
     width: auto;
     border-right: 1.5px solid var(--guinda);
     padding-right: 30px;
@@ -133,7 +149,7 @@ body{font-family:'Poppins',sans-serif;background:var(--fondo);color:var(--primar
 .phone1{width:340px; transform:rotate(-5deg) translateX(45px); filter:drop-shadow(20px 30px 50px rgba(0,0,0,0.15));}
 .phone2{width:340px; transform:rotate(5deg) translateX(-45px); filter:drop-shadow(-20px 30px 50px rgba(0,0,0,0.15));}
 
-/* MODELOS CON INTERACCIÓN (MOVIMIENTO) */
+/* MODELOS */
 .modelos{background:#fff;padding:100px 20px;text-align:center;border-radius:50px 50px 0 0;}
 .grid{max-width:1400px;margin:auto;display:grid;grid-template-columns: repeat(4, 1fr); gap:30px;}
 
@@ -155,76 +171,67 @@ body{font-family:'Poppins',sans-serif;background:var(--fondo);color:var(--primar
 .card img{width:100%;height:330px;object-fit:cover;margin-bottom:25px;}
 .card h3{font-family:'Playfair Display',serif;margin-bottom:18px; font-size: 2rem;}
 
+/* SECCIÓN CANCIONES */
+.canciones-seccion {
+    background: #fff;
+    padding: 60px 20px 100px;
+    text-align: center;
+}
+.canciones-box {
+    max-width: 900px;
+    margin: 0 auto;
+    border: 1px solid var(--dorado-solido);
+    padding: 40px;
+    border-radius: 4px;
+    background: linear-gradient(to bottom, #ffffff, #fdfbfb);
+}
+.canciones-box h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: var(--guinda);
+    margin-bottom: 20px;
+}
+.canciones-box p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--primario);
+    max-width: 750px;
+    margin: 0 auto 20px;
+}
+
 .footer-message{padding:120px 20px;text-align:center;background:#fdfbfb;}
 .footer-message h2{font-family:'Playfair Display',serif;font-size:3rem;font-style:italic;color:var(--primario);max-width:950px;margin:0 auto 35px;}
 
 .whatsapp{position:fixed;bottom:35px;right:35px;background:#25D366;width:70px;height:70px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 25px rgba(0,0,0,0.2);z-index:2000; transition: 0.3s;}
 .whatsapp:hover { transform: scale(1.1); }
 
-/* --- MODO CELULAR (CORREGIDO Y CENTRADO) --- */
 @media(max-width:900px){
+    .top-bar { flex-direction: column; gap: 5px; padding: 10px; font-size: 0.6rem; }
     .header { padding: 10px; }
-    
-    /* 👇 CENTRADO TOTAL DEL CONTENEDOR 👇 */
-    .brand-container { 
-        flex-direction: column; 
-        align-items: center; /* Centra horizontalmente */
-        justify-content: center; /* Centra verticalmente */
-        border-top: 1.2px solid var(--guinda); 
-        border-bottom: 1.2px solid var(--guinda); 
-        gap: 10px; 
-        padding: 15px 0;
-    }
-    
-    /* 👇 CENTRADO DEL GRUPO INTERNO 👇 */
-    .logo-nombre-grupo { 
-        flex-direction: column; 
-        align-items: center; /* Centra logo y textos */
-        gap: 10px; 
-    }
-    
-    /* 👇 LOGO MÁS GRANDE EN MÓVIL 👇 */
-    .logo { 
-        height: 120px; /* Aumentado drásticamente para que se vea */
-        border: none; 
-        padding: 0; 
-        margin: 0;
-    } 
-    
-    /* 👇 TEXTOS CENTRADOS Y MÁS GRANDES 👇 */
-    .brand-text-wrapper {
-        align-items: center; /* Centra el eslogan respecto al nombre */
-        text-align: center; /* Centra el texto interno */
-    }
-    
-    .brand-name { 
-        font-size: 2.2rem; /* Nombre más grande */
-        letter-spacing: 3px; 
-        margin: 0;
-    }
-    
-    .brand-slogan { 
-        font-size: 1rem; /* Eslogan más grande y legible */
-        letter-spacing: 3px; 
-        margin-top: 5px; 
-    }
-    
+    .brand-container { flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 15px 0; }
+    .logo-nombre-grupo { flex-direction: column; align-items: center; gap: 10px; }
+    .logo { height: 120px; border: none; padding: 0; margin: 0; } 
+    .brand-text-wrapper { align-items: center; text-align: center; }
+    .brand-name { font-size: 2.2rem; letter-spacing: 3px; }
+    .brand-slogan { font-size: 1rem; margin-top: 5px; }
     .header-contact { display: none; }
-    
     .hero{flex-direction:column;text-align:center;padding:60px 20px;}
     .hero h1{font-size:3rem;}
-    
     .phones { display: flex !important; flex-direction: row !important; justify-content: center; margin-top: 30px; }
-    .phone1, .phone2 { width: 180px !important; display: block !important; transform: none !important; }
-    
+    .phone1, .phone2 { width: 160px !important; display: block !important; transform: none !important; }
     .grid { grid-template-columns: 1fr; }
-    .card img { height: 300px; }
-    .card:hover { transform: translateY(-8px); }
+    .canciones-box { padding: 25px; }
+    .canciones-box h4 { font-size: 1.8rem; }
 }
 </style>
 </head>
 
 <body oncontextmenu="return false;">
+
+<div class="top-bar">
+    <span id="txtTelefono"></span>
+    <span id="txtHorario"></span>
+</div>
 
 <header class="header">
     <div class="brand-container">
@@ -262,6 +269,15 @@ body{font-family:'Poppins',sans-serif;background:var(--fondo);color:var(--primar
     </div>
 </section>
 
+<section class="canciones-seccion">
+    <div class="canciones-box">
+        <h4>Melodías que cuentan su Historia</h4>
+        <p>También hacemos canciones personalizadas para su gran día, ya sea Boda o XV Años, con sus nombres y su historia. Ideales para su invitación digital y su primer baile en la fiesta.</p>
+        <p style="font-size: 0.9rem; color: #6f5a4f;">Es una composición especial para su evento que nadie más tendrá igual.</p>
+        <div style="font-family: 'Playfair Display', serif; font-size: 1rem; color: var(--dorado-solido); font-weight: bold; letter-spacing: 2px;">MÁS INFORMACIÓN EN LOS SEGMENTOS DE CADA CATÁLOGO</div>
+    </div>
+</section>
+
 <section class="footer-message">
     <h2 id="laFrase"></h2>
     <p id="elPie" style="color:var(--dorado-solido); letter-spacing:4px; text-transform:uppercase; font-weight:600; font-size: 1.2rem;"></p>
@@ -273,7 +289,10 @@ body{font-family:'Poppins',sans-serif;background:var(--fondo);color:var(--primar
 </a>
 
 <script>
-    // MOTOR DE LA PÁGINA (NO TOCAR)
+    // MOTOR DE LA PÁGINA
+    document.getElementById('txtTelefono').innerText = "📞 TEL: " + MI_CONFIGURACION.telefono;
+    document.getElementById('txtHorario').innerText = "🕒 " + MI_CONFIGURACION.horario;
+    
     document.getElementById('elNombreMarca').innerText = MI_CONFIGURACION.nombreMarca;
     document.getElementById('elSlogan').innerText = MI_CONFIGURACION.slogan;
     document.getElementById('elLogo').src = MI_CONFIGURACION.fotoLogo;
