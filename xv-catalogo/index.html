@@ -6,9 +6,6 @@
     <title>Modelos de XV Años | Mi Gran Día</title>
 
     <script>
-        /* ==========================================
-            CONFIGURACIÓN DE ENLACES Y TEXTOS
-            ========================================== */
         const CONFIG = {
             whatsapp_contacto: "https://wa.me/525654252153",
             modelo_estandar_url: "https://migrandia.mx/XV-Estandar/",
@@ -28,87 +25,67 @@
             --acento: #6d597a;    /* Purpura Grisáceo */
             --fondo: #fffafd;
             --texto: #333;
+            --guinda_oferta: #660000;
         }
 
-        /* Bloqueo de seguridad */
         body { 
             -webkit-user-select: none; user-select: none;
             margin: 0; font-family: 'Montserrat', sans-serif; background-color: var(--fondo); color: var(--texto);
         }
 
-        /* --- BOTÓN REGRESAR FLOTANTE --- */
         .btn-regresar {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 10000;
-            background: white;
-            color: var(--acento);
-            padding: 10px 18px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 0.7rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(181, 131, 141, 0.15);
-            border: 1px solid #f0e4e6;
-            display: flex;
-            align-items: center;
-            transition: 0.3s ease;
+            position: fixed; top: 20px; left: 20px; z-index: 10000;
+            background: white; color: var(--acento); padding: 10px 18px;
+            border-radius: 50px; text-decoration: none; font-size: 0.7rem;
+            font-weight: bold; letter-spacing: 1px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid #f0e4e6; display: flex; align-items: center; transition: 0.3s;
         }
 
-        .btn-regresar:hover {
-            background: var(--primario);
-            color: white;
-            transform: translateX(-3px);
-            border-color: var(--primario);
-        }
-
-        .btn-regresar svg { margin-right: 8px; }
-
-        header { padding: 50px 20px; text-align: center; background: white; }
+        header { padding: 40px 20px; text-align: center; background: white; border-bottom: 1px solid #eee; }
         .logo-text { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; letter-spacing: 4px; text-transform: uppercase; margin: 0; }
-        .sub-logo { font-family: 'Great Vibes', cursive; font-size: 1.8rem; color: var(--primario); margin-top: 10px; }
+        .sub-logo { font-family: 'Great Vibes', cursive; font-size: 1.8rem; color: var(--primario); margin-top: 5px; }
 
         .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
-        .grid-modelos { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
 
-        .card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 35px rgba(181, 131, 141, 0.1); transition: 0.4s; position: relative; border: 1px solid #f0e4e6; }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(181, 131, 141, 0.2); }
+        /* BANNER OFERTA */
+        .oferta-banner { background: var(--guinda_oferta); color: white; padding: 12px; text-align: center; font-weight: bold; font-size: 0.8rem; letter-spacing: 2px; border-radius: 50px; margin-bottom: 40px; }
 
-        .card-img { width: 100%; height: 400px; object-fit: cover; pointer-events: none; filter: brightness(0.95); }
-        
-        .card-info { padding: 30px; text-align: center; }
-        .tag-categoria { color: var(--primario); font-weight: bold; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 10px; }
-        .card-title { font-family: 'Cormorant Garamond', serif; font-size: 2rem; margin: 5px 0; color: var(--acento); }
-        .card-desc { font-size: 0.85rem; color: #666; line-height: 1.6; margin-bottom: 25px; height: 50px; }
+        /* GRID MODELOS */
+        .grid-modelos { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 60px; }
+        .card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; border: 1px solid #f0e4e6; transition: 0.4s; }
+        .card:hover { transform: translateY(-10px); }
+        .card-img { width: 100%; height: 380px; object-fit: cover; }
+        .card-info { padding: 25px; }
+        .precio-tag { font-size: 1.8rem; color: var(--primario); font-weight: bold; display: block; margin: 10px 0; }
+        .btn-ver { display: inline-block; padding: 12px 25px; background: var(--primario); color: white; text-decoration: none; border-radius: 30px; font-size: 0.8rem; font-weight: bold; width: 100%; box-sizing: border-box; }
 
-        .btn-ver { 
-            display: inline-block; padding: 14px 35px; background: var(--primario); color: white; 
-            text-decoration: none; border-radius: 5px; font-size: 0.8rem; font-weight: bold; 
-            letter-spacing: 1px; transition: 0.3s; text-transform: uppercase;
-        }
-        .btn-ver:hover { background: var(--acento); }
+        /* SECCIÓN VIDEO CANCIÓN */
+        .video-promo { background: white; border-radius: 20px; padding: 40px; margin: 60px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; box-shadow: 0 15px 40px rgba(0,0,0,0.05); }
+        .video-promo video { width: 100%; border-radius: 15px; }
+        .video-text h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--acento); }
+        .precio-cancion { font-size: 2.2rem; color: var(--primario); font-weight: 700; margin: 15px 0; display: block; }
 
-        .footer-cta { margin-top: 60px; text-align: center; padding: 60px 20px; background: white; border-top: 1px solid #f0e4e6; }
-        .footer-cta h3 { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; margin-bottom: 10px; }
+        /* CHART COMPARATIVO */
+        .chart-wrapper { background: white; border-radius: 20px; overflow-x: auto; box-shadow: 0 15px 40px rgba(0,0,0,0.08); margin-top: 50px; }
+        .chart-table { width: 100%; border-collapse: collapse; min-width: 650px; }
+        .chart-table th { padding: 30px 15px; background: #fffcfd; border-bottom: 3px solid var(--primario); }
+        .chart-table td { padding: 15px 10px; text-align: center; border-bottom: 1px solid #f0f0f0; font-size: 0.85rem; }
+        .feature-label { text-align: left !important; padding-left: 40px !important; font-weight: 600; color: #444; width: 35%; }
+        .pkg-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; margin: 0; color: var(--acento); }
+        .pkg-price { display: block; color: var(--primario); font-weight: 700; }
+        .check { color: #2ecc71; font-size: 1.3rem; font-weight: bold; }
+        .cross { color: #e74c3c; font-size: 1.3rem; font-weight: bold; }
 
-        @media (max-width: 600px) {
-            .logo-text { font-size: 2rem; }
-            .card-img { height: 350px; }
-            .btn-regresar { padding: 8px 12px; font-size: 0.6rem; }
+        .footer-cta { text-align: center; padding: 60px 20px; background: white; border-top: 1px solid #eee; margin-top: 50px; }
+
+        @media (max-width: 768px) {
+            .video-promo { grid-template-columns: 1fr; text-align: center; }
         }
     </style>
 </head>
 <body oncontextmenu="return false;">
 
-    <a href="javascript:history.back()" class="btn-regresar">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="19" y1="12" x2="5" y2="12"></line>
-            <polyline points="12 19 5 12 12 5"></polyline>
-        </svg>
-        VOLVER
-    </a>
+    <a href="javascript:history.back()" class="btn-regresar">VOLVER</a>
 
     <header>
         <h1 class="logo-text">Mi Gran Día</h1>
@@ -116,63 +93,93 @@
     </header>
 
     <div class="container">
+        <div class="oferta-banner">🔥 OFERTA POR TIEMPO LIMITADO EN TODOS LOS MODELOS 🔥</div>
+
         <div class="grid-modelos">
-            
             <div class="card">
-                <img id="img-estandar" src="" alt="XV Estandar" class="card-img">
+                <img id="img-estandar" class="card-img">
                 <div class="card-info">
-                    <span class="tag-categoria">Esencial</span>
-                    <h2 class="card-title">Estilo Sweet</h2>
-                    <p class="card-desc">Diseño fresco y moderno. Ideal para compartir los detalles básicos de tu gran fiesta.</p>
+                    <span style="font-size: 0.7rem; letter-spacing: 2px; color: #888;">ESTILO SWEET</span>
+                    <span class="precio-tag">$299 MX/P</span>
                     <a id="link-estandar" href="#" class="btn-ver">VER MODELO</a>
                 </div>
             </div>
-
-            <div class="card" style="border: 1px solid var(--primario);">
-                <img id="img-premium" src="" alt="XV Premium" class="card-img">
+            <div class="card" style="border: 2px solid var(--primario);">
+                <img id="img-premium" class="card-img">
                 <div class="card-info">
-                    <span class="tag-categoria">Más Popular</span>
-                    <h2 class="card-title">Estilo Sparkle</h2>
-                    <p class="card-desc">Incluye cuenta regresiva, efectos de brillo y sección especial para tu Dress Code.</p>
+                    <span style="font-size: 0.7rem; letter-spacing: 2px; color: var(--primario); font-weight: bold;">MÁS POPULAR</span>
+                    <span class="precio-tag">$399 MX/P</span>
                     <a id="link-premium" href="#" class="btn-ver">VER MODELO</a>
                 </div>
             </div>
-
             <div class="card">
-                <img id="img-vip" src="" alt="XV VIP" class="card-img">
+                <img id="img-vip" class="card-img">
                 <div class="card-info">
-                    <span class="tag-categoria">Exclusivo</span>
-                    <h2 class="card-title">Estilo Gala</h2>
-                    <p class="card-desc">La experiencia total: Música, galería de fotos tipo revista y confirmación instantánea.</p>
+                    <span style="font-size: 0.7rem; letter-spacing: 2px; color: #888;">ESTILO GALA</span>
+                    <span class="precio-tag">$499 MX/P</span>
                     <a id="link-vip" href="#" class="btn-ver">VER MODELO</a>
                 </div>
             </div>
-
         </div>
+
+        <div class="video-promo">
+            <div>
+                <video controls poster="https://www.dropbox.com/scl/fi/7xqcc54jy4qtpgcmn0zhx/logo.png?rlkey=mwuejhlyagpz2r92gestu6yd2&raw=1">
+                    <source src="https://www.dropbox.com/scl/fi/x85qmt0ev2pz1dw97cyc5/Cancion-Perzonalizada.mp4?rlkey=zwtmpv5y76bl0faeokig1qtkn&raw=1" type="video/mp4">
+                </video>
+            </div>
+            <div class="video-text">
+                <h2>Tu propia canción personalizada</h2>
+                <p>Una melodía exclusiva que narra tu ilusión de llegar a los quince años con tu propio nombre.</p>
+                <span class="precio-cancion">$199 MX/P</span>
+                <a href="https://wa.me/525654252153?text=Hola!%20Me%20interesa%20la%20canción%20personalizada" class="btn-ver" style="background: var(--acento); width: auto; padding: 15px 40px;">MÁS INFORMACIÓN</a>
+            </div>
+        </div>
+
+        <div class="chart-wrapper">
+            <table class="chart-table">
+                <thead>
+                    <tr>
+                        <th style="text-align: left; padding-left: 40px; font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--primario);">Servicios...</th>
+                        <th><p class="pkg-name">ESTÁNDAR</p><span class="pkg-price">$299</span></th>
+                        <th><p class="pkg-name">PREMIUM</p><span class="pkg-price">$399</span></th>
+                        <th><p class="pkg-name">VIP</p><span class="pkg-price">$499</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="feature-label">Diseño Digital Responsivo</td><td class="check">✔</td><td class="check">✔</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Ubicación GPS Fiesta</td><td class="check">✔</td><td class="check">✔</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Confirmación WhatsApp</td><td class="check">✔</td><td class="check">✔</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Cuenta Regresiva</td><td class="cross">✘</td><td class="check">✔</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Mesa de Regalos / Banco</td><td class="cross">✘</td><td class="check">✔</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Música de Fondo</td><td class="cross">✘</td><td class="check">✔</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Itinerario de la Quinceañera</td><td class="cross">✘</td><td class="check">✔</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Ubicación Hotel (GPS)</td><td class="cross">✘</td><td class="cross">✘</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Ubicación Misa / Iglesia</td><td class="cross">✘</td><td class="check">✔</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Código de Vestimenta</td><td class="cross">✘</td><td class="cross">✘</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Lluvia de Sobres</td><td class="cross">✘</td><td class="check">✔</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Música Personalizada</td><td class="cross">✘</td><td class="check">✔</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Galería de Fotos</td><td style="color:#888;">(2)</td><td class="check">✔ (3)</td><td class="check">✔ (4)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
     </div>
 
     <section class="footer-cta">
-        <h3>¿Hacemos realidad tu invitación?</h3>
-        <p>Personalizamos cada detalle a tu gusto y color de vestido.</p>
-        <a id="btn-whatsapp" href="#" class="btn-ver" style="background: #25d366;">SOLICITAR INFORMES</a>
+        <h3>¿Lista para tus quince?</h3>
+        <p>Escríbenos y elige el modelo que mejor combine con tu vestido.</p>
+        <a id="btn-whatsapp" href="#" class="btn-ver" style="background: #25d366; width: auto; padding: 15px 40px;">MANDAR MENSAJE PARA MÁS INFORMACIÓN</a>
     </section>
 
     <script>
         document.getElementById('img-estandar').src = CONFIG.img_estandar;
         document.getElementById('img-premium').src = CONFIG.img_premium;
         document.getElementById('img-vip').src = CONFIG.img_vip;
-        
         document.getElementById('link-estandar').href = CONFIG.modelo_estandar_url;
         document.getElementById('link-premium').href = CONFIG.modelo_premium_url;
         document.getElementById('link-vip').href = CONFIG.modelo_vip_url;
-        
         document.getElementById('btn-whatsapp').href = CONFIG.whatsapp_contacto;
-
-        document.onkeydown = function(e) {
-            if(e.keyCode == 123 || (e.ctrlKey && (e.keyCode == 85 || e.keyCode == 83))) {
-                return false;
-            }
-        };
     </script>
 </body>
 </html>
