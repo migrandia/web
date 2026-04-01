@@ -28,6 +28,44 @@
             text-align: center;
         }
 
+        /* --- ESTILO BOTÓN VOLVER EDITORIAL --- */
+        .btn-regresar-editorial {
+            position: fixed;
+            top: 25px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            color: var(--taupe);
+            padding: 10px 18px;
+            text-decoration: none;
+            font-size: 0.65rem;
+            font-weight: 400;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            border: 1px solid rgba(74, 74, 74, 0.2);
+            display: flex;
+            align-items: center;
+            transition: all 0.5s ease;
+        }
+
+        .btn-regresar-editorial:hover {
+            background: var(--taupe);
+            color: white;
+            letter-spacing: 5px;
+            border-color: var(--taupe);
+        }
+
+        .btn-regresar-editorial svg { 
+            margin-right: 10px;
+            transition: transform 0.5s ease;
+        }
+
+        .btn-regresar-editorial:hover svg {
+            transform: translateX(-5px);
+        }
+
         .editorial-wrapper {
             max-width: var(--ancho-max);
             margin: 0 auto;
@@ -83,7 +121,7 @@
         }
 
         .frase-premium {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Bodoni Moda', serif;
             font-style: italic;
             font-size: 1.25rem;
             line-height: 1.7;
@@ -179,10 +217,33 @@
             border-radius: 2px;
             width: 80%;
             box-sizing: border-box;
+            transition: 0.3s;
+        }
+
+        .btn-rsvp:hover {
+            opacity: 0.9;
+            letter-spacing: 4px;
+        }
+
+        @media (max-width: 480px) {
+            .btn-regresar-editorial {
+                top: 15px;
+                left: 15px;
+                padding: 8px 14px;
+                font-size: 0.6rem;
+            }
         }
     </style>
 </head>
 <body oncontextmenu="return false;">
+
+    <a href="javascript:history.back()" class="btn-regresar-editorial">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+        Volver
+    </a>
 
     <div class="editorial-wrapper">
         
