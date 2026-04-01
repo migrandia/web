@@ -8,13 +8,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Poppins:wght@300;600&family=Pacifico&display=swap" rel="stylesheet">
     
     <style>
-        /* Definición de colores pasteles y variables */
         :root {
-            --azul-bebe: #d7eefb;
+            --azul-fuerte: #4dabf7;
+            --azul-suave: #d7eefb;
+            --rosa-fuerte: #ff8fa3;
             --rosa-pastel: #fce1e4;
-            --verde-menta: #e0f2f1;
-            --texto: #5a5a5a;
-            --dorado: #c5a059;
+            --verde-boton: #4db6ac;
+            --texto: #444;
+            --dorado: #b8860b;
             --blanco: #ffffff;
         }
 
@@ -22,26 +23,24 @@
             margin: 0;
             padding: 0;
             font-family: 'Poppins', sans-serif;
-            background-color: #f4f4f4;
+            background-color: #eef2f3;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
         }
 
-        /* Contenedor principal estilo tarjeta móvil */
         .invitation-card {
             width: 100%;
-            max-width: 450px; /* Tamaño perfecto para celulares */
-            background-color: var(--blanco);
+            max-width: 450px;
+            background: linear-gradient(135deg, var(--azul-suave) 0%, var(--blanco) 50%, var(--rosa-pastel) 100%);
             border-radius: 30px;
             overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
             position: relative;
-            border: 8px solid var(--blanco);
+            border: 4px solid var(--blanco);
         }
 
-        /* Imagen de cabecera (la que me pasaste) */
         .header-image {
             width: 100%;
             height: 250px;
@@ -51,193 +50,188 @@
             position: relative;
         }
 
-        /* Superposición decorativa suave sobre la imagen */
         .header-image::after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 50%;
-            background: linear-gradient(to top, var(--blanco), transparent);
+            height: 60px;
+            background: linear-gradient(to top, rgba(255,255,255,0.8), transparent);
         }
 
-        /* Cuerpo de la invitación */
         .card-body {
             padding: 30px;
             text-align: center;
             color: var(--texto);
         }
 
-        /* Títulos y textos */
         .encabezado {
-            font-size: 1rem;
+            font-size: 0.9rem;
             letter-spacing: 3px;
             text-transform: uppercase;
-            color: #888;
-            margin-bottom: 10px;
-            font-weight: 300;
+            color: #666;
+            margin-bottom: 5px;
         }
 
         .titulo {
             font-family: 'Pinyon Script', cursive;
-            font-size: 4rem;
+            font-size: 4.5rem;
             color: var(--dorado);
             margin: 0;
-            line-height: 1;
+            line-height: 0.9;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
 
         .subtitulo {
             font-family: 'Pacifico', cursive;
-            font-size: 2.2rem;
-            color: #78a8cf; /* Azul suave */
-            margin: -10px 0 20px 0;
+            font-size: 2.5rem;
+            color: var(--azul-fuerte);
+            margin: 0px 0 20px 0;
         }
 
         .introduccion {
             font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 30px;
-            font-weight: 300;
+            line-height: 1.5;
+            margin-bottom: 25px;
+            background: rgba(255,255,255,0.5);
+            padding: 15px;
+            border-radius: 20px;
         }
 
-        .introduccion strong {
-            color: #e5989b; /* Rosa suave */
+        /* Estilos específicos para los nombres */
+        .nombre-nino {
+            color: var(--azul-fuerte);
             font-weight: 600;
         }
 
-        /* Bloque de detalles (Fecha, Hora, Lugar) */
+        .nombre-nina {
+            color: var(--rosa-fuerte);
+            font-weight: 600;
+        }
+
         .detalles-container {
-            background-color: #fafafa;
-            border-radius: 20px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 25px;
             padding: 20px;
-            margin-bottom: 30px;
-            border: 1px solid #eee;
+            margin-bottom: 25px;
+            border: 2px solid var(--blanco);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
         .detalle-item {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
 
-        .detalle-item:last-child { margin-bottom: 0; }
-
-        .icono {
-            margin-right: 15px;
-            font-size: 1.3rem;
-        }
-
-        /* Botón interactivo de Ubicación (Google Maps) */
         .btn-ubicacion {
             display: inline-block;
-            background-color: var(--verde-menta);
-            color: #2d6a6c;
+            background-color: var(--verde-boton);
+            color: white;
             text-decoration: none;
-            padding: 12px 25px;
+            padding: 14px 28px;
             border-radius: 50px;
             font-weight: 600;
             font-size: 0.9rem;
             margin-top: 10px;
             transition: 0.3s;
-            border: 1px solid #b2dfdb;
+            box-shadow: 0 4px 15px rgba(77, 182, 172, 0.4);
+            border: none;
         }
 
         .btn-ubicacion:hover {
-            background-color: #b2dfdb;
-            transform: translateY(-2px);
+            background-color: #3d968e;
+            transform: scale(1.05);
         }
 
-        /* Sección de confirmación */
         .confirmacion {
-            margin-top: 30px;
+            margin-top: 20px;
             padding-top: 20px;
-            border-top: 1px solid #eee;
+            border-top: 2px dashed rgba(0,0,0,0.1);
         }
 
         .btn-confirmar {
             display: inline-block;
-            background-color: #25D366; /* Color WhatsApp */
+            background-color: #25D366;
             color: white;
             text-decoration: none;
-            padding: 15px 30px;
+            padding: 16px 35px;
             border-radius: 50px;
             font-weight: 600;
-            font-size: 1rem;
-            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+            font-size: 1.1rem;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
             transition: 0.3s;
+            border: none;
         }
 
         .btn-confirmar:hover {
-            box-shadow: 0 6px 15px rgba(37, 211, 102, 0.5);
-            transform: translateY(-2px);
+            background-color: #1ebe57;
+            transform: translateY(-3px);
         }
 
-        /* Decoración de fondo suave */
         .nubes {
             position: absolute;
-            font-size: 5rem;
-            opacity: 0.05;
-            color: var(--azul-bebe);
-            z-index: -1;
+            font-size: 4rem;
+            opacity: 0.15;
+            color: white;
+            z-index: 0;
         }
 
-        /* Adaptación para pantallas muy pequeñas */
         @media (max-width: 370px) {
-            .titulo { font-size: 3rem; }
-            .subtitulo { font-size: 1.8rem; }
-            .introduccion { font-size: 1rem; }
+            .titulo { font-size: 3.5rem; }
+            .subtitulo { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
 
     <div class="invitation-card">
-        <div class="nubes" style="top: 300px; left: 20px;">☁</div>
-        <div class="nubes" style="bottom: 50px; right: 20px;">☁</div>
+        <div class="nubes" style="top: 280px; left: -10px;">☁</div>
+        <div class="nubes" style="bottom: 150px; right: -10px;">☁</div>
 
         <div class="header-image"></div>
 
-        <div class="card-body">
-            <div class="encabezado">ESTÁS INVITADO A UN</div>
+        <div class="card-body" style="position: relative; z-index: 1;">
+            <div class="encabezado">Te invitamos de corazón</div>
             <h1 class="titulo">Mágico</h1>
             <div class="subtitulo">Baby Shower</div>
 
             <p class="introduccion">
-                Acompáñanos a celebrar la dulce espera de nuestros pequeños: <br>
-                <strong>[NOMBRE DEL NIÑO] & [NOMBRE DE LA NIÑA]</strong><br>
-                ¡Estamos felices y queremos compartir esta alegría contigo!
+                Acompáñanos a celebrar la dulce espera de: <br>
+                <span class="nombre-nino">[NIÑO ?]</span> O <span class="nombre-nina">[NIÑA?]</span><br>
+                ¡Cada detalle está hecho con amor para recibirlos!
             </p>
 
             <div class="detalles-container">
                 <div class="detalle-item">
-                    <span class="icono">📅</span>
+                    <span style="margin-right:10px">📅</span>
                     <span><strong>Sábado, 15 de Mayo, 2024</strong></span>
                 </div>
                 <div class="detalle-item">
-                    <span class="icono">🕒</span>
+                    <span style="margin-right:10px">🕒</span>
                     <span>16:00 HRS (4:00 PM)</span>
                 </div>
                 <div class="detalle-item">
-                    <span class="icono">📍</span>
-                    <span>Salón "Jardín de Ensueño"<br>Av. Principal #123, Ciudad.</span>
+                    <span style="margin-right:10px">📍</span>
+                    <span>Salón "Jardín de Ensueño"<br>Av. Principal #123</span>
                 </div>
-                <a href="https://maps.app.goo.gl/tu_enlace_aqui" target="_blank" class="btn-ubicacion">
-                    📍 VER UBICACIÓN EN MAPA
+                
+                <a href="https://maps.google.com" target="_blank" class="btn-ubicacion">
+                    📍 VER MAPA DE LA FIESTA
                 </a>
             </div>
 
-            <p style="font-size: 0.9rem; color: #888; margin-bottom: 20px;">
-                🎁 Sugerencia de regalos: Pañales, ropa (0-3 meses) o lluvia de sobres.<br>
-                Liverpool o Amazon: Evento #[Número]
+            <p style="font-size: 0.85rem; color: #777; margin-bottom: 20px; font-style: italic;">
+                🎁 Sugerencia: Lluvia de sobres o pañales etapa 2.
             </p>
 
             <div class="confirmacion">
-                <p style="margin-bottom: 15px; font-size: 1rem;">Por favor, confirma tu asistencia antes del 1 de Mayo:</p>
-                <a href="https://wa.me/521234567890?text=Hola!%20Confirmo%20mi%20asistencia%20al%20Baby%20Shower" class="btn-confirmar">
-                    💬 CONFIRMAR POR WHATSAPP
+                <p style="margin-bottom: 15px; font-size: 0.9rem; font-weight: 600;">¿Nos acompañas? Confirma aquí:</p>
+                <a href="https://wa.me/521234567890?text=Hola!%20Confirmo%20mi%20asistencia" class="btn-confirmar">
+                    💬 CONFIRMAR ASISTENCIA
                 </a>
             </div>
 
