@@ -25,9 +25,36 @@
             background-color: #fff5f8;
             font-family: 'Montserrat', sans-serif;
             text-align: center;
-            /* PROTECCIÓN: Evita selección de texto */
             -webkit-user-select: none;
             user-select: none;
+        }
+
+        /* BOTÓN REGRESAR */
+        .btn-regresar {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background-color: var(--crema);
+            color: var(--oro-real);
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            border: 1px solid var(--oro-real);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .btn-regresar:hover {
+            background-color: var(--oro-real);
+            color: white;
+            transform: translateX(-3px);
         }
 
         .wrapper {
@@ -41,7 +68,6 @@
             overflow: hidden;
         }
 
-        /* CONTENEDOR DE IMAGEN CON CAPA PROTECTORA */
         .img-protection-container {
             position: relative;
             display: inline-block;
@@ -49,7 +75,6 @@
             line-height: 0;
         }
 
-        /* Capa invisible que bloquea el clic directo en la imagen */
         .img-protection-container::after {
             content: '';
             position: absolute;
@@ -162,6 +187,10 @@
 </head>
 <body oncontextmenu="return false;">
 
+    <a href="javascript:history.back()" class="btn-regresar">
+        ⬅ Regresar
+    </a>
+
     <div class="wrapper">
         
         <div class="header">
@@ -211,17 +240,14 @@
     </div>
 
     <script>
-        // Bloqueo de teclado (F12, Ctrl+U, Ctrl+C, Ctrl+S)
         document.onkeydown = function(e) {
             if(e.keyCode == 123 || (e.ctrlKey && (e.keyCode == 85 || e.keyCode == 83 || e.keyCode == 67 || e.keyCode == 73))) {
                 return false;
             }
         };
 
-        // Bloqueo de arrastre de imágenes
         document.addEventListener('dragstart', function (e) { e.preventDefault(); }, false);
 
-        // Contador Funcional
         function timer() {
             const dest = new Date("March 14, 2027 16:00:00").getTime();
             const now = new Date().getTime();
