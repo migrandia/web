@@ -4,253 +4,245 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Bautizo | Sofía Valentina</title>
-    <meta property="og:title" content="¡Estás invitado al Bautizo de Sofía Valentina!">
-    <meta property="og:description" content="Acompáñanos este 24 de Octubre de 2026. Haz clic para ver los detalles.">
+    <title>Bautizo VIP | Sofía Valentina</title>
+    
+    <meta property="og:title" content="Invitación Exclusiva: Bautizo de Sofía Valentina">
+    <meta property="og:description" content="Acompáñanos este 24 de Octubre de 2026.">
     <meta property="og:image" content="https://www.dropbox.com/scl/fi/9avggx6ox57b9tkq9enxc/bautizo1.png?rlkey=xe50yu0f36p6uixsddj7mqs25&raw=1">
-    <meta property="og:type" content="website">
-    <link rel="apple-touch-icon" href="https://www.dropbox.com/scl/fi/9avggx6ox57b9tkq9enxc/bautizo1.png?rlkey=xe50yu0f36p6uixsddj7mqs25&raw=1">
 
     <script>
         const CONFIG = {
             fecha_countdown: "Oct 24, 2026 12:00:00", 
             fecha_texto_largo: "Sábado, 24 de Octubre de 2026",
             nombre_bebe: "Sofía Valentina",
-            frase_biblica: "En tus manos, Señor, pongo mi vida y mi camino.",
-            texto_invitacion: "Queremos compartir la alegría del bautizo de nuestra pequeña. Tu presencia es nuestro mejor regalo.",
+            frase_biblica: "«En tus manos, Señor, pongo mi vida y mi camino.»",
             papas: "Roberto & Lucía",
             padrinos: "Carlos & Elena",
             iglesia_nombre: "Parroquia de San Juan Bautista",
             iglesia_hora: "12:00 PM",
             salon_nombre: "Quinta Las Palmas",
             salon_hora: "02:30 PM",
-            iti_titulo: "Nuestro Itinerario",
-            iti_1: "12:00 PM - Ceremonia Religiosa",
-            iti_2: "02:30 PM - Recepción y Comida",
-            iti_3: "04:30 PM - Pastel y Mesa de Dulces",
-            vest_titulo: "Código de Vestimenta",
-            vest_tipo: "Formal / Guayabera",
-            vest_nota: "Sugerencia: Colores claros o pasteles",
-            sobres_titulo: "Lluvia de Sobres",
-            sobres_texto: "Su presencia es nuestro mayor regalo, pero si desean tener un detalle, contaremos con un buzón para sobres en la recepción.",
             mapa_iglesia: "https://maps.google.com",
             mapa_salon: "https://maps.google.com",
-            link_hospedaje: "https://migrandia.github.io/hotel-bautizo/",
             link_regalos: "https://mesaderegalos.liverpool.com.mx/",
             whatsapp_confirmar: "https://wa.me/521234567890?text=Confirmo%20asistencia",
             link_musica: "https://www.dropbox.com/scl/fi/80hypdxkg24wx6x7oael2/En-Tus-Manos-Se-or.mp3?rlkey=j4di62c9sgj4txgwbpikcngp3&raw=1",
             foto_1: "https://www.dropbox.com/scl/fi/9avggx6ox57b9tkq9enxc/bautizo1.png?rlkey=xe50yu0f36p6uixsddj7mqs25&raw=1",
             foto_2: "https://www.dropbox.com/scl/fi/amq1vsm698rsf1daimlr6/bautizo2.png?rlkey=z2d7is02ys38pl6rd85cbmorz&raw=1",
             foto_3: "https://www.dropbox.com/scl/fi/tlg7mvb8lfoe4tmvuhooo/bautizo31.jpg?rlkey=2b1tqc59dp9law24w9wpfav6n&raw=1",
-            foto_4: "https://www.dropbox.com/scl/fi/19bv17jgagbs4sd6k7wxe/bautizo41.jpg?rlkey=nogetjdj9gxp8tyqo76gev7ex&raw=1",
-            color_primario: "#d4b483", 
-            color_texto: "#2d2d2d",    
-            color_fondo_seccion: "#fdfaf8",
-            fuente_elegante: "'Cormorant Garamond', serif",
-            fuente_moderna: "'Montserrat', sans-serif"
+            foto_4: "https://www.dropbox.com/scl/fi/19bv17jgagbs4sd6k7wxe/bautizo41.jpg?rlkey=nogetjdj9gxp8tyqo76gev7ex&raw=1"
         };
     </script>
 
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&family=Montserrat:wght@200;400;700&display=swap" rel="stylesheet">
     
     <style>
-        :root { --oro: #d4b483; --texto: #2d2d2d; --bloque: #fdfaf8; --fuente-e: 'Cormorant Garamond', serif; --fuente-m: 'Montserrat', sans-serif; }
-        body, html { margin: 0; padding: 0; background-color: #1a1a1a; color: var(--texto); font-family: var(--fuente-m); overflow-x: hidden; text-align: center; scroll-behavior: smooth;}
+        :root { --oro: #d4b483; --texto: #2d2d2d; --fuente-e: 'Cormorant Garamond', serif; --fuente-m: 'Montserrat', sans-serif; }
         
-        .invitation-container { max-width: 480px; margin: 0 auto; background-color: #fff; box-shadow: 0 0 50px rgba(0,0,0,0.5); }
-        
-        /* AJUSTE PARA QUE LA FOTO NO SE CORTE */
+        body, html { margin: 0; padding: 0; background-color: #0c0c0c; color: var(--texto); font-family: var(--fuente-m); overflow-x: hidden; scroll-behavior: smooth; text-align: center; }
+
+        /* PRELOADER VIP */
+        #preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #fff; z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 1s ease; }
+        .sobre-icon { width: 80px; fill: var(--oro); animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); opacity: 0.5; } 50% { transform: scale(1.1); opacity: 1; } 100% { transform: scale(1); opacity: 0.5; } }
+
+        /* BOTÓN REGRESAR */
+        .btn-regresar { position: fixed; top: 20px; left: 20px; z-index: 1001; background: rgba(255,255,255,0.9); border: 1px solid var(--oro); color: var(--oro); padding: 8px 15px; border-radius: 2px; text-decoration: none; font-size: 0.6rem; letter-spacing: 2px; font-weight: bold; backdrop-filter: blur(5px); }
+
+        .container { max-width: 480px; margin: 0 auto; background: #fff; box-shadow: 0 0 100px rgba(0,0,0,0.8); position: relative; }
+
+        /* PARALLAX VIP */
         .parallax { 
-            width: 100%;
-            height: 80vh; 
-            background-attachment: fixed; 
-            background-position: center; 
-            background-size: cover; 
-            background-repeat: no-repeat;
-            position: relative; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
+            width: 100%; height: 90vh; background-attachment: fixed; background-position: center; background-size: cover; background-repeat: no-repeat;
+            position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden;
         }
+        @media (max-width: 768px) { .parallax { background-attachment: scroll; height: 75vh; } }
 
-        /* Corrección específica para escritorio */
-        @media (min-width: 768px) {
-            .parallax { background-attachment: scroll; height: 600px; }
-        }
+        .overlay { position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.6)); z-index: 1; }
+        .hero-content { z-index: 2; color: #fff; padding: 20px; }
+        .hero-content h1 { font-family: var(--fuente-e); font-size: 4rem; margin: 0; font-weight: 300; line-height: 1; text-shadow: 0 4px 20px rgba(0,0,0,0.4); }
+        .hero-content p { font-size: 0.8rem; letter-spacing: 8px; text-transform: uppercase; margin-bottom: 20px; opacity: 0.9; }
 
-        #img-1::after { content: ""; position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.3); z-index: 1; }
+        section { padding: 80px 30px; position: relative; }
+        .gold-divider { width: 60px; height: 1px; background: var(--oro); margin: 30px auto; }
+
+        h2.seccion { font-family: var(--fuente-e); font-size: 2.5rem; color: var(--texto); font-weight: 400; margin-bottom: 15px; }
+
+        .details-card { background: #fdfaf8; border: 1px solid #f0e9e2; padding: 40px 20px; border-radius: 4px; margin-bottom: 40px; }
+        .details-card h3 { color: var(--oro); font-size: 0.7rem; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 20px; }
+
+        /* CONTADOR VIP */
+        .countdown { display: flex; justify-content: center; gap: 10px; margin-top: 30px; }
+        .count-box { background: #fff; border: 1px solid #eee; padding: 15px; min-width: 65px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+        .count-box span { display: block; }
+        .num { font-size: 1.8rem; font-family: var(--fuente-e); color: var(--oro); font-weight: bold; }
+        .lab { font-size: 0.5rem; letter-spacing: 2px; color: #aaa; text-transform: uppercase; }
+
+        /* BOTONES VIP */
+        .btn-vip { display: block; width: 85%; margin: 15px auto; padding: 18px; border: 1px solid var(--oro); color: var(--oro); text-decoration: none; font-size: 0.7rem; font-weight: bold; letter-spacing: 3px; text-transform: uppercase; transition: 0.5s; position: relative; overflow: hidden; }
+        .btn-vip:hover { background: var(--oro); color: #fff; }
         
-        h1.nombre-portada { font-family: var(--fuente-e); font-size: 3.5rem; color: white; z-index: 2; text-shadow: 0 2px 15px rgba(0,0,0,0.5); margin: 0; font-weight: 300; }
-        .bautizo-txt { font-size: 0.8rem; letter-spacing: 6px; color: white; z-index: 2; margin-bottom: 10px; font-weight: bold; }
+        .btn-confirm { background: var(--oro); color: #fff; border: none; padding: 22px; font-size: 0.8rem; box-shadow: 0 15px 35px rgba(212,180,131,0.3); }
 
-        section { padding: 60px 20px; background: white; }
-        h2.seccion { font-family: var(--fuente-e); font-size: 2.2rem; color: var(--texto); margin-bottom: 20px; font-weight: 600;}
-        
-        .details-box { background: var(--bloque); padding: 30px 20px; border-radius: 15px; border: 1px solid #eee; margin: 15px 0; }
-        
-        .countdown-container { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
-        .count-item { background: white; border: 1px solid var(--oro); border-radius: 10px; padding: 10px; min-width: 60px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        .count-num { display: block; font-size: 1.5rem; font-weight: bold; color: var(--oro); font-family: var(--fuente-e); }
-        .count-lab { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 1px; color: #888; }
+        #music-control { position: fixed; bottom: 30px; right: 30px; z-index: 1000; width: 45px; height: 45px; background: rgba(255,255,255,0.9); border: 1px solid var(--oro); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
 
-        .btn-menu { display: block; padding: 15px 5px; border: 1px solid var(--oro); color: var(--oro); text-decoration: none; font-weight: bold; font-size: 0.7rem; letter-spacing: 2px; border-radius: 30px; text-transform: uppercase; margin: 10px auto; width: 80%; transition: 0.3s; }
-        .btn-confirm { background: var(--oro); color: white; width: 85%; margin: 30px auto; padding: 20px; display: block; text-decoration: none; border-radius: 40px; font-weight: bold; letter-spacing: 2px; box-shadow: 0 4px 15px rgba(212,180,131,0.4); }
-
-        #music-btn { position: fixed; bottom: 20px; right: 20px; z-index: 1000; width: 50px; height: 50px; background: var(--oro); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid white; cursor: pointer; }
-        
-        .img-final { width: 100%; height: auto; display: block; margin-bottom: 20px; }
+        .img-container { width: 100%; line-height: 0; }
+        .img-container img { width: 100%; height: auto; display: block; margin: 0; padding: 0; border: none; }
     </style>
 </head>
-<body>
+<body onload="init()">
 
-    <div id="music-btn" onclick="controlMusica()">
-        <svg id="play-svg" width="24" fill="white" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-        <svg id="pause-svg" width="24" fill="white" viewBox="0 0 24 24" style="display:none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+    <div id="preloader">
+        <svg class="sobre-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        <p style="letter-spacing: 4px; font-size: 0.6rem; color: var(--oro); margin-top: 15px;">CARGANDO INVITACIÓN</p>
+    </div>
+
+    <a href="javascript:history.back()" class="btn-regresar">REGRESAR</a>
+
+    <div id="music-control" onclick="toggleMusic()">
+        <svg id="p-play" width="18" fill="#d4b483" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        <svg id="p-pause" width="18" fill="#d4b483" viewBox="0 0 24 24" style="display:none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
     </div>
     <audio id="track" loop><source id="audio-src" src="" type="audio/mpeg"></audio>
 
-    <div class="invitation-container">
+    <div class="container">
         
         <div id="img-1" class="parallax">
-            <div style="z-index: 2;">
-                <p class="bautizo-txt">MI BAUTIZO</p>
-                <h1 id="baby-name" class="nombre-portada"></h1>
+            <div class="overlay"></div>
+            <div class="hero-content">
+                <p>Nuestra Gran Bendición</p>
+                <h1 id="baby-name"></h1>
             </div>
         </div>
 
-        <section>
-            <span style="font-size: 2.5rem; color: var(--oro);">†</span>
-            <p id="frase" style="font-family: var(--fuente-e); font-style: italic; font-size: 1.5rem; color: #555;"></p>
+        <section style="background: #fff;">
+            <p id="frase" style="font-family: var(--fuente-e); font-style: italic; font-size: 1.8rem; color: #444; max-width: 80%; margin: 0 auto; line-height: 1.4;"></p>
+            <div class="gold-divider"></div>
             
-            <div style="margin-top: 40px;">
-                <p style="font-size: 0.8rem; letter-spacing: 3px; color: var(--oro); font-weight: bold; margin-bottom: 5px;">ACOMPÁÑANOS EL</p>
-                <h2 id="txt-fecha-larga" style="font-family: var(--fuente-e); font-size: 1.6rem; margin: 10px 0;"></h2>
-                <div class="countdown-container">
-                    <div class="count-item"><span id="days" class="count-num">00</span><span class="count-lab">Días</span></div>
-                    <div class="count-item"><span id="hours" class="count-num">00</span><span class="count-lab">Hrs</span></div>
-                    <div class="count-item"><span id="minutes" class="count-num">00</span><span class="count-lab">Min</span></div>
-                    <div class="count-item"><span id="seconds" class="count-num">00</span><span class="count-lab">Seg</span></div>
-                </div>
+            <p style="font-size: 0.7rem; letter-spacing: 4px; color: var(--oro); font-weight: bold;">SÁBADO · OCTUBRE · 2026</p>
+            <h2 id="txt-fecha-larga" style="font-size: 1.5rem; margin: 15px 0;"></h2>
+            
+            <div class="countdown">
+                <div class="count-box"><span id="days" class="num">00</span><span class="lab">Días</span></div>
+                <div class="count-box"><span id="hours" class="num">00</span><span class="lab">Hrs</span></div>
+                <div class="count-box"><span id="minutes" class="num">00</span><span class="lab">Min</span></div>
+                <div class="count-box"><span id="seconds" class="num">00</span><span class="lab">Seg</span></div>
             </div>
         </section>
 
-        <div id="img-2" class="parallax"></div>
+        <div id="img-2" class="parallax" style="height: 60vh;"></div>
 
-        <section style="background: var(--bloque);">
+        <section style="background: #fdfaf8;">
             <h2 class="seccion">Nuestra Familia</h2>
-            <p style="font-size: 0.7rem; letter-spacing: 2px; color: #888;">MIS PADRES</p>
-            <p id="p-names" style="font-size: 1.3rem; margin-top: 5px;"></p>
-            <div class="padrinos-box" style="background: white; padding: 20px; border-radius: 10px; margin-top: 20px;">
-                <p style="font-size: 0.7rem; letter-spacing: 2px; color: var(--oro); font-weight: bold; margin: 0;">MIS PADRINOS</p>
-                <p id="g-names" style="font-size: 1.5rem; font-family: var(--fuente-e); font-weight: 600; margin-top: 10px;"></p>
+            <p style="font-size: 0.7rem; letter-spacing: 2px; color: #888; text-transform: uppercase;">Mis Padres</p>
+            <p id="p-names" style="font-size: 1.4rem; font-family: var(--fuente-e); margin-top: 5px;"></p>
+            
+            <div style="margin: 40px 0;">
+                <p style="font-size: 0.7rem; letter-spacing: 3px; color: var(--oro); font-weight: bold;">MIS PADRINOS</p>
+                <p id="g-names" style="font-size: 1.8rem; font-family: var(--fuente-e); font-weight: 600;"></p>
             </div>
         </section>
 
-        <div id="img-3" class="parallax"></div>
+        <div id="img-3" class="parallax" style="height: 60vh;"></div>
 
         <section>
-            <h2 class="seccion">¿Dónde y Cuándo?</h2>
-            <div class="details-box">
-                <p style="color: var(--oro); font-weight: bold; letter-spacing: 2px;">⛪ CEREMONIA</p>
-                <p id="iglesia" style="font-weight: bold; margin-top: 10px;"></p>
-                <p id="hora-i" style="font-size: 1.8rem; font-family: var(--fuente-e); color: var(--oro); margin: 5px 0; font-weight: bold;"></p>
-                <a id="mapa-i" href="#" target="_blank" class="btn-menu">VER UBICACIÓN</a>
+            <h2 class="seccion">Ubicación</h2>
+            
+            <div class="details-card">
+                <h3>⛪ Ceremonia Religiosa</h3>
+                <p id="iglesia" style="font-weight: 600; font-size: 1.1rem;"></p>
+                <p id="hora-i" style="font-size: 2rem; font-family: var(--fuente-e); color: var(--oro); margin: 10px 0;"></p>
+                <a id="mapa-i" href="#" target="_blank" class="btn-vip">Ver Mapa</a>
             </div>
-            <div class="details-box">
-                <p style="color: var(--oro); font-weight: bold; letter-spacing: 2px;">🎉 RECEPCIÓN</p>
-                <p id="salon" style="font-weight: bold; margin-top: 10px;"></p>
-                <p id="hora-s" style="font-size: 1.8rem; font-family: var(--fuente-e); color: var(--oro); margin: 5px 0; font-weight: bold;"></p>
-                <a id="mapa-s" href="#" target="_blank" class="btn-menu">VER UBICACIÓN</a>
+
+            <div class="details-card">
+                <h3>🎉 Recepción</h3>
+                <p id="salon" style="font-weight: 600; font-size: 1.1rem;"></p>
+                <p id="hora-s" style="font-size: 2rem; font-family: var(--fuente-e); color: var(--oro); margin: 10px 0;"></p>
+                <a id="mapa-s" href="#" target="_blank" class="btn-vip">Ver Mapa</a>
             </div>
         </section>
 
-        <div id="img-4" class="parallax"></div>
+        <div id="img-4" class="parallax" style="height: 70vh;"></div>
 
         <section style="padding-bottom: 0;">
             <h2 class="seccion">Te Esperamos</h2>
-            <p style="font-size: 0.9rem; line-height: 1.6; color: #555; max-width: 90%; margin: 0 auto 30px;">
-                Su presencia es nuestro mayor regalo, pero si desean tener un detalle, contaremos con una mesa de regalos o lluvia de sobres.
+            <p style="font-size: 0.9rem; color: #666; line-height: 1.8; max-width: 85%; margin: 0 auto 40px;">
+                Tu presencia es el mayor regalo que podemos recibir. Si deseas tener un detalle, contaremos con mesa de regalos o lluvia de sobres.
             </p>
-            <img id="ultima-foto" src="" class="img-final" alt="Sofía Valentina">
+            <div class="img-container">
+                <img id="ultima-foto" src="" alt="Invitación Bautizo">
+            </div>
         </section>
 
-        <section>
-            <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
-                <a id="btn-hotel" href="#" target="_blank" class="btn-menu" style="width: 42%;">🏨 HOSPEDAJE</a>
-                <a id="btn-gifts" href="#" target="_blank" class="btn-menu" style="width: 42%;">🎁 REGALOS</a>
-            </div>
-            <a id="btn-wa" href="#" target="_blank" class="btn-confirm">📲 CONFIRMAR ASISTENCIA</a>
-            <p id="footer-name" style="margin-top: 50px; font-family: var(--fuente-e); font-size: 2.2rem; color: var(--oro);"></p>
+        <section style="background: #fdfaf8;">
+            <a id="btn-gifts" href="#" target="_blank" class="btn-vip">🎁 Mesa de Regalos</a>
+            <a id="btn-wa" href="#" target="_blank" class="btn-vip btn-confirm">Confirmar Asistencia</a>
+            <p id="footer-name" style="margin-top: 60px; font-family: var(--fuente-e); font-size: 2.5rem; color: var(--oro); opacity: 0.8;"></p>
+            <p style="font-size: 0.6rem; letter-spacing: 3px; color: #bbb; margin-top: 10px;">OCTUBRE 2026</p>
         </section>
     </div>
 
     <script>
-        // CARGAR CONFIGURACIÓN
-        const r = document.documentElement.style;
-        r.setProperty('--oro', CONFIG.color_primario);
-        r.setProperty('--texto', CONFIG.color_texto);
-        r.setProperty('--bloque', CONFIG.color_fondo_seccion);
-        r.setProperty('--fuente-e', CONFIG.fuente_elegante);
-        r.setProperty('--fuente-m', CONFIG.fuente_moderna);
+        function init() {
+            setTimeout(() => {
+                const loader = document.getElementById('preloader');
+                loader.style.opacity = '0';
+                setTimeout(() => loader.style.display = 'none', 1000);
+            }, 1500);
+            
+            // Cargar Datos
+            document.getElementById('baby-name').innerText = CONFIG.nombre_bebe;
+            document.getElementById('footer-name').innerText = CONFIG.nombre_bebe;
+            document.getElementById('frase').innerText = CONFIG.frase_biblica;
+            document.getElementById('txt-fecha-larga').innerText = CONFIG.fecha_texto_largo;
+            document.getElementById('p-names').innerText = CONFIG.papas;
+            document.getElementById('g-names').innerText = CONFIG.padrinos;
+            document.getElementById('iglesia').innerText = CONFIG.iglesia_nombre;
+            document.getElementById('hora-i').innerText = CONFIG.iglesia_hora;
+            document.getElementById('salon').innerText = CONFIG.salon_nombre;
+            document.getElementById('hora-s').innerText = CONFIG.salon_hora;
+            document.getElementById('mapa-i').href = CONFIG.mapa_iglesia;
+            document.getElementById('mapa-s').href = CONFIG.mapa_salon;
+            document.getElementById('btn-gifts').href = CONFIG.link_regalos;
+            document.getElementById('btn-wa').href = CONFIG.whatsapp_confirmar;
+            document.getElementById('audio-src').src = CONFIG.link_musica;
+            document.getElementById('track').load();
 
-        document.getElementById('baby-name').innerText = CONFIG.nombre_bebe;
-        document.getElementById('footer-name').innerText = CONFIG.nombre_bebe;
-        document.getElementById('frase').innerText = CONFIG.frase_biblica;
-        document.getElementById('txt-fecha-larga').innerText = CONFIG.fecha_texto_largo;
-        document.getElementById('p-names').innerText = CONFIG.papas;
-        document.getElementById('g-names').innerText = CONFIG.padrinos;
-        document.getElementById('iglesia').innerText = CONFIG.iglesia_nombre;
-        document.getElementById('hora-i').innerText = CONFIG.iglesia_hora;
-        document.getElementById('salon').innerText = CONFIG.salon_nombre;
-        document.getElementById('hora-s').innerText = CONFIG.salon_hora;
-        document.getElementById('mapa-i').href = CONFIG.mapa_iglesia;
-        document.getElementById('mapa-s').href = CONFIG.mapa_salon;
-        document.getElementById('btn-hotel').href = CONFIG.link_hospedaje;
-        document.getElementById('btn-gifts').href = CONFIG.link_regalos;
-        document.getElementById('btn-wa').href = CONFIG.whatsapp_confirmar;
-        document.getElementById('audio-src').src = CONFIG.link_musica;
-        document.getElementById('track').load();
+            document.getElementById('img-1').style.backgroundImage = `url('${CONFIG.foto_1}')`;
+            document.getElementById('img-2').style.backgroundImage = `url('${CONFIG.foto_2}')`;
+            document.getElementById('img-3').style.backgroundImage = `url('${CONFIG.foto_3}')`;
+            document.getElementById('img-4').style.backgroundImage = `url('${CONFIG.foto_4}')`;
+            document.getElementById('ultima-foto').src = CONFIG.foto_4;
 
-        document.getElementById('img-1').style.backgroundImage = `url('${CONFIG.foto_1}')`;
-        document.getElementById('img-2').style.backgroundImage = `url('${CONFIG.foto_2}')`;
-        document.getElementById('img-3').style.backgroundImage = `url('${CONFIG.foto_3}')`;
-        document.getElementById('img-4').style.backgroundImage = `url('${CONFIG.foto_4}')`;
-        document.getElementById('ultima-foto').src = CONFIG.foto_4;
+            startCountdown();
+        }
 
-        // LÓGICA DEL CONTADOR
-        const countdownDate = new Date(CONFIG.fecha_countdown).getTime();
-        const x = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = countdownDate - now;
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        function startCountdown() {
+            const target = new Date(CONFIG.fecha_countdown).getTime();
+            setInterval(() => {
+                const now = new Date().getTime();
+                const diff = target - now;
+                document.getElementById('days').innerText = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+                document.getElementById('hours').innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+                document.getElementById('minutes').innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+                document.getElementById('seconds').innerText = Math.floor((diff % (1000 * 60)) / 1000).toString().padStart(2, '0');
+            }, 1000);
+        }
 
-            document.getElementById("days").innerHTML = days < 10 ? "0"+days : days;
-            document.getElementById("hours").innerHTML = hours < 10 ? "0"+hours : hours;
-            document.getElementById("minutes").innerHTML = minutes < 10 ? "0"+minutes : minutes;
-            document.getElementById("seconds").innerHTML = seconds < 10 ? "0"+seconds : seconds;
-
-            if (distance < 0) {
-                clearInterval(x);
-                document.querySelector(".countdown-container").innerHTML = "<p style='color:var(--oro); font-weight:bold;'>¡ES HOY!</p>";
-            }
-        }, 1000);
-
-        const t = document.getElementById('track');
-        function controlMusica() {
-            if (t.paused) { 
-                t.play(); 
-                document.getElementById('play-svg').style.display='none'; 
-                document.getElementById('pause-svg').style.display='block'; 
-            } else { 
-                t.pause(); 
-                document.getElementById('play-svg').style.display='block'; 
-                document.getElementById('pause-svg').style.display='none'; 
+        const audio = document.getElementById('track');
+        function toggleMusic() {
+            if (audio.paused) {
+                audio.play();
+                document.getElementById('p-play').style.display = 'none';
+                document.getElementById('p-pause').style.display = 'block';
+            } else {
+                audio.pause();
+                document.getElementById('p-play').style.display = 'block';
+                document.getElementById('p-pause').style.display = 'none';
             }
         }
-        document.addEventListener('click', () => { if(t.paused) controlMusica(); }, {once: true});
+        document.addEventListener('click', () => { if(audio.paused) toggleMusic(); }, {once: true});
     </script>
 </body>
 </html>
