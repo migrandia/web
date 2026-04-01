@@ -45,21 +45,34 @@
 
     <style>
         :root {
-            /* === PALETA DE COLORES FINAL === */
-            --azul-solid: #2c3e50;    /* Fondo sólido azul medianoche */
-            --oro: #bca080;          /* Detalles y botones dorados */
-            --oro-hover: #c5a059;    /* Tono al pasar el mouse */
-            --fondo-pagina: #fdfcf9; /* Fondo crema suave */
+            --azul-solid: #2c3e50;
+            --oro: #bca080;
+            --oro-hover: #c5a059;
+            --fondo-pagina: #fdfcf9;
             --texto: #333333;
             --blanco: #ffffff;
-            --oscuro: #1a1a1a;       /* Fondo sección final */
-            --ancho-max: 480px;      /* Ancho optimizado para móviles */
+            --oscuro: #1a1a1a;
+            --ancho-max: 480px;
         }
 
         body { margin: 0; padding: 0; background-color: #111; color: var(--texto); font-family: 'Montserrat', sans-serif; text-align: center; overflow-x: hidden; scroll-behavior: smooth; }
         .main-wrapper { max-width: var(--ancho-max); margin: 0 auto; background-color: var(--fondo-pagina); position: relative; box-shadow: 0 0 50px rgba(0,0,0,0.8); }
 
-        .parallax { height: 80vh; background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover; position: relative; }
+        /* AJUSTE PARA ORDENADOR: Se cambia background-attachment a scroll para evitar recortes */
+        .parallax { 
+            height: 80vh; 
+            background-attachment: scroll; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            background-size: cover; 
+            position: relative; 
+        }
+
+        /* En móviles o pantallas pequeñas se puede mantener el fixed si se desea el efecto */
+        @media (max-width: 768px) {
+            .parallax { background-attachment: fixed; }
+        }
+
         .overlay { position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.3); }
 
         section { padding: 60px 25px; position: relative; background: var(--fondo-pagina); }
@@ -69,11 +82,9 @@
         .titulo-blanco { color: white !important; }
         .cita { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.3rem; line-height: 1.8; color: #555; }
 
-        /* BLOQUES SÓLIDOS AZULES */
         .bloque-solido { background-color: var(--azul-solid); color: white; padding: 80px 30px; margin: 0; }
         .lugar-titulo { font-weight: bold; font-size: 1.2rem; margin: 15px 0; display: block; color: var(--oro); }
 
-        /* BOTONES SÓLIDOS DORADOS */
         .btn-solido-color { display: inline-block; margin-top: 30px; padding: 15px 40px; background-color: var(--oro); color: white; text-decoration: none; font-size: 0.8rem; letter-spacing: 2px; transition: 0.3s; text-transform: uppercase; font-weight: bold; border: none; border-radius: 4px; cursor: pointer; }
         .btn-solido-color:hover { background-color: var(--oro-hover); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(188,160,128,0.3); }
 
@@ -93,7 +104,6 @@
         .dress-code { background: white; padding: 40px 20px; border: 1px solid #eee; margin: 20px 0; border-radius: 8px; }
         #music-pill { position: fixed; top: 20px; right: 20px; z-index: 1000; background: white; padding: 10px 15px; border-radius: 30px; font-size: 10px; font-weight: bold; cursor: pointer; border: 1px solid #ddd; }
         
-        /* BANNER DE FECHA LÍMITE */
         .banner-limite { background-color: #e74c3c; color: white; padding: 15px; font-size: 0.8rem; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; margin-top: 20px; border-radius: 4px; }
     </style>
 </head>
@@ -211,7 +221,6 @@
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        // Carga automática de los enlaces y textos definidos en el objeto ENLACES
         document.getElementById('source-musica').src = ENLACES.musica;
         document.getElementById('cancion').load();
         document.getElementById('img-portada').style.backgroundImage = `url('${ENLACES.foto_portada}')`;
