@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Bautizo Premium | Sofía Valentina</title>
+    <meta property="og:title" content="¡Estás invitado al Bautizo de Sofía Valentina!">
+    <meta property="og:description" content="Acompáñanos este 24 de Octubre de 2026.">
+    <meta property="og:image" content="https://www.dropbox.com/scl/fi/9avggx6ox57b9tkq9enxc/bautizo1.png?rlkey=xe50yu0f36p6uixsddj7mqs25&raw=1">
+    <meta property="og:type" content="website">
+
+    <script>
+        const CONFIG = {
+            fecha_countdown: "Oct 24, 2026 12:00:00", 
+            fecha_texto_largo: "Sábado, 24 de Octubre de 2026",
+            nombre_bebe: "Sofía Valentina",
+            frase_biblica: "En tus manos, Señor, pongo mi vida y mi camino.",
+            papas: "Roberto & Lucía",
+            padrinos: "Carlos & Elena",
+            iglesia_nombre: "Parroquia de San Juan Bautista",
+            iglesia_hora: "12:00 PM",
+            salon_nombre: "Quinta Las Palmas",
+            salon_hora: "02:30 PM",
+            link_regalos: "https://mesaderegalos.liverpool.com.mx/",
+            whatsapp_confirmar: "https://wa.me/521234567890?text=Confirmo%20asistencia",
+            link_musica: "https://www.dropbox.com/scl/fi/80hypdxkg24wx6x7oael2/En-Tus-Manos-Se-or.mp3?rlkey=j4di62c9sgj4txgwbpikcngp3&raw=1",
+            foto_1: "https://www.dropbox.com/scl/fi/9avggx6ox57b9tkq9enxc/bautizo1.png?rlkey=xe50yu0f36p6uixsddj7mqs25&raw=1",
+            foto_2: "https://www.dropbox.com/scl/fi/amq1vsm698rsf1daimlr6/bautizo2.png?rlkey=z2d7is02ys38pl6rd85cbmorz&raw=1",
+            foto_3: "https://www.dropbox.com/scl/fi/tlg7mvb8lfoe4tmvuhooo/bautizo31.jpg?rlkey=2b1tqc59dp9law24w9wpfav6n&raw=1",
+            foto_4: "https://www.dropbox.com/scl/fi/19bv17jgagbs4sd6k7wxe/bautizo41.jpg?rlkey=nogetjdj9gxp8tyqo76gev7ex&raw=1",
+            mapa_salon: "https://maps.google.com",
+            color_oro: "#D4AF37", 
+            color_oscuro: "#1a1a1a",
+            color_fondo: "#F9F9F9"
+        };
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&family=Montserrat:wght@200;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root { --oro: #D4AF37; --texto: #333; --bloque: #fff; --fuente-e: 'Cormorant Garamond', serif; --fuente-m: 'Montserrat', sans-serif; }
+        body, html { margin: 0; padding: 0; background-color: #111; color: var(--texto); font-family: var(--fuente-m); overflow-x: hidden; text-align: center; scroll-behavior: smooth;}
+        
+        .invitation-container { max-width: 480px; margin: 0 auto; background-color: var(--bloque); box-shadow: 0 0 60px rgba(0,0,0,0.8); }
+        
+        .parallax { 
+            width: 100%; height: 85vh; 
+            background-attachment: fixed; background-position: center; background-size: cover; background-repeat: no-repeat;
+            position: relative; display: flex; align-items: center; justify-content: center; 
+        }
+
+        @media (min-width: 768px) { .parallax { background-attachment: scroll; height: 650px; } }
+
+        #img-1::after { content: ""; position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.25); z-index: 1; }
+        
+        h1.nombre-portada { font-family: var(--fuente-e); font-size: 3.8rem; color: white; z-index: 2; text-shadow: 0 2px 20px rgba(0,0,0,0.6); margin: 0; font-weight: 300; }
+        .bautizo-txt { font-size: 0.7rem; letter-spacing: 8px; color: white; z-index: 2; margin-bottom: 15px; font-weight: bold; text-transform: uppercase; }
+
+        section { padding: 70px 25px; background: white; }
+        h2.seccion { font-family: var(--fuente-e); font-size: 2.4rem; color: var(--texto); margin-bottom: 25px; font-weight: 400; letter-spacing: 1px;}
+        
+        .details-box { background: #fcfcfc; padding: 35px 20px; border-radius: 4px; border: 1px solid #f0f0f0; margin: 20px 0; }
+        
+        .countdown-container { display: flex; justify-content: center; gap: 12px; margin-top: 25px; }
+        .count-item { background: white; border-bottom: 2px solid var(--oro); padding: 12px; min-width: 65px; }
+        .count-num { display: block; font-size: 1.6rem; font-weight: bold; color: var(--oro); font-family: var(--fuente-e); }
+        .count-lab { font-size: 0.55rem; text-transform: uppercase; letter-spacing: 2px; color: #999; }
+
+        .btn-menu { display: block; padding: 16px 5px; border: 1px solid var(--oro); color: var(--oro); text-decoration: none; font-weight: bold; font-size: 0.65rem; letter-spacing: 3px; border-radius: 0px; text-transform: uppercase; margin: 15px auto; width: 85%; transition: 0.4s; }
+        .btn-menu:hover { background: var(--oro); color: white; }
+        .btn-confirm { background: var(--oro); color: white; width: 90%; margin: 40px auto; padding: 22px; display: block; text-decoration: none; font-weight: bold; letter-spacing: 3px; text-transform: uppercase; font-size: 0.8rem; }
+
+        #music-btn { position: fixed; bottom: 25px; right: 25px; z-index: 1000; width: 45px; height: 45px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid var(--oro); cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        
+        .img-final { width: 100%; height: auto; display: block; filter: sepia(10%); }
+    </style>
+</head>
+<body>
+
+    <div id="music-btn" onclick="controlMusica()">
+        <svg id="play-svg" width="20" fill="#D4AF37" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        <svg id="pause-svg" width="20" fill="#D4AF37" viewBox="0 0 24 24" style="display:none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+    </div>
+    <audio id="track" loop><source id="audio-src" src="" type="audio/mpeg"></audio>
+
+    <div class="invitation-container">
+        
+        <div id="img-1" class="parallax">
+            <div style="z-index: 2;">
+                <p class="bautizo-txt">Nuestro Bautizo</p>
+                <h1 id="baby-name" class="nombre-portada"></h1>
+            </div>
+        </div>
+
+        <section style="background-color: var(--color_fondo);">
+            <span style="font-size: 2rem; color: var(--oro); opacity: 0.6;">✧</span>
+            <p id="frase" style="font-family: var(--fuente-e); font-style: italic; font-size: 1.6rem; color: #444; margin: 20px 0;"></p>
+            
+            <div style="margin-top: 50px;">
+                <p style="font-size: 0.75rem; letter-spacing: 4px; color: var(--oro); font-weight: bold; margin-bottom: 5px;">RESERVA LA FECHA</p>
+                <h2 id="txt-fecha-larga" style="font-family: var(--fuente-e); font-size: 1.8rem; margin: 15px 0; color: #222;"></h2>
+                <div class="countdown-container">
+                    <div class="count-item"><span id="days" class="count-num">00</span><span class="count-lab">Días</span></div>
+                    <div class="count-item"><span id="hours" class="count-num">00</span><span class="count-lab">Hrs</span></div>
+                    <div class="count-item"><span id="minutes" class="count-num">00</span><span class="count-lab">Min</span></div>
+                    <div class="count-item"><span id="seconds" class="count-num">00</span><span class="count-lab">Seg</span></div>
+                </div>
+            </div>
+        </section>
+
+        <div id="img-2" class="parallax"></div>
+
+        <section>
+            <h2 class="seccion">Nuestra Familia</h2>
+            <p style="font-size: 0.65rem; letter-spacing: 3px; color: #aaa; text-transform: uppercase;">En compañía de mis padres</p>
+            <p id="p-names" style="font-size: 1.4rem; color: #333; margin: 10px 0; font-family: var(--fuente-e);"></p>
+            
+            <div style="width: 40px; height: 1px; background: var(--oro); margin: 30px auto;"></div>
+
+            <p style="font-size: 0.65rem; letter-spacing: 3px; color: var(--oro); font-weight: bold; text-transform: uppercase;">Guiado por mis padrinos</p>
+            <p id="g-names" style="font-size: 1.6rem; font-family: var(--fuente-e); font-weight: 600; color: #222; margin-top: 10px;"></p>
+        </section>
+
+        <div id="img-3" class="parallax"></div>
+
+        <section>
+            <h2 class="seccion">Ubicación</h2>
+            <div class="details-box">
+                <p style="color: var(--oro); font-weight: bold; letter-spacing: 3px; font-size: 0.7rem;">⛪ CEREMONIA RELIGIOSA</p>
+                <p id="iglesia" style="font-weight: 500; font-size: 1.1rem; margin-top: 15px;"></p>
+                <p id="hora-i" style="font-size: 1.6rem; font-family: var(--fuente-e); color: var(--oro); margin: 5px 0; font-weight: bold;"></p>
+                <p style="font-size: 0.8rem; color: #888; font-style: italic;">La ceremonia se llevará a cabo puntualmente.</p>
+            </div>
+            
+            <div class="details-box" style="margin-top: 40px;">
+                <p style="color: var(--oro); font-weight: bold; letter-spacing: 3px; font-size: 0.7rem;">🎉 RECEPCIÓN</p>
+                <p id="salon" style="font-weight: 500; font-size: 1.1rem; margin-top: 15px;"></p>
+                <p id="hora-s" style="font-size: 1.6rem; font-family: var(--fuente-e); color: var(--oro); margin: 5px 0; font-weight: bold;"></p>
+                <a id="mapa-s" href="#" target="_blank" class="btn-menu">COMO LLEGAR AL EVENTO</a>
+            </div>
+        </section>
+
+        <div id="img-4" class="parallax"></div>
+
+        <section style="padding-bottom: 0;">
+            <h2 class="seccion">Detalles Importantes</h2>
+            <p style="font-size: 0.95rem; line-height: 1.8; color: #666; max-width: 85%; margin: 0 auto 40px; font-family: var(--fuente-e);">
+                Tu presencia es el regalo más valioso para nosotros. Sin embargo, si deseas tener un detalle, contaremos con mesa de regalos o lluvia de sobres.
+            </p>
+            <img id="ultima-foto" src="" class="img-final" alt="Sofía Valentina">
+        </section>
+
+        <section style="background-color: var(--color_fondo);">
+            <a id="btn-gifts" href="#" target="_blank" class="btn-menu">🎁 MESA DE REGALOS</a>
+            <a id="btn-wa" href="#" target="_blank" class="btn-confirm">CONFIRMAR ASISTENCIA</a>
+            <p id="footer-name" style="margin-top: 60px; font-family: var(--fuente-e); font-size: 2.5rem; color: var(--oro); opacity: 0.8;"></p>
+            <p style="font-size: 0.6rem; letter-spacing: 2px; color: #bbb; margin-top: 10px;">OCTUBRE 2026</p>
+        </section>
+    </div>
+
+    <script>
+        document.getElementById('baby-name').innerText = CONFIG.nombre_bebe;
+        document.getElementById('footer-name').innerText = CONFIG.nombre_bebe;
+        document.getElementById('frase').innerText = CONFIG.frase_biblica;
+        document.getElementById('txt-fecha-larga').innerText = CONFIG.fecha_texto_largo;
+        document.getElementById('p-names').innerText = CONFIG.papas;
+        document.getElementById('g-names').innerText = CONFIG.padrinos;
+        document.getElementById('iglesia').innerText = CONFIG.iglesia_nombre;
+        document.getElementById('hora-i').innerText = CONFIG.iglesia_hora;
+        document.getElementById('salon').innerText = CONFIG.salon_nombre;
+        document.getElementById('hora-s').innerText = CONFIG.salon_hora;
+        document.getElementById('mapa-s').href = CONFIG.mapa_salon;
+        document.getElementById('btn-gifts').href = CONFIG.link_regalos;
+        document.getElementById('btn-wa').href = CONFIG.whatsapp_confirmar;
+        document.getElementById('audio-src').src = CONFIG.link_musica;
+        document.getElementById('track').load();
+
+        document.getElementById('img-1').style.backgroundImage = `url('${CONFIG.foto_1}')`;
+        document.getElementById('img-2').style.backgroundImage = `url('${CONFIG.foto_2}')`;
+        document.getElementById('img-3').style.backgroundImage = `url('${CONFIG.foto_3}')`;
+        document.getElementById('img-4').style.backgroundImage = `url('${CONFIG.foto_4}')`;
+        document.getElementById('ultima-foto').src = CONFIG.foto_4;
+
+        const countdownDate = new Date(CONFIG.fecha_countdown).getTime();
+        const x = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days < 10 ? "0"+days : days;
+            document.getElementById("hours").innerText = hours < 10 ? "0"+hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? "0"+minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? "0"+seconds : seconds;
+        }, 1000);
+
+        const t = document.getElementById('track');
+        function controlMusica() {
+            if (t.paused) { 
+                t.play(); 
+                document.getElementById('play-svg').style.display='none'; 
+                document.getElementById('pause-svg').style.display='block'; 
+            } else { 
+                t.pause(); 
+                document.getElementById('play-svg').style.display='block'; 
+                document.getElementById('pause-svg').style.display='none'; 
+            }
+        }
+        document.addEventListener('click', () => { if(t.paused) controlMusica(); }, {once: true});
+    </script>
+</body>
+</html>
