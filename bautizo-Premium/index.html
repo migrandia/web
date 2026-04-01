@@ -40,49 +40,43 @@
     
     <style>
         :root { --oro: #D4AF37; --texto: #333; --bloque: #fff; --fuente-e: 'Cormorant Garamond', serif; --fuente-m: 'Montserrat', sans-serif; }
-        body, html { margin: 0; padding: 0; background-color: #111; color: var(--texto); font-family: var(--fuente-m); overflow-x: hidden; text-align: center; scroll-behavior: smooth;}
         
-        /* --- ESTILO BOTÓN REGRESAR --- */
-        .btn-regresar-pre {
-            position: fixed;
-            top: 25px;
-            left: 20px;
-            z-index: 1001;
-            background: rgba(255, 255, 255, 0.85);
-            border: 1px solid var(--oro);
-            color: var(--oro);
-            padding: 8px 18px;
-            border-radius: 2px;
-            text-decoration: none;
-            font-size: 0.65rem;
-            letter-spacing: 2px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            backdrop-filter: blur(5px);
-            transition: 0.4s;
+        /* SEGURIDAD: Bloqueo de selección de texto y cursor */
+        body, html { 
+            margin: 0; padding: 0; background-color: #111; color: var(--texto); font-family: var(--fuente-m); 
+            overflow-x: hidden; text-align: center; scroll-behavior: smooth;
+            -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;
         }
-        .btn-regresar-pre:hover {
-            background: var(--oro);
-            color: white;
+        
+        .btn-regresar-pre {
+            position: fixed; top: 25px; left: 20px; z-index: 1001;
+            background: rgba(255, 255, 255, 0.85); border: 1px solid var(--oro);
+            color: var(--oro); padding: 8px 18px; border-radius: 2px;
+            text-decoration: none; font-size: 0.65rem; letter-spacing: 2px;
+            font-weight: bold; display: flex; align-items: center;
+            backdrop-filter: blur(5px); transition: 0.4s;
         }
 
         .invitation-container { max-width: 480px; margin: 0 auto; background-color: var(--bloque); box-shadow: 0 0 60px rgba(0,0,0,0.8); position: relative; }
         
+        /* SEGURIDAD: Capa invisible sobre fotos para evitar guardado */
+        .safe-photo { position: relative; width: 100%; overflow: hidden; }
+        .safe-photo::after { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 5; }
+
         .parallax { 
             width: 100%; height: 85vh; 
             background-attachment: fixed; background-position: center; background-size: cover; background-repeat: no-repeat;
             position: relative; display: flex; align-items: center; justify-content: center; 
         }
 
-        @media (min-width: 768px) { .parallax { background-attachment: scroll; height: 650px; } }
+        @media (max-width: 768px) { .parallax { background-attachment: scroll; height: 80vh; } }
 
-        #img-1::after { content: ""; position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.25); z-index: 1; }
+        #img-1::before { content: ""; position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.25); z-index: 1; }
         
         h1.nombre-portada { font-family: var(--fuente-e); font-size: 3.8rem; color: white; z-index: 2; text-shadow: 0 2px 20px rgba(0,0,0,0.6); margin: 0; font-weight: 300; }
         .bautizo-txt { font-size: 0.7rem; letter-spacing: 8px; color: white; z-index: 2; margin-bottom: 15px; font-weight: bold; text-transform: uppercase; }
 
-        section { padding: 70px 25px; background: white; }
+        section { padding: 70px 25px; background: white; position: relative; }
         h2.seccion { font-family: var(--fuente-e); font-size: 2.4rem; color: var(--texto); margin-bottom: 25px; font-weight: 400; letter-spacing: 1px;}
         
         .details-box { background: #fcfcfc; padding: 35px 20px; border-radius: 4px; border: 1px solid #f0f0f0; margin: 20px 0; }
@@ -92,17 +86,17 @@
         .count-num { display: block; font-size: 1.6rem; font-weight: bold; color: var(--oro); font-family: var(--fuente-e); }
         .count-lab { font-size: 0.55rem; text-transform: uppercase; letter-spacing: 2px; color: #999; }
 
-        .btn-menu { display: block; padding: 16px 5px; border: 1px solid var(--oro); color: var(--oro); text-decoration: none; font-weight: bold; font-size: 0.65rem; letter-spacing: 3px; border-radius: 0px; text-transform: uppercase; margin: 15px auto; width: 85%; transition: 0.4s; }
+        .btn-menu { display: block; padding: 16px 5px; border: 1px solid var(--oro); color: var(--oro); text-decoration: none; font-weight: bold; font-size: 0.65rem; letter-spacing: 3px; border-radius: 0px; text-transform: uppercase; margin: 15px auto; width: 85%; transition: 0.4s; position: relative; z-index: 10; }
         .btn-menu:hover { background: var(--oro); color: white; }
-        .btn-confirm { background: var(--oro); color: white; width: 90%; margin: 40px auto; padding: 22px; display: block; text-decoration: none; font-weight: bold; letter-spacing: 3px; text-transform: uppercase; font-size: 0.8rem; transition: 0.3s; }
-        .btn-confirm:hover { filter: brightness(1.1); }
+        
+        .btn-confirm { background: var(--oro); color: white; width: 90%; margin: 40px auto; padding: 22px; display: block; text-decoration: none; font-weight: bold; letter-spacing: 3px; text-transform: uppercase; font-size: 0.8rem; transition: 0.3s; position: relative; z-index: 10; }
 
         #music-btn { position: fixed; bottom: 25px; right: 25px; z-index: 1000; width: 45px; height: 45px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid var(--oro); cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
         
-        .img-final { width: 100%; height: auto; display: block; filter: sepia(10%); }
+        .img-final { width: 100%; height: auto; display: block; }
     </style>
 </head>
-<body>
+<body oncontextmenu="return false;">
 
     <a href="javascript:history.back()" class="btn-regresar-pre">
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;">
@@ -119,10 +113,12 @@
 
     <div class="invitation-container">
         
-        <div id="img-1" class="parallax">
-            <div style="z-index: 2;">
-                <p class="bautizo-txt">Nuestro Bautizo</p>
-                <h1 id="baby-name" class="nombre-portada"></h1>
+        <div class="safe-photo">
+            <div id="img-1" class="parallax">
+                <div style="z-index: 2;">
+                    <p class="bautizo-txt">Nuestro Bautizo</p>
+                    <h1 id="baby-name" class="nombre-portada"></h1>
+                </div>
             </div>
         </div>
 
@@ -142,20 +138,18 @@
             </div>
         </section>
 
-        <div id="img-2" class="parallax"></div>
+        <div class="safe-photo"><div id="img-2" class="parallax"></div></div>
 
         <section>
             <h2 class="seccion">Nuestra Familia</h2>
             <p style="font-size: 0.65rem; letter-spacing: 3px; color: #aaa; text-transform: uppercase;">En compañía de mis padres</p>
             <p id="p-names" style="font-size: 1.4rem; color: #333; margin: 10px 0; font-family: var(--fuente-e);"></p>
-            
             <div style="width: 40px; height: 1px; background: var(--oro); margin: 30px auto;"></div>
-
             <p style="font-size: 0.65rem; letter-spacing: 3px; color: var(--oro); font-weight: bold; text-transform: uppercase;">Guiado por mis padrinos</p>
             <p id="g-names" style="font-size: 1.6rem; font-family: var(--fuente-e); font-weight: 600; color: #222; margin-top: 10px;"></p>
         </section>
 
-        <div id="img-3" class="parallax"></div>
+        <div class="safe-photo"><div id="img-3" class="parallax"></div></div>
 
         <section>
             <h2 class="seccion">Ubicación</h2>
@@ -163,7 +157,6 @@
                 <p style="color: var(--oro); font-weight: bold; letter-spacing: 3px; font-size: 0.7rem;">⛪ CEREMONIA RELIGIOSA</p>
                 <p id="iglesia" style="font-weight: 500; font-size: 1.1rem; margin-top: 15px;"></p>
                 <p id="hora-i" style="font-size: 1.6rem; font-family: var(--fuente-e); color: var(--oro); margin: 5px 0; font-weight: bold;"></p>
-                <p style="font-size: 0.8rem; color: #888; font-style: italic;">La ceremonia se llevará a cabo puntualmente.</p>
             </div>
             
             <div class="details-box" style="margin-top: 40px;">
@@ -174,14 +167,16 @@
             </div>
         </section>
 
-        <div id="img-4" class="parallax"></div>
+        <div class="safe-photo"><div id="img-4" class="parallax"></div></div>
 
         <section style="padding-bottom: 0;">
             <h2 class="seccion">Detalles Importantes</h2>
             <p style="font-size: 0.95rem; line-height: 1.8; color: #666; max-width: 85%; margin: 0 auto 40px; font-family: var(--fuente-e);">
-                Tu presencia es el regalo más valioso para nosotros. Sin embargo, si deseas tener un detalle, contaremos con mesa de regalos o lluvia de sobres.
+                Tu presencia es el regalo más valioso para nosotros.
             </p>
-            <img id="ultima-foto" src="" class="img-final" alt="Sofía Valentina">
+            <div class="safe-photo">
+                <img id="ultima-foto" src="" class="img-final" alt="Invitación">
+            </div>
         </section>
 
         <section style="background-color: var(--color_fondo);">
@@ -193,6 +188,7 @@
     </div>
 
     <script>
+        // Cargar datos
         document.getElementById('baby-name').innerText = CONFIG.nombre_bebe;
         document.getElementById('footer-name').innerText = CONFIG.nombre_bebe;
         document.getElementById('frase').innerText = CONFIG.frase_biblica;
@@ -215,21 +211,20 @@
         document.getElementById('img-4').style.backgroundImage = `url('${CONFIG.foto_4}')`;
         document.getElementById('ultima-foto').src = CONFIG.foto_4;
 
+        // Cuenta regresiva
         const countdownDate = new Date(CONFIG.fecha_countdown).getTime();
         const x = setInterval(function() {
             const now = new Date().getTime();
             const distance = countdownDate - now;
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById("days").innerText = days < 10 ? "0"+days : days;
-            document.getElementById("hours").innerText = hours < 10 ? "0"+hours : hours;
-            document.getElementById("minutes").innerText = minutes < 10 ? "0"+minutes : minutes;
-            document.getElementById("seconds").innerText = seconds < 10 ? "0"+seconds : seconds;
+            if (distance > 0) {
+                document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+                document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+                document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+                document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
+            }
         }, 1000);
 
+        // Música
         const t = document.getElementById('track');
         function controlMusica() {
             if (t.paused) { 
@@ -243,6 +238,15 @@
             }
         }
         document.addEventListener('click', () => { if(t.paused) controlMusica(); }, {once: true});
+
+        // SEGURIDAD: Bloqueo de teclado (F12, Ctrl+U, etc.)
+        document.onkeydown = function(e) {
+            if(e.keyCode == 123 || (e.ctrlKey && (e.keyCode == 85 || e.keyCode == 83 || e.keyCode == 67 || e.keyCode == 73 || e.keyCode == 74))) {
+                return false;
+            }
+        };
+        // Bloqueo de arrastre de imágenes
+        document.addEventListener('dragstart', function (e) { e.preventDefault(); }, false);
     </script>
 </body>
 </html>
