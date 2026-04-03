@@ -150,7 +150,7 @@
                     <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/gpf7arkczi5v3y9hxfjte/file_00000000189c71fdbc7b6ac47bb70337.png?rlkey=p8jpnwypfniwf7lxj25wiq4w2&raw=1"></div>
                     <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/ld6s2fdqhmb71fxehdb0k/file_00000000928871fdb8f65567b022409a.png?rlkey=vcl3logvk7fd3yfysmjx0ge6j&raw=1"></div>
                     <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/1hgcl93ka69i3fflmyxl3/file_0000000009b471f89a2eae6e6e70937b.png?rlkey=4t37xj2vxayedrv5szm2rjz9y&raw=1"></div>
-                    <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/379btmuabvlok9b7ioshb/file_00000000219871fd9cc6e8b8540ad9eb.png?rlkey=g74qqufgozuh07rqjgpqrmfy7&raw=1"></div>
+                    <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/379btmuabvlok9b7ioshb/file_00000000219871fd9cc6e8b8540ad9eb.png?rlkey=g74qqufgozuh07rqjgprmfy7&raw=1"></div>
                 </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
@@ -166,7 +166,7 @@
                 <h4 style="margin-top:15px;">Ceremonia Religiosa</h4>
                <p>Catedral de Toluca, Edo. Méx.</p>
                 <div class="btn-container">
-                    <a href="https://www.google.com/maps/place/Ciudad+de+M%C3%A9xico,+CDMX/MDI2MDMzMS4wIKXMDSoASAFQAw" target="_blank" class="btn">UBICACIÓN</a>
+                    <a href="https://maps.app.goo.gl/YourMapLink1" target="_blank" class="btn">UBICACIÓN</a>
                     <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+de+Ariel+%26+Samanta&dates=20261025T230000Z/20261026T040000Z&details=¡Acompáñanos+en+nuestro+gran+día!&location=Catedral+de+Toluca,+Edo.+Méx.&sf=true&output=xml" target="_blank" class="btn btn-cal">AGREGAR A GOOGLE CALENDAR</a>
                 </div>
             </div>
@@ -175,7 +175,7 @@
                 <h4 style="margin-top:15px;">Recepción</h4>
                 <p>Hacienda San José, Edo. Méx.</p>
                 <div class="btn-container">
-                    <a href="https://www.google.com/maps/place/Ciudad+de+M%C3%A9xico,+CDMX/MDI2MDMzMS4wIKXMDSoASAFQAw" target="_blank" class="btn">UBICACIÓN</a>
+                    <a href="https://maps.app.goo.gl/YourMapLink2" target="_blank" class="btn">UBICACIÓN</a>
                 </div>
             </div>
         </div>
@@ -191,7 +191,7 @@
                     <h4>Hotel Gran Plaza</h4>
                    <p>Ubicado a 10 min del evento.<br><small>Menciona nuestra boda para tarifa especial.</small></p>
                     <div class="btn-container">
-                        <a href="https://www.google.com/maps/place/Ciudad+de+M%C3%A9xico,+CDMX/MDI2MDMzMS4wIKXMDSoASAFQAw" target="_blank" class="btn" style="padding:10px 20px;">UBICACIÓN</a>
+                        <a href="https://maps.app.goo.gl/HotelLink1" target="_blank" class="btn" style="padding:10px 20px;">UBICACIÓN</a>
                     </div>
                 </div>
                 <div class="card-family">
@@ -199,7 +199,7 @@
                     <h4>Quinta del Sol</h4>
                    <p>Hotel boutique con encanto colonial.<br><small>Ideal para familias y grupos.</small></p>
                     <div class="btn-container">
-                        <a href="https://www.google.com/maps/place/Ciudad+de+M%C3%A9xico,+CDMX/MDI2MDMzMS4wIKXMDSoASAFQAwL" target="_blank" class="btn" style="padding:10px 20px;">UBICACIÓN</a>
+                        <a href="https://maps.app.goo.gl/HotelLink2" target="_blank" class="btn" style="padding:10px 20px;">UBICACIÓN</a>
                     </div>
                 </div>
             </div>
@@ -279,16 +279,19 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        // --- NUEVA LÓGICA DE PERSONALIZACIÓN ---
+        // --- LÓGICA DE PERSONALIZACIÓN ACTUALIZADA ---
         function personalizarInvitacion() {
             const urlParams = new URLSearchParams(window.location.search);
-            const nombre = urlParams.get('n'); // n = nombre o familia
-            const cupo = urlParams.get('c');   // c = cupo/pases
+            const nombre = urlParams.get('n'); 
+            const cupo = urlParams.get('c');   
 
             if (nombre) {
                 const nombreLimpio = decodeURIComponent(nombre);
-                // Si el parámetro no incluye la palabra "Familia", se la ponemos
-                const textoFamilia = nombreLimpio.toLowerCase().includes("familia") || nombreLimpio.toLowerCase().includes("sr") ? nombreLimpio : "Familia " + nombreLimpio;
+                // Si el parámetro no incluye la palabra "Familia" o "Sr/Sra", se la ponemos
+                const textoFamilia = nombreLimpio.toLowerCase().includes("familia") || 
+                                     nombreLimpio.toLowerCase().includes("sr") || 
+                                     nombreLimpio.toLowerCase().includes("sra") ? nombreLimpio : "Familia " + nombreLimpio;
+                
                 document.getElementById('saludo-familia').innerText = "¡Hola, " + textoFamilia + "!";
                 
                 if (cupo) {
@@ -301,10 +304,29 @@
         function enviarWhatsApp() {
             const numeroTel = "525654252153";
             const urlParams = new URLSearchParams(window.location.search);
-            const nombre = urlParams.get('n') ? decodeURIComponent(urlParams.get('n')) : "Invitado";
+            
+            // Obtenemos el nombre y decidimos el identificador
+            let nombreURL = urlParams.get('n') ? decodeURIComponent(urlParams.get('n')) : "";
+            let identificador;
+
+            if (nombreURL === "") {
+                identificador = "un invitado";
+            } else {
+                const esFamilia = nombreURL.toLowerCase().includes("familia") || 
+                                 nombreURL.toLowerCase().includes("sr") || 
+                                 nombreURL.toLowerCase().includes("sra");
+                identificador = esFamilia ? nombreURL : "la Familia " + nombreURL;
+            }
+
             const numPersonas = document.getElementById("num-asistentes").value;
             
-            const mensaje = encodeURIComponent("¡Hola! Soy " + nombre + " y confirmo mi asistencia para " + numPersonas + " personas a la boda de Ariel y Samanta. Aprovechamos el 20% n.c. solicitado. ¡Nos vemos pronto!");
+            // MENSAJE MAESTRO CORREGIDO
+            const mensaje = encodeURIComponent(
+                "¡Hola! Confirmo la asistencia de " + identificador + 
+                " para " + numPersonas + " personas a la boda de Ariel y Samanta. " +
+                "¡Nos vemos pronto!"
+            );
+            
             window.open("https://wa.me/" + numeroTel + "?text=" + mensaje, "_blank");
         }
         // --- FIN DE LÓGICA DE PERSONALIZACIÓN ---
@@ -355,7 +377,7 @@
 
         window.onload = () => {
             loadWeather();
-            personalizarInvitacion(); // Ejecutar personalización al cargar
+            personalizarInvitacion(); 
         };
     </script>
 </body>
