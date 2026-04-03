@@ -98,8 +98,10 @@
         .attendance-selector select { padding: 10px 20px; border-radius: 10px; border: 1px solid var(--oro); background: white; font-family: 'Montserrat'; font-weight: bold; width: 90%; margin-top: 10px; }
         .btn-confirm { display: inline-block; padding: 18px 50px; background: var(--negro); color: white; text-decoration: none; border-radius: 50px; font-weight: bold; border-bottom: 4px solid var(--oro); margin-top: 15px; }
 
-        .footer-brand { padding: 50px 20px; text-align: center; }
-        .footer-link { text-decoration: none; color: #999; font-size: 0.7rem; letter-spacing: 1px; }
+        /* FOOTER BRAND */
+        .footer-brand { padding: 50px 20px; text-align: center; background: white; }
+        .footer-link { text-decoration: none; color: #999; font-size: 0.7rem; letter-spacing: 1px; transition: 0.3s; margin-top: 5px; display: inline-block; }
+        .footer-link:hover { color: var(--oro); }
     </style>
 </head>
 <body onclick="playFirstTime()">
@@ -167,6 +169,7 @@
                         <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/gpf7arkczi5v3y9hxfjte/file_00000000189c71fdbc7b6ac47bb70337.png?rlkey=p8jpnwypfniwf7lxj25wiq4w2&raw=1"></div>
                         <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/ld6s2fdqhmb71fxehdb0k/file_00000000928871fdb8f65567b022409a.png?rlkey=vcl3logvk7fd3yfysmjx0ge6j&raw=1"></div>
                         <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/1hgcl93ka69i3fflmyxl3/file_0000000009b471f89a2eae6e6e70937b.png?rlkey=4t37xj2vxayedrv5szm2rjz9y&raw=1"></div>
+                        <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/379btmuabvlok9b7ioshb/file_00000000219871fd9cc6e8b8540ad9eb.png?rlkey=g74qqufgozuh07rqjgpqrmfy7&raw=1"></div>
                     </div>
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
@@ -183,7 +186,7 @@
                     <p>Catedral de Toluca, Edo. Méx.</p>
                     <div class="btn-container">
                         <a href="https://maps.google.com" target="_blank" class="btn">UBICACIÓN</a>
-                        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+Ariel+y+Samanta&dates=20261025T230000Z/20261026T040000Z" target="_blank" class="btn btn-cal">AGREGAR A GOOGLE CALENDAR</a>
+                        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+de+Ariel+%26+Samanta&dates=20261025T230000Z/20261026T040000Z&details=¡Acompáñanos!&location=Catedral+de+Toluca&sf=true&output=xml" target="_blank" class="btn btn-cal">AGREGAR A GOOGLE CALENDAR</a>
                     </div>
                 </div>
                 <div class="card-family">
@@ -260,28 +263,31 @@
                 <h2 id="saludo-familia">¡Confirma tu Asistencia!</h2>
                 <p id="texto-reserva">Sería un verdadero placer contar con tu presencia.</p>
                 <div class="attendance-selector" style="margin-top:20px;">
-                    <label style="font-size:0.7rem; font-weight:bold; color:var(--oro);">¿CUÁNTAS PERSONAS?</label><br>
                     <select id="num-asistentes">
                         <option value="1">1 Persona</option>
                         <option value="2">2 Personas</option>
                         <option value="3">3 Personas</option>
                         <option value="4">4 Personas</option>
+                        <option value="5">5 Personas</option>
                     </select>
                 </div>
-                <a href="javascript:void(0)" onclick="enviarWhatsApp()" class="btn-confirm">CONFIRMAR WHATSAPP</a>
+                <a href="javascript:void(0)" onclick="enviarWhatsApp()" class="btn-confirm">CONFIRMAR POR WHATSAPP</a>
+                <p style="margin-top:20px;"><small>FAVOR DE CONFIRMAR ANTES DEL 01.10.2026</small></p>
             </div>
         </section>
 
         <footer class="footer-brand">
             <div style="font-family:'Playfair Display'; font-size: 2.5rem; color: var(--oro);">A & S</div>
             <p style="letter-spacing:3px; font-weight:bold; font-size:0.8rem;">MI GRAN DÍA COLECCIÓN</p>
+            <a href="https://migrandia.mx" target="_blank" class="footer-link">
+                creado por migrandia.mx
+            </a>
         </footer>
 
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        // TODA TU LÓGICA ORIGINAL
         const swiper = new Swiper(".mySwiper", { loop: true, navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" }, autoplay: { delay: 3000 } });
         ScrollReveal().reveal('.reveal', { distance: '30px', duration: 1000, origin: 'bottom' });
 
@@ -321,7 +327,7 @@
 
         function enviarWhatsApp() {
             const num = document.getElementById("num-asistentes").value;
-            const msg = encodeURIComponent("¡Hola! Confirmo mi asistencia para " + num + " personas.");
+            const msg = encodeURIComponent("¡Hola! Confirmo mi asistencia para " + num + " personas a la boda de Ariel y Samanta.");
             window.open("https://wa.me/525654252153?text=" + msg, "_blank");
         }
 
