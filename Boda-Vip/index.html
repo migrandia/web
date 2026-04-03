@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invitación VIP - Mi Gran Día Colección</title>
+    
+    <title>Nuestra Boda Ariel & Samanta</title>
+    <meta property="og:title" content="Nuestra Boda Ariel & Samanta">
+    <meta property="og:description" content="¡Acompáñanos a celebrar nuestro gran día!">
+    <meta property="og:image" content="https://www.dropbox.com/scl/fi/379btmuabvlok9b7ioshb/file_00000000219871fd9cc6e8b8540ad9eb.png?rlkey=g74qqufgozuh07rqjgpqrmfy7&raw=1">
+    <meta property="og:type" content="website">
 
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,400&family=Montserrat:wght@300;500;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/scrollreveal"></script>
@@ -279,7 +284,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        // --- LÓGICA DE PERSONALIZACIÓN ACTUALIZADA ---
         function personalizarInvitacion() {
             const urlParams = new URLSearchParams(window.location.search);
             const nombre = urlParams.get('n'); 
@@ -287,7 +291,6 @@
 
             if (nombre) {
                 const nombreLimpio = decodeURIComponent(nombre);
-                // Si el parámetro no incluye la palabra "Familia" o "Sr/Sra", se la ponemos
                 const textoFamilia = nombreLimpio.toLowerCase().includes("familia") || 
                                      nombreLimpio.toLowerCase().includes("sr") || 
                                      nombreLimpio.toLowerCase().includes("sra") ? nombreLimpio : "Familia " + nombreLimpio;
@@ -304,8 +307,6 @@
         function enviarWhatsApp() {
             const numeroTel = "525654252153";
             const urlParams = new URLSearchParams(window.location.search);
-            
-            // Obtenemos el nombre y decidimos el identificador
             let nombreURL = urlParams.get('n') ? decodeURIComponent(urlParams.get('n')) : "";
             let identificador;
 
@@ -319,17 +320,13 @@
             }
 
             const numPersonas = document.getElementById("num-asistentes").value;
-            
-            // MENSAJE MAESTRO CORREGIDO
             const mensaje = encodeURIComponent(
                 "¡Hola! Confirmo la asistencia de " + identificador + 
                 " para " + numPersonas + " personas a la boda de Ariel y Samanta. " +
                 "¡Nos vemos pronto!"
             );
-            
             window.open("https://wa.me/" + numeroTel + "?text=" + mensaje, "_blank");
         }
-        // --- FIN DE LÓGICA DE PERSONALIZACIÓN ---
 
         async function loadWeather() {
             try {
