@@ -3,121 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invitación Estándar | Mi Gran Día</title>
+    <title>Modelos de Bodas | Mi Gran Día</title>
 
     <script>
+        /* ==========================================
+           CONFIGURACIÓN DE ENLACES Y TEXTOS
+           ========================================== */
         const CONFIG = {
             whatsapp_contacto: "https://wa.me/525654252153",
-            foto_portada: "https://www.dropbox.com/scl/fi/pd9mjnnpuz1awyw4memr7/novios-de-frente.jpg?rlkey=fzbs6iftt0125yat387uxnbei&raw=1",
-            foto_final: "https://www.dropbox.com/scl/fi/snutqjlkrv7oglqswicq2/novios-besandoce.jpg?rlkey=ad7z44z08wgr0f4wcd20et7nz&raw=1"
+            modelo_estandar_url: "https://migrandia.mx/Boda-Estándar/",
+            modelo_premium_url: "https://migrandia.mx/Boda-Premium/",
+            modelo_vip_url: "https://migrandia.mx/Boda-Vip/",
+            img_estandar: "https://www.dropbox.com/scl/fi/n9fbtyn1frx6xflve530y/Screenshot_20260405_162259_Chrome.jpg?rlkey=4pin6sjbisold2jibdgucigfs&raw=1",
+            img_premium: "https://www.dropbox.com/scl/fi/qagw1zg76t324q0aw1vmb/BodaPremium.jpg?rlkey=ifketgnnp0flro9wwtmmbdia2&raw=1",
+            img_vip: "https://www.dropbox.com/scl/fi/78nvzbrif41hdl0u492q6/BodaAriel-Smanta.jpg?rlkey=h80t1rorq1oc739fjgzt10wgq&raw=1"
         };
     </script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;600&family=Montserrat:wght@200;400;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;600&family=Montserrat:wght@200;400;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --gris-suave: #666;
-            --dorado-mate: #bca080;
-            --fondo-gradiente: linear-gradient(180deg, #fdfcf9 0%, #f5eee6 100%);
-            --blanco-tarjeta: #ffffff;
-            --ancho-max: 480px;
+            --dorado: #bca080;
+            --dorado-oscuro: #8e7a5f;
+            --fondo: #fdfcf9;
+            --texto: #333;
+            --guinda: #660000;
         }
 
-        /* Seguridad anti-copia */
         body { 
-            -webkit-user-select: none; user-select: none;
-            margin: 0; padding: 0; background-color: #e8e4e1; font-family: 'Montserrat', sans-serif; text-align: center; color: #333; 
+            -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;
+            margin: 0; font-family: 'Montserrat', sans-serif; background-color: var(--fondo); color: var(--texto);
         }
 
-        /* --- BOTÓN REGRESAR FLOTANTE --- */
+        /* --- BOTÓN REGRESAR --- */
         .btn-regresar {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 10000;
-            background: white;
-            color: var(--dorado-mate);
-            padding: 10px 18px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 0.7rem;
-            font-weight: bold;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            border: 1px solid var(--dorado-mate);
-            display: flex;
-            align-items: center;
-            transition: 0.3s ease;
+            position: fixed; top: 20px; left: 20px; z-index: 10000;
+            background: white; color: var(--texto); padding: 10px 18px;
+            border-radius: 50px; text-decoration: none; font-size: 0.7rem;
+            font-weight: bold; letter-spacing: 1px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid #eee; display: flex; align-items: center; transition: 0.3s ease;
         }
-
-        .btn-regresar:hover {
-            background: var(--dorado-mate);
-            color: white;
-            transform: translateX(-3px);
-        }
-
+        .btn-regresar:hover { background: var(--dorado); color: white; transform: translateX(-3px); border-color: var(--dorado); }
         .btn-regresar svg { margin-right: 8px; }
 
-        .main-wrapper { 
-            max-width: var(--ancho-max); 
-            margin: 0 auto; 
-            background: var(--fondo-gradiente); 
-            box-shadow: 0 0 40px rgba(0,0,0,0.1); 
-        }
+        header { padding: 40px 20px; text-align: center; border-bottom: 1px solid #eee; background: white; }
+        .logo-text { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; letter-spacing: 4px; text-transform: uppercase; margin: 0; }
+        .sub-logo { font-size: 0.8rem; letter-spacing: 5px; color: var(--dorado); font-weight: bold; }
 
-        /* Fotos completas */
-        .foto-estatica { 
-            width: 100%; 
-            height: auto; 
-            max-height: 85vh; 
-            object-fit: contain; 
-            display: block;
-        }
-
-        section { padding: 50px 25px; }
+        .container { max-width: 1100px; margin: 50px auto; padding: 0 20px; }
         
-        h1 { font-family: 'Cormorant Garamond', serif; font-size: 3rem; margin: 10px 0; color: #333; }
-        .conector { font-family: 'Great Vibes', cursive; font-size: 3.5rem; color: var(--dorado-mate); display: block; margin: -15px 0; }
-        
-        h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--dorado-mate); margin-bottom: 20px; }
+        .promo-banner { background: var(--guinda); color: white; text-align: center; padding: 12px; font-weight: 700; font-size: 0.8rem; letter-spacing: 2px; border-radius: 50px; margin-bottom: 40px; text-transform: uppercase; }
 
-        .texto-detalle { font-size: 0.9rem; letter-spacing: 2px; color: var(--gris-suave); margin-bottom: 5px; text-transform: uppercase; }
-        .dato-principal { font-size: 1.3rem; font-weight: 600; margin-bottom: 25px; display: block; color: #222; }
+        .grid-modelos { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
 
-        /* Bloques con fondo blanco */
-        .info-card {
-            background: var(--blanco-tarjeta);
-            margin: 10px 0;
-            padding: 40px 20px;
-            border-radius: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            border: 1px solid rgba(188, 160, 128, 0.2);
+        .card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.4s; position: relative; border: 1px solid #eee; }
+        .card:hover { transform: translateY(-10px); }
+        .card-img { width: 100%; height: 450px; object-fit: cover; pointer-events: none; }
+        .card-info { padding: 25px; text-align: center; }
+        .tag-precio { color: var(--dorado); font-weight: bold; font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; }
+        .card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin: 10px 0; }
+        .card-desc { font-size: 0.85rem; color: #777; line-height: 1.6; margin-bottom: 20px; height: 60px; }
+
+        .btn-ver { 
+            display: inline-block; padding: 12px 30px; background: var(--dorado); color: white; 
+            text-decoration: none; border-radius: 30px; font-size: 0.8rem; font-weight: bold; 
+            letter-spacing: 1px; transition: 0.3s;
         }
+        .btn-ver:hover { background: var(--dorado-oscuro); }
 
-        .sobre-box { 
-            border: 1px dashed var(--dorado-mate); 
-            padding: 30px; 
-            border-radius: 15px; 
-            background: rgba(255, 255, 255, 0.6); 
-        }
-        
-        .icon-sobre { font-size: 2.5rem; color: var(--dorado-mate); margin-bottom: 10px; display: block; }
+        /* SECCIÓN VIDEO CANCIÓN */
+        .video-promo { background: white; border-radius: 20px; padding: 40px; margin: 60px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; box-shadow: 0 15px 40px rgba(0,0,0,0.05); }
+        .video-promo video { width: 100%; border-radius: 15px; }
+        .precio-cancion { font-size: 2.2rem; color: var(--dorado); font-weight: 700; margin: 15px 0; display: block; }
 
-        .btn-confirmar { 
-            display: inline-block; margin-top: 20px; padding: 16px 45px; 
-            background-color: #25d366; color: white; text-decoration: none; 
-            font-size: 0.85rem; font-weight: bold; letter-spacing: 1px; 
-            text-transform: uppercase; border-radius: 50px; 
-            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
-            transition: 0.3s;
-        }
-        .btn-confirmar:hover { transform: translateY(-3px); background-color: #128c7e; }
+        /* CHART COMPARATIVO */
+        .chart-wrapper { background: white; border-radius: 20px; overflow-x: auto; box-shadow: 0 15px 40px rgba(0,0,0,0.08); margin-top: 50px; }
+        .chart-table { width: 100%; border-collapse: collapse; min-width: 650px; }
+        .chart-table th { padding: 30px 15px; background: #fffcfd; border-bottom: 3px solid var(--dorado); }
+        .chart-table td { padding: 15px 10px; text-align: center; border-bottom: 1px solid #f0f0f0; font-size: 0.85rem; }
+        .feature-label { text-align: left !important; padding-left: 40px !important; font-weight: 600; color: #444; width: 35%; }
+        .check { color: #2ecc71; font-size: 1.3rem; font-weight: bold; }
+        .cross { color: #e74c3c; font-size: 1.3rem; font-weight: bold; }
 
-        .footer-logo { font-size: 0.6rem; color: #999; margin-top: 40px; letter-spacing: 2px; padding-bottom: 30px; }
+        .footer-cta { margin-top: 80px; text-align: center; padding: 60px 20px; background: #f9f6f2; }
+        .footer-cta h3 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; }
 
-        @media (max-width: 600px) {
-            .btn-regresar { padding: 8px 12px; font-size: 0.6rem; top: 15px; left: 15px; }
+        @media (max-width: 768px) {
+            .video-promo { grid-template-columns: 1fr; text-align: center; }
+            .logo-text { font-size: 1.8rem; }
+            .card-img { height: 400px; }
         }
     </style>
 </head>
@@ -131,53 +106,102 @@
         VOLVER
     </a>
 
-    <div class="main-wrapper">
-        <img id="portada" src="" class="foto-estatica" alt="Portada Boda">
-        
-        <section>
-            <span class="texto-detalle">Nuestra Boda</span>
-            <h1>Cecilia <span class="conector">&</span> Rubén</h1>
-            <p style="font-style: italic; color: #777; margin-top: 20px; font-family: 'Cormorant Garamond', serif; font-size: 1.4rem;">
-                "Sencillez y elegancia para anunciar este día especial."
-            </p>
-        </section>
+    <header>
+        <h1 class="logo-text">Mi Gran Día</h1>
+        <div class="sub-logo">MODELOS PARA BODAS</div>
+    </header>
 
-        <section>
-            <div class="info-card">
-                <h2>Cuándo & Dónde</h2>
-                <span class="texto-detalle">SÁBADO</span>
-                <span class="dato-principal">15 de Agosto, 2026</span>
-                
-                <span class="texto-detalle">LUGAR</span>
-                <span class="dato-principal">Tlaltizapán, Morelos</span>
-                
-                <p style="font-size: 0.75rem; color: #aaa; margin-top: 20px;">Ubicación exacta disponible en versión Premium</p>
+    <div class="container">
+        <div class="promo-banner">🔥 OFERTA POR TIEMPO LIMITADO EN TODOS LOS MODELOS 🔥</div>
+
+        <div class="grid-modelos">
+            <div class="card">
+                <img id="img-estandar" src="" alt="Boda Estandar" class="card-img">
+                <div class="card-info">
+                    <span class="tag-precio">Colección Esencial - $299</span>
+                    <h2 class="card-title">Modelo Estándar</h2>
+                    <p class="card-desc">Elegancia clásica con toda la información necesaria para tus invitados. Limpia y funcional.</p>
+                    <a id="link-estandar" href="#" class="btn-ver">VER EJEMPLO</a>
+                </div>
             </div>
-        </section>
 
-        <section>
-            <div class="sobre-box">
-                <span class="icon-sobre">✉</span>
-                <h2>Lluvia de Sobres</h2>
-                <p style="line-height: 1.6;">Tu presencia es nuestro mejor regalo, pero si deseas darnos un obsequio, contamos con lluvia de sobres el día del evento.</p>
+            <div class="card" style="border: 2px solid var(--dorado);">
+                <img id="img-premium" src="" alt="Boda Premium" class="card-img">
+                <div class="card-info">
+                    <span class="tag-precio" style="color: #064e3b; font-weight: bold;">Más Elegido - $399</span>
+                    <h2 class="card-title">Modelo Premium</h2>
+                    <p class="card-desc">Incluye cuenta regresiva, efectos visuales avanzados y diseño personalizado Verde Esmeralda/Oro.</p>
+                    <a id="link-premium" href="#" class="btn-ver">VER EJEMPLO</a>
+                </div>
             </div>
-        </section>
 
-        <img id="final" src="" class="foto-estatica" alt="Cierre Boda">
+            <div class="card">
+                <img id="img-vip" src="" alt="Boda VIP" class="card-img">
+                <div class="card-info">
+                    <span class="tag-precio">Experiencia Completa - $499</span>
+                    <h2 class="card-title">Modelo VIP</h2>
+                    <p class="card-desc">Lo más exclusivo: Música personalizada, galerías interactivas y confirmación directa.</p>
+                    <a id="link-vip" href="#" class="btn-ver">VER EJEMPLO</a>
+                </div>
+            </div>
+        </div>
 
-        <section>
-            <h2>Confirmar Asistencia</h2>
-            <p class="texto-detalle" style="text-transform: none;">Tu respuesta es muy importante para nosotros.</p>
-            <a id="whatsapp" href="#" class="btn-confirmar">CONFIRMAR ASISTENCIA</a>
-            
-            <div class="footer-logo">MI GRAN DÍA - INVITACIONES DIGITALES</div>
-        </section>
+        <div class="video-promo">
+            <div>
+                <video controls poster="https://www.dropbox.com/scl/fi/7xqcc54jy4qtpgcmn0zhx/logo.png?rlkey=mwuejhlyagpz2r92gestu6yd2&raw=1">
+                    <source src="https://www.dropbox.com/scl/fi/x85qmt0ev2pz1dw97cyc5/Cancion-Perzonalizada.mp4?rlkey=zwtmpv5y76bl0faeokig1qtkn&raw=1" type="video/mp4">
+                </video>
+            </div>
+            <div class="video-text">
+                <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem;">Vuestra Historia en una Canción</h2>
+                <p>Añadimos una melodía exclusiva que narra vuestro amor con vuestros nombres.</p>
+                <span class="precio-cancion">$199 MX/P</span>
+                <a href="https://wa.me/525654252153?text=Hola!%20Me%20interesa%20la%20canción%20personalizada" class="btn-ver" style="background: var(--guinda);">MÁS INFORMACIÓN</a>
+            </div>
+        </div>
+
+        <div class="chart-wrapper">
+            <table class="chart-table">
+                <thead>
+                    <tr>
+                        <th style="text-align: left; padding-left: 40px; font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--dorado);">Servicios</th>
+                        <th>ESTÁNDAR<br><small>$299</small></th>
+                        <th>PREMIUM<br><small>$399</small></th>
+                        <th>VIP<br><small>$499</small></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="feature-label">Diseño Digital Responsivo</td><td class="check">✔</td><td class="check">✔</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Ubicación GPS (Google Maps)</td><td class="check">✔</td><td class="check">✔</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Confirmación WhatsApp</td><td class="check">✔</td><td class="check">✔</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Cuenta Regresiva</td><td class="cross">✘</td><td class="check">✔</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Mesa de Regalos / Banco</td><td class="cross">✘</td><td class="check">✔</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Música de Fondo</td><td class="cross">✘</td><td class="check">✔</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Itinerario del Evento</td><td class="cross">✘</td><td class="check">✔</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Hospedaje Ubicación GPS</td><td class="cross">✘</td><td class="cross">✘</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Iglesia / Misa GPS</td><td class="cross">✘</td><td class="check">✔</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Código de Vestimenta</td><td class="cross">✘</td><td class="cross">✘</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Lluvia de Sobres</td><td class="cross">✘</td><td class="check">✔</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Galería de Fotos</td><td style="color:#888;">(2)</td><td class="check">✔ (3)</td><td class="check">✔ (4)</td></tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
+    <section class="footer-cta">
+        <h3>¿Listo para comenzar?</h3>
+        <p>Contáctanos para personalizar tu modelo favorito.</p>
+        <a id="btn-whatsapp" href="#" class="btn-ver" style="background: #25d366;">CONTACTAR POR WHATSAPP</a>
+    </section>
+
     <script>
-        document.getElementById('portada').src = CONFIG.foto_portada;
-        document.getElementById('final').src = CONFIG.foto_final;
-        document.getElementById('whatsapp').href = CONFIG.whatsapp_contacto;
+        document.getElementById('img-estandar').src = CONFIG.img_estandar;
+        document.getElementById('img-premium').src = CONFIG.img_premium;
+        document.getElementById('img-vip').src = CONFIG.img_vip;
+        document.getElementById('link-estandar').href = CONFIG.modelo_estandar_url;
+        document.getElementById('link-premium').href = CONFIG.modelo_premium_url;
+        document.getElementById('link-vip').href = CONFIG.modelo_vip_url;
+        document.getElementById('btn-whatsapp').href = CONFIG.whatsapp_contacto;
 
         document.onkeydown = function(e) {
             if(e.keyCode == 123 || (e.ctrlKey && (e.keyCode == 85 || e.keyCode == 83))) {
