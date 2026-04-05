@@ -29,8 +29,10 @@
         body { font-family: 'Montserrat', sans-serif; background-image: var(--fondo-papel); background-attachment: fixed; color: #333; overflow-x: hidden; }
         img { -webkit-user-drag: none; pointer-events: none; max-width: 100%; height: auto; }
 
-        /* MÚSICA */
-        .music-btn { position: fixed; top: 20px; right: 20px; z-index: 1000; background: white; border: 1px solid var(--oro); border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        /* BOTONES FIJOS */
+        .music-btn, .back-btn { position: fixed; top: 20px; z-index: 1000; background: white; border: 1px solid var(--oro); border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-decoration: none; font-size: 1.2rem; }
+        .music-btn { right: 20px; }
+        .back-btn { left: 20px; color: var(--oro); }
 
         /* PORTADA */
         .hero {
@@ -93,8 +95,9 @@
         .footer-link:hover { color: var(--oro); }
     </style>
 </head>
-<body onclick="playFirstTime()">
+<body>
 
+    <a href="javascript:history.back()" class="back-btn">⬅️</a>
     <div class="music-btn" id="music-trigger" onclick="toggleMusica(event)"><span id="m-status">▶️</span></div>
     <audio id="bg-music" loop>
         <source src="https://www.dropbox.com/scl/fi/80hypdxkg24wx6x7oael2/En-Tus-Manos-Se-or.mp3?rlkey=j4di62c9sgj4txgwbpikcngp3&raw=1" type="audio/mpeg">
@@ -286,6 +289,32 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
+        const music = document.getElementById("bg-music");
+        const mStatus = document.getElementById("m-status");
+        let hasPlayed = false;
+
+        // Función para activar música al bajar
+        window.addEventListener('scroll', function() {
+            if (!hasPlayed) {
+                music.play().then(() => {
+                    mStatus.innerText = "🔊";
+                    hasPlayed = true;
+                }).catch(e => console.log("Esperando interacción..."));
+            }
+        }, { once: false });
+
+        function toggleMusica(event) {
+            event.stopPropagation();
+            if (music.paused) { 
+                music.play(); 
+                mStatus.innerText = "🔊"; 
+                hasPlayed = true; 
+            } else { 
+                music.pause(); 
+                mStatus.innerText = "🔇"; 
+            }
+        }
+
         function personalizarInvitacion() {
             const urlParams = new URLSearchParams(window.location.search);
             const nombre = urlParams.get('n'); 
@@ -343,17 +372,6 @@
                 document.getElementById('w-icon').innerText = icon;
                 document.getElementById('w-desc').innerText = text;
             } catch (e) { console.log("Error cargando clima."); }
-        }
-
-        const music = document.getElementById("bg-music");
-        const mStatus = document.getElementById("m-status");
-        let hasPlayed = false;
-
-        function playFirstTime() { if (!hasPlayed) { music.play(); mStatus.innerText = "🔊"; hasPlayed = true; } }
-        function toggleMusica(event) {
-            event.stopPropagation();
-            if (music.paused) { music.play(); mStatus.innerText = "🔊"; hasPlayed = true; } 
-            else { music.pause(); mStatus.innerText = "🔇"; }
         }
 
         const swiper = new Swiper(".mySwiper", { 
