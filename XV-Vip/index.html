@@ -31,6 +31,15 @@
             min-height: 100vh; border: 1px solid #1e293b;
         }
 
+        /* BOTÓN REGRESAR */
+        .btn-back {
+            position: fixed; top: 20px; left: 20px; z-index: 1001;
+            background: rgba(0, 0, 0, 0.5); border: 1px solid var(--glass);
+            color: white; padding: 8px 15px; border-radius: 20px;
+            text-decoration: none; font-size: 0.7rem; font-weight: bold;
+            backdrop-filter: blur(10px);
+        }
+
         #music-pill {
             position: fixed; bottom: 20px; right: 20px; z-index: 1000;
             background: rgba(6, 78, 59, 0.8); backdrop-filter: blur(15px);
@@ -96,6 +105,8 @@
     </style>
 </head>
 <body onclick="initAudio()">
+
+    <a href="javascript:history.back()" class="btn-back">← REGRESAR</a>
 
     <div id="music-pill" onclick="toggleMusic(event)">
         <span id="m-status">▶</span>
@@ -241,8 +252,9 @@
             <p style="margin-top:20px; font-size:0.6rem;">FAVOR DE CONFIRMAR ANTES DEL 10.10.2026</p>
         </div>
 
-        <footer style="padding:60px 20px; opacity:0.3; font-size:0.6rem; letter-spacing:4px;">
-            MI GRAN DÍA • DIAMOND COLLECTION
+        <footer style="padding:60px 20px; opacity:0.5; font-size:0.6rem; letter-spacing:4px;">
+            <p>MI GRAN DÍA • DIAMOND COLLECTION</p>
+            <p style="margin-top: 10px;">CREACIÓN DE <a href="https://migrandia.mx" target="_blank" style="color: white; text-decoration: none; font-weight: bold;">MIGRANDIA.MX</a></p>
         </footer>
     </div>
 
