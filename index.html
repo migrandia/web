@@ -1,248 +1,206 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mi Gran Día | Invitaciones Digitales</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelos de XV Años | Mi Gran Día</title>
 
-<script>
-const MI_CONFIGURACION = {
-    nombreMarca: "Mi Gran Día",
-    slogan: "Eventos Inolvidables",
-    coleccion: "Colección by Maria Montenegro",
-    tituloHero: "La primera impresión de tu Gran Día comienza aquí.",
-    subtituloHero: "Invitaciones digitales e interactivas que enamoran a tus invitados.",
-    fraseFinal: '"Porque los mejores momentos de la vida merecen ser anunciados con elegancia."',
-    pieDePagina: "Mi Gran Día | Experiencias Digitales",
-    whatsappUrl: "https://wa.me/525654252153",
-    enlaceBoda: "https://migrandia.mx/boda-catalogo",
-    enlaceXV: "https://migrandia.mx/xv-catalogo",
-    enlaceBautizo: "https://migrandia.mx/bautizo-catalogo",
-    enlaceBaby: "https://migrandia.mx/babyshower-infantiles",
+    <script>
+        const CONFIG = {
+            whatsapp_contacto: "https://wa.me/525654252153",
+            modelo_estandar_url: "https://migrandia.mx/XV-Estandar/",
+            modelo_premium_url: "https://migrandia.mx/XV-Premium/",
+            modelo_vip_url: "https://migrandia.mx/XV-Vip/",
+            img_estandar: "https://www.dropbox.com/scl/fi/nm44i882g13044o8idz6k/xv1.jpg?rlkey=wn8xf4ne3yp5fz4vkzpsvbz4p&raw=1",
+            img_premium: "https://www.dropbox.com/scl/fi/tmehprhryocd8vr9hfphl/xv2.jpg?rlkey=nzdubrk5wd1cg68gpbnck9r5t&raw=1",
+            img_vip: "https://www.dropbox.com/scl/fi/x8aif8za8u6dbfyqvxx6k/xv3.jpg?rlkey=0gnog533q3fpm5xl0ouxmhrou&raw=1"
+        };
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;600&family=Montserrat:wght@200;400;700&family=Great+Vibes&display=swap" rel="stylesheet">
     
-    telefono: "525654252153",
-    horario: "Lunes a Sábado: 9:00 AM - 10:00 PM",
-    
-    fotoLogo: "https://www.dropbox.com/scl/fi/7xqcc54jy4qtpgcmn0zhx/logo.png?rlkey=mwuejhlyagpz2r92gestu6yd2&raw=1",
-    fotoCelular1: "https://www.dropbox.com/scl/fi/zux2sxkc0jkjm3wl6bah8/celular-boda.png?rlkey=h87ne4ctts5pnmiwtt208tnpj&raw=1",
-    fotoCelular2: "https://www.dropbox.com/scl/fi/jez673lm5uja0bp7d4qv8/15.png?rlkey=lizifto81n577oscj8861xo1f&raw=1",
-    fotoPortadaBoda: "https://www.dropbox.com/scl/fi/e56oijqyqox41yphxsfjx/boda-web.png?rlkey=r6dkxn3fu3q2vm51jlk74qjq3&raw=1",
-    fotoPortadaXV: "https://www.dropbox.com/scl/fi/45vsrjiwvg7rlubvc1g51/xv-a-os.png?rlkey=1poaqg5g3z2b1897s9u7poxj2&raw=1",
-    fotoPortadaBautizo: "https://www.dropbox.com/scl/fi/xgrkr563fnhu4bbxoimn6/Bautizo-12.png?rlkey=ng4c8jy07ud2gz5jqgkx8e6pc&raw=1",
-    fotoPortadaBaby: "https://www.dropbox.com/scl/fi/0qs4ysv243u1dnfy2eumo/baby-shower.png?rlkey=cd206qfq48u7lqfaheu8k17jb&raw=1"
-};
-</script>
+    <style>
+        :root {
+            --primario: #b5838d; /* Rosa Malva */
+            --acento: #6d597a;    /* Purpura Grisáceo */
+            --fondo: #fffafd;
+            --texto: #333;
+            --guinda_oferta: #660000;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+        body { 
+            -webkit-user-select: none; user-select: none;
+            margin: 0; font-family: 'Montserrat', sans-serif; background-color: var(--fondo); color: var(--texto);
+        }
 
-<style>
-:root{
-    --primario: #3e2c24;
-    --guinda: #660000;
-    --dorado-brillante: linear-gradient(45deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
-    --dorado-solido: #c9a96a;
-    --fondo-suave: linear-gradient(135deg, #fdfbfb 0%, #f1e3d8 100%);
-    --fondo-blanco-warm: #fdfaf8;
-}
+        .btn-regresar {
+            position: fixed; top: 20px; left: 20px; z-index: 10000;
+            background: white; color: var(--acento); padding: 10px 18px;
+            border-radius: 50px; text-decoration: none; font-size: 0.7rem;
+            font-weight: bold; letter-spacing: 1px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border: 1px solid #f0e4e6; display: flex; align-items: center; transition: 0.3s;
+        }
 
-*{margin:0;padding:0;box-sizing:border-box; -webkit-user-select: none; user-select: none;}
-img { -webkit-user-drag: none; pointer-events: none; max-width: 100%; height: auto; }
+        header { padding: 40px 20px; text-align: center; background: white; border-bottom: 1px solid #eee; }
+        .logo-text { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; letter-spacing: 4px; text-transform: uppercase; margin: 0; }
+        .sub-logo { font-family: 'Great Vibes', cursive; font-size: 1.8rem; color: var(--primario); margin-top: 5px; }
 
-body{font-family:'Poppins',sans-serif; background: var(--fondo-suave); color:var(--primario); overflow-x:hidden;}
+        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
 
-/* BARRA SUPERIOR */
-.top-bar { background: #fff; border-bottom: 1px solid rgba(201, 169, 106, 0.3); padding: 8px 20px; font-size: 0.7rem; letter-spacing: 1px; display: flex; justify-content: center; gap: 15px; color: var(--dorado-solido); font-weight: 600; text-transform: uppercase; flex-wrap: wrap; }
+        .oferta-banner { background: var(--guinda_oferta); color: white; padding: 12px; text-align: center; font-weight: bold; font-size: 0.8rem; letter-spacing: 2px; border-radius: 50px; margin-bottom: 40px; }
 
-/* HEADER */
-.header { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); padding: 15px 20px; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(102, 0, 0, 0.1); }
-.brand-container { display: flex; align-items: center; justify-content: space-between; max-width: 1400px; margin: 0 auto; padding: 5px 0; border-top: 1.5px solid var(--guinda); border-bottom: 1.5px solid var(--guinda); }
-.logo-nombre-grupo { display: flex; align-items: center; gap: 20px; }
-.logo { height: 100px; width: auto; border-right: 1.5px solid var(--guinda); padding-right: 20px; }
-.brand-text-wrapper { display: flex; flex-direction: column; }
-.brand-name { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--primario); letter-spacing: 2px; text-transform: uppercase; font-weight: 700; line-height: 1; }
-.brand-slogan { font-size: 0.8rem; color: var(--dorado-solido); letter-spacing: 2px; margin-top: 5px; text-transform: uppercase; }
-.brand-collection { font-size: 0.6rem; color: var(--primario); letter-spacing: 1px; margin-top: 2px; opacity: 0.8; }
-.header-contact { font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; color: var(--guinda); font-weight: 600; border: 1.5px solid var(--guinda); padding: 8px 20px; border-radius: 50px; text-decoration: none; transition: 0.3s; }
+        .grid-modelos { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 60px; }
+        .card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; border: 1px solid #f0e4e6; transition: 0.4s; }
+        .card:hover { transform: translateY(-10px); }
+        .card-img { width: 100%; height: 380px; object-fit: cover; }
+        .card-info { padding: 25px; }
+        .precio-tag { font-size: 1.8rem; color: var(--primario); font-weight: bold; display: block; margin: 10px 0; }
+        .btn-ver { display: inline-block; padding: 12px 25px; background: var(--primario); color: white; text-decoration: none; border-radius: 30px; font-size: 0.8rem; font-weight: bold; width: 100%; box-sizing: border-box; }
 
-/* HERO */
-.hero{max-width:1400px; margin:auto; display:flex; align-items:center; justify-content:space-between; padding:60px 20px; gap:40px; flex-wrap: wrap;}
-.hero-text { flex: 1; min-width: 300px; }
-.hero h1{font-family:'Playfair Display',serif; font-size:3.5rem; color: var(--guinda); line-height:1.1; margin-bottom:20px;}
-.hero p{font-size:1.2rem; color:#6f5a4f; margin-bottom:30px;}
-.btn{background:var(--dorado-brillante); background-size:200% auto; color:#3e2c24; padding:15px 40px; border-radius:50px; text-decoration:none; font-weight:700; box-shadow:0 10px 20px rgba(181, 146, 76, 0.2); transition:.4s; display:inline-block; cursor:pointer; border: none; text-align: center;}
+        .video-promo { background: white; border-radius: 20px; padding: 40px; margin: 60px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; box-shadow: 0 15px 40px rgba(0,0,0,0.05); }
+        .video-promo video { width: 100%; border-radius: 15px; }
+        .video-text h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--acento); }
+        .precio-cancion { font-size: 2.2rem; color: var(--primario); font-weight: 700; margin: 15px 0; display: block; }
 
-/* CELULARES HERO */
-.phones{ position:relative; flex:1; display:flex; justify-content:center; align-items: center; min-width: 300px; padding: 40px 0; }
-.phone1{ width:260px; transform:rotate(-5deg) translateX(30px); filter:drop-shadow(10px 20px 30px rgba(0,0,0,0.1)); z-index: 1;}
-.phone2{ width:260px; transform:rotate(5deg) translateX(-30px); filter:drop-shadow(-10px 20px 30px rgba(0,0,0,0.1)); z-index: 2;}
+        .chart-wrapper { background: white; border-radius: 20px; overflow-x: auto; box-shadow: 0 15px 40px rgba(0,0,0,0.08); margin-top: 50px; }
+        .chart-table { width: 100%; border-collapse: collapse; min-width: 650px; }
+        .chart-table th { padding: 30px 15px; background: #fffcfd; border-bottom: 3px solid var(--primario); }
+        .chart-table td { padding: 15px 10px; text-align: center; border-bottom: 1px solid #f0f0f0; font-size: 0.85rem; }
+        .feature-label { text-align: left !important; padding-left: 40px !important; font-weight: 600; color: #444; width: 35%; }
+        .pkg-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; margin: 0; color: var(--acento); }
+        .pkg-price { display: block; color: var(--primario); font-weight: 700; }
+        .check { color: #2ecc71; font-size: 1.3rem; font-weight: bold; }
+        .cross { color: #e74c3c; font-size: 1.3rem; font-weight: bold; }
 
-/* MODELOS */
-.modelos{background: var(--fondo-blanco-warm); padding:60px 20px; text-align:center; border-radius:40px 40px 0 0;}
-.grid{max-width:1400px; margin:40px auto; display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:25px;}
-.card{background:#fff; border-radius:20px; overflow:hidden; box-shadow:0 8px 20px rgba(0,0,0,0.05); border:1px solid #f1e3d8; padding-bottom:25px; transition: 0.3s;}
-.card img{width:100%; height:300px; object-fit:cover; margin-bottom:20px;}
+        .footer-cta { text-align: center; padding: 60px 20px; background: white; border-top: 1px solid #eee; margin-top: 50px; }
 
-/* PERSONALIZACIÓN */
-.section-customization { background: #fff; padding: 60px 20px; }
-.exclusividad-box { max-width: 1100px; margin: 0 auto; padding: 40px 20px; text-align: center; }
-.exclusividad-box h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--guinda); margin-bottom: 20px; }
-.ventajas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 30px;}
+        /* ESTILO DEL CONTADOR */
+        .contador-visitas {
+            padding: 20px;
+            text-align: center;
+            background: #fdf8fa;
+            font-size: 0.7rem;
+            color: var(--acento);
+            letter-spacing: 1px;
+            border-top: 1px solid #eee;
+        }
 
-/* MÚSICA */
-.section-music { background: #fdfaf8; padding: 60px 20px; }
-.media-container { max-width: 1200px; margin: 0 auto; display: flex; gap: 30px; align-items: center; flex-wrap: wrap; }
-.canciones-box { flex: 1; min-width: 300px; border: 1px solid var(--dorado-solido); padding: 30px; border-radius: 15px; background: #fff; text-align: center; }
-.video-box { width: 100%; max-width: 280px; margin: 0 auto; border-radius: 30px; overflow: hidden; border: 6px solid #1a1a1a; }
-.video-box video { width: 100%; display: block; }
-
-.footer-message{padding:60px 20px; text-align:center; background: #f1e3d8;}
-.whatsapp{position:fixed; bottom:25px; right:25px; background:#25D366; width:60px; height:60px; border-radius:50%; display:flex; align-items:center; justify-content:center; z-index:2000; box-shadow: 0 5px 15px rgba(0,0,0,0.2);}
-
-/* --- CORRECCIONES PARA MÓVIL --- */
-@media(max-width:768px){
-    .header { padding: 10px; }
-    .brand-container { flex-direction: column; text-align: center; padding: 15px 0; }
-    .logo-nombre-grupo { flex-direction: column; gap: 10px; }
-    .logo { border-right: none; padding-right: 0; height: 90px; }
-    .brand-name { font-size: 1.8rem; }
-    .header-contact { display: none; } /* Oculto en móvil para limpiar la vista */
-    
-    .hero { padding: 40px 20px; text-align: center; }
-    .hero h1 { font-size: 2.5rem; }
-    .hero p { font-size: 1.1rem; }
-    
-    /* Celulares en móvil: uno al lado del otro más pequeños */
-    .phones { padding: 20px 0; }
-    .phone1, .phone2 { width: 150px; transform: none; margin: 0 5px; }
-    
-    .modelos h2 { font-size: 2.2rem; }
-    .exclusividad-box h2 { font-size: 1.8rem; }
-}
-</style>
+        @media (max-width: 768px) {
+            .video-promo { grid-template-columns: 1fr; text-align: center; }
+        }
+    </style>
 </head>
-
 <body oncontextmenu="return false;">
 
-<div class="top-bar">
-    <span id="txtTelefono"></span>
-    <span id="txtHorario"></span>
-</div>
+    <a href="https://migrandia.mx" class="btn-regresar">VOLVER</a>
 
-<header class="header">
-    <div class="brand-container">
-        <div class="logo-nombre-grupo">
-            <img id="elLogo" class="logo">
-            <div class="brand-text-wrapper">
-                <span id="elNombreMarca" class="brand-name"></span>
-                <span id="elSlogan" class="brand-slogan"></span>
-                <span id="elColeccion" class="brand-collection"></span>
+    <header>
+        <h1 class="logo-text">Mi Gran Día</h1>
+        <div class="sub-logo">Mis Quince Años</div>
+    </header>
+
+    <div class="container">
+        <div class="oferta-banner">🔥 OFERTA POR TIEMPO LIMITADO EN TODOS LOS MODELOS 🔥</div>
+
+        <div class="grid-modelos">
+            <div class="card">
+                <img id="img-estandar" class="card-img">
+                <div class="card-info">
+                    <span style="font-size: 0.7rem; letter-spacing: 2px; color: #888;">ESTILO SWEET</span>
+                    <span class="precio-tag">$299 MX/P</span>
+                    <a id="link-estandar" href="#" class="btn-ver">VER MODELO</a>
+                </div>
+            </div>
+            <div class="card" style="border: 2px solid var(--primario);">
+                <img id="img-premium" class="card-img">
+                <div class="card-info">
+                    <span style="font-size: 0.7rem; letter-spacing: 2px; color: var(--primario); font-weight: bold;">MÁS POPULAR</span>
+                    <span class="precio-tag">$399 MX/P</span>
+                    <a id="link-premium" href="#" class="btn-ver">VER MODELO</a>
+                </div>
+            </div>
+            <div class="card">
+                <img id="img-vip" class="card-img">
+                <div class="card-info">
+                    <span style="font-size: 0.7rem; letter-spacing: 2px; color: #888;">ESTILO GALA</span>
+                    <span class="precio-tag">$499 MX/P</span>
+                    <a id="link-vip" href="#" class="btn-ver">VER MODELO</a>
+                </div>
             </div>
         </div>
-        <a id="linkWAHeader" href="#" class="header-contact">Contacto</a>
-    </div>
-</header>
 
-<section class="hero">
-    <div class="hero-text">
-        <h1 id="elTitulo"></h1>
-        <p id="elSubtitulo"></p>
-        <a id="elBtnHero" class="btn">¡Cotizar mi Invitación!</a>
-    </div>
-    <div class="phones">
-        <img id="elCel1" class="phone1">
-        <img id="elCel2" class="phone2">
-    </div>
-</section>
-
-<section class="modelos">
-    <h2 style="font-family:'Playfair Display',serif; color: var(--primario);">Nuestros Modelos</h2>
-    <div class="grid">
-        <div class="card"><img id="fBoda"><h3>Bodas</h3><div style="padding:0 20px;"><a id="linkBoda" class="btn" style="padding:10px; width:100%;">Ver Ejemplo</a></div></div>
-        <div class="card"><img id="fXV"><h3>XV Años</h3><div style="padding:0 20px;"><a id="linkXV" class="btn" style="padding:10px; width:100%;">Ver Ejemplo</a></div></div>
-        <div class="card"><img id="fBautizo"><h3>Bautizos</h3><div style="padding:0 20px;"><a id="linkBautizo" class="btn" style="padding:10px; width:100%;">Ver Ejemplo</a></div></div>
-        <div class="card"><img id="fBaby"><h3>Baby Showers Y Mas</h3><div style="padding:0 20px;"><a id="linkBaby" class="btn" style="padding:10px; width:100%;">Ver Ejemplo</a></div></div>
-    </div>
-</section>
-
-<section class="section-customization">
-    <div class="exclusividad-box">
-        <h2>Diseño Único, Como Tu Historia</h2>
-        <p style="color: var(--primario);">Cada invitación es un lienzo en blanco diseñado desde cero.</p>
-        <div class="ventajas-grid">
-            <div class="ventaja-item">
-                <h4 style="font-family:'Playfair Display',serif; color:var(--dorado-solido); font-size:1.3rem;">Personalización sin límites</h4>
-                <p>Tú eliges los colores, las tipografías y el estilo.</p>
+        <div class="video-promo">
+            <div>
+                <video controls poster="https://www.dropbox.com/scl/fi/7xqcc54jy4qtpgcmn0zhx/logo.png?rlkey=mwuejhlyagpz2r92gestu6yd2&raw=1">
+                    <source src="https://www.dropbox.com/scl/fi/ro14b8uhpedaau13hqtim/QuinceVals.mp4?rlkey=7kyuzf7bqccu7aimv99l3li9t&raw=1" type="video/mp4">
+                </video>
             </div>
-            <div class="ventaja-item">
-                <h4 style="font-family:'Playfair Display',serif; color:var(--dorado-solido); font-size:1.3rem;">Flexibilidad total</h4>
-                <p>Agregamos mapas, pases o lo que necesites.</p>
-            </div>
-            <div class="ventaja-item">
-                <h4 style="font-family:'Playfair Display',serif; color:var(--dorado-solido); font-size:1.3rem;">Piezas irrepetibles</h4>
-                <p>Una experiencia digital exclusiva para tus invitados.</p>
+            <div class="video-text">
+                <h2>Tu propia canción personalizada</h2>
+                <p>Una melodía exclusiva que narra tu ilusión de llegar a los quince años con tu propio nombre.</p>
+                <span class="precio-cancion">$199 MX/P</span>
+                <a href="https://wa.me/525654252153?text=Hola!%20Me%20interesa%20la%20canción%20personalizada" class="btn-ver" style="background: var(--acento); width: auto; padding: 15px 40px;">MÁS INFORMACIÓN</a>
             </div>
         </div>
-    </div>
-</section>
 
-<section class="section-music">
-    <div class="media-container">
-        <div class="canciones-box">
-            <h4>Melodías que cuentan su Historia</h4>
-            <p>Hacemos canciones personalizadas con sus nombres e historia.</p>
-            <div style="font-family: 'Playfair Display', serif; font-size: 0.9rem; color: var(--dorado-solido); font-weight: bold; margin-top: 15px;">MÁS INFORMACIÓN EN NUESTRO CATÁLOGO</div>
+        <div class="chart-wrapper">
+            <table class="chart-table">
+                <thead>
+                    <tr>
+                        <th style="text-align: left; padding-left: 40px; font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--primario);">Servicios...</th>
+                        <th><p class="pkg-name">ESTÁNDAR</p><span class="pkg-price">$299</span></th>
+                        <th><p class="pkg-name">PREMIUM</p><span class="pkg-price">$399</span></th>
+                        <th><p class="pkg-name">VIP</p><span class="pkg-price">$499</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                     <tr><td class="feature-label">Foto Portada</td><td class="check">✔</td><td class="check">✔</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Fecha del Evento</td><td class="check">✔</td><td class="check">✔</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Contador de Tiempo</td><td class="check">✔</td><td class="check">✔</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Tu Historia</td><td class="check">✔</td><td class="check">✔</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Foto de Historia</td><td class="check">✔</td><td class="check">✔</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Padres</td><td class="check">✔</td><td class="check">✔</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Padrinos</td><td class="check">✔</td><td class="check">✔</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Itinerario</td><td class="cross">✘</td><td class="check">✔</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Momentos Galería</td><td class="cross">✘</td><td class="check">✔ (4)</td><td class="check">✔ (8)</td></tr>
+                    <tr><td class="feature-label">Ubicación Religiosa (Botón)</td><td class="cross">✘</td><td class="check">✔</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Calendario de Google</td><td class="cross">✘</td><td class="cross">✘</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Ubicación Recepción (Botón)</td><td class="cross">✘</td><td class="check">✔</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Hospedaje Ubicación</td><td class="cross">✘</td><td class="cross">✘</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Mesa de Regalos</td><td class="cross">✘</td><td class="check">✔</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Lluvia de Sobres</td><td class="check">✔</td><td class="check">✔</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Código de Vestimenta</td><td class="cross">✘</td><td class="check">✔</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Clima Personalizado</td><td class="cross">✘</td><td class="cross">✘</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Invitación por Familia</td><td class="cross">✘</td><td class="cross">✘</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Número de Invitados</td><td class="cross">✘</td><td class="cross">✘</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Contacto de Confirmación</td><td class="check">✔</td><td class="check">✔</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Canción Personalizada</td><td class="cross">✘</td><td class="check">✔</td><td class="check">✔</td></tr>
+                </tbody>
+            </table>
         </div>
-        <div class="video-box">
-            <video controls preload="metadata">
-                <source src="https://www.dropbox.com/scl/fi/h1fuyk1uorkemclw6m0wb/video-publicidad.mp4?rlkey=po4k9cgu0fyn8rmqdhbj7nqzb&raw=1" type="video/mp4">
-            </video>
-        </div>
+
     </div>
-</section>
 
-<footer class="footer-message">
-    <h2 id="laFrase"></h2>
-    <p id="elPie" style="color:var(--dorado-solido); letter-spacing:2px; text-transform:uppercase; font-weight:600;"></p>
-    <div style="margin-top:30px; color:#999; font-size: 0.8rem;">© 2024 Mi Gran Día - Todos los derechos reservados.</div>
-    <div style="margin-top:10px; color:#a8a8a8; font-size:0.7rem;">
-        Experiencias compartidas: <span id="count">9,855</span>
+    <section class="footer-cta">
+        <h3>¿Lista para tus quince?</h3>
+        <p>Escríbenos y elige el modelo que mejor combine con tu vestido.</p>
+        <a id="btn-whatsapp" href="#" class="btn-ver" style="background: #25d366; width: auto; padding: 15px 40px;">MANDAR MENSAJE PARA MÁS INFORMACIÓN</a>
+    </section>
+
+    <div class="contador-visitas">
+        VISITAS A LA PÁGINA: 
+        <div id="sfc684z9ayp1j67j1shscy3mllnclm37wdu"></div>
+        <script type="text/javascript" src="https://counter1.optistats.ovh/private/counter.js?c=684z9ayp1j67j1shscy3mllnclm37wdu&down=async" async></script>
     </div>
-</footer>
 
-<a id="elWA" class="whatsapp" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="35" alt="WA">
-</a>
-
-<script>
-    // MOTOR DE CARGA
-    document.getElementById('txtTelefono').innerText = "📞 " + MI_CONFIGURACION.telefono;
-    document.getElementById('txtHorario').innerText = "🕒 " + MI_CONFIGURACION.horario;
-    document.getElementById('elNombreMarca').innerText = MI_CONFIGURACION.nombreMarca;
-    document.getElementById('elSlogan').innerText = MI_CONFIGURACION.slogan;
-    document.getElementById('elColeccion').innerText = MI_CONFIGURACION.coleccion;
-    document.getElementById('elLogo').src = MI_CONFIGURACION.fotoLogo;
-    document.getElementById('elTitulo').innerText = MI_CONFIGURACION.tituloHero;
-    document.getElementById('elSubtitulo').innerText = MI_CONFIGURACION.subtituloHero;
-    document.getElementById('elBtnHero').href = MI_CONFIGURACION.whatsappUrl;
-    document.getElementById('elWA').href = MI_CONFIGURACION.whatsappUrl;
-    document.getElementById('linkWAHeader').href = MI_CONFIGURACION.whatsappUrl;
-    document.getElementById('elCel1').src = MI_CONFIGURACION.fotoCelular1;
-    document.getElementById('elCel2').src = MI_CONFIGURACION.fotoCelular2;
-    document.getElementById('fBoda').src = MI_CONFIGURACION.fotoPortadaBoda;
-    document.getElementById('linkBoda').href = MI_CONFIGURACION.enlaceBoda;
-    document.getElementById('fXV').src = MI_CONFIGURACION.fotoPortadaXV;
-    document.getElementById('linkXV').href = MI_CONFIGURACION.enlaceXV;
-    document.getElementById('fBautizo').src = MI_CONFIGURACION.fotoPortadaBautizo;
-    document.getElementById('linkBautizo').href = MI_CONFIGURACION.enlaceBautizo;
-    document.getElementById('fBaby').src = MI_CONFIGURACION.fotoPortadaBaby;
-    document.getElementById('linkBaby').href = MI_CONFIGURACION.enlaceBaby;
-    document.getElementById('laFrase').innerText = MI_CONFIGURACION.fraseFinal;
-    document.getElementById('elPie').innerText = MI_CONFIGURACION.pieDePagina;
-
-    const base = 9855;
-    let visits = localStorage.getItem('visit_count') || 0;
-    document.getElementById('count').innerText = (base + parseInt(visits)).toLocaleString();
-</script>
-
+    <script>
+        document.getElementById('img-estandar').src = CONFIG.img_estandar;
+        document.getElementById('img-premium').src = CONFIG.img_premium;
+        document.getElementById('img-vip').src = CONFIG.img_vip;
+        document.getElementById('link-estandar').href = CONFIG.modelo_estandar_url;
+        document.getElementById('link-premium').href = CONFIG.modelo_premium_url;
+        document.getElementById('link-vip').href = CONFIG.modelo_vip_url;
+        document.getElementById('btn-whatsapp').href = CONFIG.whatsapp_contacto;
+    </script>
 </body>
 </html>
