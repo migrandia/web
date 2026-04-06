@@ -31,7 +31,6 @@
             min-height: 100vh; border: 1px solid #1e293b;
         }
 
-        /* BOTÓN REGRESAR */
         .btn-back {
             position: fixed; top: 20px; left: 20px; z-index: 1001;
             background: rgba(0, 0, 0, 0.5); border: 1px solid var(--glass);
@@ -161,12 +160,11 @@
             </div>
         </div>
 
-       <div class="glass-card reveal" style="padding: 35px 0px; margin: 45px 10px;">
-    <h2 class="section-title">Itinerario</h2>
-    
-    <img src="https://www.dropbox.com/scl/fi/xdl2mk7n2y9q5emvrkplx/itnerario-15.png?rlkey=zend5yctnoc5evi96du5mf4lx&raw=1" 
-         style="width: 100%; border-radius: 0px; display: block;">
-</div>
+        <div class="glass-card reveal" style="padding: 35px 0px; margin: 45px 10px;">
+            <h2 class="section-title">Itinerario</h2>
+            <img src="https://www.dropbox.com/scl/fi/xdl2mk7n2y9q5emvrkplx/itnerario-15.png?rlkey=zend5yctnoc5evi96du5mf4lx&raw=1" 
+                 style="width: 100%; border-radius: 0px; display: block;">
+        </div>
 
         <div class="glass-card reveal">
             <h2 class="section-title">Momentos</h2>
@@ -240,7 +238,9 @@
 
         <div class="glass-card reveal" style="border: 2px solid var(--gold-glow);">
             <h2 class="section-title">Confirmación</h2>
-            <p id="saludo-familia" style="font-family:'Cinzel'; font-size: 1.2rem;">¡Te esperamos!</p>
+            <p id="saludo-familia" style="font-family:'Cinzel'; font-size: 1.2rem; margin-bottom: 10px;"></p>
+            <p id="lugares-mensaje" style="font-size: 0.9rem; margin-bottom: 20px; color: #fff;"></p>
+            
             <div class="attendance-selector">
                 <p class="role">¿Cuántos lugares confirmas?</p>
                 <select id="num-asistentes">
@@ -306,20 +306,29 @@
             const cupos = urlParams.get('c');   
 
             if (nombre) {
-                const n = decodeURIComponent(nombre).replace(/\+/g, ' ');
-                document.getElementById('saludo-familia').innerText = `¡Hola, ${n}!`;
+                // Nombre en MAYÚSCULAS para coincidir con la imagen
+                const n = decodeURIComponent(nombre).replace(/\+/g, ' ').toUpperCase();
+                document.getElementById('saludo-familia').innerText = `¡HOLA, FAMILIA ${n}!`;
+            } else {
+                document.getElementById('saludo-familia').innerText = `¡TE ESPERAMOS!`;
             }
 
             if (cupos && !isNaN(cupos)) {
+                const cant = parseInt(cupos);
+                const textoLugares = cant === 1 ? "1 lugar" : `${cant} lugares`;
+                document.getElementById('lugares-mensaje').innerHTML = `Hemos reservado <b>${textoLugares}</b> para ustedes.`;
+
                 const selector = document.getElementById('num-asistentes');
                 selector.innerHTML = ""; 
-                for (let i = 1; i <= parseInt(cupos); i++) {
+                for (let i = 1; i <= cant; i++) {
                     let opt = document.createElement('option');
                     opt.value = i;
                     opt.innerHTML = i + (i > 1 ? " Personas" : " Persona");
+                    if (i === cant) opt.selected = true; 
                     selector.appendChild(opt);
                 }
             }
+            
             new Swiper(".mySwiper", { effect: "cards", grabCursor: true, autoplay: {delay: 3000} });
             ScrollReveal().reveal('.reveal', { distance: '30px', duration: 1000, origin: 'bottom', interval: 150 });
         };
