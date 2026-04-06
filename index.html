@@ -105,7 +105,7 @@ body{font-family:'Poppins',sans-serif; background: var(--fondo-suave); color:var
     .logo-nombre-grupo { flex-direction: column; gap: 10px; }
     .logo { border-right: none; padding-right: 0; height: 90px; }
     .brand-name { font-size: 1.8rem; }
-    .header-contact { display: none; } 
+    .header-contact { display: none; }
     
     .hero { padding: 40px 20px; text-align: center; }
     .hero h1 { font-size: 2.5rem; }
@@ -206,11 +206,6 @@ body{font-family:'Poppins',sans-serif; background: var(--fondo-suave); color:var
     <div style="margin-top:10px; color:#a8a8a8; font-size:0.7rem;">
         Experiencias compartidas: <span id="count">9,855</span>
     </div>
-    
-    <div style="margin-top:15px; display: flex; justify-content: center;">
-        <div id="sfc684z9ayp1j67j1shscy3mllnclm37wdu"></div>
-        <script type="text/javascript" src="https://counter1.optistats.ovh/private/counter.js?c=684z9ayp1j67j1shscy3mllnclm37wdu&down=async" async></script>
-    </div>
 </footer>
 
 <a id="elWA" class="whatsapp" target="_blank">
@@ -245,7 +240,11 @@ body{font-family:'Poppins',sans-serif; background: var(--fondo-suave); color:var
 
     const base = 9855;
     let visits = localStorage.getItem('visit_count') || 0;
-    document.getElementById('count').innerText = (base + parseInt(visits)).toLocaleString();
+    // Incrementamos la visita al cargar
+    visits = parseInt(visits) + 1;
+    localStorage.setItem('visit_count', visits);
+    
+    document.getElementById('count').innerText = (base + visits).toLocaleString();
 </script>
 
 </body>
