@@ -80,7 +80,7 @@
         .c-white { background: white; } .c-black { background: black; } .c-red { background: red; }
 
         /* CLIMA WIDGET */
-        .weather-box { background: white; border-radius: 15px; border: 1px solid var(--oro); margin-top: 10px; overflow: hidden; min-height: 150px; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .weather-box { background: white; border-radius: 15px; border: 1px solid var(--oro); margin-top: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
 
         /* CONFIRMACIÓN Y SELECTOR */
         .confirm-sec { background: var(--crema); padding: 50px 20px; border-top: 1px solid #eee; }
@@ -244,12 +244,11 @@
     <section class="sec">
         <div class="reveal">
            <h2>El Clima</h2>
-            <div class="weather-box" style="padding: 30px; background: white;">
-                <div id="weather-custom">
-                    <div style="font-size: 3.5rem; color: var(--oro); line-height: 1;" id="w-icon">☀️</div>
-                    <div style="font-size: 2.8rem; font-weight: bold; color: var(--negro); margin: 5px 0;" id="w-temp">18°C</div>
-                    <p style="text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; color: #666;" id="w-desc">Despejado</p>
-                </div>
+            <div class="weather-box">
+                <a class="weatherwidget-io" href="https://forecast7.com/es/19d28n99d66/toluca/" data-label_1="TOLUCA" data-label_2="WEATHER" data-theme="white_leather" >TOLUCA WEATHER</a>
+                <script>
+                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+                </script>
             </div>
             <p style="margin-top: 15px; font-size: 0.8rem; color: var(--oro); font-weight: bold; letter-spacing: 2px;">TOLUCA, ESTADO DE MÉXICO</p>
         </div>
@@ -293,7 +292,6 @@
         const mStatus = document.getElementById("m-status");
         let hasPlayed = false;
 
-        // Función para activar música al bajar
         window.addEventListener('scroll', function() {
             if (!hasPlayed) {
                 music.play().then(() => {
@@ -359,21 +357,6 @@
             window.open("https://wa.me/" + numeroTel + "?text=" + mensaje, "_blank");
         }
 
-        async function loadWeather() {
-            try {
-                const url = "https://api.open-meteo.com/v1/forecast?latitude=19.2827&longitude=-99.6557&current_weather=true&timezone=auto";
-                const response = await fetch(url);
-                const data = await response.json();
-                const temp = Math.round(data.current_weather.temperature);
-                const code = data.current_weather.weathercode;
-                const conditions = { 0: ["Despejado", "☀️"], 1: ["Despejado", "🌤️"], 2: ["Nublado", "⛅"], 3: ["Nublado", "☁️"], 45: ["Neblina", "🌫️"], 61: ["Lluvia", "🌧️"], 95: ["Tormenta", "⛈️"] };
-                const [text, icon] = conditions[code] || ["Despejado", "☀️"];
-                document.getElementById('w-temp').innerText = temp + "°C";
-                document.getElementById('w-icon').innerText = icon;
-                document.getElementById('w-desc').innerText = text;
-            } catch (e) { console.log("Error cargando clima."); }
-        }
-
         const swiper = new Swiper(".mySwiper", { 
             loop: true, 
             navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
@@ -393,7 +376,6 @@
         }, 1000);
 
         window.onload = () => {
-            loadWeather();
             personalizarInvitacion(); 
         };
     </script>
