@@ -227,18 +227,31 @@
             <p style="font-size:0.6rem; opacity:0.6; margin-top:10px;">FAVOR DE EVITAR EL BLANCO Y EL ROJO</p>
         </div>
 
-        <section class="sec">
-        <div class="reveal">
-           <h2>El Clima</h2>
-            <div class="weather-box">
-                <a class="weatherwidget-io" href="https://forecast7.com/es/19d28n99d66/toluca/" data-label_1="TOLUCA" data-label_2="WEATHER" data-theme="white_leather" >TOLUCA WEATHER</a>
-                <script>
-                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
-                </script>
+       <div class="reveal" style="margin: 25px 20px; padding: 0; border-radius: 28px; overflow: hidden;">
+            <h2 class="section-title" style="margin-bottom: 15px;">El Clima</h2>
+            
+            <div style="width: 100%; overflow-x: auto; display: flex; justify-content: center; background: rgba(255,255,255,0.05); border-radius: 20px; padding: 15px 0;">
+                <div style="min-width: 380px; transform: scale(0.95); transform-origin: center;">
+                    <a class="weatherwidget-io" 
+                       href="https://forecast7.com/es/19d28n99d66/toluca/" 
+                       data-label_1="TOLUCA" 
+                       data-label_2="PRONÓSTICO" 
+                       data-font="Times New Roman" 
+                       data-theme="hexellence" 
+                       data-textcolor="#fbbf24" 
+                       data-cloudcolor="#fbbf24" 
+                       data-days="7" >TOLUCA WEATHER</a>
+                </div>
             </div>
-            <p style="margin-top: 15px; font-size: 0.8rem; color: var(--oro); font-weight: bold; letter-spacing: 2px;">TOLUCA, ESTADO DE MÉXICO</p>
+
+            <script>
+            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+            </script>
+            
+            <p style="margin-top:10px; font-size:0.65rem; letter-spacing: 2px; color: var(--gold-glow); font-weight: bold; text-transform: uppercase;">
+                Toluca, Estado de México
+            </p>
         </div>
-    </section>
 
         <div class="glass-card reveal" style="border: 2px solid var(--gold-glow);">
             <h2 class="section-title">Confirmación</h2>
