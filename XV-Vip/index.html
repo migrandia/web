@@ -16,7 +16,7 @@
             --gold-glow: #fbbf24;
             --glass: rgba(255, 255, 255, 0.2);
             --ancho-max: 480px;
-            --oro: #b8926a; /* Color de la boda para el borde del clima */
+            --oro: #b8926a; /* Mantenemos la variable de la boda para el borde */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-user-select: none; user-select: none; }
@@ -101,8 +101,10 @@
             background: var(--dark-garden); color: white; font-family: 'Montserrat';
         }
         
-        /* ESTILO EXTRAÍDO DE LA BODA */
-        .weather-box { background: white; border-radius: 15px; border: 1px solid var(--oro); margin-top: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        /* ESTILO EXTRAÍDO DE LA BODA CON AJUSTE HORIZONTAL FORZADO */
+        .weather-box { background: white; border-radius: 15px; border: 1px solid var(--oro); margin-top: 10px; overflow-x: auto; box-shadow: 0 5px 15px rgba(0,0,0,0.05); width: 100%; }
+        /* Forzamos un ancho mínimo interno para que el widget se estire y use scroll si es necesario */
+        .weather-box-inner { min-width: 380px; } 
     </style>
 </head>
 <body onclick="initAudio()">
@@ -198,140 +200,8 @@
         </div>
 
         <div class="glass-card reveal">
-            <h2 class="section-title">El Clima</h2>
-            <div class="weather-box">
-                <a class="weatherwidget-io" href="https://forecast7.com/es/19d28n99d66/toluca/" data-label_1="TOLUCA" data-label_2="WEATHER" data-theme="white_leather" >TOLUCA WEATHER</a>
-                <script>
-                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
-                </script>
-            </div>
-            <p style="margin-top: 15px; font-size: 0.8rem; color: var(--gold-glow); font-weight: bold; letter-spacing: 2px;">TOLUCA, ESTADO DE MÉXICO</p>
-        </div>
-
-        <div class="glass-card reveal">
             <h2 class="section-title">Hospedaje</h2>
             <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=600&auto=format&fit=crop" class="img-rounded" height="180">
             <h3 style="font-family:'Cinzel'; color:var(--gold-glow)">HOTEL EMERALD PLAZA</h3>
             <p style="font-size:0.75rem; margin:15px 0">Tarifa especial mencionando:<br><b>"XV ISABELLA"</b></p>
-            <a href="https://maps.google.com/?q=Hotel+Emerald+Plaza+Toluca" target="_blank" class="btn-emerald" style="background:transparent; border:1px solid white">VER UBICACIÓN HOTEL</a>
-        </div>
-
-        <div class="glass-card reveal">
-            <h2 class="section-title">Regalos</h2>
-            <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap; filter: brightness(2) grayscale(1);">
-                <img src="https://websinergia.com.mx/blog/wp-content/uploads/2016/07/liverpool-face.png" width="90">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" width="90">
-            </div>
-            <div style="margin-top:30px; padding:20px; border:1px solid var(--gold-glow); border-radius:15px; background: rgba(255,255,255,0.03);">
-                <p class="role">Lluvia de Sobres</p>
-                <p style="font-size:0.8rem; margin-top:10px;">Contaremos con un buzón el día del evento o puedes realizar una transferencia:</p>
-                <p style="font-weight:bold; color:var(--gold-glow); margin-top:10px;">CLABE: 0123 4567 8901</p>
-            </div>
-        </div>
-
-        <div class="glass-card reveal">
-            <h2 class="section-title">Dress Code</h2>
-            <img src="https://www.dropbox.com/scl/fi/iuule5a8x3prthsldm6h7/CODIGO-DE-VESTIMENTA-2.png?rlkey=xk7d7zvhdu65si9ecq25cgbfw&raw=1" width="100" style="filter:invert(1);">
-            <p style="font-weight:bold; letter-spacing:3px; margin-top:10px">FORMAL</p>
-            <div class="forbidden-circles">
-                <div class="circle c-white"></div><div class="circle c-red"></div>
-            </div>
-            <p style="font-size:0.6rem; opacity:0.6; margin-top:10px;">FAVOR DE EVITAR EL BLANCO Y EL ROJO</p>
-        </div>
-
-        <div class="glass-card reveal" style="border: 2px solid var(--gold-glow);">
-            <h2 class="section-title">Confirmación</h2>
-            <p id="saludo-familia" style="font-family:'Cinzel'; font-size: 1.2rem; margin-bottom: 10px;"></p>
-            <p id="lugares-mensaje" style="font-size: 0.9rem; margin-bottom: 20px; color: #fff;"></p>
-            
-            <div class="attendance-selector">
-                <p class="role">¿Cuántos lugares confirmas?</p>
-                <select id="num-asistentes">
-                    <option value="1">1 Persona</option>
-                    <option value="2">2 Personas</option>
-                    <option value="3">3 Personas</option>
-                    <option value="4">4 Personas</option>
-                </select>
-            </div>
-            <a href="javascript:void(0)" onclick="enviarWhatsApp()" class="btn-emerald" style="background:#25d366; color:black; font-weight:900; border:none;">CONFIRMAR POR WHATSAPP</a>
-            <p style="margin-top:20px; font-size:0.6rem;">FAVOR DE CONFIRMAR ANTES DEL 10.10.2026</p>
-        </div>
-
-        <footer style="padding:60px 20px; opacity:0.5; font-size:0.6rem; letter-spacing:4px;">
-            <p>MI GRAN DÍA • DIAMOND COLLECTION</p>
-            <p style="margin-top: 10px;">CREACIÓN DE <a href="https://migrandia.mx" target="_blank" style="color: white; text-decoration: none; font-weight: bold;">MIGRANDIA.MX</a></p>
-        </footer>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-        var track = document.getElementById('track');
-        var mStatus = document.getElementById('m-status');
-        var playing = false;
-
-        function initAudio() {
-            if (!playing) {
-                track.play().then(() => { playing = true; mStatus.innerText = "II"; }).catch(e => {});
-            }
-        }
-
-        function toggleMusic(e) {
-            e.stopPropagation();
-            if (track.paused) { track.play(); mStatus.innerText = "II"; }
-            else { track.pause(); mStatus.innerText = "▶"; }
-        }
-
-        const target = new Date("Oct 24, 2026 17:00:00").getTime();
-        setInterval(() => {
-            const now = new Date().getTime();
-            const d = target - now;
-            if (d > 0) {
-                document.getElementById("days").innerText = Math.floor(d / (1000 * 60 * 60 * 24));
-                document.getElementById("hours").innerText = Math.floor((d % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
-                document.getElementById("mins").innerText = Math.floor((d % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
-                document.getElementById("secs").innerText = Math.floor((d % (1000 * 60)) / 1000).toString().padStart(2, '0');
-            }
-        }, 1000);
-
-        window.onload = function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const nombre = urlParams.get('n'); 
-            const cupos = urlParams.get('c');   
-
-            if (nombre) {
-                const n = decodeURIComponent(nombre).replace(/\+/g, ' ').toUpperCase();
-                document.getElementById('saludo-familia').innerText = `¡HOLA, FAMILIA ${n}!`;
-            } else {
-                document.getElementById('saludo-familia').innerText = `¡TE ESPERAMOS!`;
-            }
-
-            if (cupos && !isNaN(cupos)) {
-                const cant = parseInt(cupos);
-                const textoLugares = cant === 1 ? "1 lugar" : `${cant} lugares`;
-                document.getElementById('lugares-mensaje').innerHTML = `Hemos reservado <b>${textoLugares}</b> para ustedes.`;
-
-                const selector = document.getElementById('num-asistentes');
-                selector.innerHTML = ""; 
-                for (let i = 1; i <= cant; i++) {
-                    let opt = document.createElement('option');
-                    opt.value = i;
-                    opt.innerHTML = i + (i > 1 ? " Personas" : " Persona");
-                    if (i === cant) opt.selected = true; 
-                    selector.appendChild(opt);
-                }
-            }
-            
-            new Swiper(".mySwiper", { effect: "cards", grabCursor: true, autoplay: {delay: 3000} });
-            ScrollReveal().reveal('.reveal', { distance: '30px', duration: 1000, origin: 'bottom', interval: 150 });
-        };
-
-        function enviarWhatsApp() {
-            const num = document.getElementById('num-asistentes').value;
-            const urlParams = new URLSearchParams(window.location.search);
-            const nombre = urlParams.get('n') ? decodeURIComponent(urlParams.get('n')) : "Invitado";
-            const msg = encodeURIComponent(`¡Hola Isabella! Confirmo la asistencia de ${nombre} con ${num} personas. ¡Nos vemos pronto!`);
-            window.open(`https://wa.me/525654252153?text=${msg}`, '_blank');
-        }
-    </script>
-</body>
-</html>
+            <a href="https://maps.google.com/?q=Hotel+Emerald+Plaza+Toluca" target="_blank" class="btn-emerald" style="background:transparent; border:1px solid white">
