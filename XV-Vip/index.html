@@ -89,8 +89,6 @@
         .swiper { width: 100%; height: 350px; border-radius: 20px; margin-top: 10px; }
         .swiper-slide img { width: 100%; height: 100%; object-fit: cover; }
 
-        .weather-box { background: white; border-radius: 20px; padding: 25px; margin-top: 10px; color: #333; }
-
         .forbidden-circles { display: flex; justify-content: center; gap: 15px; margin-top: 15px; }
         .circle { width: 35px; height: 35px; border-radius: 50%; border: 1px solid #ddd; position: relative; }
         .circle::after { content: ''; position: absolute; width: 100%; height: 2px; background: red; top: 50%; left: 0; transform: rotate(-45deg); }
@@ -228,12 +226,10 @@
 
         <div class="glass-card reveal">
             <h2 class="section-title">El Clima</h2>
-            <div class="weather-box">
-                <div id="w-icon" style="font-size: 3rem;">☀️</div>
-                <div id="w-temp" style="font-size: 2.5rem; font-weight: bold;">24°C</div>
-                <p id="w-desc" style="text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem;">Despejado</p>
-            </div>
-            <p style="margin-top: 15px; font-size: 0.7rem; color: var(--gold-glow); font-weight: bold;">TOLUCA, ESTADO DE MÉXICO</p>
+            <a class="weatherwidget-io" href="https://forecast7.com/es/19d28n99d66/toluca/" data-label_1="TOLUCA" data-label_2="WEATHER" data-theme="hexellence" >TOLUCA WEATHER</a>
+            <script>
+            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+            </script>
         </div>
 
         <div class="glass-card reveal" style="border: 2px solid var(--gold-glow);">
@@ -290,23 +286,12 @@
             }
         }, 1000);
 
-        async function loadWeather() {
-            try {
-                const url = "https://api.open-meteo.com/v1/forecast?latitude=19.2827&longitude=-99.6557&current_weather=true&timezone=auto";
-                const response = await fetch(url);
-                const data = await response.json();
-                document.getElementById('w-temp').innerText = Math.round(data.current_weather.temperature) + "°C";
-            } catch (e) { console.log("Clima no disponible"); }
-        }
-
         window.onload = function() {
-            loadWeather();
             const urlParams = new URLSearchParams(window.location.search);
             const nombre = urlParams.get('n'); 
             const cupos = urlParams.get('c');   
 
             if (nombre) {
-                // Nombre en MAYÚSCULAS para coincidir con la imagen
                 const n = decodeURIComponent(nombre).replace(/\+/g, ' ').toUpperCase();
                 document.getElementById('saludo-familia').innerText = `¡HOLA, FAMILIA ${n}!`;
             } else {
