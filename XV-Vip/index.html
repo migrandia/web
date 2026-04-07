@@ -99,6 +99,9 @@
             padding: 12px; width: 100%; border-radius: 12px; border: 1px solid var(--gold-glow); 
             background: var(--dark-garden); color: white; font-family: 'Montserrat';
         }
+        
+        /* Ajuste para el contenedor del clima */
+        .weather-container { border-radius: 15px; overflow: hidden; margin-top: 10px; }
     </style>
 </head>
 <body onclick="initAudio()">
@@ -226,10 +229,13 @@
 
         <div class="glass-card reveal">
             <h2 class="section-title">El Clima</h2>
-            <a class="weatherwidget-io" href="https://forecast7.com/es/19d28n99d66/toluca/" data-label_1="TOLUCA" data-label_2="WEATHER" data-theme="hexellence" >TOLUCA WEATHER</a>
-            <script>
-            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
-            </script>
+            <div class="weather-container">
+                <a class="weatherwidget-io" href="https://forecast7.com/es/19d28n99d66/toluca/" data-label_1="TOLUCA" data-label_2="PRONÓSTICO" data-font="Times New Roman" data-theme="hexellence" data-textcolor="#fbbf24" data-cloudcolor="#fbbf24" data-forecast="true" >TOLUCA WEATHER</a>
+                <script>
+                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+                </script>
+            </div>
+            <p style="margin-top:10px; font-size:0.6rem; letter-spacing: 2px; color: var(--gold-glow);">TOLUCA, ESTADO DE MÉXICO</p>
         </div>
 
         <div class="glass-card reveal" style="border: 2px solid var(--gold-glow);">
