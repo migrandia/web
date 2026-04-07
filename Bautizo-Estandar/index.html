@@ -187,15 +187,17 @@
             }
         }, 1000);
 
-        // SEGURIDAD: Bloqueo de teclado
+        // SEGURIDAD: Bloqueo de teclado (F12, Ctrl+U, etc.)
         document.onkeydown = function(e) {
-            if(e.keyCode == 123 || (e.ctrlKey && (e.keyCode == 85 || e.keyCode == 83 || e.keyCode == 67 || e.keyCode == 73))) {
+            if(e.keyCode == 123 || (e.ctrlKey && (e.keyCode == 85 || e.keyCode == 83 || e.keyCode == 67 || e.keyCode == 73 || e.keyCode == 74))) {
                 return false;
             }
         };
-
-        // SEGURIDAD: Bloqueo de arrastre
+        // Bloqueo de arrastre de imágenes
         document.addEventListener('dragstart', function (e) { e.preventDefault(); }, false);
     </script>
 </body>
 </html>
+
+
+      
