@@ -78,7 +78,7 @@
         .precio-cancion { font-size: 2.2rem; color: var(--dorado); font-weight: 700; margin: 15px 0; display: block; }
 
         /* CHART COMPARATIVO */
-        .chart-wrapper { background: white; border-radius: 20px; overflow-x: auto; box-shadow: 0 15px 40px rgba(0,0,0,0.08); margin-top: 50px; }
+        .chart-wrapper { background: white; border-radius: 20px; overflow-x: auto; box-shadow: 0 15px 40px rgba(0,0,0,0.08); margin-top: 50px; border: 1px solid #eee; }
         .chart-table { width: 100%; border-collapse: collapse; min-width: 650px; }
         .chart-table th { padding: 30px 15px; background: #fffcfd; border-bottom: 3px solid var(--dorado); }
         .chart-table td { padding: 15px 10px; text-align: center; border-bottom: 1px solid #f0f0f0; font-size: 0.85rem; }
@@ -93,6 +93,16 @@
             .video-promo { grid-template-columns: 1fr; text-align: center; }
             .logo-text { font-size: 1.8rem; }
             .card-img { height: 400px; }
+            .btn-regresar { padding: 8px 12px; font-size: 0.6rem; }
+
+            /* AJUSTE PARA CELULAR: Mantiene orden pero reduce textos e iconos */
+            .chart-table { min-width: 100%; }
+            .chart-table th { padding: 15px 5px; font-size: 0.7rem; }
+            .chart-table th small { font-size: 0.6rem; }
+            .chart-table td { padding: 8px 4px; font-size: 0.65rem; }
+            .feature-label { padding-left: 10px !important; width: 40% !important; font-size: 0.65rem; }
+            .check, .cross { font-size: 0.9rem; }
+            .chart-table th:first-child { font-size: 0.9rem; padding-left: 10px !important; }
         }
     </style>
 </head>
@@ -192,7 +202,6 @@
                     <tr><td class="feature-label">Número de Invitados</td><td class="cross">✘</td><td class="cross">✘</td><td class="check">✔</td></tr>
                     <tr><td class="feature-label">Contacto de Confirmación</td><td class="check">✔</td><td class="check">✔</td><td class="check">✔</td></tr>
                     <tr><td class="feature-label">Canción Personalizada</td><td class="cross">✘</td><td class="check">✔</td><td class="check">✔</td></tr>
-                    
                 </tbody>
             </table>
         </div>
