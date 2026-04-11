@@ -24,121 +24,90 @@
             --fondo-papel: url('https://www.dropbox.com/scl/fi/v1i7m0j4jubo8w8bpyd29/fondo-textura-papel-blanco_23-2148171221.jpg?rlkey=1spniqjgkcur44hfdi9o18jid&raw=1');
         }
 
-        /* RESET Y SEGURIDAD */
         * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
-            -webkit-user-select: none; 
-            user-select: none; 
-            -webkit-tap-highlight-color: transparent;
+            margin: 0; padding: 0; box-sizing: border-box; 
+            -webkit-user-select: none; user-select: none; 
         }
 
         body { 
             font-family: 'Montserrat', sans-serif; 
-            background-image: var(--fondo-papel); 
-            background-attachment: fixed; 
-            background-color: #e0e0e0; /* Color de fondo fuera del "celular" */
+            background-color: #d1d1d1; /* Color de fondo para PC */
             display: flex;
             justify-content: center;
         }
 
-        /* CONTENEDOR MÓVIL PARA ESCRITORIO */
-        .phone-container {
+        /* CONTENEDOR TIPO CELULAR */
+        .main-wrapper {
             width: 100%;
-            max-width: 450px; /* Ancho de un celular */
+            max-width: 500px; /* Ancho máximo de celular en PC */
             background-image: var(--fondo-papel);
             background-attachment: scroll;
             min-height: 100vh;
-            box-shadow: 0 0 50px rgba(0,0,0,0.2);
+            box-shadow: 0 0 30px rgba(0,0,0,0.3);
             position: relative;
             overflow-x: hidden;
         }
 
-        /* BOTONES FIJOS DENTRO DEL CONTENEDOR */
-        .music-btn, .back-btn { 
-            position: absolute; /* Cambiado a absolute para que se quede dentro del contenedor */
-            top: 20px; 
-            z-index: 1000; 
-            background: white; 
-            border: 1px solid var(--oro); 
-            border-radius: 50%; 
-            width: 45px; height: 45px; 
-            display: flex; align-items: center; justify-content: center; 
-            cursor: pointer; 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
-            text-decoration: none; font-size: 1.2rem; 
-        }
-        .music-btn { right: 20px; position: fixed; transform: translateX(200px); } /* Ajuste para que sigan al scroll pero en el área */
+        /* BOTONES FIJOS */
+        .music-btn, .back-btn { position: fixed; top: 20px; z-index: 1000; background: white; border: 1px solid var(--oro); border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-decoration: none; font-size: 1.2rem; }
         
-        /* Ajuste de botones para que floten correctamente en el diseño centrado */
-        @media (min-width: 450px) {
-            .music-btn { right: calc(50% - 205px); position: fixed; }
-            .back-btn { left: calc(50% - 205px); position: fixed; }
+        /* Ajuste de posición para que no se salgan del centro en PC */
+        @media (min-width: 500px) {
+            .back-btn { left: calc(50% - 230px); }
+            .music-btn { right: calc(50% - 230px); }
         }
-        @media (max-width: 450px) {
-            .music-btn { right: 20px; position: fixed; }
-            .back-btn { left: 20px; position: fixed; }
+        @media (max-width: 500px) {
+            .back-btn { left: 15px; }
+            .music-btn { right: 15px; }
         }
 
         .back-btn { color: var(--oro); }
 
-        /* PORTADA */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://www.dropbox.com/scl/fi/379btmuabvlok9b7ioshb/file_00000000219871fd9cc6e8b8540ad9eb.png?rlkey=g74qqufgozuh07rqjgpqrmfy7&raw=1');
-            background-size: cover; background-position: center;
-            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white;
-        }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3rem; font-style: italic; margin-bottom: 10px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
-        .hero p { letter-spacing: 2px; font-weight: 300; margin-bottom: 20px; font-size: 0.8rem; }
+        /* HERO */
+        .hero { height: 100vh; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://www.dropbox.com/scl/fi/379btmuabvlok9b7ioshb/file_00000000219871fd9cc6e8b8540ad9eb.png?rlkey=g74qqufgozuh07rqjgpqrmfy7&raw=1'); background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3rem; font-style: italic; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        .hero p { letter-spacing: 3px; font-size: 0.8rem; margin: 15px 0; }
 
-        /* CONTADOR */
-        .timer { display: flex; gap: 5px; }
+        .timer { display: flex; gap: 8px; }
         .t-box { background: rgba(0,0,0,0.5); padding: 10px; border-radius: 5px; min-width: 60px; border: 1px solid rgba(255,255,255,0.2); }
         .t-box span { display: block; font-size: 1.4rem; font-weight: bold; color: var(--oro); }
         .t-box small { font-size: 0.5rem; text-transform: uppercase; }
 
         /* SECCIONES */
         .sec { padding: 40px 20px; text-align: center; }
-        h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: var(--negro); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px; }
+        h2 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--negro); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px; }
 
-        /* PADRES Y PADRINOS */
-        .grid-family { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 20px; }
+        .grid-family { display: grid; grid-template-columns: 1fr; gap: 20px; }
         .card-family { background: rgba(255,255,255,0.6); padding: 20px; border-radius: 8px; border: 1px solid #eee; }
         .card-family h4 { color: var(--oro); margin-bottom: 10px; font-family: 'Playfair Display', serif; }
 
-        /* GALERÍA */
-        .swiper { width: 100%; aspect-ratio: 1/1; border-radius: 15px; margin-top: 20px; }
-        .swiper-slide img { width: 100%; height: 100%; object-fit: cover; }
+        .swiper { width: 100%; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); margin-top: 20px; }
+        .swiper-slide img { width: 100%; height: 350px; object-fit: cover; }
 
-        /* BOTONES */
-        .btn-container { display: flex; flex-direction: column; align-items: center; gap: 10px; margin: 15px 0; }
-        .btn { display: inline-block; padding: 14px 30px; background: var(--negro); color: white; text-decoration: none; border-radius: 5px; font-weight: bold; border-bottom: 4px solid var(--oro); font-size: 0.8rem; width: 80%; }
-        
-        /* VESTIMENTA */
-        .vestimenta-img { width: 100px; mix-blend-mode: multiply; }
-        .forbidden-circles { display: flex; justify-content: center; gap: 15px; margin-top: 15px; }
+        .btn-container { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 15px; }
+        .btn { display: inline-block; width: 90%; padding: 15px; background: var(--negro); color: white; text-decoration: none; border-radius: 5px; font-weight: bold; border-bottom: 4px solid var(--oro); font-size: 0.9rem; }
+        .btn-cal { background: #4285F4; border-bottom-color: #357ae8; }
+
+        .vestimenta-img { width: 110px; mix-blend-mode: multiply; margin-bottom: 10px; }
+        .forbidden-circles { display: flex; justify-content: center; gap: 15px; margin: 15px 0; }
         .circle { width: 35px; height: 35px; border-radius: 50%; border: 1px solid #ddd; position: relative; }
         .circle::after { content: ''; position: absolute; width: 100%; height: 2px; background: red; top: 50%; left: 0; transform: rotate(-45deg); }
         .c-white { background: white; } .c-black { background: black; } .c-red { background: red; }
 
-        .confirm-sec { background: var(--crema); padding: 40px 20px; border-top: 1px solid #eee; }
-        .btn-confirm { display: inline-block; padding: 18px 40px; background: var(--negro); color: white; text-decoration: none; border-radius: 50px; font-weight: bold; border-bottom: 4px solid var(--oro); width: 90%; }
+        .weather-box { background: white; border-radius: 15px; border: 1px solid var(--oro); overflow: hidden; }
+
+        .confirm-sec { background: var(--crema); padding: 50px 20px; border-top: 1px solid #eee; text-align: center; }
+        .btn-confirm { display: inline-block; width: 100%; padding: 18px; background: var(--negro); color: white; text-decoration: none; border-radius: 50px; font-weight: bold; border-bottom: 4px solid var(--oro); margin-top: 15px; }
         
-        .attendance-selector select { padding: 10px; width: 100%; border-radius: 10px; border: 1px solid var(--oro); font-family: 'Montserrat'; }
+        .attendance-selector select { width: 100%; padding: 12px; border-radius: 10px; border: 1px solid var(--oro); font-family: 'Montserrat'; }
 
         .footer-brand { padding: 40px 20px; text-align: center; }
         .footer-link { text-decoration: none; color: #999; font-size: 0.7rem; }
-        
-        /* Imágenes responsivas */
-        img { max-width: 100%; height: auto; }
     </style>
 </head>
 <body oncontextmenu="return false;">
 
-    <div class="phone-container">
-
+    <div class="main-wrapper">
         <a href="javascript:void(0)" onclick="window.history.back();" class="back-btn">⬅️</a>
         
         <div class="music-btn" id="music-trigger" onclick="toggleMusica(event)"><span id="m-status">▶️</span></div>
@@ -161,10 +130,10 @@
         <section class="sec">
             <div class="reveal">
                 <h2>Nuestra Historia</h2>
-                <p style="font-family:'Cormorant Garamond'; font-size:1.2rem; font-style:italic; margin-bottom:20px;">
+                <p style="font-family:'Cormorant Garamond'; font-size:1.3rem; font-style:italic; margin-bottom:25px;">
                     "Nuestra aventura comenzó como un sueño y hoy se convierte en nuestra más hermosa realidad."
                 </p>
-                <img src="https://www.dropbox.com/scl/fi/zs85m423lx4i76daw0uxj/file_00000000530471fdbb445bac178e63e1.png?rlkey=o0bu5uv9cvvmyl7lj3er8hbfg&raw=1" style="border-radius:15px;">
+                <img src="https://www.dropbox.com/scl/fi/zs85m423lx4i76daw0uxj/file_00000000530471fdbb445bac178e63e1.png?rlkey=o0bu5uv9cvvmyl7lj3er8hbfg&raw=1" style="border-radius:15px; width: 100%;">
             </div>
         </section>
 
@@ -180,6 +149,10 @@
                         <h4>Padres del Novio</h4>
                        <p>Sr. Bernardo Perez<br>Sra. Claudia Rosado</p>
                     </div>
+                    <div class="card-family">
+                        <h4>Nuestros Padrinos</h4>
+                       <p>Sr. Juaquin Castañeda & Sra. Maria Gutirrez</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -187,7 +160,7 @@
         <section class="sec">
             <div class="reveal">
                 <h2>Itinerario</h2>
-                <img src="https://www.dropbox.com/scl/fi/na7h8in6vszg9msk3qw35/itinerario-nuevo.png?rlkey=z46bv93k1r3uhs8i4pi6spbtn&raw=1" style="mix-blend-mode: multiply;">
+                <img src="https://www.dropbox.com/scl/fi/na7h8in6vszg9msk3qw35/itinerario-nuevo.png?rlkey=z46bv93k1r3uhs8i4pi6spbtn&raw=1" style="mix-blend-mode: multiply; width: 100%;">
             </div>
         </section>
 
@@ -198,6 +171,7 @@
                     <div class="swiper-wrapper">
                         <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/gpf7arkczi5v3y9hxfjte/file_00000000189c71fdbc7b6ac47bb70337.png?rlkey=p8jpnwypfniwf7lxj25wiq4w2&raw=1"></div>
                         <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/ld6s2fdqhmb71fxehdb0k/file_00000000928871fdb8f65567b022409a.png?rlkey=vcl3logvk7fd3yfysmjx0ge6j&raw=1"></div>
+                        <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/zs85m423lx4i76daw0uxj/file_00000000530471fdbb445bac178e63e1.png?rlkey=o0bu5uv9cvvmyl7lj3er8hbfg&raw=1"></div>
                         <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/1hgcl93ka69i3fflmyxl3/file_0000000009b471f89a2eae6e6e70937b.png?rlkey=4t37xj2vxayedrv5szm2rjz9y&raw=1"></div>
                     </div>
                 </div>
@@ -207,18 +181,21 @@
         <section class="sec">
             <div class="reveal">
                <h2>Ubicaciones</h2>
-                <div class="card-family" style="margin-bottom:20px;">
+                <div class="card-family" style="margin-bottom:30px;">
+                    <img src="https://www.dropbox.com/scl/fi/yg63x0ndbs8xdkvhtw944/Catedral-Toluca-1200x800.png?rlkey=hyhvjs8bhtk9ks9ftuil12j1e&raw=1" style="width:100%; height:180px; object-fit:cover; border-radius:10px;">
                     <h4 style="margin-top:15px;">Ceremonia Religiosa</h4>
                     <p>Catedral de Toluca, Edo. Méx.</p>
                     <div class="btn-container">
-                        <a href="https://maps.google.com" target="_blank" class="btn">VER MAPA</a>
+                        <a href="https://maps.google.com" target="_blank" class="btn">UBICACIÓN</a>
+                        <a href="https://calendar.google.com" target="_blank" class="btn btn-cal">AGREGAR A CALENDARIO</a>
                     </div>
                 </div>
                 <div class="card-family">
-                    <h4>Recepción</h4>
+                    <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=400" style="width:100%; height:180px; object-fit:cover; border-radius:10px;">
+                    <h4 style="margin-top:15px;">Recepción</h4>
                     <p>Hacienda San José, Edo. Méx.</p>
                     <div class="btn-container">
-                        <a href="https://maps.google.com" target="_blank" class="btn">VER MAPA</a>
+                        <a href="https://maps.google.com" target="_blank" class="btn">UBICACIÓN</a>
                     </div>
                 </div>
             </div>
@@ -226,13 +203,54 @@
 
         <section class="sec">
             <div class="reveal">
+                <h2>Hospedaje</h2>
+                <div class="grid-family">
+                    <div class="card-family">
+                        <h4>Hotel Gran Plaza</h4>
+                        <p>Tarifa especial mencionando la boda.</p>
+                        <a href="#" class="btn" style="margin-top:10px;">VER MAPA</a>
+                    </div>
+                    <div class="card-family">
+                        <h4>Quinta del Sol</h4>
+                        <p>Hotel boutique colonial.</p>
+                        <a href="#" class="btn" style="margin-top:10px;">VER MAPA</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="sec">
+            <div class="reveal">
+                <h2>Mesa de Regalos</h2>
+                <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+                    <img src="https://www.dropbox.com/scl/fi/vrol566rk2s63188yua6s/Logo-de-Liverpool-con-mo-o-rojo.jpg?rlkey=exll1agxmoeq4ty5h1ppvty4f&raw=1" style="width:100px;">
+                    <img src="https://www.dropbox.com/scl/fi/u6hstjefzcl78sn9nnxib/Anuncio-festivo-de-Amazon-con-lazo.jpg?rlkey=2c02101g07tfl4o16m7hepem7&raw=1" style="width:100px;">
+                </div>
+                <div style="margin-top:20px; padding:15px; border:1px solid var(--oro); border-radius:10px;">
+                    <h4>Lluvia de Sobres</h4>
+                    <p>BBVA: 0123 4567 8901</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="sec">
+            <div class="reveal">
                 <img src="https://www.dropbox.com/scl/fi/iuule5a8x3prthsldm6h7/CODIGO-DE-VESTIMENTA-2.png?rlkey=xk7d7zvhdu65si9ecq25cgbfw&raw=1" class="vestimenta-img">
-                <h2>Vestimenta</h2>
+                <h2>Código de Vestimenta</h2>
                 <p><strong>FORMAL RIGUROSO</strong></p>
                 <div class="forbidden-circles">
                     <div class="circle c-white"></div><div class="circle c-black"></div><div class="circle c-red"></div>
                 </div>
-                <p style="font-size: 0.7rem; margin-top: 10px;">Evitar estos colores, por favor.</p>
+            </div>
+        </section>
+
+        <section class="sec">
+            <div class="reveal">
+               <h2>El Clima</h2>
+                <div class="weather-box">
+                    <a class="weatherwidget-io" href="https://forecast7.com/es/19d28n99d66/toluca/" data-label_1="TOLUCA" data-theme="white_leather">TOLUCA WEATHER</a>
+                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');</script>
+                </div>
             </div>
         </section>
 
@@ -240,24 +258,23 @@
             <div class="reveal">
                 <h2 id="saludo-familia">¡Confirma tu Asistencia!</h2>
                 <div class="attendance-selector" style="margin: 20px 0;">
+                    <label style="font-size:0.7rem; font-weight:bold; color:var(--oro); display:block; margin-bottom:10px;">¿CUÁNTOS ASISTIRÁN?</label>
                     <select id="num-asistentes">
-                        <option value="1">1 Persona</option>
-                        <option value="2">2 Personas</option>
-                        <option value="3">3 Personas</option>
-                        <option value="4">4 Personas</option>
-                        <option value="5">5 Personas</option>
+                        <option value="1">1 Persona</option><option value="2">2 Personas</option><option value="3">3 Personas</option><option value="4">4 Personas</option><option value="5">5 Personas</option>
                     </select>
                 </div>
-                <a href="javascript:void(0)" onclick="enviarWhatsApp()" class="btn-confirm">CONFIRMAR ASISTENCIA</a>
+                <a href="javascript:void(0)" onclick="enviarWhatsApp()" class="btn-confirm">CONFIRMAR POR WHATSAPP</a>
+                <p style="margin-top:20px; font-size:0.7rem;">FAVOR DE CONFIRMAR ANTES DEL 01.10.2026</p>
             </div>
         </section>
 
         <footer class="footer-brand">
             <div style="font-family:'Playfair Display'; font-size: 2rem; color: var(--oro);">A & S</div>
-            <p style="font-size: 0.6rem; letter-spacing:2px;">MI GRAN DÍA COLECCIÓN</p>
+            <p style="letter-spacing:2px; font-weight:bold; font-size:0.7rem;">MI GRAN DÍA COLECCIÓN</p>
         </footer>
+    </div>
 
-    </div> <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         const music = document.getElementById("bg-music");
         const mStatus = document.getElementById("m-status");
@@ -270,13 +287,13 @@
 
         function enviarWhatsApp() {
             const numeroTel = "525654252153";
-            const numPersonas = document.getElementById("num-asistentes").value;
-            const mensaje = encodeURIComponent("¡Hola! Confirmo mi asistencia para " + numPersonas + " personas a la boda de Ariel y Samanta.");
-            window.open("https://wa.me/" + numeroTel + "?text=" + mensaje, "_blank");
+            const num = document.getElementById("num-asistentes").value;
+            const msg = encodeURIComponent("¡Hola! Confirmo asistencia para " + num + " personas a la boda de Ariel y Samanta.");
+            window.open("https://wa.me/" + numeroTel + "?text=" + msg, "_blank");
         }
 
-        const swiper = new Swiper(".mySwiper", { loop: true, autoplay: { delay: 3000 } });
-        ScrollReveal().reveal('.reveal', { distance: '20px', duration: 1000, origin: 'bottom' });
+        new Swiper(".mySwiper", { loop: true, autoplay: { delay: 3000 } });
+        ScrollReveal().reveal('.reveal', { distance: '30px', duration: 1000, origin: 'bottom' });
 
         const target = new Date("Oct 25, 2026 17:00:00").getTime();
         setInterval(() => {
