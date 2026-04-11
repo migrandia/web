@@ -20,6 +20,11 @@ const MI_CONFIGURACION = {
     enlaceBautizo: "https://migrandia.mx/bautizo-catalogo",
     enlaceBaby: "https://migrandia.mx/babyshower-infantiles",
     
+    // NUEVA CONFIGURACIÓN ÁLBUM Y RECUERDOS
+    enlaceAlbum: "https://migrandia.mx/Album-Recuerdos/",
+    fotoAlbum1: "https://www.dropbox.com/scl/fi/nj4nf8hg6155l5uzkr1ei/Screenshot_20260411_012751_Chrome.jpg?rlkey=i2o346007kdaxo1bu0g53sdqj&raw=1",
+    fotoAlbum2: "https://www.dropbox.com/scl/fi/rhbzxmaosfu8n0nz2zzur/Screenshot_20260411_012800_Chrome.jpg?rlkey=sn8v82vu8mvutmfuotw94w245&raw=1",
+    
     telefono: "525654252153",
     horario: "Lunes a Sábado: 9:00 AM - 10:00 PM",
     
@@ -45,18 +50,10 @@ const MI_CONFIGURACION = {
     --fondo-blanco-warm: #fdfaf8;
 }
 
-/* SEGURIDAD: EVITAR SELECCIÓN DE TEXTO */
-*{
-    margin:0;padding:0;box-sizing:border-box; 
-    -webkit-user-select: none; 
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-img { -webkit-user-drag: none; pointer-events: none; max-width: 100%; height: auto; }
-
-body{font-family:'Poppins',sans-serif; background: var(--fondo-suave); color:var(--primario); overflow-x:hidden;}
+/* SEGURIDAD */
+*{margin:0;padding:0;box-sizing:border-box;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}
+img{-webkit-user-drag:none;pointer-events:none;max-width:100%;height:auto;}
+body{font-family:'Poppins',sans-serif;background:var(--fondo-suave);color:var(--primario);overflow-x:hidden;}
 
 /* BARRA SUPERIOR */
 .top-bar { background: #fff; border-bottom: 1px solid rgba(201, 169, 106, 0.3); padding: 8px 20px; font-size: 0.7rem; letter-spacing: 1px; display: flex; justify-content: center; gap: 15px; color: var(--dorado-solido); font-weight: 600; text-transform: uppercase; flex-wrap: wrap; }
@@ -96,34 +93,32 @@ body{font-family:'Poppins',sans-serif; background: var(--fondo-suave); color:var
 .exclusividad-box h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--guinda); margin-bottom: 20px; }
 .ventajas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 30px;}
 
-/* MÚSICA */
-.section-music { background: #fdfaf8; padding: 60px 20px; }
-.media-container { max-width: 1200px; margin: 0 auto; display: flex; gap: 30px; align-items: center; flex-wrap: wrap; }
-.canciones-box { flex: 1; min-width: 300px; border: 1px solid var(--dorado-solido); padding: 30px; border-radius: 15px; background: #fff; text-align: center; }
-.video-box { width: 100%; max-width: 280px; margin: 0 auto; border-radius: 30px; overflow: hidden; border: 6px solid #1a1a1a; }
+/* SECCIÓN ESPECIALES (Música y Álbum) */
+.section-specials { background: #fdfaf8; padding: 60px 20px; }
+.media-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+
+.special-card { background: #fff; border: 1.5px solid var(--dorado-solido); padding: 30px; border-radius: 20px; text-align: center; height: 100%; display: flex; flex-direction: column; justify-content: center; }
+.special-card h4 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--guinda); margin-bottom: 15px; }
+.price-tag { font-size: 1.5rem; color: var(--dorado-solido); font-weight: 700; margin: 10px 0; }
+
+.video-box { width: 100%; max-width: 280px; margin: 0 auto; border-radius: 30px; overflow: hidden; border: 6px solid #1a1a1a; box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
 .video-box video { width: 100%; display: block; }
+
+/* ESTILO PARA LAS FOTOS DEL ÁLBUM */
+.album-display { display: flex; justify-content: center; gap: 10px; margin-top: 20px; }
+.album-img { width: 45%; border-radius: 10px; border: 2px solid var(--dorado-solido); transition: 0.3s; }
+.album-img:hover { transform: scale(1.05); }
 
 .footer-message{padding:60px 20px; text-align:center; background: #f1e3d8;}
 .whatsapp{position:fixed; bottom:25px; right:25px; background:#25D366; width:60px; height:60px; border-radius:50%; display:flex; align-items:center; justify-content:center; z-index:2000; box-shadow: 0 5px 15px rgba(0,0,0,0.2);}
 
-/* --- CORRECCIONES PARA MÓVIL --- */
 @media(max-width:768px){
+    .media-container { grid-template-columns: 1fr; }
     .header { padding: 10px; }
     .brand-container { flex-direction: column; text-align: center; padding: 15px 0; }
-    .logo-nombre-grupo { flex-direction: column; gap: 10px; }
     .logo { border-right: none; padding-right: 0; height: 90px; }
-    .brand-name { font-size: 1.8rem; }
-    .header-contact { display: none; }
-    
-    .hero { padding: 40px 20px; text-align: center; }
     .hero h1 { font-size: 2.5rem; }
-    .hero p { font-size: 1.1rem; }
-    
-    .phones { padding: 20px 0; }
     .phone1, .phone2 { width: 150px; transform: none; margin: 0 5px; }
-    
-    .modelos h2 { font-size: 2.2rem; }
-    .exclusividad-box h2 { font-size: 1.8rem; }
 }
 </style>
 </head>
@@ -174,7 +169,6 @@ body{font-family:'Poppins',sans-serif; background: var(--fondo-suave); color:var
 <section class="section-customization">
     <div class="exclusividad-box">
         <h2>Diseño Único, Como Tu Historia</h2>
-        <p style="color: var(--primario);">Cada invitación es un lienzo en blanco diseñado desde cero.</p>
         <div class="ventajas-grid">
             <div class="ventaja-item">
                 <h4 style="font-family:'Playfair Display',serif; color:var(--dorado-solido); font-size:1.3rem;">Personalización sin límites</h4>
@@ -184,25 +178,37 @@ body{font-family:'Poppins',sans-serif; background: var(--fondo-suave); color:var
                 <h4 style="font-family:'Playfair Display',serif; color:var(--dorado-solido); font-size:1.3rem;">Flexibilidad total</h4>
                 <p>Agregamos mapas, pases o lo que necesites.</p>
             </div>
-            <div class="ventaja-item">
-                <h4 style="font-family:'Playfair Display',serif; color:var(--dorado-solido); font-size:1.3rem;">Piezas irrepetibles</h4>
-                <p>Una experiencia digital exclusiva para tus invitados.</p>
-            </div>
         </div>
     </div>
 </section>
 
-<section class="section-music">
+<section class="section-specials">
     <div class="media-container">
-        <div class="canciones-box">
+        <div class="special-card">
             <h4>Melodías que cuentan su Historia</h4>
-            <p>Hacemos canciones personalizadas con sus nombres e historia.</p>
-            <div style="font-family: 'Playfair Display', serif; font-size: 0.9rem; color: var(--dorado-solido); font-weight: bold; margin-top: 15px;">MÁS INFORMACIÓN EN NUESTRO CATÁLOGO</div>
+            <p>Creamos una canción exclusiva con sus nombres y vivencias para hacer su invitación inolvidable.</p>
+            <div class="price-tag">$199 MXN</div>
+            <a href="https://wa.me/525654252153?text=Hola!%20Me%20interesa%20la%20canción%20personalizada" class="btn" style="margin-top:20px;">Más Información</a>
         </div>
         <div class="video-box">
             <video controls preload="metadata">
                 <source src="https://www.dropbox.com/scl/fi/h1fuyk1uorkemclw6m0wb/video-publicidad.mp4?rlkey=po4k9cgu0fyn8rmqdhbj7nqzb&raw=1" type="video/mp4">
             </video>
+        </div>
+    </div>
+</section>
+
+<section class="section-specials" style="background: #fff; border-top: 1px solid #eee;">
+    <div class="media-container">
+        <div class="album-display">
+            <img id="fAlbum1" class="album-img">
+            <img id="fAlbum2" class="album-img">
+        </div>
+        <div class="special-card" style="border-color: var(--guinda);">
+            <h4>Álbum de Recuerdos</h4>
+            <p>Preserva los mejores momentos de tu evento para siempre. Un espacio digital interactivo para tus fotos y mensajes favoritos.</p>
+            <div class="price-tag" style="color: var(--guinda);">$299 MXN</div>
+            <a id="linkAlbum" class="btn" style="background: var(--guinda); color: white; margin-top:20px;">VER ÁLBUM</a>
         </div>
     </div>
 </section>
@@ -221,7 +227,7 @@ body{font-family:'Poppins',sans-serif; background: var(--fondo-suave); color:var
 </a>
 
 <script>
-    // MOTOR DE CARGA ORIGINAL
+    // MOTOR DE CARGA
     document.getElementById('txtTelefono').innerText = "📞 " + MI_CONFIGURACION.telefono;
     document.getElementById('txtHorario').innerText = "🕒 " + MI_CONFIGURACION.horario;
     document.getElementById('elNombreMarca').innerText = MI_CONFIGURACION.nombreMarca;
@@ -243,6 +249,12 @@ body{font-family:'Poppins',sans-serif; background: var(--fondo-suave); color:var
     document.getElementById('linkBautizo').href = MI_CONFIGURACION.enlaceBautizo;
     document.getElementById('fBaby').src = MI_CONFIGURACION.fotoPortadaBaby;
     document.getElementById('linkBaby').href = MI_CONFIGURACION.enlaceBaby;
+    
+    // CARGA ÁLBUM
+    document.getElementById('fAlbum1').src = MI_CONFIGURACION.fotoAlbum1;
+    document.getElementById('fAlbum2').src = MI_CONFIGURACION.fotoAlbum2;
+    document.getElementById('linkAlbum').href = MI_CONFIGURACION.enlaceAlbum;
+
     document.getElementById('laFrase').innerText = MI_CONFIGURACION.fraseFinal;
     document.getElementById('elPie').innerText = MI_CONFIGURACION.pieDePagina;
 
@@ -252,28 +264,11 @@ body{font-family:'Poppins',sans-serif; background: var(--fondo-suave); color:var
     localStorage.setItem('visit_count', visits);
     document.getElementById('count').innerText = (base + visits).toLocaleString();
 
-    // ==========================================
-    // SEGURIDAD: NIVEL 1 - BLOQUEO DE ACCIONES
-    // ==========================================
-    
-    // 1. Bloquear clic derecho
+    // SEGURIDAD
     document.oncontextmenu = function() { return false; };
-
-    // 2. Bloquear atajos de teclado (F12, Ctrl+U, etc)
     document.onkeydown = function(e) {
-        // Bloquear F12
-        if(e.keyCode == 123) return false;
-        // Bloquear Ctrl+U (Ver código)
-        if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false;
-        // Bloquear Ctrl+Shift+I (Inspeccionar)
-        if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false;
-        // Bloquear Ctrl+S (Guardar)
-        if(e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)) return false;
-        // Bloquear Ctrl+C (Copiar)
-        if(e.ctrlKey && e.keyCode == 'C'.charCodeAt(0)) return false;
+        if(e.keyCode == 123 || (e.ctrlKey && (e.keyCode == 85 || e.keyCode == 83 || e.keyCode == 67))) return false;
     };
-
-    // 3. Bloquear arrastre de imágenes
     document.ondragstart = function() { return false; };
 </script>
 
