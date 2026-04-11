@@ -79,7 +79,14 @@
             overflow: hidden;
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
-        .foto-portada img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* AJUSTE ESPECÍFICO: Bajar la foto dentro del círculo */
+        .foto-portada img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            object-position: center 20%; /* Desplaza la imagen un 20% hacia abajo */
+        }
 
         h1 { 
             font-family: 'Great Vibes', cursive; 
