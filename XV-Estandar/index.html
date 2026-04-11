@@ -186,27 +186,34 @@
     </footer>
 
     <script>
+        // SEGURIDAD: Bloqueo de teclado e inspección
+        document.onkeydown = function(e) {
+            if(e.keyCode == 123) return false; // F12
+            if(e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0) || e.keyCode == 'C'.charCodeAt(0))) return false;
+            if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false; // Ver código fuente
+        };
+
         // CARGAR DATOS DESDE CONFIG
         document.getElementById('btn-home').href = CONFIG.url_pagina_principal;
         document.getElementById('global-body').style.backgroundImage = `url('${CONFIG.url_fondo_global}')`;
         document.getElementById('bg-portada').style.backgroundImage = `url('${CONFIG.url_fondo_portada}')`;
         
-        document.getElementById('msg-xv').innerText = CONFIG.mensaje_quinceañera;
+        document.getElementById('msg-xv').textContent = CONFIG.mensaje_quinceañera;
         document.getElementById('foto-historia').src = CONFIG.foto_historia;
         document.getElementById('sobre-img').src = CONFIG.url_imagen_sobre;
 
         const dateObj = new Date(CONFIG.fecha_evento);
-        document.getElementById('hero-fecha').innerText = dateObj.toLocaleDateString('es-ES', { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' }).toUpperCase();
+        document.getElementById('hero-fecha').textContent = dateObj.toLocaleDateString('es-ES', { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' }).toUpperCase();
 
-        document.getElementById('val-padres').innerText = CONFIG.padres;
-        document.getElementById('val-padrinos').innerText = CONFIG.padrinos;
+        document.getElementById('val-padres').textContent = CONFIG.padres;
+        document.getElementById('val-padrinos').textContent = CONFIG.padrinos;
 
-        document.getElementById('loc-misa').innerText = CONFIG.texto_ubicacion_misa;
-        document.getElementById('loc-recepcion').innerText = CONFIG.texto_ubicacion_recepcion;
+        document.getElementById('loc-misa').textContent = CONFIG.texto_ubicacion_misa;
+        document.getElementById('loc-recepcion').textContent = CONFIG.texto_ubicacion_recepcion;
 
-        document.getElementById('b-nom').innerText = CONFIG.banco;
-        document.getElementById('b-clabe').innerText = CONFIG.clabe;
-        document.getElementById('b-tit').innerText = CONFIG.titular;
+        document.getElementById('b-nom').textContent = CONFIG.banco;
+        document.getElementById('b-clabe').textContent = CONFIG.clabe;
+        document.getElementById('b-tit').textContent = CONFIG.titular;
         document.getElementById('go-rsvp').href = CONFIG.url_whatsapp_rsvp;
 
         // CONTADOR
@@ -215,10 +222,10 @@
             const now = new Date().getTime();
             const d = target - now;
             if (d > 0) {
-                document.getElementById('d').innerText = Math.floor(d / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
-                document.getElementById('h').innerText = Math.floor((d % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
-                document.getElementById('m').innerText = Math.floor((d % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
-                document.getElementById('s').innerText = Math.floor((d % (1000 * 60)) / 1000).toString().padStart(2, '0');
+                document.getElementById('d').textContent = Math.floor(d / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+                document.getElementById('h').textContent = Math.floor((d % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+                document.getElementById('m').textContent = Math.floor((d % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+                document.getElementById('s').textContent = Math.floor((d % (1000 * 60)) / 1000).toString().padStart(2, '0');
             }
         }, 1000);
     </script>
