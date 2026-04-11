@@ -20,10 +20,10 @@ const MI_CONFIGURACION = {
     enlaceBautizo: "https://migrandia.mx/bautizo-catalogo",
     enlaceBaby: "https://migrandia.mx/babyshower-infantiles",
     
-    // NUEVA CONFIGURACIÓN ÁLBUM Y RECUERDOS (ACTUALIZADA CON NUEVAS FOTOS)
+    // AQUÍ PUEDES PEGAR TUS URLS CUANDO QUIERAS
     enlaceAlbum: "https://migrandia.mx/Album-Recuerdos/",
-    fotoAlbum1: "https://www.dropbox.com/scl/fi/zxaje2axmcjzq0g4fg2ts/ALBUM-DIGITAL.png?rlkey=crpnufinbcs1vde2i13ql7iyt&raw=1",
-    fotoAlbum2: "https://www.dropbox.com/scl/fi/fu7z5z9e1zh4t4nc79pay/ALBUM-DIGITAL-2.png?rlkey=ov0a8n8n68q48lma4mzovkgg3&raw=1",
+    fotoAlbum1: "REEMPLAZA_ESTA_URL_AQUÍ",
+    fotoAlbum2: "REEMPLAZA_ESTA_URL_AQUÍ",
     
     telefono: "525654252153",
     horario: "Lunes a Sábado: 9:00 AM - 10:00 PM",
@@ -118,7 +118,6 @@ body{font-family:'Poppins',sans-serif;background:var(--fondo-suave);color:var(--
     .brand-container { flex-direction: column; text-align: center; padding: 15px 0; }
     .logo { border-right: none; padding-right: 0; height: 90px; }
     
-    /* CORRECCIÓN: CENTRADO DE TÍTULOS EN CELULAR */
     .hero { text-align: center; padding: 40px 15px; }
     .hero h1 { font-size: 2.2rem; text-align: center; }
     .hero p { font-size: 1.1rem; text-align: center; }
@@ -234,7 +233,6 @@ body{font-family:'Poppins',sans-serif;background:var(--fondo-suave);color:var(--
 </a>
 
 <script>
-    // MOTOR DE CARGA
     document.getElementById('txtTelefono').innerText = "📞 " + MI_CONFIGURACION.telefono;
     document.getElementById('txtHorario').innerText = "🕒 " + MI_CONFIGURACION.horario;
     document.getElementById('elNombreMarca').innerText = MI_CONFIGURACION.nombreMarca;
@@ -257,7 +255,6 @@ body{font-family:'Poppins',sans-serif;background:var(--fondo-suave);color:var(--
     document.getElementById('fBaby').src = MI_CONFIGURACION.fotoPortadaBaby;
     document.getElementById('linkBaby').href = MI_CONFIGURACION.enlaceBaby;
     
-    // CARGA ÁLBUM
     document.getElementById('fAlbum1').src = MI_CONFIGURACION.fotoAlbum1;
     document.getElementById('fAlbum2').src = MI_CONFIGURACION.fotoAlbum2;
     document.getElementById('linkAlbum').href = MI_CONFIGURACION.enlaceAlbum;
@@ -271,7 +268,6 @@ body{font-family:'Poppins',sans-serif;background:var(--fondo-suave);color:var(--
     localStorage.setItem('visit_count', visits);
     document.getElementById('count').innerText = (base + visits).toLocaleString();
 
-    // SEGURIDAD
     document.oncontextmenu = function() { return false; };
     document.onkeydown = function(e) {
         if(e.keyCode == 123 || (e.ctrlKey && (e.keyCode == 85 || e.keyCode == 83 || e.keyCode == 67))) return false;
