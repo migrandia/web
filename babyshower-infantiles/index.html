@@ -6,6 +6,9 @@
     <title>Modelos de Baby Shower | Mi Gran Día</title>
 
     <script>
+        /* ==========================================
+           CONFIGURACIÓN DE ENLACES Y TEXTOS
+           ========================================== */
         const CONFIG = {
             whatsapp_contacto: "https://wa.me/525654252153",
             modelo_estandar_url: "https://migrandia.mx/babyshower/",
@@ -29,8 +32,26 @@
             --dorado: #c9a96a;
         }
 
+        /* SEGURIDAD: EVITAR SELECCIÓN DE TEXTO */
+        *{
+            -webkit-user-select: none; 
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* Bloqueo de seguridad imágenes y videos */
+        img, video { 
+            -webkit-user-drag: none; 
+            pointer-events: none; 
+        }
+        
+        /* Reactivar eventos en el video para que el botón PLAY funcione */
+        .video-wrapper video, .play-overlay {
+            pointer-events: auto;
+        }
+
         body { 
-            -webkit-user-select: none; user-select: none;
             margin: 0; font-family: 'Montserrat', sans-serif; background-color: var(--fondo); color: var(--texto);
         }
 
@@ -40,6 +61,12 @@
             border-radius: 50px; text-decoration: none; font-size: 0.7rem;
             font-weight: bold; letter-spacing: 1px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             border: 2px solid var(--menta); display: flex; align-items: center; transition: 0.3s ease;
+        }
+
+        .btn-regresar:hover {
+            background: var(--menta);
+            color: white;
+            transform: translateX(-3px);
         }
 
         header { padding: 60px 20px; text-align: center; background: white; border-bottom: 5px solid var(--menta); }
@@ -130,7 +157,7 @@
 </head>
 <body oncontextmenu="return false;">
 
-    <a href="javascript:history.back()" class="btn-regresar">VOLVER</a>
+    <a href="https://migrandia.mx" class="btn-regresar">VOLVER</a>
 
     <header>
         <h1 class="logo-text">Mi Gran Día</h1>
@@ -222,10 +249,11 @@
             const video = overlay.nextElementSibling;
             overlay.style.display = 'none';
             video.muted = false;
-            video.controls = true; // Activa los controles pero sin el botón de descarga gracias a controlsList
+            video.controls = true; 
             video.play();
         }
 
+        // Carga de Configuración
         document.getElementById('img-estandar').src = CONFIG.img_estandar;
         document.getElementById('img-premium').src = CONFIG.img_premium;
         document.getElementById('img-vip').src = CONFIG.img_vip;
@@ -233,6 +261,17 @@
         document.getElementById('link-premium').href = CONFIG.modelo_premium_url;
         document.getElementById('link-vip').href = CONFIG.modelo_vip_url;
         document.getElementById('btn-whatsapp').href = CONFIG.whatsapp_contacto;
+
+        // SEGURIDAD NIVEL 1
+        document.oncontextmenu = function() { return false; };
+        document.onkeydown = function(e) {
+            if(e.keyCode == 123) return false;
+            if(e.ctrlKey && (e.keyCode == 'U'.charCodeAt(0))) return false;
+            if(e.ctrlKey && (e.keyCode == 'S'.charCodeAt(0))) return false;
+            if(e.ctrlKey && (e.keyCode == 'C'.charCodeAt(0))) return false;
+            if(e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0))) return false;
+        };
+        document.ondragstart = function() { return false; };
     </script>
 </body>
 </html>
