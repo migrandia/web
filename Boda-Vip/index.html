@@ -44,6 +44,16 @@
             overflow-x: hidden; 
         }
 
+        /* AJUSTE PARA LAPTOP: Mantiene el contenido alineado y centrado */
+        @media (min-width: 1024px) {
+            .sec, .confirm-sec, .grid-family {
+                max-width: 700px !important;
+                margin-left: auto !important;
+                margin-right: auto !important;
+            }
+            .hero h1 { font-size: 5rem; }
+        }
+
         /* Bloqueo de arrastre y puntero en multimedia */
         img, video, .swiper { 
             -webkit-user-drag: none; 
@@ -123,7 +133,7 @@
 </head>
 <body oncontextmenu="return false;">
 
-    <a href="https://migrandia.mx" class="back-btn">⬅️</a>
+    <a href="https://migrandia.mx/#catalogo" class="back-btn">⬅️</a>
     <div class="music-btn" id="music-trigger" onclick="toggleMusica(event)"><span id="m-status">▶️</span></div>
     <audio id="bg-music" loop>
         <source src="https://www.dropbox.com/scl/fi/80hypdxkg24wx6x7oael2/En-Tus-Manos-Se-or.mp3?rlkey=j4di62c9sgj4txgwbpikcngp3&raw=1" type="audio/mpeg">
@@ -416,5 +426,3 @@
             personalizarInvitacion(); 
         };
     </script>
-</body>
-</html>
