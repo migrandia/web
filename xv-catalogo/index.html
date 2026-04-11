@@ -117,7 +117,7 @@
 </head>
 <body oncontextmenu="return false;">
  
-    <a href="javascript:history.back()" class="btn-regresar">
+    <a href="https://migrandia.mx" class="btn-regresar">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
             <line x1="19" y1="12" x2="5" y2="12"></line>
             <polyline points="12 19 5 12 12 5"></polyline>
@@ -185,20 +185,14 @@
         document.getElementById('btn-whatsapp').href = CONFIG.whatsapp_contacto;
  
         // SEGURIDAD NIVEL 1
-        
-        // 1. Bloquear clic derecho
         document.oncontextmenu = function() { return false; };
-
-        // 2. Bloquear atajos (F12, Ctrl+U, Ctrl+S, Ctrl+C)
         document.onkeydown = function(e) {
-            if(e.keyCode == 123) return false; // F12
-            if(e.ctrlKey && (e.keyCode == 'U'.charCodeAt(0))) return false; // Ctrl+U
-            if(e.ctrlKey && (e.keyCode == 'S'.charCodeAt(0))) return false; // Ctrl+S
-            if(e.ctrlKey && (e.keyCode == 'C'.charCodeAt(0))) return false; // Ctrl+C
-            if(e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0))) return false; // Ctrl+Shift+I
+            if(e.keyCode == 123) return false;
+            if(e.ctrlKey && (e.keyCode == 'U'.charCodeAt(0))) return false;
+            if(e.ctrlKey && (e.keyCode == 'S'.charCodeAt(0))) return false;
+            if(e.ctrlKey && (e.keyCode == 'C'.charCodeAt(0))) return false;
+            if(e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0))) return false;
         };
-
-        // 3. Bloquear arrastre de imágenes
         document.ondragstart = function() { return false; };
     </script>
 </body>
