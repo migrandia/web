@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     <title>Mis XV | Isabella VIP</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Dancing+Script:wght@600&family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
@@ -73,7 +74,7 @@
         }
 
         .section-title { font-family: 'Dancing Script', cursive; font-size: 2.5rem; color: var(--gold-glow); margin-bottom: 25px; }
-        .img-rounded { width: 100%; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 20px; object-fit: cover; }
+        .img-rounded { width: 100%; border-radius: 20px; border: 1px solid rgba(255,255,255,0.1); margin-bottom: 20px; object-fit: cover; pointer-events: none; }
 
         .grid-family { display: grid; grid-template-columns: 1fr; gap: 20px; }
         .card-family { border-left: 3px solid var(--gold-glow); padding: 15px; text-align: left; background: rgba(255,255,255,0.03); border-radius: 0 15px 15px 0; }
@@ -87,7 +88,7 @@
         }
 
         .swiper { width: 100%; height: 350px; border-radius: 20px; margin-top: 10px; }
-        .swiper-slide img { width: 100%; height: 100%; object-fit: cover; }
+        .swiper-slide img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
 
         .weather-container { border-radius: 15px; overflow: hidden; margin-top: 10px; border: 1px solid var(--gold-glow); }
 
@@ -103,16 +104,16 @@
         }
     </style>
 </head>
-<body onclick="initAudio()">
+<body onclick="initAudio()" oncontextmenu="return false;">
 
-    <a href="javascript:history.back()" class="btn-back">← REGRESAR</a>
+    <a href="javascript:history.back()" class="btn-back">⬅ REGRESAR</a>
 
     <div id="music-pill" onclick="toggleMusic(event)">
         <span id="m-status">▶</span>
         <span style="font-size: 0.7rem; font-weight: bold; letter-spacing: 1px;">MÚSICA</span>
     </div>
 
-    <audio id="track" loop>
+    <audio id="track" loop preload="auto">
         <source src="https://www.dropbox.com/scl/fi/80hypdxkg24wx6x7oael2/En-Tus-Manos-Se-or.mp3?rlkey=j4di62c9sgj4txgwbpikcngp3&raw=1" type="audio/mpeg">
     </audio>
 
@@ -131,7 +132,7 @@
             </div>
 
             <div>
-                <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Mis+XV+Isabella&dates=20261024T230000Z/20261025T050000Z&details=¡Te+espero+para+celebrar+mis+XV+años!&location=Toluca,+Estado+de+México&sf=true&output=xml" target="_blank" class="btn-calendar">
+                <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Mis+XV+Isabella&dates=20261024T230000Z/20261025T050000Z&details=¡Te+espero+para+celebrar+mis+XV+años!&location=Toluca,+Estado+de+México&sf=true&output=xml" target="_blank" rel="noopener" class="btn-calendar">
                     📅 AGENDAR EN GOOGLE
                </a>
             </div>
@@ -142,7 +143,7 @@
             <p style="font-family:'Dancing Script'; font-size:1.6rem; font-style:italic; margin-bottom:25px; color: white;">
                 "Bajo la luz de las estrellas, comienzo una nueva etapa. Gracias por ser parte de este jardín de ilusiones."
             </p>
-            <img src="https://www.dropbox.com/scl/fi/tmehprhryocd8vr9hfphl/xv2.jpg?rlkey=nzdubrk5wd1cg68gpbnck9r5t&raw=1" class="img-rounded">
+            <img src="https://www.dropbox.com/scl/fi/tmehprhryocd8vr9hfphl/xv2.jpg?rlkey=nzdubrk5wd1cg68gpbnck9r5t&raw=1" class="img-rounded" alt="Isabella">
             <h3 style="color:var(--gold-glow); font-family:'Cinzel'; font-size: 0.9rem;">"Donde hay ilusión, hay vida."</h3>
         </div>
 
@@ -163,16 +164,16 @@
         <div class="glass-card reveal" style="padding: 35px 0px; margin: 45px 10px;">
             <h2 class="section-title">Itinerario</h2>
             <img src="https://www.dropbox.com/scl/fi/xdl2mk7n2y9q5emvrkplx/itnerario-15.png?rlkey=zend5yctnoc5evi96du5mf4lx&raw=1" 
-                 style="width: 100%; border-radius: 0px; display: block;">
+                 style="width: 100%; border-radius: 0px; display: block; pointer-events: none;" alt="Itinerario">
         </div>
 
         <div class="glass-card reveal">
             <h2 class="section-title">Momentos</h2>
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/nm44i882g13044o8idz6k/xv1.jpg?rlkey=wn8xf4ne3yp5fz4vkzpsvbz4p&raw=1"></div>
-                    <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/tmehprhryocd8vr9hfphl/xv2.jpg?rlkey=nzdubrk5wd1cg68gpbnck9r5t&raw=1"></div>
-                    <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/x8aif8za8u6dbfyqvxx6k/xv3.jpg?rlkey=0gnog533q3fpm5xl0ouxmhrou&raw=1"></div>
+                    <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/nm44i882g13044o8idz6k/xv1.jpg?rlkey=wn8xf4ne3yp5fz4vkzpsvbz4p&raw=1" alt="Momento 1"></div>
+                    <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/tmehprhryocd8vr9hfphl/xv2.jpg?rlkey=nzdubrk5wd1cg68gpbnck9r5t&raw=1" alt="Momento 2"></div>
+                    <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/x8aif8za8u6dbfyqvxx6k/xv3.jpg?rlkey=0gnog533q3fpm5xl0ouxmhrou&raw=1" alt="Momento 3"></div>
                 </div>
             </div>
         </div>
@@ -181,36 +182,36 @@
             <h2 class="section-title">Ubicaciones</h2>
             <div style="margin-bottom:40px;">
                 <p class="role">Ceremonia Religiosa</p>
-                <img src="https://www.dropbox.com/scl/fi/1m2l58q1krhcby8ugxgqg/La-Iglesia-XV.jpg?rlkey=jd9q6aqlk6wd4unxzobd4kpwe&raw=1" class="img-rounded" height="200">
+                <img src="https://www.dropbox.com/scl/fi/1m2l58q1krhcby8ugxgqg/La-Iglesia-XV.jpg?rlkey=jd9q6aqlk6wd4unxzobd4kpwe&raw=1" class="img-rounded" height="200" alt="Iglesia">
                 <h3 style="font-family:'Cinzel'">Parroquia del Prado</h3>
                 <p style="font-size:0.8rem; opacity:0.7">17:00 Horas</p>
-                <a href="https://maps.google.com/?q=Parroquia+del+Prado+Toluca" target="_blank" class="btn-emerald">VER UBICACIÓN MISA</a>
+                <a href="https://maps.google.com/?q=Parroquia+del+Prado" target="_blank" rel="noopener" class="btn-emerald">VER UBICACIÓN MISA</a>
            </div>
            <div>
                 <p class="role">Recepción</p>
-                <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=600&auto=format&fit=crop" class="img-rounded" height="200">
+                <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=600&auto=format&fit=crop" class="img-rounded" height="200" alt="Salón">
                 <h3 style="font-family:'Cinzel'">Salón Magnolia</h3>
                 <p style="font-size:0.8rem; opacity:0.7">20:00 Horas</p>
-                <a href="https://maps.google.com/?q=Salon+Magnolia+Toluca" target="_blank" class="btn-emerald">VER UBICACIÓN RECEPCIÓN</a>
+                <a href="https://maps.google.com/?q=Salon+Magnolia+Toluca" target="_blank" rel="noopener" class="btn-emerald">VER UBICACIÓN RECEPCIÓN</a>
             </div>
         </div>
 
         <div class="glass-card reveal">
             <h2 class="section-title">Hospedaje</h2>
-            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=600&auto=format&fit=crop" class="img-rounded" height="180">
+            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=600&auto=format&fit=crop" class="img-rounded" height="180" alt="Hotel">
             <h3 style="font-family:'Cinzel'; color:var(--gold-glow)">HOTEL EMERALD PLAZA</h3>
             <p style="font-size:0.75rem; margin:15px 0">Tarifa especial mencionando:<br><b>"XV ISABELLA"</b></p>
-            <a href="https://maps.google.com/?q=Hotel+Emerald+Plaza+Toluca" target="_blank" class="btn-emerald" style="background:transparent; border:1px solid white">VER UBICACIÓN HOTEL</a>
+            <a href="https://maps.google.com/?q=Hotel+Emerald+Plaza+Toluca" target="_blank" rel="noopener" class="btn-emerald" style="background:transparent; border:1px solid white">VER UBICACIÓN HOTEL</a>
         </div>
 
         <div class="glass-card reveal">
             <h2 class="section-title">Regalos</h2>
             <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
-                <a href="https://www.liverpool.com.mx/tienda/mesa-de-regalos" target="_blank">
-                    <img src="https://www.dropbox.com/scl/fi/vrol566rk2s63188yua6s/Logo-de-Liverpool-con-mo-o-rojo.jpg?rlkey=exll1agxmoeq4ty5h1ppvty4f&raw=1" width="90" style="cursor:pointer;">
+                <a href="https://www.liverpool.com.mx/tienda/mesa-de-regalos" target="_blank" rel="noopener">
+                    <img src="https://www.dropbox.com/scl/fi/vrol566rk2s63188yua6s/Logo-de-Liverpool-con-mo-o-rojo.jpg?rlkey=exll1agxmoeq4ty5h1ppvty4f&raw=1" width="90" style="cursor:pointer;" alt="Liverpool">
                 </a>
-                <a href="https://www.amazon.com.mx/baby-reg/homepage" target="_blank">
-                    <img src="https://www.dropbox.com/scl/fi/u6hstjefzcl78sn9nnxib/Anuncio-festivo-de-Amazon-con-lazo.jpg?rlkey=2c02101g07tfl4o16m7hepem7&raw=1" width="90" style="cursor:pointer;">
+                <a href="https://www.amazon.com.mx/baby-reg/homepage" target="_blank" rel="noopener">
+                    <img src="https://www.dropbox.com/scl/fi/u6hstjefzcl78sn9nnxib/Anuncio-festivo-de-Amazon-con-lazo.jpg?rlkey=2c02101g07tfl4o16m7hepem7&raw=1" width="90" style="cursor:pointer;" alt="Amazon">
                 </a>
             </div>
             <div style="margin-top:30px; padding:20px; border:1px solid var(--gold-glow); border-radius:15px; background: rgba(255,255,255,0.03);">
@@ -222,7 +223,7 @@
 
         <div class="glass-card reveal">
             <h2 class="section-title">Dress Code</h2>
-            <img src="https://www.dropbox.com/scl/fi/iuule5a8x3prthsldm6h7/CODIGO-DE-VESTIMENTA-2.png?rlkey=xk7d7zvhdu65si9ecq25cgbfw&raw=1" width="100" style="filter:invert(1);">
+            <img src="https://www.dropbox.com/scl/fi/iuule5a8x3prthsldm6h7/CODIGO-DE-VESTIMENTA-2.png?rlkey=xk7d7zvhdu65si9ecq25cgbfw&raw=1" width="100" style="filter:invert(1);" alt="Dress Code">
             <p style="font-weight:bold; letter-spacing:3px; margin-top:10px">FORMAL</p>
             <div class="forbidden-circles">
                 <div class="circle c-white"></div><div class="circle c-red"></div>
@@ -260,26 +261,33 @@
 
         <footer style="padding:60px 20px; opacity:0.5; font-size:0.6rem; letter-spacing:4px;">
             <p>MI GRAN DÍA • DIAMOND COLLECTION</p>
-            <p style="margin-top: 10px;">CREACIÓN DE <a href="https://migrandia.mx" target="_blank" style="color: white; text-decoration: none; font-weight: bold;">MIGRANDIA.MX</a></p>
+            <p style="margin-top: 10px;">CREACIÓN DE <a href="https://migrandia.mx" target="_blank" rel="noopener" style="color: white; text-decoration: none; font-weight: bold;">MIGRANDIA.MX</a></p>
         </footer>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
+        // SEGURIDAD: Bloquear teclado
+        document.onkeydown = function(e) {
+            if(e.keyCode == 123) return false;
+            if(e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0) || e.keyCode == 'C'.charCodeAt(0))) return false;
+            if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false;
+        };
+
         var track = document.getElementById('track');
         var mStatus = document.getElementById('m-status');
         var playing = false;
 
         function initAudio() {
             if (!playing) {
-                track.play().then(() => { playing = true; mStatus.innerText = "II"; }).catch(e => {});
+                track.play().then(() => { playing = true; mStatus.textContent = "II"; }).catch(e => {});
             }
         }
 
         function toggleMusic(e) {
             e.stopPropagation();
-            if (track.paused) { track.play(); mStatus.innerText = "II"; }
-            else { track.pause(); mStatus.innerText = "▶"; }
+            if (track.paused) { track.play(); mStatus.textContent = "II"; }
+            else { track.pause(); mStatus.textContent = "▶"; }
         }
 
         const target = new Date("Oct 24, 2026 17:00:00").getTime();
@@ -287,10 +295,10 @@
             const now = new Date().getTime();
             const d = target - now;
             if (d > 0) {
-                document.getElementById("days").innerText = Math.floor(d / (1000 * 60 * 60 * 24));
-                document.getElementById("hours").innerText = Math.floor((d % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
-                document.getElementById("mins").innerText = Math.floor((d % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
-                document.getElementById("secs").innerText = Math.floor((d % (1000 * 60)) / 1000).toString().padStart(2, '0');
+                document.getElementById("days").textContent = Math.floor(d / (1000 * 60 * 60 * 24));
+                document.getElementById("hours").textContent = Math.floor((d % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+                document.getElementById("mins").textContent = Math.floor((d % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+                document.getElementById("secs").textContent = Math.floor((d % (1000 * 60)) / 1000).toString().padStart(2, '0');
             }
         }, 1000);
 
@@ -301,9 +309,9 @@
 
             if (nombre) {
                 const n = decodeURIComponent(nombre).replace(/\+/g, ' ').toUpperCase();
-                document.getElementById('saludo-familia').innerText = `¡HOLA, FAMILIA ${n}!`;
+                document.getElementById('saludo-familia').textContent = `¡HOLA, FAMILIA ${n}!`;
             } else {
-                document.getElementById('saludo-familia').innerText = `¡TE ESPERAMOS!`;
+                document.getElementById('saludo-familia').textContent = `¡TE ESPERAMOS!`;
             }
 
             if (cupos && !isNaN(cupos)) {
@@ -316,7 +324,7 @@
                 for (let i = 1; i <= cant; i++) {
                     let opt = document.createElement('option');
                     opt.value = i;
-                    opt.innerHTML = i + (i > 1 ? " Personas" : " Persona");
+                    opt.textContent = i + (i > 1 ? " Personas" : " Persona");
                     if (i === cant) opt.selected = true; 
                     selector.appendChild(opt);
                 }
@@ -331,7 +339,7 @@
             const urlParams = new URLSearchParams(window.location.search);
             const nombre = urlParams.get('n') ? decodeURIComponent(urlParams.get('n')) : "Invitado";
             const msg = encodeURIComponent(`¡Hola Isabella! Confirmo la asistencia de ${nombre} con ${num} personas. ¡Nos vemos pronto!`);
-            window.open(`https://wa.me/525654252153?text=${msg}`, '_blank');
+            window.open(`https://wa.me/525654252153?text=${msg}`, '_blank', 'noopener');
         }
     </script>
 </body>
