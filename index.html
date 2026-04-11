@@ -117,8 +117,15 @@ body{font-family:'Poppins',sans-serif;background:var(--fondo-suave);color:var(--
     .header { padding: 10px; }
     .brand-container { flex-direction: column; text-align: center; padding: 15px 0; }
     .logo { border-right: none; padding-right: 0; height: 90px; }
-    .hero h1 { font-size: 2.5rem; }
-    .phone1, .phone2 { width: 150px; transform: none; margin: 0 5px; }
+    
+    /* CORRECCIÓN: CENTRADO DE TÍTULOS EN CELULAR */
+    .hero { text-align: center; padding: 40px 15px; }
+    .hero h1 { font-size: 2.2rem; text-align: center; }
+    .hero p { font-size: 1.1rem; text-align: center; }
+    .hero-text { min-width: 100%; }
+    
+    .phone1, .phone2 { width: 140px; transform: none; margin: 0 5px; }
+    .phones { padding: 20px 0; }
 }
 </style>
 </head>
@@ -237,40 +244,4 @@ body{font-family:'Poppins',sans-serif;background:var(--fondo-suave);color:var(--
     document.getElementById('elTitulo').innerText = MI_CONFIGURACION.tituloHero;
     document.getElementById('elSubtitulo').innerText = MI_CONFIGURACION.subtituloHero;
     document.getElementById('elBtnHero').href = MI_CONFIGURACION.whatsappUrl;
-    document.getElementById('elWA').href = MI_CONFIGURACION.whatsappUrl;
-    document.getElementById('linkWAHeader').href = MI_CONFIGURACION.whatsappUrl;
-    document.getElementById('elCel1').src = MI_CONFIGURACION.fotoCelular1;
-    document.getElementById('elCel2').src = MI_CONFIGURACION.fotoCelular2;
-    document.getElementById('fBoda').src = MI_CONFIGURACION.fotoPortadaBoda;
-    document.getElementById('linkBoda').href = MI_CONFIGURACION.enlaceBoda;
-    document.getElementById('fXV').src = MI_CONFIGURACION.fotoPortadaXV;
-    document.getElementById('linkXV').href = MI_CONFIGURACION.enlaceXV;
-    document.getElementById('fBautizo').src = MI_CONFIGURACION.fotoPortadaBautizo;
-    document.getElementById('linkBautizo').href = MI_CONFIGURACION.enlaceBautizo;
-    document.getElementById('fBaby').src = MI_CONFIGURACION.fotoPortadaBaby;
-    document.getElementById('linkBaby').href = MI_CONFIGURACION.enlaceBaby;
-    
-    // CARGA ÁLBUM
-    document.getElementById('fAlbum1').src = MI_CONFIGURACION.fotoAlbum1;
-    document.getElementById('fAlbum2').src = MI_CONFIGURACION.fotoAlbum2;
-    document.getElementById('linkAlbum').href = MI_CONFIGURACION.enlaceAlbum;
-
-    document.getElementById('laFrase').innerText = MI_CONFIGURACION.fraseFinal;
-    document.getElementById('elPie').innerText = MI_CONFIGURACION.pieDePagina;
-
-    const base = 9855;
-    let visits = localStorage.getItem('visit_count') || 0;
-    visits = parseInt(visits) + 1;
-    localStorage.setItem('visit_count', visits);
-    document.getElementById('count').innerText = (base + visits).toLocaleString();
-
-    // SEGURIDAD
-    document.oncontextmenu = function() { return false; };
-    document.onkeydown = function(e) {
-        if(e.keyCode == 123 || (e.ctrlKey && (e.keyCode == 85 || e.keyCode == 83 || e.keyCode == 67))) return false;
-    };
-    document.ondragstart = function() { return false; };
-</script>
-
-</body>
-</html>
+    document.getElementById
