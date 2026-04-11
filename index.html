@@ -45,7 +45,15 @@ const MI_CONFIGURACION = {
     --fondo-blanco-warm: #fdfaf8;
 }
 
-*{margin:0;padding:0;box-sizing:border-box; -webkit-user-select: none; user-select: none;}
+/* SEGURIDAD: EVITAR SELECCIÓN DE TEXTO */
+*{
+    margin:0;padding:0;box-sizing:border-box; 
+    -webkit-user-select: none; 
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 img { -webkit-user-drag: none; pointer-events: none; max-width: 100%; height: auto; }
 
 body{font-family:'Poppins',sans-serif; background: var(--fondo-suave); color:var(--primario); overflow-x:hidden;}
@@ -213,7 +221,7 @@ body{font-family:'Poppins',sans-serif; background: var(--fondo-suave); color:var
 </a>
 
 <script>
-    // MOTOR DE CARGA
+    // MOTOR DE CARGA ORIGINAL
     document.getElementById('txtTelefono').innerText = "📞 " + MI_CONFIGURACION.telefono;
     document.getElementById('txtHorario').innerText = "🕒 " + MI_CONFIGURACION.horario;
     document.getElementById('elNombreMarca').innerText = MI_CONFIGURACION.nombreMarca;
@@ -240,11 +248,33 @@ body{font-family:'Poppins',sans-serif; background: var(--fondo-suave); color:var
 
     const base = 9855;
     let visits = localStorage.getItem('visit_count') || 0;
-    // Incrementamos la visita al cargar
     visits = parseInt(visits) + 1;
     localStorage.setItem('visit_count', visits);
-    
     document.getElementById('count').innerText = (base + visits).toLocaleString();
+
+    // ==========================================
+    // SEGURIDAD: NIVEL 1 - BLOQUEO DE ACCIONES
+    // ==========================================
+    
+    // 1. Bloquear clic derecho
+    document.oncontextmenu = function() { return false; };
+
+    // 2. Bloquear atajos de teclado (F12, Ctrl+U, etc)
+    document.onkeydown = function(e) {
+        // Bloquear F12
+        if(e.keyCode == 123) return false;
+        // Bloquear Ctrl+U (Ver código)
+        if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false;
+        // Bloquear Ctrl+Shift+I (Inspeccionar)
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false;
+        // Bloquear Ctrl+S (Guardar)
+        if(e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)) return false;
+        // Bloquear Ctrl+C (Copiar)
+        if(e.ctrlKey && e.keyCode == 'C'.charCodeAt(0)) return false;
+    };
+
+    // 3. Bloquear arrastre de imágenes
+    document.ondragstart = function() { return false; };
 </script>
 
 </body>
