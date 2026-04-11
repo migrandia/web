@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     <title>Nuestra Boda | Mario y Ester</title>
 
     <script>
@@ -113,12 +114,11 @@
         .footer-initials { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--verde-bosque); display: block; margin-bottom: 10px; }
         .footer-collection { font-size: 0.7rem; letter-spacing: 4px; color: #999; display: block; margin-bottom: 8px; }
         .footer-link { font-size: 0.85rem; color: #444; text-decoration: none; }
-        .footer-link b { color: var(--dorado); }
     </style>
 </head>
 <body id="global-body" oncontextmenu="return false;">
 
-    <a id="btn-home" href="#" class="btn-back">⬅ VOLVER</a>
+    <a id="btn-home" href="#" class="btn-back" rel="noopener">⬅ VOLVER</a>
 
     <section class="hero" id="bg-portada">
         <div class="hero-content">
@@ -137,7 +137,7 @@
     <section class="section">
         <h2 class="title">Nuestra Historia</h2>
         <p id="msg-novios" style="font-style: italic; color: #666; font-size: 1.05rem;"></p>
-        <img id="g1" src="" class="single-photo">
+        <img id="g1" src="" class="single-photo" alt="Foto Novios">
     </section>
 
     <section class="section">
@@ -170,7 +170,7 @@
         <h2 class="title">Lluvia de Regalos</h2>
         <p>Su presencia es nuestro mayor regalo, pero si desean tener un detalle con nosotros:</p>
         <div style="padding: 40px; border: 1px solid var(--dorado); background: white; margin-top: 30px;">
-            <img id="sobre-img" src="" class="sobre-img">
+            <img id="sobre-img" src="" class="sobre-img" alt="Sobre">
             <p><b id="b-nom"></b></p>
             <p>CLABE: <span id="b-clabe" style="letter-spacing: 1px;"></span></p>
             <p>A nombre de: <span id="b-tit"></span></p>
@@ -180,38 +180,45 @@
     <section class="section" style="background: var(--verde-bosque); color: white; max-width: 100%;">
         <h2 class="title" style="color: white; border-color: white;">Confirmación</h2>
         <p style="opacity: 0.9;">Sería un honor contar con tu presencia.</p>
-        <a id="go-rsvp" href="#" class="btn-confirm">Confirmar Asistencia</a>
+        <a id="go-rsvp" href="#" class="btn-confirm" target="_blank" rel="noopener noreferrer">Confirmar Asistencia</a>
     </section>
 
     <footer class="footer-promo">
         <span class="footer-initials">M & E</span>
         <span class="footer-collection">MI GRAN DIA COLECCION</span>
-        <a href="https://migrandia.mx" target="_blank" class="footer-link">Creado por <b>migrandia.mx</b></a>
+        <a href="https://migrandia.mx" target="_blank" class="footer-link" rel="noopener">Creado por <b>migrandia.mx</b></a>
     </footer>
 
     <script>
-        // CARGAR DATOS
+        // SEGURIDAD DE TECLADO
+        document.onkeydown = function(e) {
+            if(e.keyCode == 123) return false;
+            if(e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0) || e.keyCode == 'C'.charCodeAt(0))) return false;
+            if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false;
+        };
+
+        // CARGAR DATOS DE FORMA SEGURA
         document.getElementById('btn-home').href = CONFIG.url_pagina_principal;
         document.getElementById('global-body').style.backgroundImage = `url('${CONFIG.url_fondo_global}')`;
         document.getElementById('bg-portada').style.backgroundImage = `url('${CONFIG.url_fondo_portada}')`;
         
-        document.getElementById('msg-novios').innerText = CONFIG.mensaje_novios;
+        document.getElementById('msg-novios').textContent = CONFIG.mensaje_novios;
         document.getElementById('g1').src = CONFIG.foto_historia;
         document.getElementById('sobre-img').src = CONFIG.url_imagen_sobre;
 
         const dateObj = new Date(CONFIG.fecha_boda);
-        document.getElementById('hero-fecha').innerText = dateObj.toLocaleDateString('es-ES', { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' }).toUpperCase();
+        document.getElementById('hero-fecha').textContent = dateObj.toLocaleDateString('es-ES', { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' }).toUpperCase();
 
-        document.getElementById('p-ella').innerText = CONFIG.padres_novia;
-        document.getElementById('p-el').innerText = CONFIG.padres_novio;
-        document.getElementById('padrinos-val').innerText = CONFIG.padrinos;
+        document.getElementById('p-ella').textContent = CONFIG.padres_novia;
+        document.getElementById('p-el').textContent = CONFIG.padres_novio;
+        document.getElementById('padrinos-val').textContent = CONFIG.padrinos;
 
-        document.getElementById('loc-iglesia').innerText = CONFIG.texto_ubicacion_iglesia;
-        document.getElementById('loc-recepcion').innerText = CONFIG.texto_ubicacion_recepcion;
+        document.getElementById('loc-iglesia').textContent = CONFIG.texto_ubicacion_iglesia;
+        document.getElementById('loc-recepcion').textContent = CONFIG.texto_ubicacion_recepcion;
 
-        document.getElementById('b-nom').innerText = CONFIG.banco;
-        document.getElementById('b-clabe').innerText = CONFIG.clabe;
-        document.getElementById('b-tit').innerText = CONFIG.titular;
+        document.getElementById('b-nom').textContent = CONFIG.banco;
+        document.getElementById('b-clabe').textContent = CONFIG.clabe;
+        document.getElementById('b-tit').textContent = CONFIG.titular;
         document.getElementById('go-rsvp').href = CONFIG.url_whatsapp_rsvp;
 
         // CONTADOR
@@ -220,10 +227,10 @@
             const now = new Date().getTime();
             const d = target - now;
             if (d > 0) {
-                document.getElementById('d').innerText = Math.floor(d / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
-                document.getElementById('h').innerText = Math.floor((d % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
-                document.getElementById('m').innerText = Math.floor((d % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
-                document.getElementById('s').innerText = Math.floor((d % (1000 * 60)) / 1000).toString().padStart(2, '0');
+                document.getElementById('d').textContent = Math.floor(d / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+                document.getElementById('h').textContent = Math.floor((d % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+                document.getElementById('m').textContent = Math.floor((d % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+                document.getElementById('s').textContent = Math.floor((d % (1000 * 60)) / 1000).toString().padStart(2, '0');
             }
         }, 1000);
     </script>
