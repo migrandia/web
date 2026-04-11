@@ -21,279 +21,349 @@
             --oro: #b8926a;
             --negro: #1a1a1a;
             --crema: #fdfaf5;
-            --fondo-papel: url('https://www.dropbox.com/scl/fi/v1i7m0j4jubo8w8bpyd29/fondo-textura-papel-blanco_23-2148171221.jpg?rlkey=1spniqjgkcur44hfdi9o18jid&raw=1');
+          --fondo-papel: url('https://www.dropbox.com/scl/fi/v1i7m0j4jubo8w8bpyd29/fondo-textura-papel-blanco_23-2148171221.jpg?rlkey=1spniqjgkcur44hfdi9o18jid&raw=1');
         }
 
-        * { 
-            margin: 0; padding: 0; box-sizing: border-box; 
-            -webkit-user-select: none; user-select: none; 
-        }
-
-        body { 
-            font-family: 'Montserrat', sans-serif; 
-            background-color: #d1d1d1; /* Color de fondo para PC */
-            display: flex;
-            justify-content: center;
-        }
-
-        /* CONTENEDOR TIPO CELULAR */
-        .main-wrapper {
-            width: 100%;
-            max-width: 500px; /* Ancho máximo de celular en PC */
-            background-image: var(--fondo-papel);
-            background-attachment: scroll;
-            min-height: 100vh;
-            box-shadow: 0 0 30px rgba(0,0,0,0.3);
-            position: relative;
-            overflow-x: hidden;
-        }
+        /* PROTECCIÓN */
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-user-select: none; user-select: none; }
+        body { font-family: 'Montserrat', sans-serif; background-image: var(--fondo-papel); background-attachment: fixed; color: #333; overflow-x: hidden; }
+        img { -webkit-user-drag: none; pointer-events: none; max-width: 100%; height: auto; }
 
         /* BOTONES FIJOS */
         .music-btn, .back-btn { position: fixed; top: 20px; z-index: 1000; background: white; border: 1px solid var(--oro); border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-decoration: none; font-size: 1.2rem; }
-        
-        /* Ajuste de posición para que no se salgan del centro en PC */
-        @media (min-width: 500px) {
-            .back-btn { left: calc(50% - 230px); }
-            .music-btn { right: calc(50% - 230px); }
+        .music-btn { right: 20px; }
+        .back-btn { left: 20px; color: var(--oro); }
+
+        /* PORTADA */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://www.dropbox.com/scl/fi/379btmuabvlok9b7ioshb/file_00000000219871fd9cc6e8b8540ad9eb.png?rlkey=g74qqufgozuh07rqjgpqrmfy7&raw=1');
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white;
         }
-        @media (max-width: 500px) {
-            .back-btn { left: 15px; }
-            .music-btn { right: 15px; }
-        }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-style: italic; margin-bottom: 10px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        .hero p { letter-spacing: 4px; font-weight: 300; margin-bottom: 20px; }
 
-        .back-btn { color: var(--oro); }
-
-        /* HERO */
-        .hero { height: 100vh; background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://www.dropbox.com/scl/fi/379btmuabvlok9b7ioshb/file_00000000219871fd9cc6e8b8540ad9eb.png?rlkey=g74qqufgozuh07rqjgpqrmfy7&raw=1'); background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3rem; font-style: italic; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
-        .hero p { letter-spacing: 3px; font-size: 0.8rem; margin: 15px 0; }
-
+        /* CONTADOR */
         .timer { display: flex; gap: 8px; }
-        .t-box { background: rgba(0,0,0,0.5); padding: 10px; border-radius: 5px; min-width: 60px; border: 1px solid rgba(255,255,255,0.2); }
-        .t-box span { display: block; font-size: 1.4rem; font-weight: bold; color: var(--oro); }
-        .t-box small { font-size: 0.5rem; text-transform: uppercase; }
+        .t-box { background: rgba(0,0,0,0.5); padding: 12px; border-radius: 5px; min-width: 65px; border: 1px solid rgba(255,255,255,0.2); }
+        .t-box span { display: block; font-size: 1.6rem; font-weight: bold; color: var(--oro); }
+        .t-box small { font-size: 0.6rem; text-transform: uppercase; }
 
         /* SECCIONES */
-        .sec { padding: 40px 20px; text-align: center; }
-        h2 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--negro); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px; }
+        .sec { padding: 50px 20px; text-align: center; max-width: 800px; margin: auto; }
+        h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--negro); margin-bottom: 20px; text-transform: uppercase; letter-spacing: 2px; }
 
-        .grid-family { display: grid; grid-template-columns: 1fr; gap: 20px; }
-        .card-family { background: rgba(255,255,255,0.6); padding: 20px; border-radius: 8px; border: 1px solid #eee; }
+        /* PADRES Y PADRINOS */
+        .grid-family { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 20px; }
+        .card-family { background: rgba(255,255,255,0.6); padding: 25px; border-radius: 8px; border: 1px solid #eee; }
         .card-family h4 { color: var(--oro); margin-bottom: 10px; font-family: 'Playfair Display', serif; }
 
-        .swiper { width: 100%; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); margin-top: 20px; }
-        .swiper-slide img { width: 100%; height: 350px; object-fit: cover; }
+        /* GALERÍA */
+        .swiper { width: 100%; max-width: 450px; height: 450px; border-radius: 15px; margin-top: 20px; box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .swiper-slide img { width: 100%; height: 100%; object-fit: cover; }
+        .swiper-button-next, .swiper-button-prev { color: var(--oro) !important; font-weight: bold; }
 
-        .btn-container { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 15px; }
-        .btn { display: inline-block; width: 90%; padding: 15px; background: var(--negro); color: white; text-decoration: none; border-radius: 5px; font-weight: bold; border-bottom: 4px solid var(--oro); font-size: 0.9rem; }
-        .btn-cal { background: #4285F4; border-bottom-color: #357ae8; }
+        /* BOTONES CENTRADOS */
+        .btn-container { display: flex; justify-content: center; width: 100%; margin: 15px 0; flex-direction: column; align-items: center; }
+        .btn { display: inline-block; padding: 16px 40px; background: var(--negro); color: white; text-decoration: none; border-radius: 5px; font-weight: bold; border-bottom: 4px solid var(--oro); font-size: 0.9rem; transition: 0.3s; }
+        .btn:hover { background: #333; }
+        
+        /* Botón Calendario específico */
+        .btn-cal { background: #4285F4; border-bottom-color: #357ae8; padding: 12px 25px; font-size: 0.8rem; margin-top: 10px; }
 
-        .vestimenta-img { width: 110px; mix-blend-mode: multiply; margin-bottom: 10px; }
-        .forbidden-circles { display: flex; justify-content: center; gap: 15px; margin: 15px 0; }
-        .circle { width: 35px; height: 35px; border-radius: 50%; border: 1px solid #ddd; position: relative; }
+        /* VESTIMENTA */
+        .vestimenta-img { width: 120px; mix-blend-mode: multiply; margin-bottom: -10px; }
+        .forbidden-circles { display: flex; justify-content: center; gap: 15px; margin-top: 15px; }
+        .circle { width: 40px; height: 40px; border-radius: 50%; border: 1px solid #ddd; position: relative; }
         .circle::after { content: ''; position: absolute; width: 100%; height: 2px; background: red; top: 50%; left: 0; transform: rotate(-45deg); }
         .c-white { background: white; } .c-black { background: black; } .c-red { background: red; }
 
-        .weather-box { background: white; border-radius: 15px; border: 1px solid var(--oro); overflow: hidden; }
+        /* CLIMA WIDGET */
+        .weather-box { background: white; border-radius: 15px; border: 1px solid var(--oro); margin-top: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
 
-        .confirm-sec { background: var(--crema); padding: 50px 20px; border-top: 1px solid #eee; text-align: center; }
-        .btn-confirm { display: inline-block; width: 100%; padding: 18px; background: var(--negro); color: white; text-decoration: none; border-radius: 50px; font-weight: bold; border-bottom: 4px solid var(--oro); margin-top: 15px; }
+        /* CONFIRMACIÓN Y SELECTOR */
+        .confirm-sec { background: var(--crema); padding: 50px 20px; border-top: 1px solid #eee; }
+        .btn-confirm { display: inline-block; padding: 18px 50px; background: var(--negro); color: white; text-decoration: none; border-radius: 50px; font-weight: bold; border-bottom: 4px solid var(--oro); margin-top: 15px; }
         
-        .attendance-selector select { width: 100%; padding: 12px; border-radius: 10px; border: 1px solid var(--oro); font-family: 'Montserrat'; }
+        .attendance-selector { margin-bottom: 10px; }
+        .attendance-selector label { display: block; font-size: 0.8rem; font-weight: bold; color: var(--oro); margin-bottom: 8px; text-transform: uppercase; }
+        .attendance-selector select { padding: 10px 20px; border-radius: 10px; border: 1px solid var(--oro); background: white; font-family: 'Montserrat'; font-weight: bold; color: var(--negro); cursor: pointer; outline: none; }
 
-        .footer-brand { padding: 40px 20px; text-align: center; }
-        .footer-link { text-decoration: none; color: #999; font-size: 0.7rem; }
+        .footer-brand { padding: 50px 20px; text-align: center; }
+        .footer-link { text-decoration: none; color: #999; font-size: 0.7rem; letter-spacing: 1px; transition: 0.3s; margin-top: 5px; display: inline-block; }
+        .footer-link:hover { color: var(--oro); }
     </style>
 </head>
-<body oncontextmenu="return false;">
+<body>
 
-    <div class="main-wrapper">
-        <a href="javascript:void(0)" onclick="window.history.back();" class="back-btn">⬅️</a>
-        
-        <div class="music-btn" id="music-trigger" onclick="toggleMusica(event)"><span id="m-status">▶️</span></div>
-        
-        <audio id="bg-music" loop>
-            <source src="https://www.dropbox.com/scl/fi/80hypdxkg24wx6x7oael2/En-Tus-Manos-Se-or.mp3?rlkey=j4di62c9sgj4txgwbpikcngp3&raw=1" type="audio/mpeg">
-        </audio>
+    <a href="javascript:history.back()" class="back-btn">⬅️</a>
+    <div class="music-btn" id="music-trigger" onclick="toggleMusica(event)"><span id="m-status">▶️</span></div>
+    <audio id="bg-music" loop>
+        <source src="https://www.dropbox.com/scl/fi/80hypdxkg24wx6x7oael2/En-Tus-Manos-Se-or.mp3?rlkey=j4di62c9sgj4txgwbpikcngp3&raw=1" type="audio/mpeg">
+    </audio>
 
-        <header class="hero">
-            <h1>Ariel & Samanta</h1>
-            <p>NUESTRA BODA | 25.10.2026</p>
-            <div class="timer">
-                <div class="t-box"><span id="days">00</span><small>Días</small></div>
-                <div class="t-box"><span id="hours">00</span><small>Hrs</small></div>
-                <div class="t-box"><span id="mins">00</span><small>Min</small></div>
-                <div class="t-box"><span id="secs">00</span><small>Seg</small></div>
-            </div>
-        </header>
+    <header class="hero">
+        <h1>Ariel & Samanta</h1>
+        <p>NUESTRA BODA | 25.10.2026</p>
+        <div class="timer">
+            <div class="t-box"><span id="days">00</span><small>Días</small></div>
+            <div class="t-box"><span id="hours">00</span><small>Hrs</small></div>
+            <div class="t-box"><span id="mins">00</span><small>Min</small></div>
+            <div class="t-box"><span id="secs">00</span><small>Seg</small></div>
+        </div>
+    </header>
 
-        <section class="sec">
-            <div class="reveal">
-                <h2>Nuestra Historia</h2>
-                <p style="font-family:'Cormorant Garamond'; font-size:1.3rem; font-style:italic; margin-bottom:25px;">
-                    "Nuestra aventura comenzó como un sueño y hoy se convierte en nuestra más hermosa realidad."
-                </p>
-                <img src="https://www.dropbox.com/scl/fi/zs85m423lx4i76daw0uxj/file_00000000530471fdbb445bac178e63e1.png?rlkey=o0bu5uv9cvvmyl7lj3er8hbfg&raw=1" style="border-radius:15px; width: 100%;">
-            </div>
-        </section>
+    <section class="sec">
+        <div class="reveal">
+            <h2>Nuestra Historia</h2>
+            <p style="font-family:'Cormorant Garamond'; font-size:1.4rem; font-style:italic; margin-bottom:30px;">
+                "Nuestra aventura comenzó como un sueño y hoy se convierte en nuestra más hermosa realidad. A lo largo de este tiempo, hemos aprendido que el amor no es solo mirarse el uno al otro, sino mirar juntos en la misma dirección."
+            </p>
+            <img src="https://www.dropbox.com/scl/fi/zs85m423lx4i76daw0uxj/file_00000000530471fdbb445bac178e63e1.png?rlkey=o0bu5uv9cvvmyl7lj3er8hbfg&raw=1" style="border-radius:15px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);">
+            <h3 style="font-family:'Cormorant Garamond'; font-style:italic; color:var(--oro); margin-top:20px;">"Donde hay amor, hay vida."</h3>
+        </div>
+    </section>
 
-        <section class="sec">
-            <div class="reveal">
-                <h2>Nuestra Familia</h2>
-                <div class="grid-family">
-                    <div class="card-family">
-                       <h4>Padres de la Novia</h4>
-                       <p>Sr. Martin Garcia<br>Sra. Gloria Castillo</p>
-                    </div>
-                    <div class="card-family">
-                        <h4>Padres del Novio</h4>
-                       <p>Sr. Bernardo Perez<br>Sra. Claudia Rosado</p>
-                    </div>
-                    <div class="card-family">
-                        <h4>Nuestros Padrinos</h4>
-                       <p>Sr. Juaquin Castañeda & Sra. Maria Gutirrez</p>
-                    </div>
+    <section class="sec">
+        <div class="reveal">
+            <h2>Nuestra Familia</h2>
+            <div class="grid-family">
+                <div class="card-family">
+                   <h4>Padres de la Novia</h4>
+                   <p>Sr. Martin Garcia<br>Sra. Gloria Castillo</p>
+                </div>
+                <div class="card-family">
+                    <h4>Padres del Novio</h4>
+                   <p>Sr. Bernardo Perez<br>Sra. Claudia Rosado</p>
                 </div>
             </div>
-        </section>
-
-        <section class="sec">
-            <div class="reveal">
-                <h2>Itinerario</h2>
-                <img src="https://www.dropbox.com/scl/fi/na7h8in6vszg9msk3qw35/itinerario-nuevo.png?rlkey=z46bv93k1r3uhs8i4pi6spbtn&raw=1" style="mix-blend-mode: multiply; width: 100%;">
+            <div class="card-family" style="margin-top:20px;">
+                <h4>Nuestros Padrinos</h4>
+               <p>Sr. Juaquin Castañeda & Sra. Maria Gutirrez</p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="sec">
-            <div class="reveal">
-                <h2>Momentos</h2>
-                <div class="swiper mySwiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/gpf7arkczi5v3y9hxfjte/file_00000000189c71fdbc7b6ac47bb70337.png?rlkey=p8jpnwypfniwf7lxj25wiq4w2&raw=1"></div>
-                        <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/ld6s2fdqhmb71fxehdb0k/file_00000000928871fdb8f65567b022409a.png?rlkey=vcl3logvk7fd3yfysmjx0ge6j&raw=1"></div>
-                        <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/zs85m423lx4i76daw0uxj/file_00000000530471fdbb445bac178e63e1.png?rlkey=o0bu5uv9cvvmyl7lj3er8hbfg&raw=1"></div>
-                        <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/1hgcl93ka69i3fflmyxl3/file_0000000009b471f89a2eae6e6e70937b.png?rlkey=4t37xj2vxayedrv5szm2rjz9y&raw=1"></div>
-                    </div>
+    <section class="sec">
+        <div class="reveal">
+            <h2>Itinerario</h2>
+            <img src="https://www.dropbox.com/scl/fi/na7h8in6vszg9msk3qw35/itinerario-nuevo.png?rlkey=z46bv93k1r3uhs8i4pi6spbtn&raw=1" style="mix-blend-mode: multiply;">
+        </div>
+    </section>
+
+    <section class="sec">
+        <div class="reveal">
+            <h2>Momentos</h2>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/gpf7arkczi5v3y9hxfjte/file_00000000189c71fdbc7b6ac47bb70337.png?rlkey=p8jpnwypfniwf7lxj25wiq4w2&raw=1"></div>
+                    <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/ld6s2fdqhmb71fxehdb0k/file_00000000928871fdb8f65567b022409a.png?rlkey=vcl3logvk7fd3yfysmjx0ge6j&raw=1"></div>
+                    <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/zs85m423lx4i76daw0uxj/file_00000000530471fdbb445bac178e63e1.png?rlkey=o0bu5uv9cvvmyl7lj3er8hbfg&raw=1"></div>
+                    <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/1hgcl93ka69i3fflmyxl3/file_0000000009b471f89a2eae6e6e70937b.png?rlkey=4t37xj2vxayedrv5szm2rjz9y&raw=1"></div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sec">
+        <div class="reveal">
+           <h2>Ubicaciones</h2>
+            <div class="card-family" style="margin-bottom:30px;">
+                <img src="https://www.dropbox.com/scl/fi/yg63x0ndbs8xdkvhtw944/Catedral-Toluca-1200x800.png?rlkey=hyhvjs8bhtk9ks9ftuil12j1e&raw=1" style="width:100%; height:180px; object-fit:cover; border-radius:10px;">
+                <h4 style="margin-top:15px;">Ceremonia Religiosa</h4>
+               <p>Catedral de Toluca, Edo. Méx.</p>
+                <div class="btn-container">
+                    <a href="https://www.google.com/maps/place/Ciudad+de+M%C3%A9xico,+CDMX/EgoyMDI2MDMzMS4wIKXMDSoASAFQAw" target="_blank" class="btn">UBICACIÓN</a>
+                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+de+Ariel+%26+Samanta&dates=20261025T230000Z/20261026T040000Z&details=¡Acompáñanos+en+nuestro+gran+día!&location=Catedral+de+Toluca,+Edo.+Méx.&sf=true&output=xml" target="_blank" class="btn btn-cal">AGREGAR A GOOGLE CALENDAR</a>
                 </div>
             </div>
-        </section>
+            <div class="card-family">
+                <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=400" style="width:100%; height:180px; object-fit:cover; border-radius:10px;">
+                <h4 style="margin-top:15px;">Recepción</h4>
+                <p>Hacienda San José, Edo. Méx.</p>
+                <div class="btn-container">
+                    <a href="https://www.google.com/maps/place/Ciudad+de+M%C3%A9xico,+CDMX/EgoyMDI2MDMzMS4wIKXMDSoASAFQAw" target="_blank" class="btn">UBICACIÓN</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <section class="sec">
-            <div class="reveal">
-               <h2>Ubicaciones</h2>
-                <div class="card-family" style="margin-bottom:30px;">
-                    <img src="https://www.dropbox.com/scl/fi/yg63x0ndbs8xdkvhtw944/Catedral-Toluca-1200x800.png?rlkey=hyhvjs8bhtk9ks9ftuil12j1e&raw=1" style="width:100%; height:180px; object-fit:cover; border-radius:10px;">
-                    <h4 style="margin-top:15px;">Ceremonia Religiosa</h4>
-                    <p>Catedral de Toluca, Edo. Méx.</p>
+    <section class="sec">
+        <div class="reveal">
+            <h2>Hospedaje</h2>
+            <p style="margin-bottom:20px;">Para su mayor comodidad, sugerimos las siguientes opciones de alojamiento:</p>
+            <div class="grid-family">
+                <div class="card-family">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=400" style="border-radius:8px; margin-bottom:15px;">
+                    <h4>Hotel Gran Plaza</h4>
+                   <p>Ubicado a 10 min del evento.<br><small>Menciona nuestra boda para tarifa especial.</small></p>
                     <div class="btn-container">
-                        <a href="https://maps.google.com" target="_blank" class="btn">UBICACIÓN</a>
-                        <a href="https://calendar.google.com" target="_blank" class="btn btn-cal">AGREGAR A CALENDARIO</a>
+                        <a href="https://www.google.com/maps/place/Ciudad+de+M%C3%A9xico,+CDMX/EgoyMDI2MDMzMS4wIKXMDSoASAFQAw" target="_blank" class="btn" style="padding:10px 20px;">UBICACIÓN</a>
                     </div>
                 </div>
                 <div class="card-family">
-                    <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=80&w=400" style="width:100%; height:180px; object-fit:cover; border-radius:10px;">
-                    <h4 style="margin-top:15px;">Recepción</h4>
-                    <p>Hacienda San José, Edo. Méx.</p>
+                    <img src="https://images.trvl-media.com/lodging/1000000/30000/23700/23624/8368e710.jpg?impolicy=resizecrop&rw=1200&ra=fit" style="border-radius:8px; margin-bottom:15px;">
+                    <h4>Quinta del Sol</h4>
+                   <p>Hotel boutique con encanto colonial.<br><small>Ideal para familias y grupos.</small></p>
                     <div class="btn-container">
-                        <a href="https://maps.google.com" target="_blank" class="btn">UBICACIÓN</a>
+                        <a href="https://www.google.com/maps/place/Ciudad+de+M%C3%A9xico,+CDMX/EgoyMDI2MDMzMS4wIKXMDSoASAFQAw" target="_blank" class="btn" style="padding:10px 20px;">UBICACIÓN</a>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="sec">
-            <div class="reveal">
-                <h2>Hospedaje</h2>
-                <div class="grid-family">
-                    <div class="card-family">
-                        <h4>Hotel Gran Plaza</h4>
-                        <p>Tarifa especial mencionando la boda.</p>
-                        <a href="#" class="btn" style="margin-top:10px;">VER MAPA</a>
-                    </div>
-                    <div class="card-family">
-                        <h4>Quinta del Sol</h4>
-                        <p>Hotel boutique colonial.</p>
-                        <a href="#" class="btn" style="margin-top:10px;">VER MAPA</a>
-                    </div>
-                </div>
+    <section class="sec">
+        <div class="reveal">
+            <h2>Mesa de Regalos</h2>
+            <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
+                <a href="https://www.liverpool.com.mx" target="_blank"><img src="https://websinergia.com.mx/blog/wp-content/uploads/2016/07/liverpool-face.png" style="width:120px;"></a>
+                <a href="https://www.amazon.com.mx" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" style="width:120px;"></a>
             </div>
-        </section>
-
-        <section class="sec">
-            <div class="reveal">
-                <h2>Mesa de Regalos</h2>
-                <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap;">
-                    <img src="https://www.dropbox.com/scl/fi/vrol566rk2s63188yua6s/Logo-de-Liverpool-con-mo-o-rojo.jpg?rlkey=exll1agxmoeq4ty5h1ppvty4f&raw=1" style="width:100px;">
-                    <img src="https://www.dropbox.com/scl/fi/u6hstjefzcl78sn9nnxib/Anuncio-festivo-de-Amazon-con-lazo.jpg?rlkey=2c02101g07tfl4o16m7hepem7&raw=1" style="width:100px;">
-                </div>
-                <div style="margin-top:20px; padding:15px; border:1px solid var(--oro); border-radius:10px;">
-                    <h4>Lluvia de Sobres</h4>
-                    <p>BBVA: 0123 4567 8901</p>
-                </div>
+            <div style="margin-top:30px; padding:20px; border:1px solid var(--oro); border-radius:10px;">
+                <h4>Lluvia de Sobres</h4>
+               <p>Su presencia es nuestro regalo, pero si desean tener un detalle, contaremos con un buzón o transferencia:<br><strong>BBVA: 0123 4567 8901</strong></p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="sec">
-            <div class="reveal">
-                <img src="https://www.dropbox.com/scl/fi/iuule5a8x3prthsldm6h7/CODIGO-DE-VESTIMENTA-2.png?rlkey=xk7d7zvhdu65si9ecq25cgbfw&raw=1" class="vestimenta-img">
-                <h2>Código de Vestimenta</h2>
-                <p><strong>FORMAL RIGUROSO</strong></p>
-                <div class="forbidden-circles">
-                    <div class="circle c-white"></div><div class="circle c-black"></div><div class="circle c-red"></div>
-                </div>
+    <section class="sec">
+        <div class="reveal">
+            <img src="https://www.dropbox.com/scl/fi/iuule5a8x3prthsldm6h7/CODIGO-DE-VESTIMENTA-2.png?rlkey=xk7d7zvhdu65si9ecq25cgbfw&raw=1" class="vestimenta-img">
+            <h2>Código de Vestimenta</h2>
+            <p><strong>FORMAL RIGUROSO</strong></p>
+            <div class="forbidden-circles">
+                <div class="circle c-white"></div><div class="circle c-black"></div><div class="circle c-red"></div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="sec">
-            <div class="reveal">
-               <h2>El Clima</h2>
-                <div class="weather-box">
-                    <a class="weatherwidget-io" href="https://forecast7.com/es/19d28n99d66/toluca/" data-label_1="TOLUCA" data-theme="white_leather">TOLUCA WEATHER</a>
-                    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');</script>
-                </div>
+    <section class="sec">
+        <div class="reveal">
+           <h2>El Clima</h2>
+            <div class="weather-box">
+                <a class="weatherwidget-io" href="https://forecast7.com/es/19d28n99d66/toluca/" data-label_1="TOLUCA" data-label_2="WEATHER" data-theme="white_leather" >TOLUCA WEATHER</a>
+                <script>
+                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+                </script>
             </div>
-        </section>
+            <p style="margin-top: 15px; font-size: 0.8rem; color: var(--oro); font-weight: bold; letter-spacing: 2px;">TOLUCA, ESTADO DE MÉXICO</p>
+        </div>
+    </section>
 
-        <section class="confirm-sec">
-            <div class="reveal">
-                <h2 id="saludo-familia">¡Confirma tu Asistencia!</h2>
-                <div class="attendance-selector" style="margin: 20px 0;">
-                    <label style="font-size:0.7rem; font-weight:bold; color:var(--oro); display:block; margin-bottom:10px;">¿CUÁNTOS ASISTIRÁN?</label>
+    <section class="confirm-sec">
+        <div class="reveal" style="text-align: center;">
+            <h2 id="saludo-familia">¡Confirma tu Asistencia!</h2>
+            <p id="texto-reserva">Sería un verdadero placer contar con tu presencia.</p>
+            
+            <div class="btn-container" style="margin-top: 25px;">
+                <div class="attendance-selector">
+                   <label>¿Cuántas personas asistirán?</label>
                     <select id="num-asistentes">
-                        <option value="1">1 Persona</option><option value="2">2 Personas</option><option value="3">3 Personas</option><option value="4">4 Personas</option><option value="5">5 Personas</option>
+                        <option value="1">1 Persona</option>
+                        <option value="2">2 Personas</option>
+                        <option value="3">3 Personas</option>
+                        <option value="4">4 Personas</option>
+                        <option value="5">5 Personas</option>
                     </select>
                 </div>
                 <a href="javascript:void(0)" onclick="enviarWhatsApp()" class="btn-confirm">CONFIRMAR POR WHATSAPP</a>
-                <p style="margin-top:20px; font-size:0.7rem;">FAVOR DE CONFIRMAR ANTES DEL 01.10.2026</p>
             </div>
-        </section>
 
-        <footer class="footer-brand">
-            <div style="font-family:'Playfair Display'; font-size: 2rem; color: var(--oro);">A & S</div>
-            <p style="letter-spacing:2px; font-weight:bold; font-size:0.7rem;">MI GRAN DÍA COLECCIÓN</p>
-        </footer>
-    </div>
+            <p style="margin-top:20px;"><small>FAVOR DE CONFIRMAR ANTES DEL 01.10.2026</small></p>
+            <p style="margin-top:30px; font-style:italic; font-family:'Cormorant Garamond'; font-size:1.5rem;">¡Nos vemos pronto!</p>
+        </div>
+    </section>
+
+    <footer class="footer-brand">
+        <div style="font-family:'Playfair Display'; font-size: 2.5rem; color: var(--oro);">A & S</div>
+        <p style="letter-spacing:3px; font-weight:bold;">MI GRAN DÍA COLECCIÓN</p>
+        <a href="https://migrandia.mx" target="_blank" class="footer-link">
+            creado por migrandia.mx
+        </a>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         const music = document.getElementById("bg-music");
         const mStatus = document.getElementById("m-status");
+        let hasPlayed = false;
+
+        window.addEventListener('scroll', function() {
+            if (!hasPlayed) {
+                music.play().then(() => {
+                    mStatus.innerText = "🔊";
+                    hasPlayed = true;
+                }).catch(e => console.log("Esperando interacción..."));
+            }
+        }, { once: false });
 
         function toggleMusica(event) {
             event.stopPropagation();
-            if (music.paused) { music.play(); mStatus.innerText = "🔊"; } 
-            else { music.pause(); mStatus.innerText = "🔇"; }
+            if (music.paused) { 
+                music.play(); 
+                mStatus.innerText = "🔊"; 
+                hasPlayed = true; 
+            } else { 
+                music.pause(); 
+                mStatus.innerText = "🔇"; 
+            }
+        }
+
+        function personalizarInvitacion() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const nombre = urlParams.get('n'); 
+            const cupo = urlParams.get('c');   
+
+            if (nombre) {
+                const nombreLimpio = decodeURIComponent(nombre);
+                const textoFamilia = nombreLimpio.toLowerCase().includes("familia") || 
+                                     nombreLimpio.toLowerCase().includes("sr") || 
+                                     nombreLimpio.toLowerCase().includes("sra") ? nombreLimpio : "Familia " + nombreLimpio;
+                
+                document.getElementById('saludo-familia').innerText = "¡Hola, " + textoFamilia + "!";
+                
+                if (cupo) {
+                    document.getElementById('texto-reserva').innerText = textoFamilia + ", hemos reservado " + cupo + " lugares para ustedes.";
+                    document.getElementById('num-asistentes').value = cupo;
+                }
+            }
         }
 
         function enviarWhatsApp() {
             const numeroTel = "525654252153";
-            const num = document.getElementById("num-asistentes").value;
-            const msg = encodeURIComponent("¡Hola! Confirmo asistencia para " + num + " personas a la boda de Ariel y Samanta.");
-            window.open("https://wa.me/" + numeroTel + "?text=" + msg, "_blank");
+            const urlParams = new URLSearchParams(window.location.search);
+            let nombreURL = urlParams.get('n') ? decodeURIComponent(urlParams.get('n')) : "";
+            let identificador;
+
+            if (nombreURL === "") {
+                identificador = "un invitado";
+            } else {
+                const esFamilia = nombreURL.toLowerCase().includes("familia") || 
+                                 nombreURL.toLowerCase().includes("sr") || 
+                                 nombreURL.toLowerCase().includes("sra");
+                identificador = esFamilia ? nombreURL : "la Familia " + nombreURL;
+            }
+
+            const numPersonas = document.getElementById("num-asistentes").value;
+            const mensaje = encodeURIComponent(
+                "¡Hola! Confirmo la asistencia de " + identificador + 
+                " para " + numPersonas + " personas a la boda de Ariel y Samanta. " +
+                "¡Nos vemos pronto!"
+            );
+            window.open("https://wa.me/" + numeroTel + "?text=" + mensaje, "_blank");
         }
 
-        new Swiper(".mySwiper", { loop: true, autoplay: { delay: 3000 } });
-        ScrollReveal().reveal('.reveal', { distance: '30px', duration: 1000, origin: 'bottom' });
+        const swiper = new Swiper(".mySwiper", { 
+            loop: true, 
+            navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+            autoplay: { delay: 3000 }
+        });
+
+        ScrollReveal().reveal('.reveal', { distance: '40px', duration: 1000, delay: 200, origin: 'bottom' });
 
         const target = new Date("Oct 25, 2026 17:00:00").getTime();
         setInterval(() => {
@@ -304,6 +374,10 @@
             document.getElementById("mins").innerText = Math.floor((d % (1000 * 60 * 60)) / (1000 * 60));
             document.getElementById("secs").innerText = Math.floor((d % (1000 * 60)) / 1000);
         }, 1000);
+
+        window.onload = () => {
+            personalizarInvitacion(); 
+        };
     </script>
 </body>
 </html>
