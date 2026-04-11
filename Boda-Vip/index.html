@@ -95,7 +95,7 @@
         .footer-link:hover { color: var(--oro); }
     </style>
 </head>
-<body>
+<body oncontextmenu="return false;">
 
     <a href="javascript:history.back()" class="back-btn">⬅️</a>
     <div class="music-btn" id="music-trigger" onclick="toggleMusica(event)"><span id="m-status">▶️</span></div>
@@ -288,6 +288,14 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
+        // SEGURIDAD DE TECLADO (Ctrl+U, F12, Ctrl+Shift+I, Ctrl+S)
+        document.onkeydown = function(e) {
+            if(e.keyCode == 123) return false; // F12
+            if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false; // Ctrl+U
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false; // Ctrl+Shift+I
+            if(e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)) return false; // Ctrl+S
+        };
+
         const music = document.getElementById("bg-music");
         const mStatus = document.getElementById("m-status");
         let hasPlayed = false;
