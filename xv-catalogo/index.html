@@ -117,6 +117,19 @@
             .logo-text { font-size: 2rem; }
             .card-img { height: 350px; }
             .btn-regresar { padding: 8px 12px; font-size: 0.6rem; }
+
+            /* AJUSTE PARA MÓVIL: Evita el scroll lateral convirtiendo la tabla en tarjetas */
+            .chart-wrapper { overflow-x: visible; }
+            .chart-table { min-width: 100%; }
+            .chart-table thead { display: none; }
+            .chart-table, .chart-table tbody, .chart-table tr, .chart-table td { display: block; width: 100%; }
+            .chart-table tr { margin-bottom: 15px; border: 1px solid #f0e4e6; border-radius: 15px; }
+            .feature-label { background: #fffcfd; text-align: center !important; padding: 10px !important; width: 100% !important; border-bottom: 2px solid var(--primario) !important; box-sizing: border-box; }
+            .chart-table td:not(.feature-label) { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px !important; border-bottom: 1px solid #f9f0f2; box-sizing: border-box; }
+            .chart-table td:not(.feature-label):before { font-weight: bold; font-size: 0.7rem; color: #888; }
+            .chart-table td:nth-of-type(2):before { content: "SWEET ($299)"; }
+            .chart-table td:nth-of-type(3):before { content: "SPARKLE ($399)"; }
+            .chart-table td:nth-of-type(4):before { content: "GALA ($499)"; }
         }
     </style>
 </head>
@@ -195,7 +208,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                                <tr><td class="feature-label">Foto Portada</td><td class="check">✔</td><td class="check">✔</td><td class="check">✔</td></tr>
+                    <tr><td class="feature-label">Foto Portada</td><td class="check">✔</td><td class="check">✔</td><td class="check">✔</td></tr>
                     <tr><td class="feature-label">Fecha del Evento</td><td class="check">✔</td><td class="check">✔</td><td class="check">✔</td></tr>
                     <tr><td class="feature-label">Contador de Tiempo</td><td class="check">✔</td><td class="check">✔</td><td class="check">✔</td></tr>
                     <tr><td class="feature-label">Tu Historia</td><td class="check">✔</td><td class="check">✔</td><td class="check">✔</td></tr>
@@ -216,7 +229,6 @@
                     <tr><td class="feature-label">Número de Invitados</td><td class="cross">✘</td><td class="cross">✘</td><td class="check">✔</td></tr>
                     <tr><td class="feature-label">Contacto de Confirmación</td><td class="check">✔</td><td class="check">✔</td><td class="check">✔</td></tr>
                     <tr><td class="feature-label">Canción Personalizada</td><td class="cross">✘</td><td class="check">✔</td><td class="check">✔</td></tr>
-
                 </tbody>
             </table>
         </div>
