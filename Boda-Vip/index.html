@@ -24,10 +24,36 @@
           --fondo-papel: url('https://www.dropbox.com/scl/fi/v1i7m0j4jubo8w8bpyd29/fondo-textura-papel-blanco_23-2148171221.jpg?rlkey=1spniqjgkcur44hfdi9o18jid&raw=1');
         }
 
-        /* PROTECCIÓN */
-        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-user-select: none; user-select: none; }
-        body { font-family: 'Montserrat', sans-serif; background-image: var(--fondo-papel); background-attachment: fixed; color: #333; overflow-x: hidden; }
-        img { -webkit-user-drag: none; pointer-events: none; max-width: 100%; height: auto; }
+        /* SEGURIDAD: PROTECCIÓN DE CONTENIDO */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            -webkit-user-select: none; 
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none; 
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            background-image: var(--fondo-papel); 
+            background-attachment: fixed; 
+            color: #333; 
+            overflow-x: hidden; 
+        }
+
+        /* Bloqueo de arrastre y puntero en multimedia */
+        img, video, .swiper { 
+            -webkit-user-drag: none; 
+            user-drag: none;
+        }
+        
+        /* Reactivar puntero solo para elementos clicables */
+        a, button, select, .music-btn, .back-btn, .swiper-button-next, .swiper-button-prev {
+            pointer-events: auto;
+        }
 
         /* BOTONES FIJOS */
         .music-btn, .back-btn { position: fixed; top: 20px; z-index: 1000; background: white; border: 1px solid var(--oro); border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 2px 10px rgba(0,0,0,0.1); text-decoration: none; font-size: 1.2rem; }
@@ -95,9 +121,9 @@
         .footer-link:hover { color: var(--oro); }
     </style>
 </head>
-<body>
+<body oncontextmenu="return false;">
 
-    <a href="javascript:history.back()" class="back-btn">⬅️</a>
+    <a href="https://migrandia.mx" class="back-btn">⬅️</a>
     <div class="music-btn" id="music-trigger" onclick="toggleMusica(event)"><span id="m-status">▶️</span></div>
     <audio id="bg-music" loop>
         <source src="https://www.dropbox.com/scl/fi/80hypdxkg24wx6x7oael2/En-Tus-Manos-Se-or.mp3?rlkey=j4di62c9sgj4txgwbpikcngp3&raw=1" type="audio/mpeg">
@@ -288,6 +314,17 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
+        // CONFIGURACIÓN DE SEGURIDAD
+        document.oncontextmenu = function() { return false; };
+        document.onkeydown = function(e) {
+            if(e.keyCode == 123) return false; // F12
+            if(e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0))) return false; // Ctrl+Shift+I
+            if(e.ctrlKey && (e.keyCode == 'U'.charCodeAt(0))) return false; // Ctrl+U
+            if(e.ctrlKey && (e.keyCode == 'S'.charCodeAt(0))) return false; // Ctrl+S
+            if(e.ctrlKey && (e.keyCode == 'C'.charCodeAt(0))) return false; // Ctrl+C
+        };
+        document.ondragstart = function() { return false; };
+
         const music = document.getElementById("bg-music");
         const mStatus = document.getElementById("m-status");
         let hasPlayed = false;
