@@ -109,6 +109,9 @@ body{font-family:'Poppins',sans-serif;background:var(--fondo-suave);color:var(--
 .album-img { width: 45%; border-radius: 10px; border: 2px solid var(--dorado-solido); transition: 0.3s; }
 .album-img:hover { transform: scale(1.05); }
 
+/* ESTILO PARA EL LOGO DEL ÁLBUM */
+.logo-album { width: 450px; margin: 0 auto 15px auto; pointer-events: none; display: block; }
+
 .footer-message{padding:60px 20px; text-align:center; background: #f1e3d8;}
 .whatsapp{position:fixed; bottom:25px; right:25px; background:#25D366; width:60px; height:60px; border-radius:50%; display:flex; align-items:center; justify-content:center; z-index:2000; box-shadow: 0 5px 15px rgba(0,0,0,0.2);}
 
@@ -125,6 +128,7 @@ body{font-family:'Poppins',sans-serif;background:var(--fondo-suave);color:var(--
     
     .phone1, .phone2 { width: 140px; transform: none; margin: 0 5px; }
     .phones { padding: 20px 0; }
+    .logo-album { width: 80%; } /* Ajuste para móviles */
 }
 </style>
 </head>
@@ -211,7 +215,7 @@ body{font-family:'Poppins',sans-serif;background:var(--fondo-suave);color:var(--
             <img id="fAlbum2" class="album-img">
         </div>
         <div class="special-card" style="border-color: var(--guinda);">
-            <img src="https://www.dropbox.com/scl/fi/lrno7vxxh3qg4tcv9qlot/ALBUMDIGITAL.png?rlkey=q6z1bbxggnkaperdz9ru37euy&raw=1" style="width: 150px; margin: 0 auto 15px auto; pointer-events: none;">
+            <img src="https://www.dropbox.com/scl/fi/lrno7vxxh3qg4tcv9qlot/ALBUMDIGITAL.png?rlkey=q6z1bbxggnkaperdz9ru37euy&raw=1" class="logo-album">
             
             <h4>Álbum de Recuerdos</h4>
             <p>Preserva los mejores momentos de tu evento para siempre. Un espacio digital interactivo para tus fotos y mensajes favoritos.</p>
