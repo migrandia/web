@@ -12,7 +12,7 @@ const MI_CONFIGURACION = {
     coleccion: "Colección by Maria Montenegro",
     tituloHero: "La primera impresión de tu Gran Día comienza aquí.",
     subtituloHero: "Invitaciones digitales e interactivas que enamoran a tus invitados.",
-    fraseFinal: '"Porque los mejores momentos de la vida merecen ser anunciados con elegancia."',
+    fraseFinal: '"Porque los mejores momentos de la vida deserve ser anunciados con elegancia."',
     pieDePagina: "Mi Gran Día | Experiencias Digitales",
     whatsappUrl: "https://wa.me/525654252153",
     enlaceBoda: "https://migrandia.mx/boda-catalogo",
@@ -20,7 +20,10 @@ const MI_CONFIGURACION = {
     enlaceBautizo: "https://migrandia.mx/bautizo-catalogo",
     enlaceBaby: "https://migrandia.mx/babyshower-infantiles",
     
-    // AQUÍ PUEDES PEGAR TUS URLS CUANDO QUIERAS
+    // REDES SOCIALES (PON TUS LINKS AQUÍ)
+    facebookUrl: "https://www.facebook.com/MiGranDiaInvitacionesDigitales",
+    instagramUrl: "https://www.instagram.com/migrandiainvitaciones",
+    
     enlaceAlbum: "https://migrandia.mx/Album-Recuerdos/",
     fotoAlbum1: "https://www.dropbox.com/scl/fi/zxaje2axmcjzq0g4fg2ts/ALBUM-DIGITAL.png?rlkey=crpnufinbcs1vde2i13ql7iyt&raw=1",
     fotoAlbum2: "https://www.dropbox.com/scl/fi/fu7z5z9e1zh4t4nc79pay/ALBUM-DIGITAL-2.png?rlkey=ov0a8n8n68q48lma4mzovkgg3&raw=1",
@@ -50,15 +53,12 @@ const MI_CONFIGURACION = {
     --fondo-blanco-warm: #fdfaf8;
 }
 
-/* SEGURIDAD */
 *{margin:0;padding:0;box-sizing:border-box;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}
 img{-webkit-user-drag:none;pointer-events:none;max-width:100%;height:auto;}
 body{font-family:'Poppins',sans-serif;background:var(--fondo-suave);color:var(--primario);overflow-x:hidden;}
 
-/* BARRA SUPERIOR */
-.top-bar { background: #fff; border-bottom: 1px solid rgba(201, 169, 106, 0.3); padding: 8px 20px; font-size: 0.7rem; letter-spacing: 1px; display: flex; justify-content: center; gap: 15px; color: var(--dorado-solido); font-weight: 600; text-transform: uppercase; flex-wrap: wrap; }
+.top-bar { background: #fff; border-bottom: 1px solid rgba(201, 169, 106, 0.3); padding: 8px 20px; font-size: 0.7rem; letter-spacing: 1px; display: flex; justify-content: center; gap: 15px; color: var(--dorado-solido); font-weight: 600; text-transform: uppercase; flex-wrap: wrap; align-items: center; }
 
-/* HEADER */
 .header { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); padding: 15px 20px; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(102, 0, 0, 0.1); }
 .brand-container { display: flex; align-items: center; justify-content: space-between; max-width: 1400px; margin: 0 auto; padding: 5px 0; border-top: 1.5px solid var(--guinda); border-bottom: 1.5px solid var(--guinda); }
 .logo-nombre-grupo { display: flex; align-items: center; gap: 20px; }
@@ -67,33 +67,29 @@ body{font-family:'Poppins',sans-serif;background:var(--fondo-suave);color:var(--
 .brand-name { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--primario); letter-spacing: 2px; text-transform: uppercase; font-weight: 700; line-height: 1; }
 .brand-slogan { font-size: 0.8rem; color: var(--dorado-solido); letter-spacing: 2px; margin-top: 5px; text-transform: uppercase; }
 .brand-collection { font-size: 0.6rem; color: var(--primario); letter-spacing: 1px; margin-top: 2px; opacity: 0.8; }
+.header-right { display: flex; align-items: center; gap: 15px; }
 .header-contact { font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; color: var(--guinda); font-weight: 600; border: 1.5px solid var(--guinda); padding: 8px 20px; border-radius: 50px; text-decoration: none; transition: 0.3s; }
 
-/* HERO */
 .hero{max-width:1400px; margin:auto; display:flex; align-items:center; justify-content:space-between; padding:60px 20px; gap:40px; flex-wrap: wrap;}
 .hero-text { flex: 1; min-width: 300px; }
 .hero h1{font-family:'Playfair Display',serif; font-size:3.5rem; color: var(--guinda); line-height:1.1; margin-bottom:20px;}
 .hero p{font-size:1.2rem; color:#6f5a4f; margin-bottom:30px;}
 .btn{background:var(--dorado-brillante); background-size:200% auto; color:#3e2c24; padding:15px 40px; border-radius:50px; text-decoration:none; font-weight:700; box-shadow:0 10px 20px rgba(181, 146, 76, 0.2); transition:.4s; display:inline-block; cursor:pointer; border: none; text-align: center;}
 
-/* CELULARES HERO */
 .phones{ position:relative; flex:1; display:flex; justify-content:center; align-items: center; min-width: 300px; padding: 40px 0; }
 .phone1{ width:260px; transform:rotate(-5deg) translateX(30px); filter:drop-shadow(10px 20px 30px rgba(0,0,0,0.1)); z-index: 1;}
 .phone2{ width:260px; transform:rotate(5deg) translateX(-30px); filter:drop-shadow(-10px 20px 30px rgba(0,0,0,0.1)); z-index: 2;}
 
-/* MODELOS */
 .modelos{background: var(--fondo-blanco-warm); padding:60px 20px; text-align:center; border-radius:40px 40px 0 0;}
 .grid{max-width:1400px; margin:40px auto; display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:25px;}
 .card{background:#fff; border-radius:20px; overflow:hidden; box-shadow:0 8px 20px rgba(0,0,0,0.05); border:1px solid #f1e3d8; padding-bottom:25px; transition: 0.3s;}
 .card img{width:100%; height:300px; object-fit:cover; margin-bottom:20px;}
 
-/* PERSONALIZACIÓN */
 .section-customization { background: #fff; padding: 60px 20px; }
 .exclusividad-box { max-width: 1100px; margin: 0 auto; padding: 40px 20px; text-align: center; }
 .exclusividad-box h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; color: var(--guinda); margin-bottom: 20px; }
 .ventajas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 30px;}
 
-/* SECCIÓN ESPECIALES (Música y Álbum) */
 .section-specials { background: #fdfaf8; padding: 60px 20px; }
 .media-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
 
@@ -104,13 +100,15 @@ body{font-family:'Poppins',sans-serif;background:var(--fondo-suave);color:var(--
 .video-box { width: 100%; max-width: 280px; margin: 0 auto; border-radius: 30px; overflow: hidden; border: 6px solid #1a1a1a; box-shadow: 0 15px 30px rgba(0,0,0,0.2); }
 .video-box video { width: 100%; display: block; }
 
-/* ESTILO PARA LAS FOTOS DEL ÁLBUM */
 .album-display { display: flex; justify-content: center; gap: 10px; margin-top: 20px; }
 .album-img { width: 45%; border-radius: 10px; border: 2px solid var(--dorado-solido); transition: 0.3s; }
 .album-img:hover { transform: scale(1.05); }
 
-/* ESTILO PARA EL LOGO DEL ÁLBUM */
 .logo-album { width: 450px; margin: 0 auto 15px auto; pointer-events: none; display: block; }
+
+/* ESTILOS ICONOS REDES */
+.social-icon { width: 20px; height: 20px; fill: var(--dorado-solido); transition: 0.3s; vertical-align: middle; }
+.social-icon:hover { transform: scale(1.1); filter: brightness(1.2); }
 
 .footer-message{padding:60px 20px; text-align:center; background: #f1e3d8;}
 .whatsapp{position:fixed; bottom:25px; right:25px; background:#25D366; width:60px; height:60px; border-radius:50%; display:flex; align-items:center; justify-content:center; z-index:2000; box-shadow: 0 5px 15px rgba(0,0,0,0.2);}
@@ -118,17 +116,12 @@ body{font-family:'Poppins',sans-serif;background:var(--fondo-suave);color:var(--
 @media(max-width:768px){
     .media-container { grid-template-columns: 1fr; }
     .header { padding: 10px; }
-    .brand-container { flex-direction: column; text-align: center; padding: 15px 0; }
+    .brand-container { flex-direction: column; text-align: center; padding: 15px 0; gap: 15px; }
     .logo { border-right: none; padding-right: 0; height: 90px; }
-    
     .hero { text-align: center; padding: 40px 15px; }
     .hero h1 { font-size: 2.2rem; text-align: center; }
-    .hero p { font-size: 1.1rem; text-align: center; }
-    .hero-text { min-width: 100%; }
-    
     .phone1, .phone2 { width: 140px; transform: none; margin: 0 5px; }
-    .phones { padding: 20px 0; }
-    .logo-album { width: 80%; } /* Ajuste para móviles */
+    .logo-album { width: 80%; }
 }
 </style>
 </head>
@@ -150,7 +143,11 @@ body{font-family:'Poppins',sans-serif;background:var(--fondo-suave);color:var(--
                 <span id="elColeccion" class="brand-collection"></span>
             </div>
         </div>
-        <a id="linkWAHeader" href="#" class="header-contact">Contacto</a>
+        <div class="header-right">
+            <a id="linkFBTop" target="_blank"><svg class="social-icon" viewBox="0 0 24 24"><path d="M12 2.04c-5.5 0-10 4.5-10 10.02 0 5 3.66 9.15 8.44 9.9v-7h-2.54v-2.9h2.54v-2.2c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.44h-1.25c-1.24 0-1.63.77-1.63 1.56v1.88h2.75l-.44 2.9h-2.31v7c4.77-.75 8.44-4.9 8.44-9.9 0-5.52-4.5-10.02-10-10.02z"/></svg></a>
+            <a id="linkIGTop" target="_blank"><svg class="social-icon" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+            <a id="linkWAHeader" href="#" class="header-contact">Contacto</a>
+        </div>
     </div>
 </header>
 
@@ -216,7 +213,6 @@ body{font-family:'Poppins',sans-serif;background:var(--fondo-suave);color:var(--
         </div>
         <div class="special-card" style="border-color: var(--guinda);">
             <img src="https://www.dropbox.com/scl/fi/lrno7vxxh3qg4tcv9qlot/ALBUMDIGITAL.png?rlkey=q6z1bbxggnkaperdz9ru37euy&raw=1" class="logo-album">
-            
             <h4>Álbum de Recuerdos</h4>
             <p>Preserva los mejores momentos de tu evento para siempre. Un espacio digital interactivo para tus fotos y mensajes favoritos.</p>
             <div class="price-tag" style="color: var(--guinda);">$299 MXN</div>
@@ -227,8 +223,14 @@ body{font-family:'Poppins',sans-serif;background:var(--fondo-suave);color:var(--
 
 <footer class="footer-message">
     <h2 id="laFrase"></h2>
+    
+    <div style="margin: 15px 0; display: flex; justify-content: center; gap: 20px;">
+        <a id="linkFBFoot" target="_blank"><svg class="social-icon" style="width: 25px; height: 25px;" viewBox="0 0 24 24"><path d="M12 2.04c-5.5 0-10 4.5-10 10.02 0 5 3.66 9.15 8.44 9.9v-7h-2.54v-2.9h2.54v-2.2c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.44h-1.25c-1.24 0-1.63.77-1.63 1.56v1.88h2.75l-.44 2.9h-2.31v7c4.77-.75 8.44-4.9 8.44-9.9 0-5.52-4.5-10.02-10-10.02z"/></svg></a>
+        <a id="linkIGFoot" target="_blank"><svg class="social-icon" style="width: 25px; height: 25px;" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+    </div>
+
     <p id="elPie" style="color:var(--dorado-solido); letter-spacing:2px; text-transform:uppercase; font-weight:600;"></p>
-    <div style="margin-top:30px; color:#999; font-size: 0.8rem;">© 2024 Mi Gran Día - Todos los derechos reservados.</div>
+    <div style="margin-top:20px; color:#999; font-size: 0.8rem;">© 2024 Mi Gran Día - Todos los derechos reservados.</div>
     <div style="margin-top:10px; color:#a8a8a8; font-size:0.7rem;">
         Experiencias compartidas: <span id="count">9,855</span>
     </div>
@@ -261,10 +263,15 @@ body{font-family:'Poppins',sans-serif;background:var(--fondo-suave);color:var(--
     document.getElementById('fBaby').src = MI_CONFIGURACION.fotoPortadaBaby;
     document.getElementById('linkBaby').href = MI_CONFIGURACION.enlaceBaby;
     
+    // Links de Redes
+    document.getElementById('linkFBTop').href = MI_CONFIGURACION.facebookUrl;
+    document.getElementById('linkFBFoot').href = MI_CONFIGURACION.facebookUrl;
+    document.getElementById('linkIGTop').href = MI_CONFIGURACION.instagramUrl;
+    document.getElementById('linkIGFoot').href = MI_CONFIGURACION.instagramUrl;
+
     document.getElementById('fAlbum1').src = MI_CONFIGURACION.fotoAlbum1;
     document.getElementById('fAlbum2').src = MI_CONFIGURACION.fotoAlbum2;
     document.getElementById('linkAlbum').href = MI_CONFIGURACION.enlaceAlbum;
-
     document.getElementById('laFrase').innerText = MI_CONFIGURACION.fraseFinal;
     document.getElementById('elPie').innerText = MI_CONFIGURACION.pieDePagina;
 
