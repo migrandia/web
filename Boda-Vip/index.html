@@ -321,48 +321,44 @@
             }
         }
 
-        function personalizarInvitacion() {
+         window.onload = function() {
             const urlParams = new URLSearchParams(window.location.search);
             const nombre = urlParams.get('n'); 
-            const cupo = urlParams.get('c');   
+            const cupos = urlParams.get('c');   
 
             if (nombre) {
-                const nombreLimpio = decodeURIComponent(nombre);
-                const textoFamilia = nombreLimpio.toLowerCase().includes("familia") || 
-                                     nombreLimpio.toLowerCase().includes("sr") || 
-                                     nombreLimpio.toLowerCase().includes("sra") ? nombreLimpio : "Familia " + nombreLimpio;
-                
-                document.getElementById('saludo-familia').innerText = "¡Hola, " + textoFamilia + "!";
-                
-                if (cupo) {
-                    document.getElementById('texto-reserva').innerText = textoFamilia + ", hemos reservado " + cupo + " lugares para ustedes.";
-                    document.getElementById('num-asistentes').value = cupo;
+                const n = decodeURIComponent(nombre).replace(/\+/g, ' ').toUpperCase();
+                document.getElementById('saludo-familia').textContent = `¡HOLA, FAMILIA ${n}!`;
+            } else {
+                document.getElementById('saludo-familia').textContent = `¡TE ESPERAMOS!`;
+            }
+
+            if (cupos && !isNaN(cupos)) {
+                const cant = parseInt(cupos);
+                const textoLugares = cant === 1 ? "1 lugar" : `${cant} lugares`;
+                document.getElementById('lugares-mensaje').innerHTML = `Hemos reservado <b>${textoLugares}</b> para ustedes.`;
+
+                const selector = document.getElementById('num-asistentes');
+                selector.innerHTML = ""; 
+                for (let i = 1; i <= cant; i++) {
+                    let opt = document.createElement('option');
+                    opt.value = i;
+                    opt.textContent = i + (i > 1 ? " Personas" : " Persona");
+                    if (i === cant) opt.selected = true; 
+                    selector.appendChild(opt);
                 }
             }
-        }
+            
+            new Swiper(".mySwiper", { effect: "cards", grabCursor: true, autoplay: {delay: 3000} });
+            ScrollReveal().reveal('.reveal', { distance: '30px', duration: 1000, origin: 'bottom', interval: 150 });
+        };
 
         function enviarWhatsApp() {
-            const numeroTel = "525654252153";
+            const num = document.getElementById('num-asistentes').value;
             const urlParams = new URLSearchParams(window.location.search);
-            let nombreURL = urlParams.get('n') ? decodeURIComponent(urlParams.get('n')) : "";
-            let identificador;
-
-            if (nombreURL === "") {
-                identificador = "un invitado";
-            } else {
-                const esFamilia = nombreURL.toLowerCase().includes("familia") || 
-                                 nombreURL.toLowerCase().includes("sr") || 
-                                 nombreURL.toLowerCase().includes("sra");
-                identificador = esFamilia ? nombreURL : "la Familia " + nombreURL;
-            }
-
-            const numPersonas = document.getElementById("num-asistentes").value;
-            const mensaje = encodeURIComponent(
-                "¡Hola! Confirmo la asistencia de " + identificador + 
-                " para " + numPersonas + " personas a la boda de Ariel y Samanta. " +
-                "¡Nos vemos pronto!"
-            );
-            window.open("https://wa.me/" + numeroTel + "?text=" + mensaje, "_blank");
+            const nombre = urlParams.get('n') ? decodeURIComponent(urlParams.get('n')) : "Invitado";
+            const msg = encodeURIComponent(`¡Hola Isabella! Confirmo la asistencia de ${nombre} con ${num} personas. ¡Nos vemos pronto!`);
+            window.open(`https://wa.me/525654252153?text=${msg}`, '_blank', 'noopener');
         }
 
         const swiper = new Swiper(".mySwiper", { 
