@@ -23,7 +23,7 @@
             font-family: 'Montserrat', sans-serif; text-align: center; overflow-x: hidden;
         }
 
-        /* OVERLAY DE ENTRADA CON MENSAJE LARGO Y DIAMANTE */
+        /* OVERLAY DE ENTRADA */
         #overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -52,7 +52,7 @@
             padding: 10px 15px; border-radius: 50px; cursor: pointer; display: none;
         }
 
-        /* PORTADA CON LETRAS ELEGANTES CINZEL */
+        /* PORTADA */
         .hero-v3 {
             height: 100vh;
             background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url('https://www.dropbox.com/scl/fi/90s9txvvh2414ub9l6200/file_0000000042d871f792e1a16440ed528f.png?rlkey=4sksov3h62nlkefa24wsqe0ay&raw=1') center center no-repeat;
@@ -75,12 +75,16 @@
         .section-title { font-family: 'Dancing Script', cursive; font-size: 3.2rem; color: var(--gold-glow); margin-bottom: 25px; }
         .img-rounded { width: 100%; border-radius: 15px; border: 2px solid var(--gold-glow); margin-bottom: 25px; }
 
-        /* PADRES Y PADRINOS ORIGINAL */
+        /* PADRES Y PADRINOS */
         .card-family { background: rgba(0,0,0,0.2); padding: 20px; border-radius: 10px; border-left: 4px solid var(--gold-glow); margin-bottom: 15px; text-align: left; }
         .role { font-size: 0.7rem; text-transform: uppercase; color: var(--gold-glow); font-weight: bold; }
         .p-name { font-size: 1.1rem; margin-top: 5px; }
 
-        /* BOTÓN DE WHATSAPP ELEGANTE (NO VERDE) */
+        /* REGALOS */
+        .gift-container { display: flex; justify-content: space-around; margin: 20px 0; }
+        .gift-img { width: 70px; height: 70px; object-fit: contain; }
+
+        /* BOTONES */
         .btn-confirm {
             display: block; background: #000; color: var(--gold-glow); padding: 18px;
             border-radius: 10px; text-decoration: none; font-weight: bold; margin-top: 20px;
@@ -126,9 +130,10 @@
         <div class="glass-card reveal">
             <h2 class="section-title">Mi Historia</h2>
             <p style="font-family:'Dancing Script'; font-size:1.9rem; line-height:1.3; margin-bottom: 25px;">
-                "La vida se mide en momentos como este..."
+                "La vida se mide en momentos como este, y quiero que seas parte de mi historia."
             </p>
             <img src="https://www.dropbox.com/scl/fi/r0jo5d2ktyy94zn0dwaeq/file_0000000019d071f5a05cb19c2cdf8040.png?rlkey=0mmdohsa74mzc0e5vheh9qu1f&raw=1" class="img-rounded">
+            <p style="font-family:'Dancing Script'; font-size:1.5rem;">Acompañame a celebrar mis 15 años, un día que será aún más especial porque tú estarás ahí.</p>
         </div>
 
         <div class="glass-card reveal">
@@ -145,12 +150,33 @@
             </div>
         </div>
 
+        <div class="glass-card reveal" style="padding: 20px 0;">
+            <h2 class="section-title">Itinerario</h2>
+            <img src="https://www.dropbox.com/scl/fi/xdl2mk7n2y9q5emvrkplx/itnerario-15.png?rlkey=zend5yctnoc5evi96du5mf4lx&raw=1" style="width: 100%;">
+        </div>
+
         <div class="glass-card reveal">
             <h2 class="section-title">Ubicación</h2>
             <img src="https://www.dropbox.com/scl/fi/9744toh6j6mrfu8kv72f0/BELLA-LUNA.jpg?rlkey=jed7o0t40aa0eev4l2a1dmgpw&raw=1" class="img-rounded">
             <h3 style="font-family:'Cinzel'; color:var(--gold-glow);">SALÓN BELLA LUNA</h3>
             <p style="margin-top:10px;">7:30 PM</p>
-            <a href="https://www.google.com/maps/place/SALON+BELLA+LUNA/@19.4804145,-99.105178,17z/data=!3m1!4b1!4m6!3m5!1s0x85d1f9f06078903b:0xab639bf203fcaea8!8m2!3d19.4804095!4d-99.1026031!16s%2Fg%2F11bzzqtkq9?entry=ttu&g_ep=EgoyMDI2MDQyMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-confirm" style="margin-top:20px; font-size:0.8rem;">Ver Mapa</a>
+            <a href="https://maps.app.goo.gl/YourMapLink" target="_blank" class="btn-confirm" style="margin-top:20px; font-size:0.8rem;">Ver Mapa</a>
+        </div>
+
+        <div class="glass-card reveal">
+            <h2 class="section-title">Mesa de Regalos</h2>
+            <p style="font-size:0.8rem; margin-bottom: 20px;">Tu presencia es mi mejor regalo, pero si deseas tener un detalle:</p>
+            <div class="gift-container">
+                <div>
+                    <img src="https://cdn-icons-png.flaticon.com/512/3050/3050221.png" class="gift-img">
+                    <p style="font-size:0.6rem; margin-top:5px;">REGALO SORPRESA</p>
+                </div>
+                <div>
+                    <img src="https://cdn-icons-png.flaticon.com/512/1032/1032977.png" class="gift-img">
+                    <p style="font-size:0.6rem; margin-top:5px;">LLUVIA DE SOBRES</p>
+                </div>
+            </div>
+            <p style="font-size:0.9rem; border:1px dashed var(--gold-glow); padding:10px; border-radius:10px; margin-top:10px;">CLABE: 0123 4567 8901</p>
         </div>
 
         <div class="glass-card reveal">
@@ -203,12 +229,20 @@
         window.onload = function() {
             const urlParams = new URLSearchParams(window.location.search);
             const n = urlParams.get('n'); const c = urlParams.get('c');
+            
             document.getElementById('saludo-familia').textContent = n ? `FAMILIA ${decodeURIComponent(n).toUpperCase()}` : "¡TE ESPERAMOS!";
-            const cant = c ? parseInt(c) : 2;
+            
+            // CORRECCIÓN SISTEMA DE PASES: Lee el número de la URL
+            const cant = c ? parseInt(c) : 2; 
             document.getElementById('lugares-mensaje').innerHTML = `Hemos reservado <b>${cant} lugares</b> para ustedes.`;
+            
             const s = document.getElementById('num-asistentes');
+            s.innerHTML = ""; // Limpiar antes de llenar
             for (let i = 1; i <= cant; i++) {
-                let o = document.createElement('option'); o.value = i; o.textContent = i + (i > 1 ? " Personas" : " Persona");
+                let o = document.createElement('option'); 
+                o.value = i; 
+                o.textContent = i + (i > 1 ? " Personas" : " Persona");
+                if(i === cant) o.selected = true; // Selecciona el máximo por defecto
                 s.appendChild(o);
             }
         };
