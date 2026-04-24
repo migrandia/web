@@ -3,6 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta property="og:title" content="Mis XV Años | Sofia Huidobro Jimenez">
+    <meta property="og:description" content="¡Estás invitado a celebrar mis XV años! Haz clic para ver los detalles.">
+    <meta property="og:image" content="https://www.dropbox.com/scl/fi/90s9txvvh2414ub9l6200/file_0000000042d871f792e1a16440ed528f.png?rlkey=4sksov3h62nlkefa24wsqe0ay&raw=1">
+    <meta property="og:type" content="website">
     <title>Mis XV | Sofia Huidobro Jimenez</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Dancing+Script:wght@600&family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
@@ -223,7 +228,7 @@
     <script>
         /* --- CONFIGURACIÓN DE URLS --- */
         const URL_MUSICA = "https://www.dropbox.com/scl/fi/80hypdxkg24wx6x7oael2/En-Tus-Manos-Se-or.mp3?rlkey=j4di62c9sgj4txgwbpikcngp3&raw=1";
-        const URL_FONDO_GENERAL = "https://www.dropbox.com/scl/fi/rc9azx6rl79fjuu3nj2ib/FONDO-DE-ROSAS.jpg?rlkey=rxdc64ddpq1yx0gi0vaamy80k&raw=1"; // Pon un link aquí si quieres imagen de fondo en toda la web
+        const URL_FONDO_GENERAL = "https://www.dropbox.com/scl/fi/rc9azx6rl79fjuu3nj2ib/FONDO-DE-ROSAS.jpg?rlkey=rxdc64ddpq1yx0gi0vaamy80k&raw=1";
         const URL_HERO_BG = "https://www.dropbox.com/scl/fi/90s9txvvh2414ub9l6200/file_0000000042d871f792e1a16440ed528f.png?rlkey=4sksov3h62nlkefa24wsqe0ay&raw=1";
         const URL_IMG_HISTORIA = "https://www.dropbox.com/scl/fi/r0jo5d2ktyy94zn0dwaeq/file_0000000019d071f5a05cb19c2cdf8040.png?rlkey=0mmdohsa74mzc0e5vheh9qu1f&raw=1";
         const URL_IMG_ITINERARIO = "https://www.dropbox.com/scl/fi/xdl2mk7n2y9q5emvrkplx/itnerario-15.png?rlkey=zend5yctnoc5evi96du5mf4lx&raw=1";
@@ -272,14 +277,12 @@
         }, 1000);
 
         window.onload = function() {
-            // Inyectar URLs
             document.getElementById('track').src = URL_MUSICA;
             document.getElementById('hero-bg').style.backgroundImage = `linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url('${URL_HERO_BG}')`;
             document.getElementById('img-historia').src = URL_IMG_HISTORIA;
             document.getElementById('img-itinerario').src = URL_IMG_ITINERARIO;
             document.getElementById('img-salon').src = URL_IMG_SALON;
 
-            // Fondo General si existe
             if(URL_FONDO_GENERAL !== "") {
                 document.getElementById('app-content').style.background = `linear-gradient(rgba(74,0,0,0.7), rgba(74,0,0,0.7)), url('${URL_FONDO_GENERAL}')`;
             }
