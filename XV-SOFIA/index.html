@@ -38,7 +38,7 @@
         #overlay h2 { font-family: 'Cinzel'; font-size: 1.2rem; letter-spacing: 5px; color: var(--gold-glow); }
         #overlay h1 { font-family: 'Cinzel'; font-size: 3.5rem; margin-bottom: 25px; }
         #overlay p { font-family: 'Dancing Script'; font-size: 1.8rem; margin-bottom: 40px; line-height: 1.4; }
-        #overlay button { padding: 20px 40px; background: var(--gold-glow); border: none; border-radius: 50px; font-weight: 700; cursor: pointer; text-transform: uppercase; color: #000; }
+        #overlay button { padding: 20px 40px; background: var(--gold-glow); border: none; border-radius: 50px; font-weight: 700; cursor: pointer; text-transform: uppercase; color: #000; box-shadow: 0 5px 20px rgba(0,0,0,0.5); }
 
         .app-wrapper {
             max-width: var(--ancho-max); margin: 0 auto;
@@ -58,16 +58,19 @@
             background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url('https://www.dropbox.com/scl/fi/90s9txvvh2414ub9l6200/file_0000000042d871f792e1a16440ed528f.png?rlkey=4sksov3h62nlkefa24wsqe0ay&raw=1') center center no-repeat;
             background-size: cover; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 80px;
         }
+        .hero-v3 h2 { font-family: 'Cinzel'; letter-spacing: 8px; font-size: 1rem; color: var(--gold-glow); margin-bottom: 15px; }
         .hero-v3 h1 { font-family: 'Cinzel'; font-size: 4rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); }
 
         .timer-v3 { display: flex; justify-content: center; gap: 12px; margin-top: 30px; margin-bottom: 20px; }
         .t-unit { background: rgba(0,0,0,0.5); border: 1px solid var(--gold-glow); padding: 12px; border-radius: 10px; min-width: 65px; }
-        .t-num { font-family: 'Cinzel'; font-size: 1.5rem; color: var(--gold-glow); }
+        .t-num { font-family: 'Cinzel'; font-size: 1.5rem; display: block; color: var(--gold-glow); }
+        .t-txt { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 1px; }
 
         .btn-calendar {
             display: inline-block; background: transparent; color: var(--gold-glow);
             border: 1px solid var(--gold-glow); padding: 10px 20px; border-radius: 5px;
-            text-decoration: none; font-size: 0.7rem; font-family: 'Cinzel';
+            text-decoration: none; font-size: 0.7rem; letter-spacing: 2px;
+            font-family: 'Cinzel';
         }
 
         .glass-card {
@@ -79,27 +82,29 @@
         .section-title { font-family: 'Dancing Script', cursive; font-size: 3.2rem; color: var(--gold-glow); margin-bottom: 25px; }
         .img-rounded { width: 100%; border-radius: 15px; border: 2px solid var(--gold-glow); margin-bottom: 25px; }
 
-        /* SLIDER */
+        /* SLIDER ÁLBUM */
         .swiper { width: 100%; height: 400px; border-radius: 15px; border: 2px solid var(--gold-glow); }
         .swiper-slide img { width: 100%; height: 100%; object-fit: cover; }
         .swiper-button-next, .swiper-button-prev { color: var(--gold-glow) !important; }
 
         /* FAMILIA */
         .card-family { background: rgba(0,0,0,0.2); padding: 20px; border-radius: 10px; border-left: 4px solid var(--gold-glow); margin-bottom: 15px; text-align: left; }
-        .role { font-size: 0.7rem; color: var(--gold-glow); font-weight: bold; }
+        .role { font-size: 0.7rem; text-transform: uppercase; color: var(--gold-glow); font-weight: bold; }
 
-        /* TRANSFERENCIA */
+        /* MESA DE REGALOS */
+        .gift-container { display: flex; justify-content: space-around; margin: 25px 0; }
+        .gift-img { width: 70px; height: 70px; object-fit: contain; }
         .clabe-box { 
-            font-size: 0.85rem; background: rgba(0,0,0,0.4); border: 1.5px solid var(--gold-glow); 
-            padding: 20px; border-radius: 15px; margin-top: 15px; text-align: left;
+            font-size: 0.9rem; background: rgba(0,0,0,0.4); border: 1.5px solid var(--gold-glow); 
+            padding: 20px; border-radius: 15px; margin-top: 20px; text-align: left; line-height: 1.6;
         }
 
         .btn-confirm {
             display: block; background: #000; color: var(--gold-glow); padding: 18px;
             border-radius: 10px; text-decoration: none; font-weight: bold; margin-top: 20px;
-            border: 2px solid var(--gold-glow); width: 100%; font-family: 'Montserrat';
+            border: 2px solid var(--gold-glow); text-transform: uppercase; letter-spacing: 2px; width: 100%;
         }
-        select { width: 100%; padding: 15px; border-radius: 10px; margin-bottom: 15px; }
+        select { width: 100%; padding: 15px; border-radius: 10px; background: #fff; color: #000; font-weight: bold; margin-bottom: 15px; }
     </style>
 </head>
 <body>
@@ -124,16 +129,14 @@
         <div class="hero-v3">
             <h2>MIS XV AÑOS</h2>
             <h1>SOFIA</h1>
-            <p style="letter-spacing: 4px; margin-top: 10px;">15 . MAYO . 2026</p>
-            
+            <p style="letter-spacing: 4px; font-weight: 200; margin-top: 10px;">15 . MAYO . 2026</p>
             <div class="timer-v3">
-                <div class="t-unit"><span id="days" class="t-num">00</span><br><small>Días</small></div>
-                <div class="t-unit"><span id="hours" class="t-num">00</span><br><small>Hrs</small></div>
-                <div class="t-unit"><span id="mins" class="t-num">00</span><br><small>Min</small></div>
-                <div class="t-unit"><span id="secs" class="t-num">00</span><br><small>Seg</small></div>
+                <div class="t-unit"><span id="days" class="t-num">00</span><span class="t-txt">Días</span></div>
+                <div class="t-unit"><span id="hours" class="t-num">00</span><span class="t-txt">Hrs</span></div>
+                <div class="t-unit"><span id="mins" class="t-num">00</span><span class="t-txt">Min</span></div>
+                <div class="t-unit"><span id="secs" class="t-num">00</span><span class="t-txt">Seg</span></div>
             </div>
-            
-            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mis+XV+A%C3%B1os+Sofia&dates=20260515T193000/20260516T020000&details=Celebraci%C3%B3n+de+mis+XV+A%C3%B1os+en+Sal%C3%B3n+Bella+Luna&location=Sal%C3%B3n+Bella+Luna" target="_blank" class="btn-calendar">AGENDAR EVENTO</a>
+            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mis+XV+A%C3%B1os+Sofia&dates=20260515T193000/20260516T020000&details=Celebraci%C3%B3n+de+mis+XV+A%C3%B1os&location=Sal%C3%B3n+Bella+Luna" target="_blank" class="btn-calendar">AGENDAR EVENTO</a>
         </div>
 
         <div class="glass-card reveal">
@@ -175,40 +178,57 @@
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
             </div>
-            <p style="font-size:0.7rem; margin-top:10px; opacity:0.6;">Desliza para navegar por las fotos</p>
+            <p style="font-size:0.7rem; margin-top:10px; opacity:0.6;">Desliza para navegar</p>
         </div>
 
         <div class="glass-card reveal">
             <h2 class="section-title">Ubicación</h2>
             <img src="https://www.dropbox.com/scl/fi/9744toh6j6mrfu8kv72f0/BELLA-LUNA.jpg?rlkey=jed7o0t40aa0eev4l2a1dmgpw&raw=1" class="img-rounded">
             <h3 style="font-family:'Cinzel'; color:var(--gold-glow);">SALÓN BELLA LUNA</h3>
-            <p>7:30 PM</p>
-            <a href="https://maps.google.com" target="_blank" class="btn-confirm">Ver Mapa</a>
+            <p style="margin-top:10px;">7:30 PM</p>
+            <a href="https://maps.google.com/?q=Salón+Bella+Luna" target="_blank" class="btn-confirm" style="font-size:0.8rem;">Ver Mapa</a>
         </div>
 
         <div class="glass-card reveal">
             <h2 class="section-title">Mesa de Regalos</h2>
             <p style="font-family:'Dancing Script'; font-size:1.6rem; color: var(--gold-glow);">"Tu mejor regalo es compartir mi alegría en este día."</p>
             
+            <div class="gift-container">
+                <div>
+                    <img src="https://cdn-icons-png.flaticon.com/512/3050/3050221.png" class="gift-img">
+                    <p style="font-size:0.6rem; margin-top:5px;">REGALO SORPRESA</p>
+                </div>
+                <div>
+                    <img src="https://cdn-icons-png.flaticon.com/512/1032/1032977.png" class="gift-img">
+                    <p style="font-size:0.6rem; margin-top:5px;">LLUVIA DE SOBRES</p>
+                </div>
+            </div>
+
             <div class="clabe-box">
-                <p><strong>Si prefieres realizar una transferencia bancaria:</strong></p>
-                <p style="margin-top:8px;">Nombre: Sofia Huidobro Jimenez</p>
-                <p>Banco: BBVA</p>
-                <p>CLABE: 0123 4567 8901</p>
+                <p style="font-style: italic; color: var(--gold-glow); margin-bottom: 10px;">Tu presencia es mi mejor regalo, pero si deseas tener un detalle conmigo, puedes realizarlo a través de una transferencia:</p>
+                <p><strong>Nombre:</strong> Sofia Huidobro Jimenez</p>
+                <p><strong>Banco:</strong> BBVA</p>
+                <p><strong>CLABE:</strong> 0123 4567 8901</p>
             </div>
         </div>
 
+        <div class="glass-card reveal">
+            <h2 class="section-title">El Clima</h2>
+            <a class="weatherwidget-io" href="https://forecast7.com/es/19d25n99d10/mexico-city/" data-label_1="CIUDAD DE MÉXICO" data-label_2="PRONÓSTICO" data-font="Arial Rounded MT Bold" data-icons="Climacons Animated" data-days="5" data-theme="white_leather" >CLIMA</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');</script>
+        </div>
+
         <div class="glass-card reveal" style="border: 2px solid var(--gold-glow);">
-            <h2 class="section-title">Confirmar</h2>
-            <p id="saludo-familia" style="font-family:'Cinzel'; margin-bottom:10px;"></p>
+            <h2 class="section-title" style="font-size:2.8rem;">Confirmar</h2>
+            <p id="saludo-familia" style="font-family:'Cinzel'; font-size: 1.2rem; margin-bottom:10px;"></p>
             <p id="lugares-mensaje" style="margin-bottom:20px;"></p>
             <select id="num-asistentes"></select>
             <button onclick="enviarWhatsApp()" class="btn-confirm">CONFIRMAR ASISTENCIA</button>
         </div>
 
         <footer style="padding:60px 20px;">
-            <div style="font-family:'Cinzel'; color:var(--gold-glow); font-size:2.5rem;">S & H</div>
-            <p style="font-size:0.6rem; opacity:0.5;">creado por migrandia.mx</p>
+            <div style="font-family:'Cinzel'; color:var(--gold-glow); font-size:2.5rem; margin-bottom:10px;">S & H</div>
+            <p style="font-size:0.7rem; opacity:0.6;">MI GRAN DÍA • DIAMOND COLLECTION</p>
         </footer>
     </div>
 
@@ -234,7 +254,6 @@
             else { track.pause(); document.getElementById('m-status').textContent = "▶"; }
         }
 
-        // Timer y WhatsApp logic...
         const target = new Date("May 15, 2026 19:30:00").getTime();
         setInterval(() => {
             const now = new Date().getTime();
@@ -261,8 +280,9 @@
 
         function enviarWhatsApp() {
             const num = document.getElementById('num-asistentes').value;
-            const fam = new URLSearchParams(window.location.search).get('n') || "Invitado";
-            const msg = encodeURIComponent(`¡Hola Sofia! Confirmo la asistencia de la Familia ${fam} con ${num} personas.`);
+            const urlParams = new URLSearchParams(window.location.search);
+            const fam = urlParams.get('n') ? decodeURIComponent(urlParams.get('n')) : "Invitado";
+            const msg = encodeURIComponent(`¡Hola Sofia! Confirmo la asistencia de la Familia ${fam} con ${num} personas. ¡Ahí estaremos!`);
             window.open(`https://wa.me/525611234012?text=${msg}`, '_blank');
         }
     </script>
