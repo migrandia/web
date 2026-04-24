@@ -3,101 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="referrer" content="no-referrer-when-downgrade">
-    
     <title>Mis XV | Sofia Huidobro Jimenez</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Pinyon+Script&family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Dancing+Script:wght@600&family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/scrollreveal"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <style>
         :root {
-            --wine-red: #8b0000; 
-            --gold-glow: #d4af37; /* Oro clásico */
-            --glass: rgba(255, 255, 255, 0.12);
+            --wine-red: #a50000; 
+            --gold-glow: #fbbf24;
+            --glass: rgba(255, 255, 255, 0.15);
             --ancho-max: 480px;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-user-select: none; user-select: none; }
         body {
-            background-color: #300000; color: #fff;
+            background-color: #4a0000; color: #fff;
             font-family: 'Montserrat', sans-serif; text-align: center; overflow-x: hidden;
         }
 
-        /* OVERLAY DE ENTRADA MEJORADO */
+        /* OVERLAY DE ENTRADA CON MENSAJE LARGO Y DIAMANTE */
         #overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center;
-            color: white; padding: 30px;
+            color: white; padding: 30px; text-align: center;
         }
         #overlay::before {
             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)), url('https://www.dropbox.com/scl/fi/90s9txvvh2414ub9l6200/file_0000000042d871f792e1a16440ed528f.png?rlkey=4sksov3h62nlkefa24wsqe0ay&raw=1') center center no-repeat;
-            background-size: cover; filter: blur(8px); transform: scale(1.1); z-index: -1;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9)), url('https://www.dropbox.com/scl/fi/90s9txvvh2414ub9l6200/file_0000000042d871f792e1a16440ed528f.png?rlkey=4sksov3h62nlkefa24wsqe0ay&raw=1') center center no-repeat;
+            background-size: cover; filter: blur(5px); opacity: 0.8; z-index: -1;
         }
 
-        #overlay h2 { font-family: 'Playfair Display', serif; font-size: 1.2rem; letter-spacing: 5px; margin-bottom: 10px; color: var(--gold-glow); }
-        #overlay h1 { font-family: 'Pinyon Script', cursive; font-size: 5rem; margin-bottom: 20px; text-shadow: 2px 2px 15px rgba(0,0,0,0.8); }
-        #overlay p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; margin-bottom: 40px; max-width: 80%; }
-        #overlay button { padding: 15px 35px; background: transparent; border: 1px solid var(--gold-glow); border-radius: 0; color: var(--gold-glow); font-family: 'Playfair Display'; font-weight: bold; cursor: pointer; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 3px; backdrop-filter: blur(5px); transition: 0.3s; }
-        #overlay button:hover { background: var(--gold-glow); color: black; }
+        #overlay h2 { font-family: 'Cinzel'; font-size: 1.2rem; letter-spacing: 5px; color: var(--gold-glow); margin-bottom: 10px; }
+        #overlay h1 { font-family: 'Cinzel'; font-size: 3.5rem; margin-bottom: 25px; }
+        #overlay p { font-family: 'Dancing Script'; font-size: 1.8rem; margin-bottom: 40px; line-height: 1.4; padding: 0 10px; }
+        #overlay button { padding: 20px 40px; background: var(--gold-glow); border: none; border-radius: 50px; font-weight: 700; cursor: pointer; font-size: 1rem; text-transform: uppercase; color: #000; box-shadow: 0 5px 20px rgba(0,0,0,0.5); letter-spacing: 1px; }
 
         .app-wrapper {
             max-width: var(--ancho-max); margin: 0 auto;
-            background: linear-gradient(180deg, #4a0000 0%, #8b0000 50%, #4a0000 100%);
+            background: linear-gradient(180deg, #600000 0%, #a50000 50%, #600000 100%);
             position: relative; min-height: 100vh; display: none;
         }
 
         #music-pill {
             position: fixed; bottom: 20px; right: 20px; z-index: 1000;
-            background: rgba(0, 0, 0, 0.6); border: 1px solid var(--gold-glow);
-            padding: 8px 15px; border-radius: 2px; cursor: pointer; display: none;
+            background: rgba(0,0,0,0.7); border: 2px solid var(--gold-glow);
+            padding: 10px 15px; border-radius: 50px; cursor: pointer; display: none;
         }
 
+        /* PORTADA CON LETRAS ELEGANTES CINZEL */
         .hero-v3 {
             height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.7)), url('https://www.dropbox.com/scl/fi/90s9txvvh2414ub9l6200/file_0000000042d871f792e1a16440ed528f.png?rlkey=4sksov3h62nlkefa24wsqe0ay&raw=1') center center no-repeat;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url('https://www.dropbox.com/scl/fi/90s9txvvh2414ub9l6200/file_0000000042d871f792e1a16440ed528f.png?rlkey=4sksov3h62nlkefa24wsqe0ay&raw=1') center center no-repeat;
             background-size: cover; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 80px;
         }
-        .hero-v3 h2 { font-family: 'Playfair Display'; letter-spacing: 6px; font-size: 0.9rem; color: var(--gold-glow); }
-        .hero-v3 h1 { font-family: 'Pinyon Script', cursive; font-size: 6rem; line-height: 0.8; margin: 20px 0; }
+        .hero-v3 h2 { font-family: 'Cinzel'; letter-spacing: 8px; font-size: 1rem; color: var(--gold-glow); margin-bottom: 15px; }
+        .hero-v3 h1 { font-family: 'Cinzel'; font-size: 4rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); }
 
-        .timer-v3 { display: flex; justify-content: center; gap: 15px; margin-top: 30px; }
-        .t-num { font-family: 'Playfair Display'; font-size: 1.8rem; color: var(--gold-glow); display: block; }
-        .t-txt { font-size: 0.5rem; text-transform: uppercase; letter-spacing: 2px; opacity: 0.8; }
+        .timer-v3 { display: flex; justify-content: center; gap: 12px; margin-top: 30px; }
+        .t-unit { background: rgba(0,0,0,0.5); border: 1px solid var(--gold-glow); padding: 12px; border-radius: 10px; min-width: 65px; }
+        .t-num { font-family: 'Cinzel'; font-size: 1.5rem; display: block; color: var(--gold-glow); }
+        .t-txt { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 1px; }
 
         .glass-card {
-            background: var(--glass); backdrop-filter: blur(12px);
-            border: 1px solid rgba(212, 175, 55, 0.25); margin: 30px 20px;
-            padding: 45px 25px; position: relative;
+            background: var(--glass); backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.3); margin: 25px 15px;
+            padding: 40px 25px; border-radius: 20px;
         }
 
-        .section-title { font-family: 'Pinyon Script', cursive; font-size: 4rem; color: var(--gold-glow); margin-bottom: 20px; }
-        
-        /* ESTILO PADRES ORIGINAL REFINADO */
-        .card-family { margin: 25px 0; border-top: 1px solid rgba(212, 175, 55, 0.3); padding-top: 15px; }
-        .role { font-family: 'Playfair Display'; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px; color: var(--gold-glow); margin-bottom: 10px; display: block; }
-        .p-name { font-family: 'Playfair Display'; font-size: 1.3rem; font-style: italic; }
+        .section-title { font-family: 'Dancing Script', cursive; font-size: 3.2rem; color: var(--gold-glow); margin-bottom: 25px; }
+        .img-rounded { width: 100%; border-radius: 15px; border: 2px solid var(--gold-glow); margin-bottom: 25px; }
 
-        .img-rounded { width: 100%; border: 1px solid var(--gold-glow); padding: 5px; margin-bottom: 20px; }
+        /* PADRES Y PADRINOS ORIGINAL */
+        .card-family { background: rgba(0,0,0,0.2); padding: 20px; border-radius: 10px; border-left: 4px solid var(--gold-glow); margin-bottom: 15px; text-align: left; }
+        .role { font-size: 0.7rem; text-transform: uppercase; color: var(--gold-glow); font-weight: bold; }
+        .p-name { font-size: 1.1rem; margin-top: 5px; }
 
-        .btn-wine {
-            display: block; background: transparent; color: #fff; padding: 15px;
-            border: 1px solid var(--gold-glow); text-decoration: none; font-family: 'Playfair Display';
-            font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; margin-top: 20px;
+        /* BOTÓN DE WHATSAPP ELEGANTE (NO VERDE) */
+        .btn-confirm {
+            display: block; background: #000; color: var(--gold-glow); padding: 18px;
+            border-radius: 10px; text-decoration: none; font-weight: bold; margin-top: 20px;
+            border: 2px solid var(--gold-glow); text-transform: uppercase; letter-spacing: 2px;
+            cursor: pointer; width: 100%; font-family: 'Montserrat';
         }
 
-        footer { padding: 60px 20px; font-size: 0.6rem; letter-spacing: 2px; opacity: 0.7; }
+        select { width: 100%; padding: 15px; border-radius: 10px; background: #fff; color: #000; font-weight: bold; border: none; margin-bottom: 15px; }
     </style>
 </head>
 <body>
 
     <div id="overlay">
         <h2>MIS XV AÑOS</h2>
-        <h1>Sofia</h1>
-        <p>Te invito a ser parte de este sueño hecho realidad.</p>
-        <button onclick="startApp()">ENTRAR A INVITACIÓN</button>
+        <h1>SOFIA</h1>
+        <p>Nos complace invitarte a celebrar este momento tan especial en mi vida, un día que será aún más especial porque tú estarás ahí.</p>
+        <button onclick="startApp()">ENTRAR A INVITACIÓN 💎</button>
     </div>
 
     <audio id="track" loop>
@@ -105,28 +105,28 @@
     </audio>
 
     <div id="music-pill" onclick="toggleMusic()">
-        <span id="m-status" style="color:var(--gold-glow)">II</span>
+        <span id="m-status" style="color:var(--gold-glow); font-weight:bold;">II</span>
     </div>
 
     <div class="app-wrapper" id="app-content">
         
         <div class="hero-v3">
             <h2>MIS XV AÑOS</h2>
-            <h1>Sofia</h1>
-            <p style="font-family:'Playfair Display'; letter-spacing: 4px; font-size: 0.9rem;">15 • MAYO • 2026</p>
+            <h1>SOFIA</h1>
+            <p style="letter-spacing: 4px; font-weight: 200; margin-top: 10px;">15 . MAYO . 2026</p>
             
             <div class="timer-v3">
-                <div><span id="days" class="t-num">00</span><span class="t-txt">Días</span></div>
-                <div><span id="hours" class="t-num">00</span><span class="t-txt">Hrs</span></div>
-                <div><span id="mins" class="t-num">00</span><span class="t-txt">Min</span></div>
-                <div><span id="secs" class="t-num">00</span><span class="t-txt">Seg</span></div>
+                <div class="t-unit"><span id="days" class="t-num">00</span><span class="t-txt">Días</span></div>
+                <div class="t-unit"><span id="hours" class="t-num">00</span><span class="t-txt">Hrs</span></div>
+                <div class="t-unit"><span id="mins" class="t-num">00</span><span class="t-txt">Min</span></div>
+                <div class="t-unit"><span id="secs" class="t-num">00</span><span class="t-txt">Seg</span></div>
             </div>
         </div>
 
         <div class="glass-card reveal">
             <h2 class="section-title">Mi Historia</h2>
-            <p style="font-family:'Playfair Display'; font-size:1.4rem; font-style:italic; line-height:1.4; margin-bottom: 30px;">
-                "La vida se mide en momentos como este, y quiero que seas parte de mi historia."
+            <p style="font-family:'Dancing Script'; font-size:1.9rem; line-height:1.3; margin-bottom: 25px;">
+                "La vida se mide en momentos como este..."
             </p>
             <img src="https://www.dropbox.com/scl/fi/r0jo5d2ktyy94zn0dwaeq/file_0000000019d071f5a05cb19c2cdf8040.png?rlkey=0mmdohsa74mzc0e5vheh9qu1f&raw=1" class="img-rounded">
         </div>
@@ -145,56 +145,32 @@
             </div>
         </div>
 
-        <div class="glass-card reveal" style="padding: 20px 0;">
-            <h2 class="section-title">Itinerario</h2>
-            <img src="https://www.dropbox.com/scl/fi/xdl2mk7n2y9q5emvrkplx/itnerario-15.png?rlkey=zend5yctnoc5evi96du5mf4lx&raw=1" style="width: 100%;">
-        </div>
-
         <div class="glass-card reveal">
-            <h2 class="section-title">Fiesta</h2>
+            <h2 class="section-title">Ubicación</h2>
             <img src="https://www.dropbox.com/scl/fi/9744toh6j6mrfu8kv72f0/BELLA-LUNA.jpg?rlkey=jed7o0t40aa0eev4l2a1dmgpw&raw=1" class="img-rounded">
-            <h3 style="font-family:'Playfair Display'; letter-spacing:2px;">SALÓN BELLA LUNA</h3>
-            <p style="font-family:'Playfair Display'; margin-top:10px;">7:30 PM</p>
-            <a href="https://www.google.com/maps/place/SALON+BELLA+LUNA/@19.4804145,-99.105178,17z/data=!3m1!4b1!4m6!3m5!1s0x85d1f9f06078903b:0xab639bf203fcaea8!8m2!3d19.4804095!4d-99.1026031!16s%2Fg%2F11bzzqtkq9?entry=ttu&g_ep=EgoyMDI2MDQyMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-wine">Ver Ubicación</a>
-        </div>
-
-        <div class="glass-card reveal">
-            <h2 class="section-title">Regalos</h2>
-            <div style="display:flex; justify-content:space-around; margin: 30px 0;">
-                <div>
-                    <img src="https://img.icons8.com/ios/100/d4af37/gift--v1.png" width="60">
-                    <p style="font-size:0.6rem; letter-spacing:2px; margin-top:10px;">OBSEQUIO</p>
-                </div>
-                <div>
-                    <img src="https://img.icons8.com/ios/100/d4af37/envelope-closed.png" width="60">
-                    <p style="font-size:0.6rem; letter-spacing:2px; margin-top:10px;">SOBRES</p>
-                </div>
-            </div>
-            <p style="font-family:'Playfair Display'; font-size:0.9rem; border:1px solid var(--gold-glow); padding:15px;">CLABE: 0123 4567 8901</p>
+            <h3 style="font-family:'Cinzel'; color:var(--gold-glow);">SALÓN BELLA LUNA</h3>
+            <p style="margin-top:10px;">7:30 PM</p>
+            <a href="https://www.google.com/maps/place/SALON+BELLA+LUNA/@19.4804145,-99.105178,17z/data=!3m1!4b1!4m6!3m5!1s0x85d1f9f06078903b:0xab639bf203fcaea8!8m2!3d19.4804095!4d-99.1026031!16s%2Fg%2F11bzzqtkq9?entry=ttu&g_ep=EgoyMDI2MDQyMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-confirm" style="margin-top:20px; font-size:0.8rem;">Ver Mapa</a>
         </div>
 
         <div class="glass-card reveal">
             <h2 class="section-title">El Clima</h2>
-            <div style="margin-top:15px;">
-                <a class="weatherwidget-io" href="https://forecast7.com/es/19d25n99d10/mexico-city/" data-label_1="CIUDAD DE MEXICO" data-label_2="CLIMA" data-font="Arial Rounded MT Bold" data-icons="Climacons Animated" data-days="5" data-theme="white_leather" >CIUDAD DE MEXICO CLIMA</a>
-                <script>
-                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
-                </script>
-            </div>
+            <a class="weatherwidget-io" href="https://forecast7.com/es/19d25n99d10/mexico-city/" data-label_1="CIUDAD DE MÉXICO" data-label_2="PRONÓSTICO" data-font="Arial Rounded MT Bold" data-icons="Climacons Animated" data-days="5" data-theme="white_leather" >CIUDAD DE MÉXICO CLIMA</a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');</script>
         </div>
 
-        <div class="glass-card reveal" style="border: 1px solid var(--gold-glow);">
-            <h2 class="section-title" style="font-size:3rem;">Asistencia</h2>
-            <p id="saludo-familia" style="font-family:'Playfair Display'; margin-bottom:10px;"></p>
-            <p id="lugares-mensaje" style="font-size:0.9rem; margin-bottom:20px;"></p>
-            <select id="num-asistentes" style="width:100%; padding:15px; margin-bottom:15px; font-family:'Playfair Display';"></select>
-            <button onclick="enviarWhatsApp()" style="width:100%; padding:15px; background:#25d366; border:none; color:white; font-weight:bold; cursor:pointer;">CONFIRMAR ASISTENCIA</button>
+        <div class="glass-card reveal" style="border: 2px solid var(--gold-glow);">
+            <h2 class="section-title" style="font-size:2.8rem;">Confirmar</h2>
+            <p id="saludo-familia" style="font-family:'Cinzel'; font-size: 1.2rem; margin-bottom:10px;"></p>
+            <p id="lugares-mensaje" style="margin-bottom:20px;"></p>
+            <select id="num-asistentes"></select>
+            <button onclick="enviarWhatsApp()" class="btn-confirm">CONFIRMAR ASISTENCIA</button>
         </div>
 
-        <footer class="reveal">
-            <div style="font-family:'Pinyon Script'; font-size:3rem; color:var(--gold-glow); margin-bottom:15px;">S & H</div>
-            <p>DIAMOND COLLECTION</p>
-            <p style="margin-top:10px;">creado por <a href="https://migrandia.mx" style="color:var(--gold-glow); text-decoration:none;">migrandia.mx</a></p>
+        <footer style="padding:60px 20px;">
+            <div style="font-family:'Cinzel'; color:var(--gold-glow); font-size:2.5rem; margin-bottom:10px;">S & H</div>
+            <p style="font-size:0.7rem; letter-spacing:2px; opacity:0.6;">MI GRAN DÍA • DIAMOND COLLECTION</p>
+            <p style="font-size:0.6rem; margin-top:10px; opacity:0.5;">creado por <a href="https://migrandia.mx" style="color:var(--gold-glow); text-decoration:none;">migrandia.mx</a></p>
         </footer>
     </div>
 
@@ -206,7 +182,7 @@
             document.getElementById('app-content').style.display = 'block';
             document.getElementById('music-pill').style.display = 'block';
             track.play();
-            ScrollReveal().reveal('.reveal', { distance: '30px', duration: 1200, origin: 'bottom', interval: 150 });
+            ScrollReveal().reveal('.reveal', { distance: '20px', duration: 1000, origin: 'bottom', interval: 100 });
         }
 
         function toggleMusic() {
@@ -229,7 +205,7 @@
             const n = urlParams.get('n'); const c = urlParams.get('c');
             document.getElementById('saludo-familia').textContent = n ? `FAMILIA ${decodeURIComponent(n).toUpperCase()}` : "¡TE ESPERAMOS!";
             const cant = c ? parseInt(c) : 2;
-            document.getElementById('lugares-mensaje').innerHTML = `Reservado: <b>${cant} lugares</b>`;
+            document.getElementById('lugares-mensaje').innerHTML = `Hemos reservado <b>${cant} lugares</b> para ustedes.`;
             const s = document.getElementById('num-asistentes');
             for (let i = 1; i <= cant; i++) {
                 let o = document.createElement('option'); o.value = i; o.textContent = i + (i > 1 ? " Personas" : " Persona");
@@ -241,7 +217,7 @@
             const num = document.getElementById('num-asistentes').value;
             const urlParams = new URLSearchParams(window.location.search);
             const fam = urlParams.get('n') ? decodeURIComponent(urlParams.get('n')) : "Invitado";
-            const msg = encodeURIComponent(`¡Hola Sofia! Confirmo la asistencia de la Familia ${fam} con ${num} personas. ¡Nos vemos pronto!`);
+            const msg = encodeURIComponent(`¡Hola Sofia! Confirmo la asistencia de la Familia ${fam} con ${num} personas. ¡Ahí estaremos!`);
             window.open(`https://wa.me/525611234012?text=${msg}`, '_blank');
         }
     </script>
