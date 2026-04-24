@@ -208,7 +208,7 @@
             <img id="img-salon" class="img-rounded" style="pointer-events: none;">
             <h3 style="font-family:'Cinzel'; color:var(--gold-glow);">SALÓN BELLA LUNA</h3>
             <p style="margin-top:10px;">7:30 PM</p>
-            <a href="https://www.google.com/maps/place/SALON+BELLA+LUNA/@19.4804145,-99.105178,17z/data=!3m1!4b1!4m6!3m5!1s0x85d1f9f06078903b:0xab639bf203fcaea8!8m2!3d19.4804095!4d-99.1026031!16s%2Fg%2F11bzzqtkq9?entry=ttu&g_ep=EgoyMDI2MDQyMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-confirm" style="font-size:0.8rem;">Ver Mapa</a>
+            <a href="https://maps.app.goo.gl/9yGZ7Rxt4Z9sS7m8A" target="_blank" class="btn-confirm" style="font-size:0.8rem;">Ver Mapa</a>
         </div>
 
         <div class="glass-card reveal">
@@ -359,19 +359,31 @@
                 albumWrapper.appendChild(slide);
             });
 
+            // --- LÓGICA DE INVITADOS (FAMILIA VS AMIGOS) ---
             const urlParams = new URLSearchParams(window.location.search);
-            const n = urlParams.get('n'); const c = urlParams.get('c');
-            document.getElementById('saludo-familia').textContent = n ? `FAMILIA ${decodeURIComponent(n).toUpperCase()}` : "¡TE ESPERAMOS!";
+            const n = urlParams.get('n'); 
+            const c = urlParams.get('c');
+            const t = urlParams.get('t'); // 'a' para amigos
+
+            const etiquetaSaludo = document.getElementById('saludo-familia');
+            const nombreDecodificado = n ? decodeURIComponent(n).toUpperCase() : "INVITADO ESPECIAL";
+
+            if (t === 'a') {
+                // MODO AMIGO: Solo el nombre
+                etiquetaSaludo.textContent = `¡HOLA ${nombreDecodificado}!`;
+            } else {
+                // MODO FAMILIA: Incluye la palabra FAMILIA
+                etiquetaSaludo.textContent = n ? `FAMILIA ${nombreDecodificado}` : "¡TE ESPERAMOS!";
+            }
             
-            const cant = c ? parseInt(c) : 5; 
+            const cant = c ? parseInt(c) : 1; 
             if(n && c) {
-                document.getElementById('lugares-mensaje').innerHTML = `Hemos reservado <b>${cant} lugares</b> para ustedes.`;
+                document.getElementById('lugares-mensaje').innerHTML = `Hemos reservado <b>${cant} lugar(es)</b> para ti.`;
             }
 
             const s = document.getElementById('num-asistentes');
             for (let i = 1; i <= cant; i++) {
                 let o = document.createElement('option'); o.value = i; o.textContent = i + (i > 1 ? " Personas" : " Persona");
-                // Modificado: Se selecciona automáticamente el número máximo asignado (el valor de 'c')
                 if(i === cant) o.selected = true;
                 s.appendChild(o);
             }
@@ -380,8 +392,17 @@
         function enviarWhatsApp() {
             const num = document.getElementById('num-asistentes').value;
             const urlParams = new URLSearchParams(window.location.search);
-            const fam = urlParams.get('n') ? decodeURIComponent(urlParams.get('n')) : "Invitado";
-            const msg = encodeURIComponent(`¡Hola Sofia! Confirmo la asistencia de la Familia ${fam} con ${num} personas. ¡Ahí estaremos!`);
+            const n = urlParams.get('n') ? decodeURIComponent(urlParams.get('n')) : "Invitado";
+            const t = urlParams.get('t');
+
+            let textoConfirmacion;
+            if (t === 'a') {
+                textoConfirmacion = `¡Hola Sofia! Soy ${n}, confirmo mi asistencia con ${num} persona(s). ¡Ahí nos vemos!`;
+            } else {
+                textoConfirmacion = `¡Hola Sofia! Confirmo la asistencia de la Familia ${n} con ${num} persona(s). ¡Ahí estaremos!`;
+            }
+
+            const msg = encodeURIComponent(textoConfirmacion);
             window.open(`https://wa.me/${WHATSAPP_NUM}?text=${msg}`, '_blank');
         }
     </script>
