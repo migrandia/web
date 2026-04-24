@@ -4,10 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <meta property="og:site_name" content="Invitación XV Años">
     <meta property="og:title" content="Mis XV Años | Sofia Huidobro Jimenez">
     <meta property="og:description" content="¡Estás invitado a celebrar mis XV años! Haz clic para ver los detalles.">
     <meta property="og:image" content="https://www.dropbox.com/scl/fi/90s9txvvh2414ub9l6200/file_0000000042d871f792e1a16440ed528f.png?rlkey=4sksov3h62nlkefa24wsqe0ay&raw=1&v=1">
+    <meta property="og:image:secure_url" content="https://www.dropbox.com/scl/fi/90s9txvvh2414ub9l6200/file_0000000042d871f792e1a16440ed528f.png?rlkey=4sksov3h62nlkefa24wsqe0ay&raw=1&v=1">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:type" content="website">
+    
     <title>Mis XV | Sofia Huidobro Jimenez</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Dancing+Script:wght@600&family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
@@ -207,7 +213,7 @@
             <img id="img-salon" class="img-rounded" style="pointer-events: none;">
             <h3 style="font-family:'Cinzel'; color:var(--gold-glow);">SALÓN BELLA LUNA</h3>
             <p style="margin-top:10px;">7:30 PM</p>
-            <a href="https://www.google.com/maps/place/SALON+BELLA+LUNA/@19.4804145,-99.105178,17z/data=!3m1!4b1!4m6!3m5!1s0x85d1f9f06078903b:0xab639bf203fcaea8!8m2!3d19.4804095!4d-99.1026031!16s%2Fg%2F11bzzqtkq9?entry=ttu&g_ep=EgoyMDI2MDQyMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-confirm" style="font-size:0.8rem;">Ver Mapa</a>
+            <a href="https://maps.google.com/?q=Salón+Bella+Luna" target="_blank" class="btn-confirm" style="font-size:0.8rem;">Ver Mapa</a>
         </div>
 
         <div class="glass-card reveal">
@@ -280,16 +286,8 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        /* --- SEGURIDAD REFORZADA --- */
+        /* --- SEGURIDAD --- */
         document.addEventListener('contextmenu', event => event.preventDefault()); 
-        document.onkeydown = function(e) {
-            if(e.keyCode == 123) return false; 
-            if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false; 
-            if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) return false; 
-            if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) return false; 
-            if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false; 
-            if(e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)) return false; 
-        };
 
         const URL_MUSICA = "https://www.dropbox.com/scl/fi/cwufk4iw6mn327f390kyp/Lana-Del-Rey-Young-and-Beautiful-from-The-Great-Gatsby-Soundtrack.mp3?rlkey=7jaeztoic45cr319mvvdh1hvr&raw=1";
         const URL_FONDO_GENERAL = "https://www.dropbox.com/scl/fi/rc9azx6rl79fjuu3nj2ib/FONDO-DE-ROSAS.jpg?rlkey=rxdc64ddpq1yx0gi0vaamy80k&raw=1";
@@ -358,12 +356,10 @@
                 albumWrapper.appendChild(slide);
             });
 
-            // --- LÓGICA DE INVITADOS ---
             const urlParams = new URLSearchParams(window.location.search);
             const n = urlParams.get('n'); 
             const c = urlParams.get('c');
             const t = urlParams.get('t');
-
             const etiquetaSaludo = document.getElementById('saludo-familia');
             const nombreDecodificado = n ? decodeURIComponent(n).toUpperCase() : "INVITADO ESPECIAL";
 
@@ -373,7 +369,6 @@
                 etiquetaSaludo.textContent = n ? `FAMILIA ${nombreDecodificado}` : "¡TE ESPERAMOS!";
             }
             
-            // Si 'c' no existe o está vacío, el límite es 5
             const cant = (c && c.trim() !== "") ? parseInt(c) : 5; 
             
             if(n && (c && c.trim() !== "")) {
