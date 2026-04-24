@@ -106,6 +106,12 @@
             border: 2px solid var(--gold-glow); text-transform: uppercase; letter-spacing: 2px; width: 100%;
         }
         select { width: 100%; padding: 15px; border-radius: 10px; background: #fff; color: #000; font-weight: bold; margin-bottom: 15px; }
+        
+        /* ESTILOS VESTIMENTA */
+        .dress-code-icons { display: flex; justify-content: center; gap: 30px; margin: 20px 0; }
+        .dress-icon { width: 60px; filter: invert(1) sepia(1) saturate(5) hue-rotate(360deg); opacity: 0.9; }
+        .dress-note { font-size: 0.8rem; color: #ffcccc; margin-top: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+
     </style>
 </head>
 <body>
@@ -148,6 +154,22 @@
         </div>
 
         <div class="glass-card reveal">
+            <h2 class="section-title">Código de Vestimenta</h2>
+            <p style="font-family:'Cinzel'; color: var(--gold-glow); letter-spacing: 2px; margin-bottom: 15px;">FORMAL / GALA</p>
+            <div class="dress-code-icons">
+                <div>
+                    <img src="https://cdn-icons-png.flaticon.com/512/3534/3534312.png" class="dress-icon">
+                    <p style="font-size: 0.7rem; margin-top: 5px;">HOMBRES</p>
+                </div>
+                <div>
+                    <img src="https://cdn-icons-png.flaticon.com/512/10542/10542733.png" class="dress-icon">
+                    <p style="font-size: 0.7rem; margin-top: 5px;">MUJERES</p>
+                </div>
+            </div>
+            <p class="dress-note">⚠️ NOTA IMPORTANTE: FAVOR DE NO VESTIR DE COLOR ROJO (RESERVADO PARA LA QUINCEAÑERA)</p>
+        </div>
+
+        <div class="glass-card reveal">
             <h2 class="section-title">Nuestra Familia</h2>
             <div class="card-family">
                 <span class="role">Mis Padres</span>
@@ -183,6 +205,14 @@
             <h3 style="font-family:'Cinzel'; color:var(--gold-glow);">SALÓN BELLA LUNA</h3>
             <p style="margin-top:10px;">7:30 PM</p>
             <a href="https://maps.google.com" target="_blank" class="btn-confirm" style="font-size:0.8rem;">Ver Mapa</a>
+        </div>
+
+        <div class="glass-card reveal">
+            <h2 class="section-title">El Clima</h2>
+            <a class="weatherwidget-io" href="https://forecast7.com/es/19d25n99d10/mexico-city/" data-label_1="CIUDAD DE MÉXICO" data-label_2="PRONÓSTICO" data-font="Arial Rounded MT Bold" data-icons="Climacons Animated" data-days="5" data-theme="white_leather">CIUDAD DE MÉXICO CLIMA</a>
+            <script>
+            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+            </script>
         </div>
 
         <div class="glass-card reveal">
@@ -243,7 +273,6 @@
             "https://www.dropbox.com/scl/fi/6ssyg4vdt21o40ixlgybo/IMG-20260423-WA0028.jpg?rlkey=dbpesn9dowwhqy9n7a5vzg1m8&raw=1",
             "https://www.dropbox.com/scl/fi/ylqro8gly50hox491p7vq/IMG-20260423-WA0029.jpg?rlkey=7mfbif82c2bxzath6lyq2nq5c&raw=1"
         ];
-        /* ---------------------------- */
 
         var track = document.getElementById('track');
         var swiper;
