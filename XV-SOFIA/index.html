@@ -7,7 +7,7 @@
     
     <title>Mis XV | Sofia Huidobro Jimenez</title>
     <meta property="og:title" content="Mis XV | Sofia Huidobro Jimenez">
-    <meta property="og:description" content="Bajo la luz de las estrellas... ¡Te espero en mi jardín de ilusiones! 15.05.2026">
+    <meta property="og:description" content="¡Te espero en mi fiesta! 15.05.2026">
     <meta property="og:image" content="https://www.dropbox.com/scl/fi/90s9txvvh2414ub9l6200/file_0000000042d871f792e1a16440ed528f.png?rlkey=4sksov3h62nlkefa24wsqe0ay&raw=1">
     <meta property="og:type" content="website">
     
@@ -17,132 +17,93 @@
 
     <style>
         :root {
-            /* NUEVA PALETA DE COLORES ELEGANTE (ROJO PASIÓN & DORADO) */
-            --wine-red: #660000; /* Rojo Vino Profundo para botones */
-            --dark-garden: #0a0000; /* Fondo Negro con ligero tinte rojizo */
-            --gold-glow: #fbbf24; /* Dorado brillante */
-            --glass: rgba(255, 255, 255, 0.05); /* Cristal más sutil */
+            --wine-red: #7d0000;
+            --bg-gradient: linear-gradient(180deg, #1a0000 0%, #3d0000 50%, #1a0000 100%);
+            --gold-glow: #fbbf24;
+            --glass: rgba(255, 255, 255, 0.08);
             --ancho-max: 480px;
-            
-            /* URL DEL FONDO GENERAL (Editable) */
-            --url-fondo-app: url(''); /* Déjalo vacío para color sólido, o pega un URL aquí */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-user-select: none; user-select: none; }
         body {
-            background-color: #000; color: #e2e8f0;
+            background: #1a0000; color: #f8fafc;
             font-family: 'Montserrat', sans-serif; text-align: center;
             overflow-x: hidden;
-            background-image: var(--url-fondo-app); background-size: cover; background-attachment: fixed;
         }
 
         .app-wrapper {
             max-width: var(--ancho-max); margin: 0 auto;
-            background-color: var(--dark-garden); position: relative;
-            min-height: 100vh; border: 1px solid #1a0000;
-        }
-
-        /* BOTONES FIJOS */
-        .btn-back {
-            position: fixed; top: 20px; left: 20px; z-index: 1001;
-            background: rgba(0, 0, 0, 0.6); border: 1px solid var(--glass);
-            color: white; padding: 8px 15px; border-radius: 20px;
-            text-decoration: none; font-size: 0.7rem; font-weight: bold;
-            backdrop-filter: blur(10px);
+            background: var(--bg-gradient); position: relative;
+            min-height: 100vh; border: 1px solid rgba(251, 191, 36, 0.1);
         }
 
         #music-pill {
             position: fixed; bottom: 20px; right: 20px; z-index: 1000;
-            background: rgba(102, 0, 0, 0.8); backdrop-filter: blur(15px);
+            background: rgba(125, 0, 0, 0.9); backdrop-filter: blur(15px);
             border: 1px solid var(--gold-glow); padding: 10px 20px; border-radius: 50px;
             display: flex; align-items: center; gap: 10px; cursor: pointer; color: white;
-            box-shadow: 0 5px 15px rgba(251, 191, 36, 0.2);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
         }
 
-        /* PORTADA */
         .hero-v3 {
             height: 100vh;
-            /* URL FOTO PORTADA (Editable) */
-            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.9)), url('https://www.dropbox.com/scl/fi/90s9txvvh2414ub9l6200/file_0000000042d871f792e1a16440ed528f.png?rlkey=4sksov3h62nlkefa24wsqe0ay&raw=1') center center no-repeat;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.8)), url('https://www.dropbox.com/scl/fi/90s9txvvh2414ub9l6200/file_0000000042d871f792e1a16440ed528f.png?rlkey=4sksov3h62nlkefa24wsqe0ay&raw=1') center center no-repeat;
             background-size: cover; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 50px;
         }
-        h1.main-name { font-family: 'Cinzel', serif; font-size: 2.8rem; color: white; margin: 15px 0; letter-spacing: 3px; text-shadow: 0 0 15px rgba(251, 191, 36, 0.5); }
+        h1.main-name { font-family: 'Cinzel', serif; font-size: 3rem; color: white; margin: 10px 0; text-shadow: 0 0 20px rgba(0,0,0,1); }
         
-        /* CONTADOR */
-        .timer-v3 { display: flex; justify-content: center; gap: 10px; margin-top: 25px; }
-        .t-unit { background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.1); padding: 12px; border-radius: 12px; min-width: 70px; }
-        .t-num { font-size: 1.8rem; display: block; color: var(--gold-glow); font-weight: 700; font-family: 'Cinzel', serif; }
-        .t-txt { font-size: 0.6rem; opacity: 0.7; letter-spacing: 2px; text-transform: uppercase; }
+        .timer-v3 { display: flex; justify-content: center; gap: 8px; margin-top: 20px; }
+        .t-unit { background: rgba(0,0,0,0.7); border: 1px solid rgba(251, 191, 36, 0.3); padding: 10px; border-radius: 10px; min-width: 65px; }
+        .t-num { font-size: 1.6rem; display: block; color: var(--gold-glow); font-family: 'Cinzel', serif; }
+        .t-txt { font-size: 0.55rem; letter-spacing: 1px; }
 
-        /* BOTONES ELEGANTES */
         .btn-gold-out {
-            display: inline-block; margin-top: 25px; padding: 12px 25px;
+            display: inline-block; margin-top: 20px; padding: 12px 25px;
             border: 1px solid var(--gold-glow); border-radius: 30px;
             color: var(--gold-glow); text-decoration: none; font-size: 0.7rem;
-            letter-spacing: 2px; font-weight: bold; background: rgba(102, 0, 0, 0.3);
-            transition: 0.3s; text-transform: uppercase;
+            font-weight: bold; background: rgba(0,0,0,0.4); text-transform: uppercase;
         }
-        .btn-gold-out:hover { background: var(--wine-red); color: white; }
 
         .btn-wine {
             display: block; background: var(--wine-red); color: white; padding: 18px;
-            border-radius: 15px; text-decoration: none; font-weight: bold; font-size: 0.85rem;
-            margin-top: 15px; border: 1px solid var(--gold-glow); letter-spacing: 2px;
-            text-transform: uppercase; box-shadow: 0 5px 15px rgba(102, 0, 0, 0.3);
-            transition: 0.3s;
+            border-radius: 15px; text-decoration: none; font-weight: bold;
+            margin-top: 15px; border: 1px solid var(--gold-glow); text-transform: uppercase;
         }
-        .btn-wine:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(251, 191, 36, 0.3); }
 
-        /* CARDS */
         .glass-card {
-            background: var(--glass); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(251, 191, 36, 0.1); margin: 25px 20px;
-            padding: 40px 25px; border-radius: 28px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            background: var(--glass); backdrop-filter: blur(10px);
+            border: 1px solid rgba(251, 191, 36, 0.15); margin: 25px 15px;
+            padding: 35px 20px; border-radius: 25px;
         }
 
-        .section-title { font-family: 'Dancing Script', cursive; font-size: 2.8rem; color: var(--gold-glow); margin-bottom: 30px; text-shadow: 0 0 10px rgba(251, 191, 36, 0.3); }
-        
-        /* IMÁGENES */
-        .img-rounded { width: 100%; border-radius: 20px; border: 1px solid rgba(251, 191, 36, 0.2); margin-bottom: 25px; object-fit: cover; pointer-events: none; box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
+        .section-title { font-family: 'Dancing Script', cursive; font-size: 2.8rem; color: var(--gold-glow); margin-bottom: 25px; }
+        .img-rounded { width: 100%; border-radius: 15px; border: 1px solid rgba(251, 191, 36, 0.2); margin-bottom: 20px; }
 
-        /* FAMILIA */
-        .grid-family { display: grid; grid-template-columns: 1fr; gap: 25px; }
-        .card-family { border-left: 3px solid var(--gold-glow); padding: 15px 20px; text-align: left; background: rgba(255,255,255,0.02); border-radius: 0 15px 15px 0; }
-        .role { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; color: var(--gold-glow); font-weight: 600; opacity: 0.9; }
-        .p-name { font-size: 1.15rem; color: white; margin-top: 5px; font-weight: 400; }
+        .grid-family { display: grid; gap: 20px; }
+        .card-family { border-left: 3px solid var(--gold-glow); padding: 10px 20px; text-align: left; background: rgba(255,255,255,0.03); }
+        .role { font-size: 0.7rem; color: var(--gold-glow); font-weight: 600; text-transform: uppercase; }
 
-        /* SWIPER */
-        .swiper { width: 100%; height: 380px; border-radius: 20px; margin-top: 10px; border: 1px solid rgba(251, 191, 36, 0.2); }
-        .swiper-slide img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+        .swiper { width: 100%; height: 350px; border-radius: 15px; }
+        .swiper-slide img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* DRESS CODE */
-        .forbidden-circles { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
-        .circle { width: 40px; height: 40px; border-radius: 50%; border: 2px solid rgba(251, 191, 36, 0.3); position: relative; }
-        .circle::after { content: ''; position: absolute; width: 100%; height: 3px; background: #ff0000; top: 50%; left: 0; transform: rotate(-45deg); box-shadow: 0 0 10px red; }
-        .c-red-forbidden { background: #800000; border-color: #ff0000; } /* Color de vestido aproximado */
+        .forbidden-circles { display: flex; justify-content: center; gap: 15px; margin-top: 15px; }
+        .circle { width: 45px; height: 45px; border-radius: 50%; border: 2px solid #ff0000; position: relative; background: #800000; }
+        .circle::after { content: ''; position: absolute; width: 100%; height: 3px; background: #ff0000; top: 50%; left: 0; transform: rotate(-45deg); }
 
-        /* SELECTOR CONFIRMACIÓN */
-        .attendance-selector { margin: 25px 0; }
+        /* ESTILO MESA DE REGALOS CON IMAGEN URL */
+        .gift-container { display: flex; justify-content: space-around; gap: 15px; margin-bottom: 25px; }
+        .gift-item { flex: 1; }
+        .gift-img { width: 80px; height: 80px; object-fit: contain; margin-bottom: 10px; }
+
         .attendance-selector select { 
             padding: 15px; width: 100%; border-radius: 12px; border: 1px solid var(--gold-glow); 
-            background: rgba(0,0,0,0.5); color: white; font-family: 'Montserrat'; font-size: 0.9rem;
-            cursor: pointer; outline: none;
+            background: #000; color: white;
         }
 
-        /* LOGO INICIALES FINAL */
-        .final-logo {
-            font-family: 'Cinzel', serif; font-size: 2.5rem; color: var(--gold-glow);
-            margin: 50px auto 10px auto; opacity: 0.8;
-            border: 2px solid var(--gold-glow); width: 80px; height: 80px;
-            display: flex; align-items: center; justify-content: center;
-            border-radius: 50%; box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
-        }
+        .weather-container { border-radius: 15px; overflow: hidden; margin-top: 15px; border: 1px solid var(--gold-glow); }
     </style>
 </head>
-<body onclick="initAudio()" oncontextmenu="return false;">
-
-    <a href="javascript:history.back()" class="btn-back">⬅ REGRESAR</a>
+<body>
 
     <div id="music-pill" onclick="toggleMusic(event)">
         <span id="m-status">▶</span>
@@ -154,182 +115,129 @@
     </audio>
 
     <div class="app-wrapper">
-         
+        
         <div class="hero-v3">
-            <p style="letter-spacing: 6px; font-size: 0.8rem; font-weight: 200;">BIENVENIDOS A LOS XV DE</p>
             <h1 class="main-name">SOFIA</h1>
-            <p style="letter-spacing: 4px; font-size: 1rem; font-weight: 200; color: var(--gold-glow);">15 . MAYO . 2026</p>
-             
+            <p style="letter-spacing: 4px; font-size: 1rem; color: var(--gold-glow);">15 . MAYO . 2026</p>
+            
             <div class="timer-v3">
                 <div class="t-unit"><span class="t-num" id="days">00</span><span class="t-txt">DÍAS</span></div>
                 <div class="t-unit"><span class="t-num" id="hours">00</span><span class="t-txt">HRS</span></div>
                 <div class="t-unit"><span class="t-num" id="mins">00</span><span class="t-txt">MIN</span></div>
-                <div class="t-unit" style="border-color: var(--gold-glow); background: rgba(102, 0, 0, 0.4);"><span class="t-num" id="secs">00</span><span class="t-txt">SEG</span></div>
+                <div class="t-unit" style="background: var(--wine-red);"><span class="t-num" id="secs">00</span><span class="t-txt">SEG</span></div>
             </div>
-
-            <div>
-                <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Mis+XV+Sofia+Huidobro&dates=20260515T233000Z/20260516T050000Z&details=¡Te+espero+para+celebrar+mis+XV+años!&location=Salon+de+Eventos+BELLA+LUNA,+Toluca&sf=true&output=xml" target="_blank" rel="noopener" class="btn-gold-out">
-                    📅 AGENDAR EN GOOGLE
-               </a>
-            </div>
+            <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=Mis+XV+Sofia&dates=20260515T233000Z/20260516T050000Z&location=Salon+Bella+Luna" target="_blank" class="btn-gold-out">📅 AGENDAR EVENTO</a>
         </div>
 
         <div class="glass-card reveal">
             <h2 class="section-title">Mi Historia</h2>
-            <p style="font-family:'Dancing Script'; font-size:1.7rem; font-style:italic; margin-bottom:30px; color: white; line-height: 1.4;">
-                "La vida se mide en momentos como este, y quiero que seas parte de mi história. Te espero para celebrar juntos mi fiesta de quinceañera."
-            </p>
-            <img src="https://www.dropbox.com/scl/fi/r0jo5d2ktyy94zn0dwaeq/file_0000000019d071f5a05cb19c2cdf8040.png?rlkey=0mmdohsa74mzc0e5vheh9qu1f&raw=1" class="img-rounded" alt="Sofia">
-            <p style="font-family:'Dancing Script'; font-size:1.5rem; color: white; opacity: 0.9;">
-                Acompañame a celebrar mis 15 años, un día que será aún más especial porque tú estarás ahí.
-            </p>
+            <p style="font-family:'Dancing Script'; font-size:1.6rem; margin-bottom:25px; color: #fff;">"La vida se mide en momentos como este..."</p>
+            <img src="https://www.dropbox.com/scl/fi/r0jo5d2ktyy94zn0dwaeq/file_0000000019d071f5a05cb19c2cdf8040.png?rlkey=0mmdohsa74mzc0e5vheh9qu1f&raw=1" class="img-rounded">
         </div>
 
         <div class="glass-card reveal">
-            <h2 class="section-title">Con la bendición de</h2>
+            <h2 class="section-title">Mis Padres</h2>
             <div class="grid-family">
-                <div class="card-family">
-                    <p class="role">Mis Padres</p>
-                    <p class="p-name">Rosalinda Jiménez Hernández<br>Luis Antonio Jimenez</p>
-                </div>
-                <div class="card-family">
-                    <p class="role">Mis Padrinos</p>
-                    <p class="p-name">María Luisa Hernández<br>Marco Antonio Corona</p>
-                </div>
+                <div class="card-family"><p class="p-name">Rosalinda Jiménez Hernández</p><p class="p-name">Luis Antonio Jimenez</p></div>
+                <p class="role">Mis Padrinos</p>
+                <div class="card-family"><p class="p-name">María Luisa Hernández</p><p class="p-name">Marco Antonio Corona</p></div>
             </div>
         </div>
 
-        <div class="glass-card reveal" style="padding: 40px 0px; margin: 45px 10px;">
+        <div class="glass-card reveal" style="padding: 30px 0;">
             <h2 class="section-title">Itinerario</h2>
-            <img src="https://www.dropbox.com/scl/fi/xdl2mk7n2y9q5emvrkplx/itnerario-15.png?rlkey=zend5yctnoc5evi96du5mf4lx&raw=1" 
-                 style="width: 100%; border-radius: 0px; display: block; pointer-events: none;" alt="Itinerario XV">
+            <img src="https://www.dropbox.com/scl/fi/xdl2mk7n2y9q5emvrkplx/itnerario-15.png?rlkey=zend5yctnoc5evi96du5mf4lx&raw=1" style="width: 100%;">
         </div>
 
         <div class="glass-card reveal">
             <h2 class="section-title">Momentos</h2>
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/j5iklqlaj1mj949edvths/file_0000000052d071f79be79227d67fa792.png?rlkey=1k78rkb3sdysy7yynhjjneu7r&raw=1" alt="Sofia 1"></div>
-                    <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/m4q1xkzxavamflx30f9qe/IMG-20260423-WA0030.jpg?rlkey=mm9zbwy0v4wk6enj2v65zpo9o&raw=1" alt="Sofia 2"></div>
-                    <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/6ssyg4vdt21o40ixlgybo/IMG-20260423-WA0028.jpg?rlkey=dbpesn9dowwhqy9n7a5vzg1m8&raw=1" alt="Sofia 3"></div>
-                    <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/ylqro8gly50hox491p7vq/IMG-20260423-WA0029.jpg?rlkey=7mfbif82c2bxzath6lyq2nq5c&raw=1" alt="Sofia 4"></div>
+                    <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/j5iklqlaj1mj949edvths/file_0000000052d071f79be79227d67fa792.png?rlkey=1k78rkb3sdysy7yynhjjneu7r&raw=1"></div>
+                    <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/m4q1xkzxavamflx30f9qe/IMG-20260423-WA0030.jpg?rlkey=mm9zbwy0v4wk6enj2v65zpo9o&raw=1"></div>
+                    <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/6ssyg4vdt21o40ixlgybo/IMG-20260423-WA0028.jpg?rlkey=dbpesn9dowwhqy9n7a5vzg1m8&raw=1"></div>
                 </div>
-                <div class="swiper-button-next" style="color: var(--gold-glow);"></div>
-                <div class="swiper-button-prev" style="color: var(--gold-glow);"></div>
             </div>
         </div>
 
         <div class="glass-card reveal">
             <h2 class="section-title">La Fiesta</h2>
-            <div>
-                <p class="role">Recepción</p>
-                <img src="https://www.dropbox.com/scl/fi/9744toh6j6mrfu8kv72f0/BELLA-LUNA.jpg?rlkey=jed7o0t40aa0eev4l2a1dmgpw&raw=1" class="img-rounded" height="220" alt="Salon Bella Luna">
-                <h3 style="font-family:'Cinzel'; font-size: 1.3rem; color: white;">Salon de Eventos<br>BELLA LUNA</h3>
-                <p style="font-size:0.9rem; opacity:0.8; margin-top: 5px;">Toluca, Estado de México</p>
-                <p style="font-size:1.1rem; color: var(--gold-glow); font-weight: bold; margin-top: 10px;">19:30 Horas</p>
-                <a href="https://www.google.com/maps/place/SALON+BELLA+LUNA/@19.4804145,-99.105178,17z/data=!3m1!4b1!4m6!3m5!1s0x85d1f9f06078903b:0xab639bf203fcaea8!8m2!3d19.4804095!4d-99.1026031!16s%2Fg%2F11bzzqtkq9?entry=ttu&g_ep=EgoyMDI2MDQyMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener" class="btn-wine">VER UBICACIÓN</a>
-            </div>
+            <img src="https://www.dropbox.com/scl/fi/9744toh6j6mrfu8kv72f0/BELLA-LUNA.jpg?rlkey=jed7o0t40aa0eev4l2a1dmgpw&raw=1" class="img-rounded">
+            <h3 style="font-family:'Cinzel'; color: #fff;">Salon Bella Luna</h3>
+            <a href="https://www.google.com/maps/place/SALON+BELLA+LUNA/@19.4804145,-99.105178,17z/data=!3m1!4b1!4m6!3m5!1s0x85d1f9f06078903b:0xab639bf203fcaea8!8m2!3d19.4804095!4d-99.1026031!16s%2Fg%2F11bzzqtkq9?entry=ttu&g_ep=EgoyMDI2MDQyMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-wine">VER UBICACIÓN</a>
         </div>
 
         <div class="glass-card reveal">
             <h2 class="section-title">Regalos</h2>
-            <p style="font-size: 0.9rem; color: white; margin-bottom: 25px; opacity: 0.9;">Tu presencia es mi mayor regalo, pero si deseas tener un detalle conmigo, te sugiero:</p>
-            
-            <div style="display:flex; justify-content:center; gap:30px; flex-wrap:wrap; align-items: center;">
-                <div style="text-align:center; color: white;">
-                    <div style="font-size: 3rem; color: var(--gold-glow);">🎁</div>
-                    <p style="font-size: 0.8rem; font-weight: bold; margin-top: 5px;">Regalo<br>Sorpresa</p>
+            <div class="gift-container">
+                <div class="gift-item">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3050/3050221.png" class="gift-img">
+                    <p style="font-size: 0.7rem; font-weight: bold; color: white;">REGALO SORPRESA</p>
                 </div>
-                <div style="text-align:center; color: white;">
-                    <div style="font-size: 3rem; color: var(--gold-glow);">✉️</div>
-                    <p style="font-size: 0.8rem; font-weight: bold; margin-top: 5px;">Lluvia<br>de Sobres</p>
+                <div class="gift-item">
+                    <img src="https://cdn-icons-png.flaticon.com/512/1032/1032977.png" class="gift-img">
+                    <p style="font-size: 0.7rem; font-weight: bold; color: white;">LLUVIA DE SOBRES</p>
                 </div>
             </div>
-            
-            <div style="margin-top:35px; padding:20px; border:1px solid var(--gold-glow); border-radius:15px; background: rgba(102, 0, 0, 0.2);">
-                <p class="role" style="color: white; opacity: 1;">Transferencia Bancaria</p>
-                <p style="font-size:0.85rem; margin-top:10px; color: white;">Si prefieres realizar una transferencia, puedes hacerlo a la siguiente cuenta:</p>
-                <p style="font-weight:bold; color: var(--gold-glow); margin-top:12px; font-size: 1.1rem; letter-spacing: 1px;">CLABE: 0123 4567 8901</p>
+            <div style="padding:15px; border:1px solid var(--gold-glow); border-radius:10px; background: rgba(0,0,0,0.3);">
+                <p class="role">CLABE INTERBANCARIA</p>
+                <p style="font-weight:bold; color: var(--gold-glow); margin-top:5px;">0123 4567 8901</p>
             </div>
         </div>
 
         <div class="glass-card reveal">
-            <h2 class="section-title"> Dress Code</h2>
-            <img src="https://www.dropbox.com/scl/fi/iuule5a8x3prthsldm6h7/CODIGO-DE-VESTIMENTA-2.png?rlkey=xk7d7zvhdu65si9ecq25cgbfw&raw=1" width="110" style="filter:invert(1);" alt="Vestimenta Formal">
-            <p style="font-weight:bold; letter-spacing:4px; margin-top:15px; color: white; font-size: 1.1rem;">FORMAL</p>
-            
-            <div class="forbidden-circles">
-                <div class="circle c-red-forbidden"></div>
-            </div>
-            <p style="font-size:0.7rem; opacity:0.8; margin-top:15px; color: white; letter-spacing: 1px;">FAVOR DE EVITAR EL COLOR ROJO<br><small>(Exclusivo de la Quinceañera)</small></p>
+            <h2 class="section-title">Vestimenta</h2>
+            <img src="https://www.dropbox.com/scl/fi/iuule5a8x3prthsldm6h7/CODIGO-DE-VESTIMENTA-2.png?rlkey=xk7d7zvhdu65si9ecq25cgbfw&raw=1" width="100" style="filter:invert(1);">
+            <p style="font-weight:bold; letter-spacing:3px; margin-top:10px;">FORMAL</p>
+            <div class="forbidden-circles"><div class="circle"></div></div>
+            <p style="font-size:0.65rem; opacity:0.8; margin-top:10px;">NO VESTIR DE COLOR ROJO</p>
         </div>
 
         <div class="glass-card reveal">
             <h2 class="section-title">El Clima</h2>
-            <p style="font-size: 0.8rem; color: white; margin-bottom: 15px;">Consulta el pronóstico para Toluca el día del evento:</p>
             <div class="weather-container">
-                <a class="weatherwidget-io" href="https://forecast7.com/es/19d28n99d66/toluca/" data-label_1="TOLUCA" data-label_2="PRONÓSTICO" data-font="Roboto Slab" data-theme="dark" data-basecolor="#0a0000" data-accent="#fbbf24" data-textcolor="#ffffff" >TOLUCA WEATHER</a>
-                <script>
-                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
-                </script>
+                <a class="weatherwidget-io" href="https://forecast7.com/es/19d25n99d10/mexico-city/" data-label_1="CIUDAD DE MÉXICO" data-label_2="PRONÓSTICO" data-font="Arial Rounded MT Bold" data-icons="Climacons Animated" data-days="5" data-theme="white_leather" >CIUDAD DE MÉXICO CLIMA</a>
+                <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');</script>
             </div>
         </div>
 
-        <div class="glass-card reveal" style="border: 2px solid var(--gold-glow); background: rgba(102, 0, 0, 0.1);">
-            <h2 class="section-title">Confirmación</h2>
-            <p id="saludo-familia" style="font-family:'Cinzel'; font-size: 1.3rem; margin-bottom: 10px; color: white;"></p>
-            <p id="lugares-mensaje" style="font-size: 1rem; margin-bottom: 25px; color: #fff; opacity: 0.9;"></p>
-            
-            <div class="attendance-selector">
-                <p class="role" style="color: white; opacity: 1;">¿Cuántos lugares confirmas?</p>
-                <select id="num-asistentes">
-                    <option value="1">1 Persona</option>
-                </select>
-            </div>
-            
-            <a href="javascript:void(0)" onclick="enviarWhatsApp()" class="btn-wine" style="background:#25d366; color:black; font-weight:900; border:none; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);">CONFIRMAR POR WHATSAPP</a>
-            
-            <p style="margin-top:25px; font-size:0.7rem; color: white; opacity: 0.8; letter-spacing: 1px;">POR FAVOR CONFIRMAR ANTES DEL 10.10.2026</p>
+        <div class="glass-card reveal" style="border: 1px solid var(--gold-glow);">
+            <h2 class="section-title">Confirmar</h2>
+            <p id="saludo-familia" style="font-family:'Cinzel'; font-size: 1.1rem; color: #fff;"></p>
+            <p id="lugares-mensaje" style="font-size: 0.9rem; margin: 15px 0; color: #fff;"></p>
+            <div class="attendance-selector"><select id="num-asistentes"><option value="1">1 Persona</option></select></div>
+            <a href="javascript:void(0)" onclick="enviarWhatsApp()" class="btn-wine" style="background:#25d366; border:none; color:black;">ENVIAR A WHATSAPP</a>
         </div>
 
-        <div class="final-logo">S & H</div>
+        <div style="font-family:'Cinzel'; font-size:2rem; color:var(--gold-glow); margin:40px 0;">S & H</div>
 
-        <footer style="padding:60px 20px 40px 20px; opacity:0.6; font-size:0.65rem; letter-spacing:3px; color: white;">
+        <footer style="padding:40px 20px; opacity:0.5; font-size:0.6rem; letter-spacing:2px;">
             <p>MI GRAN DÍA • DIAMOND COLLECTION</p>
-            <p style="margin-top: 12px;">CREACIÓN DE <a href="https://migrandia.mx" target="_blank" rel="noopener" style="color: var(--gold-glow); text-decoration: none; font-weight: bold;">MIGRANDIA.MX</a></p>
         </footer>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        // SEGURIDAD: Bloquear F12, Ctrl+U, Ctrl+Shift+I, etc.
-        document.onkeydown = function(e) {
-            if(e.keyCode == 123) return false; // F12
-            if(e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0) || e.keyCode == 'C'.charCodeAt(0))) return false;
-            if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false; // Ctrl+U
-        };
-
-        // MÚSICA CONTROL
         var track = document.getElementById('track');
         var mStatus = document.getElementById('m-status');
-        var playing = false;
+        var started = false;
 
-        // Inicia audio al primer click en el body (requerido por navegadores modernos)
-        function initAudio() {
-            if (!playing) {
-                track.play().then(() => { playing = true; mStatus.textContent = "II"; }).catch(e => { console.log("Audio waiting for interaction"); });
+        // INICIAR MÚSICA AL BAJAR (SCROLL)
+        window.addEventListener('scroll', function() {
+            if (!started) {
+                track.play();
+                mStatus.textContent = "II";
+                started = true;
             }
+        }, { once: true });
+
+        function toggleMusic(e) { 
+            e.stopPropagation(); 
+            if (track.paused) { track.play(); mStatus.textContent = "II"; } 
+            else { track.pause(); mStatus.textContent = "▶"; } 
         }
 
-        // Toggle play/pause desde la píldora
-        function toggleMusic(e) {
-            e.stopPropagation(); // Evita que initAudio se dispare también
-            if (track.paused) { track.play(); mStatus.textContent = "II"; playing = true; }
-            else { track.pause(); mStatus.textContent = "▶"; playing = false; }
-        }
-
-        // CONTADOR (Fecha ObjetivoEditable)
-        const target = new Date("May 15, 2026 19:30:00").getTime(); // Año, Mes(0-11), Día, Hora
+        const target = new Date("May 15, 2026 19:30:00").getTime();
         setInterval(() => {
             const now = new Date().getTime();
             const d = target - now;
@@ -338,77 +246,29 @@
                 document.getElementById("hours").textContent = Math.floor((d % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
                 document.getElementById("mins").textContent = Math.floor((d % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
                 document.getElementById("secs").textContent = Math.floor((d % (1000 * 60)) / 1000).toString().padStart(2, '0');
-            } else {
-                // Texto cuando ya pasó la fecha
-                document.getElementById("timer-container").innerHTML = "<div class='role' style='color:white;'>¡LLEGÓ EL GRAN DÍA!</div>";
             }
         }, 1000);
 
-        // ONLOAD: Personalización por URL y Efectos
         window.onload = function() {
-            // 1. Obtener parámetros URL (?n=Nombre&c=3)
             const urlParams = new URLSearchParams(window.location.search);
-            const nombre = urlParams.get('n'); 
-            const cupos = urlParams.get('c');   
-
-            // 2. Personalizar Saludo
-            if (nombre) {
-                const n = decodeURIComponent(nombre).replace(/\+/g, ' ').toUpperCase();
-                document.getElementById('saludo-familia').textContent = `¡HOLA, FAMILIA ${n}!`;
-            } else {
-                document.getElementById('saludo-familia').textContent = `¡TE ESPERAMOS!`;
+            const n = urlParams.get('n'); const c = urlParams.get('c');
+            document.getElementById('saludo-familia').textContent = n ? `FAMILIA ${decodeURIComponent(n).toUpperCase()}` : "¡TE ESPERAMOS!";
+            if (c) {
+                const cant = parseInt(c);
+                document.getElementById('lugares-mensaje').innerHTML = `Lugares reservados: <b>${cant}</b>`;
+                const s = document.getElementById('num-asistentes'); s.innerHTML = "";
+                for (let i = 1; i <= cant; i++) { let o = document.createElement('option'); o.value = i; o.textContent = i + (i > 1 ? " Personas" : " Persona"); s.appendChild(o); }
             }
-
-            // 3. Personalizar Cupos y Selector
-            if (cupos && !isNaN(cupos) && cupos > 0) {
-                const cant = parseInt(cupos);
-                // Asegurar máximo de 10 por seguridad si no viene dato
-                const maxCupos = Math.min(cant, 10); 
-                const textoLugares = cant === 1 ? "1 lugar reservado" : `${cant} lugares reservados`;
-                document.getElementById('lugares-mensaje').innerHTML = `Hemos reservado <b>${textoLugares}</b> para ustedes.`;
-
-                // Llenar selector dinámicamente
-                const selector = document.getElementById('num-asistentes');
-                selector.innerHTML = ""; 
-                for (let i = 1; i <= maxCupos; i++) {
-                    let opt = document.createElement('option');
-                    opt.value = i;
-                    opt.textContent = i + (i > 1 ? " Personas" : " Persona");
-                    if (i === maxCupos) opt.selected = true; // Selecciona el máximo por defecto
-                    selector.appendChild(opt);
-                }
-            } else {
-                // Si no hay cupos en URL, mensaje genérico y selector del 1 al 4
-                document.getElementById('lugares-mensaje').textContent = "Por favor confirma cuántas personas asistirán.";
-            }
-            
-            // 4. Inicializar Swiper de Galería
-            new Swiper(".mySwiper", { 
-                effect: "slide", // Cambiado de 'cards' a 'slide' para que se vean las fotos completas
-                grabCursor: true, 
-                loop: true,
-                autoplay: { delay: 3000, disableOnInteraction: false },
-                navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
-            });
-            
-            // 5. Inicializar ScrollReveal (Efecto aparecer)
-            ScrollReveal().reveal('.reveal', { distance: '40px', duration: 1000, origin: 'bottom', interval: 150 });
+            new Swiper(".mySwiper", { loop: true, autoplay: { delay: 3000 } });
+            ScrollReveal().reveal('.reveal', { distance: '30px', duration: 1000, origin: 'bottom', interval: 100 });
         };
 
-        // ENVIAR WHATSAPP (NúmeroEditable en la función)
         function enviarWhatsApp() {
-            const numAsistentes = document.getElementById('num-asistentes').value;
+            const num = document.getElementById('num-asistentes').value;
             const urlParams = new URLSearchParams(window.location.search);
-            // Reemplaza los '+' por espacios si vienen en la URL
-            const nombreFamilia = urlParams.get('n') ? decodeURIComponent(urlParams.get('n')).replace(/\+/g, ' ') : "Invitado";
-            
-            // Reemplaza este número por el de confirmación real (con clave de país, sin '+' ni espacios)
-            const telefonoConfirmacion = "525611234012"; 
-            
-            const mensajeRaw = `¡Hola Sofia! Confirmo la asistencia de la Familia ${nombreFamilia} con ${numAsistentes} personas. ¡Nos vemos pronto en tus XV!`;
-            const msg = encodeURIComponent(mensajeRaw);
-            
-            window.open(`https://wa.me/${telefonoConfirmacion}?text=${msg}`, '_blank', 'noopener');
+            const fam = urlParams.get('n') ? decodeURIComponent(urlParams.get('n')) : "Invitado";
+            const msg = encodeURIComponent(`¡Hola Sofia! Confirmo la asistencia de la Familia ${fam} con ${num} personas.`);
+            window.open(`https://wa.me/525611234012?text=${msg}`, '_blank');
         }
     </script>
 </body>
