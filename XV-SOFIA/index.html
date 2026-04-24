@@ -7,6 +7,7 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Dancing+Script:wght@600&family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/scrollreveal"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <style>
         :root {
@@ -79,27 +80,23 @@
         }
 
         .section-title { font-family: 'Dancing Script', cursive; font-size: 3.2rem; color: var(--gold-glow); margin-bottom: 25px; }
-        .img-rounded { width: 100%; border-radius: 15px; border: 2px solid var(--gold-glow); margin-bottom: 25px; }
 
-        /* GALERÍA / ÁLBUM */
-        .photo-grid {
-            display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 0 10px;
-        }
-        .photo-grid img {
-            width: 100%; height: 180px; object-fit: cover; border-radius: 10px; border: 1px solid var(--gold-glow);
-        }
+        /* ESTILOS DEL ÁLBUM (SWIPER) */
+        .swiper { width: 100%; height: 400px; border-radius: 15px; border: 2px solid var(--gold-glow); }
+        .swiper-slide img { width: 100%; height: 100%; object-fit: cover; }
+        .swiper-button-next, .swiper-button-prev { color: var(--gold-glow) !important; }
 
         /* PADRES Y PADRINOS */
         .card-family { background: rgba(0,0,0,0.2); padding: 20px; border-radius: 10px; border-left: 4px solid var(--gold-glow); margin-bottom: 15px; text-align: left; }
         .role { font-size: 0.7rem; text-transform: uppercase; color: var(--gold-glow); font-weight: bold; }
         .p-name { font-size: 1.1rem; margin-top: 5px; }
 
-        /* REGALOS */
+        /* REGALOS / TRANSFERENCIA */
         .gift-container { display: flex; justify-content: space-around; margin: 20px 0; }
         .gift-img { width: 70px; height: 70px; object-fit: contain; }
         .clabe-box { 
-            font-size: 1rem; background: rgba(0,0,0,0.4); border: 1.5px solid var(--gold-glow); 
-            padding: 15px; border-radius: 10px; margin-top: 15px; letter-spacing: 2px; font-weight: bold;
+            font-size: 0.85rem; background: rgba(0,0,0,0.4); border: 1.5px solid var(--gold-glow); 
+            padding: 20px; border-radius: 15px; margin-top: 15px; text-align: left; line-height: 1.6;
         }
 
         /* BOTONES */
@@ -148,22 +145,17 @@
         </div>
 
         <div class="glass-card reveal">
-            <h2 class="section-title">Mi Historia</h2>
-            <p style="font-family:'Dancing Script'; font-size:1.9rem; line-height:1.3; margin-bottom: 25px;">
-                "La vida se mide en momentos como este, y quiero que seas parte de mi historia."
-            </p>
-            <img src="https://www.dropbox.com/scl/fi/r0jo5d2ktyy94zn0dwaeq/file_0000000019d071f5a05cb19c2cdf8040.png?rlkey=0mmdohsa74mzc0e5vheh9qu1f&raw=1" class="img-rounded">
-            <p style="font-family:'Dancing Script'; font-size:1.5rem;">Acompañame a celebrar mis 15 años, un día que será aún más especial porque tú estarás ahí.</p>
-        </div>
-
-        <div class="glass-card reveal">
             <h2 class="section-title">Mi Álbum</h2>
-            <div class="photo-grid">
-                <img src="https://www.dropbox.com/scl/fi/90s9txvvh2414ub9l6200/file_0000000042d871f792e1a16440ed528f.png?rlkey=4sksov3h62nlkefa24wsqe0ay&raw=1">
-                <img src="https://www.dropbox.com/scl/fi/r0jo5d2ktyy94zn0dwaeq/file_0000000019d071f5a05cb19c2cdf8040.png?rlkey=0mmdohsa74mzc0e5vheh9qu1f&raw=1">
-                <img src="https://www.dropbox.com/scl/fi/90s9txvvh2414ub9l6200/file_0000000042d871f792e1a16440ed528f.png?rlkey=4sksov3h62nlkefa24wsqe0ay&raw=1">
-                <img src="https://www.dropbox.com/scl/fi/r0jo5d2ktyy94zn0dwaeq/file_0000000019d071f5a05cb19c2cdf8040.png?rlkey=0mmdohsa74mzc0e5vheh9qu1f&raw=1">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/90s9txvvh2414ub9l6200/file_0000000042d871f792e1a16440ed528f.png?rlkey=4sksov3h62nlkefa24wsqe0ay&raw=1"></div>
+                    <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/r0jo5d2ktyy94zn0dwaeq/file_0000000019d071f5a05cb19c2cdf8040.png?rlkey=0mmdohsa74mzc0e5vheh9qu1f&raw=1"></div>
+                    <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/90s9txvvh2414ub9l6200/file_0000000042d871f792e1a16440ed528f.png?rlkey=4sksov3h62nlkefa24wsqe0ay&raw=1"></div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
+            <p style="font-size:0.7rem; margin-top:10px; opacity:0.6;">Desliza para ver más fotos</p>
         </div>
 
         <div class="glass-card reveal">
@@ -187,7 +179,7 @@
 
         <div class="glass-card reveal">
             <h2 class="section-title">Ubicación</h2>
-            <img src="https://www.dropbox.com/scl/fi/9744toh6j6mrfu8kv72f0/BELLA-LUNA.jpg?rlkey=jed7o0t40aa0eev4l2a1dmgpw&raw=1" class="img-rounded">
+            <img src="https://www.dropbox.com/scl/fi/9744toh6j6mrfu8kv72f0/BELLA-LUNA.jpg?rlkey=jed7o0t40aa0eev4l2a1dmgpw&raw=1" class="img-rounded" style="width:100%; border-radius:15px; border: 2px solid var(--gold-glow); margin-bottom:25px;">
             <h3 style="font-family:'Cinzel'; color:var(--gold-glow);">SALÓN BELLA LUNA</h3>
             <p style="margin-top:10px;">7:30 PM</p>
             <a href="https://maps.google.com/?q=Salón+Bella+Luna" target="_blank" class="btn-confirm" style="margin-top:20px; font-size:0.8rem;">Ver Mapa</a>
@@ -207,7 +199,13 @@
                     <p style="font-size:0.6rem; margin-top:5px;">LLUVIA DE SOBRES</p>
                 </div>
             </div>
-            <div class="clabe-box">CLABE: 0123 4567 8901</div>
+            
+            <div class="clabe-box">
+                <p><strong>Si prefieres realizar una transferencia bancaria:</strong></p>
+                <p style="margin-top:8px;">Nombre: Sofia Huidobro Jimenez</p>
+                <p>Banco: BBVA</p>
+                <p>CLABE: 0123 4567 8901</p>
+            </div>
         </div>
 
         <div class="glass-card reveal">
@@ -231,14 +229,26 @@
         </footer>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         var track = document.getElementById('track');
-        
+        var swiper;
+
         function startApp() {
             document.getElementById('overlay').style.display = 'none';
             document.getElementById('app-content').style.display = 'block';
             document.getElementById('music-pill').style.display = 'block';
             track.play();
+            
+            // Inicializar Swiper al entrar
+            swiper = new Swiper(".mySwiper", {
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                loop: true,
+            });
+
             ScrollReveal().reveal('.reveal', { distance: '20px', duration: 1000, origin: 'bottom', interval: 100 });
         }
 
