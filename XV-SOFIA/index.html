@@ -111,12 +111,10 @@
         }
         select { width: 100%; padding: 15px; border-radius: 10px; background: #fff; color: #000; font-weight: bold; margin-bottom: 15px; }
         
-        /* Ajuste: Imágenes más grandes en código de vestimenta */
         .dress-code-icons { display: flex; justify-content: center; gap: 30px; margin: 20px 0; }
         .dress-icon { width: 85px; filter: invert(1) sepia(1) saturate(5) hue-rotate(360deg); opacity: 0.9; pointer-events: none; }
         .dress-note { font-size: 0.8rem; color: #ffcccc; margin-top: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* Ajuste: Círculo rojo más pequeño */
         .no-red-circle {
             position: relative; width: 45px; height: 45px;
             border: 4px solid #ff0000; border-radius: 50%;
@@ -267,8 +265,9 @@
         <div class="glass-card reveal" style="border: 2px solid var(--gold-glow);">
             <h2 class="section-title" style="font-size:2.8rem;">Confirmar</h2>
             <p id="saludo-familia" style="font-family:'Cinzel'; font-size: 1.2rem; margin-bottom:10px;"></p>
-            <p style="font-style: italic; margin-bottom: 15px; color: var(--gold-glow);">"Nos encantaría contar con tu presencia. Por favor, confírmanos tu asistencia para esperarte con mucha alegría."</p>
+            <p style="font-style: italic; margin-bottom: 15px; color: var(--gold-glow);">"Nos encantaría contar con tu presencia. Por favor, confírmanos tu asistencia."</p>
             <p id="lugares-mensaje" style="margin-bottom:20px;"></p>
+            <p style="font-weight: bold; font-size: 0.9rem; margin-bottom: 10px; color: var(--gold-glow);">¿CUÁNTOS CONFIRMAN?</p>
             <select id="num-asistentes"></select>
             <button onclick="enviarWhatsApp()" class="btn-confirm">CONFIRMAR ASISTENCIA</button>
         </div>
@@ -283,18 +282,16 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         /* --- SEGURIDAD REFORZADA --- */
-        document.addEventListener('contextmenu', event => event.preventDefault()); // Bloquea Clic Derecho
-        
+        document.addEventListener('contextmenu', event => event.preventDefault()); 
         document.onkeydown = function(e) {
-            if(e.keyCode == 123) return false; // F12
-            if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false; // Ctrl+Shift+I
-            if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) return false; // Ctrl+Shift+C
-            if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) return false; // Ctrl+Shift+J
-            if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false; // Ctrl+U (Ver Código)
-            if(e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)) return false; // Ctrl+S
+            if(e.keyCode == 123) return false; 
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false; 
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) return false; 
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) return false; 
+            if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false; 
+            if(e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)) return false; 
         };
 
-        /* --- CONFIGURACIÓN DE URLS --- */
         const URL_MUSICA = "https://www.dropbox.com/scl/fi/cwufk4iw6mn327f390kyp/Lana-Del-Rey-Young-and-Beautiful-from-The-Great-Gatsby-Soundtrack.mp3?rlkey=7jaeztoic45cr319mvvdh1hvr&raw=1";
         const URL_FONDO_GENERAL = "https://www.dropbox.com/scl/fi/rc9azx6rl79fjuu3nj2ib/FONDO-DE-ROSAS.jpg?rlkey=rxdc64ddpq1yx0gi0vaamy80k&raw=1";
         const URL_HERO_BG = "https://www.dropbox.com/scl/fi/90s9txvvh2414ub9l6200/file_0000000042d871f792e1a16440ed528f.png?rlkey=4sksov3h62nlkefa24wsqe0ay&raw=1";
@@ -364,22 +361,18 @@
 
             const urlParams = new URLSearchParams(window.location.search);
             const n = urlParams.get('n'); const c = urlParams.get('c');
-            
-            // Texto de Saludo
             document.getElementById('saludo-familia').textContent = n ? `FAMILIA ${decodeURIComponent(n).toUpperCase()}` : "¡TE ESPERAMOS!";
             
-            // Lógica de Lugares Dinámicos
             const cant = c ? parseInt(c) : 5; 
             if(n && c) {
                 document.getElementById('lugares-mensaje').innerHTML = `Hemos reservado <b>${cant} lugares</b> para ustedes.`;
-            } else {
-                document.getElementById('lugares-mensaje').innerHTML = ""; 
             }
 
             const s = document.getElementById('num-asistentes');
             for (let i = 1; i <= cant; i++) {
                 let o = document.createElement('option'); o.value = i; o.textContent = i + (i > 1 ? " Personas" : " Persona");
-                if(i === cant) o.selected = true;
+                // Cambiado: Ahora selecciona el 1 inicialmente
+                if(i === 1) o.selected = true;
                 s.appendChild(o);
             }
         };
