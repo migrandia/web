@@ -7,7 +7,6 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Dancing+Script:wght@600&family=Montserrat:wght@200;400;600&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/scrollreveal"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <style>
         :root {
@@ -46,6 +45,7 @@
             position: relative; min-height: 100vh; display: none;
         }
 
+        /* BOTÓN DE MÚSICA ORIGINAL (RALLITAS) */
         #music-pill {
             position: fixed; bottom: 20px; right: 20px; z-index: 1000;
             background: rgba(0,0,0,0.7); border: 2px solid var(--gold-glow);
@@ -61,10 +61,17 @@
         .hero-v3 h2 { font-family: 'Cinzel'; letter-spacing: 8px; font-size: 1rem; color: var(--gold-glow); margin-bottom: 15px; }
         .hero-v3 h1 { font-family: 'Cinzel'; font-size: 4rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.8); }
 
-        .timer-v3 { display: flex; justify-content: center; gap: 12px; margin-top: 30px; }
+        .timer-v3 { display: flex; justify-content: center; gap: 12px; margin-top: 30px; margin-bottom: 20px; }
         .t-unit { background: rgba(0,0,0,0.5); border: 1px solid var(--gold-glow); padding: 12px; border-radius: 10px; min-width: 65px; }
         .t-num { font-family: 'Cinzel'; font-size: 1.5rem; display: block; color: var(--gold-glow); }
         .t-txt { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        .btn-calendar {
+            display: inline-block; background: transparent; color: var(--gold-glow);
+            border: 1px solid var(--gold-glow); padding: 10px 20px; border-radius: 5px;
+            text-decoration: none; font-size: 0.7rem; letter-spacing: 2px;
+            font-family: 'Cinzel';
+        }
 
         .glass-card {
             background: var(--glass); backdrop-filter: blur(10px);
@@ -80,9 +87,19 @@
         .role { font-size: 0.7rem; text-transform: uppercase; color: var(--gold-glow); font-weight: bold; }
         .p-name { font-size: 1.1rem; margin-top: 5px; }
 
-        /* REGALOS */
+        /* REGALOS SIN RALLITAS */
         .gift-container { display: flex; justify-content: space-around; margin: 20px 0; }
         .gift-img { width: 70px; height: 70px; object-fit: contain; }
+        .clabe-box { 
+            font-size: 1rem; 
+            background: rgba(0,0,0,0.4); 
+            border: 1.5px solid var(--gold-glow); 
+            padding: 15px; 
+            border-radius: 10px; 
+            margin-top: 15px;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
 
         /* BOTONES */
         .btn-confirm {
@@ -125,6 +142,8 @@
                 <div class="t-unit"><span id="mins" class="t-num">00</span><span class="t-txt">Min</span></div>
                 <div class="t-unit"><span id="secs" class="t-num">00</span><span class="t-txt">Seg</span></div>
             </div>
+            
+            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mis+XV+A%C3%B1os+Sofia&dates=20260515T193000/20260516T020000&details=Celebraci%C3%B3n+de+mis+XV+A%C3%B1os+en+Sal%C3%B3n+Bella+Luna&location=Sal%C3%B3n+Bella+Luna" target="_blank" class="btn-calendar">AGENDAR EVENTO</a>
         </div>
 
         <div class="glass-card reveal">
@@ -160,12 +179,13 @@
             <img src="https://www.dropbox.com/scl/fi/9744toh6j6mrfu8kv72f0/BELLA-LUNA.jpg?rlkey=jed7o0t40aa0eev4l2a1dmgpw&raw=1" class="img-rounded">
             <h3 style="font-family:'Cinzel'; color:var(--gold-glow);">SALÓN BELLA LUNA</h3>
             <p style="margin-top:10px;">7:30 PM</p>
-            <a href="https://maps.app.goo.gl/YourMapLink" target="_blank" class="btn-confirm" style="margin-top:20px; font-size:0.8rem;">Ver Mapa</a>
+            <a href="https://maps.google.com/?q=Salón+Bella+Luna" target="_blank" class="btn-confirm" style="margin-top:20px; font-size:0.8rem;">Ver Mapa</a>
         </div>
 
         <div class="glass-card reveal">
             <h2 class="section-title">Mesa de Regalos</h2>
-            <p style="font-size:0.8rem; margin-bottom: 20px;">Tu presencia es mi mejor regalo, pero si deseas tener un detalle:</p>
+            <p style="font-family:'Dancing Script'; font-size:1.6rem; margin-bottom: 15px; color: var(--gold-glow);">"Tu mejor regalo es compartir mi alegría en este día."</p>
+            <p style="font-size:0.8rem; margin-bottom: 20px;">Si deseas tener un detalle conmigo, puedes hacerlo de las siguientes formas:</p>
             <div class="gift-container">
                 <div>
                     <img src="https://cdn-icons-png.flaticon.com/512/3050/3050221.png" class="gift-img">
@@ -176,7 +196,7 @@
                     <p style="font-size:0.6rem; margin-top:5px;">LLUVIA DE SOBRES</p>
                 </div>
             </div>
-            <p style="font-size:0.9rem; border:1px dashed var(--gold-glow); padding:10px; border-radius:10px; margin-top:10px;">CLABE: 0123 4567 8901</p>
+            <div class="clabe-box">CLABE: 0123 4567 8901</div>
         </div>
 
         <div class="glass-card reveal">
@@ -229,20 +249,16 @@
         window.onload = function() {
             const urlParams = new URLSearchParams(window.location.search);
             const n = urlParams.get('n'); const c = urlParams.get('c');
-            
             document.getElementById('saludo-familia').textContent = n ? `FAMILIA ${decodeURIComponent(n).toUpperCase()}` : "¡TE ESPERAMOS!";
-            
-            // CORRECCIÓN SISTEMA DE PASES: Lee el número de la URL
             const cant = c ? parseInt(c) : 2; 
             document.getElementById('lugares-mensaje').innerHTML = `Hemos reservado <b>${cant} lugares</b> para ustedes.`;
-            
             const s = document.getElementById('num-asistentes');
-            s.innerHTML = ""; // Limpiar antes de llenar
+            s.innerHTML = ""; 
             for (let i = 1; i <= cant; i++) {
                 let o = document.createElement('option'); 
                 o.value = i; 
                 o.textContent = i + (i > 1 ? " Personas" : " Persona");
-                if(i === cant) o.selected = true; // Selecciona el máximo por defecto
+                if(i === cant) o.selected = true;
                 s.appendChild(o);
             }
         };
