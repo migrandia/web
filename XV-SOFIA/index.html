@@ -52,7 +52,6 @@
             padding: 10px 15px; border-radius: 50px; cursor: pointer; display: none;
         }
 
-        /* PORTADA */
         .hero-v3 {
             height: 100vh;
             background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url('https://www.dropbox.com/scl/fi/90s9txvvh2414ub9l6200/file_0000000042d871f792e1a16440ed528f.png?rlkey=4sksov3h62nlkefa24wsqe0ay&raw=1') center center no-repeat;
@@ -82,16 +81,13 @@
         .section-title { font-family: 'Dancing Script', cursive; font-size: 3.2rem; color: var(--gold-glow); margin-bottom: 25px; }
         .img-rounded { width: 100%; border-radius: 15px; border: 2px solid var(--gold-glow); margin-bottom: 25px; }
 
-        /* SLIDER ÁLBUM AUTOMÁTICO */
         .swiper { width: 100%; height: 400px; border-radius: 15px; border: 2px solid var(--gold-glow); }
         .swiper-slide img { width: 100%; height: 100%; object-fit: cover; }
         .swiper-button-next, .swiper-button-prev { color: var(--gold-glow) !important; }
 
-        /* FAMILIA */
         .card-family { background: rgba(0,0,0,0.2); padding: 20px; border-radius: 10px; border-left: 4px solid var(--gold-glow); margin-bottom: 15px; text-align: left; }
         .role { font-size: 0.7rem; text-transform: uppercase; color: var(--gold-glow); font-weight: bold; }
 
-        /* MESA DE REGALOS */
         .gift-container { display: flex; justify-content: space-around; margin: 25px 0; }
         .gift-img { width: 70px; height: 70px; object-fit: contain; }
         .clabe-box { 
@@ -181,7 +177,7 @@
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
             </div>
-            <p style="font-size:0.7rem; margin-top:10px; opacity:0.6;">Álbum interactivo</p>
+            <p style="font-family:'Dancing Script'; font-size:1.2rem; margin-top:15px; color: var(--gold-glow);">"Momentos capturados que guardaré por siempre en mi corazón."</p>
         </div>
 
         <div class="glass-card reveal">
@@ -215,15 +211,10 @@
             </div>
         </div>
 
-        <div class="glass-card reveal">
-            <h2 class="section-title">El Clima</h2>
-            <a class="weatherwidget-io" href="https://forecast7.com/es/19d25n99d10/mexico-city/" data-label_1="CIUDAD DE MÉXICO" data-label_2="PRONÓSTICO" data-font="Arial Rounded MT Bold" data-icons="Climacons Animated" data-days="5" data-theme="white_leather" >CLIMA</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');</script>
-        </div>
-
         <div class="glass-card reveal" style="border: 2px solid var(--gold-glow);">
             <h2 class="section-title" style="font-size:2.8rem;">Confirmar</h2>
             <p id="saludo-familia" style="font-family:'Cinzel'; font-size: 1.2rem; margin-bottom:10px;"></p>
+            <p style="font-style: italic; margin-bottom: 15px; color: var(--gold-glow);">"Nos encantaría contar con tu presencia. Por favor, confírmanos tu asistencia para esperarte con mucha alegría."</p>
             <p id="lugares-mensaje" style="margin-bottom:20px;"></p>
             <select id="num-asistentes"></select>
             <button onclick="enviarWhatsApp()" class="btn-confirm">CONFIRMAR ASISTENCIA</button>
@@ -231,7 +222,8 @@
 
         <footer style="padding:60px 20px;">
             <div style="font-family:'Cinzel'; color:var(--gold-glow); font-size:2.5rem; margin-bottom:10px;">S & H</div>
-            <p style="font-size:0.7rem; opacity:0.6;">MI GRAN DÍA • DIAMOND COLLECTION</p>
+            <p style="font-size:0.7rem; opacity:0.6; letter-spacing: 2px;">MI GRAN DÍA • DIAMOND COLLECTION</p>
+            <p style="font-size:0.8rem; margin-top: 15px; color: var(--gold-glow); font-weight: bold; letter-spacing: 1px;">MIGRANDIA.MX</p>
         </footer>
     </div>
 
@@ -248,7 +240,7 @@
             swiper = new Swiper(".mySwiper", {
                 navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
                 loop: true,
-                autoplay: { delay: 3000, disableOnInteraction: false }, // Automático 3 seg
+                autoplay: { delay: 3000, disableOnInteraction: false },
             });
             ScrollReveal().reveal('.reveal', { distance: '20px', duration: 1000, origin: 'bottom', interval: 100 });
         }
