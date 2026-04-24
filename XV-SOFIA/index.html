@@ -43,6 +43,7 @@
         .app-wrapper {
             max-width: var(--ancho-max); margin: 0 auto;
             background: linear-gradient(180deg, #600000 0%, #a50000 50%, #600000 100%);
+            background-attachment: fixed; background-size: cover;
             position: relative; min-height: 100vh; display: none;
         }
 
@@ -222,6 +223,7 @@
     <script>
         /* --- CONFIGURACIÓN DE URLS --- */
         const URL_MUSICA = "https://www.dropbox.com/scl/fi/80hypdxkg24wx6x7oael2/En-Tus-Manos-Se-or.mp3?rlkey=j4di62c9sgj4txgwbpikcngp3&raw=1";
+        const URL_FONDO_GENERAL = ""; // Pon un link aquí si quieres imagen de fondo en toda la web
         const URL_HERO_BG = "https://www.dropbox.com/scl/fi/90s9txvvh2414ub9l6200/file_0000000042d871f792e1a16440ed528f.png?rlkey=4sksov3h62nlkefa24wsqe0ay&raw=1";
         const URL_IMG_HISTORIA = "https://www.dropbox.com/scl/fi/r0jo5d2ktyy94zn0dwaeq/file_0000000019d071f5a05cb19c2cdf8040.png?rlkey=0mmdohsa74mzc0e5vheh9qu1f&raw=1";
         const URL_IMG_ITINERARIO = "https://www.dropbox.com/scl/fi/xdl2mk7n2y9q5emvrkplx/itnerario-15.png?rlkey=zend5yctnoc5evi96du5mf4lx&raw=1";
@@ -276,6 +278,11 @@
             document.getElementById('img-historia').src = URL_IMG_HISTORIA;
             document.getElementById('img-itinerario').src = URL_IMG_ITINERARIO;
             document.getElementById('img-salon').src = URL_IMG_SALON;
+
+            // Fondo General si existe
+            if(URL_FONDO_GENERAL !== "") {
+                document.getElementById('app-content').style.background = `linear-gradient(rgba(74,0,0,0.7), rgba(74,0,0,0.7)), url('${URL_FONDO_GENERAL}')`;
+            }
 
             const albumWrapper = document.getElementById('album-wrapper');
             URLS_ALBUM.forEach(url => {
