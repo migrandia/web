@@ -371,8 +371,8 @@
             const s = document.getElementById('num-asistentes');
             for (let i = 1; i <= cant; i++) {
                 let o = document.createElement('option'); o.value = i; o.textContent = i + (i > 1 ? " Personas" : " Persona");
-                // Cambiado: Ahora selecciona el 1 inicialmente
-                if(i === 1) o.selected = true;
+                // Modificado: Se selecciona automáticamente el número máximo asignado (el valor de 'c')
+                if(i === cant) o.selected = true;
                 s.appendChild(o);
             }
         };
