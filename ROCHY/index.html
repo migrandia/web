@@ -9,21 +9,22 @@
     <meta property="og:description" content="Acompáñanos a celebrar este día tan especial.">
     <meta property="og:image" content="https://www.dropbox.com/scl/fi/lqbh8cojt4pkullly42a9/ROCHI-1.jpg?rlkey=wtzlhzkci1bczsxe15eelswms&raw=1">
 
-    <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
     <style>
         :root {
-            --rosa-principal: #f8c8dc;
             --rosa-fuerte: #d4a5b9;
-            --texto: #5d5d5d;
+            --rosa-pastel: #f8c8dc;
+            --dorado: #b8860b;
+            --texto: #333333;
             /* URLS EDITABLES */
-            --bg-overlay: url('https://www.dropbox.com/scl/fi/lqbh8cojt4pkullly42a9/ROCHI-1.jpg?rlkey=wtzlhzkci1bczsxe15eelswms&raw=1');
-            --bg-patron: url('https://www.transparenttextures.com/patterns/flowers.png');
+            --img-portada: url('https://www.dropbox.com/scl/fi/lqbh8cojt4pkullly42a9/ROCHI-1.jpg?rlkey=wtzlhzkci1bczsxe15eelswms&raw=1');
+            --img-salon: url('https://www.dropbox.com/scl/fi/cftmtmmtec94szn38lllg/SALON-EL-JARDIN.jpg?rlkey=6pmex78frbjd5v3jqil1egz3s&raw=1');
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Montserrat', sans-serif; background-color: #fffafb; color: var(--texto); overflow-x: hidden; text-align: center; }
+        body { font-family: 'Montserrat', sans-serif; background-color: #fffafb; color: var(--texto); text-align: center; overflow-x: hidden; }
 
         /* --- SEGURIDAD: OVERLAY DE ENTRADA --- */
         #overlay {
@@ -31,58 +32,58 @@
             background: white; z-index: 5000; display: flex; flex-direction: column;
             justify-content: center; align-items: center; transition: opacity 1s ease;
         }
-        .foto-circulo { width: 150px; height: 150px; border-radius: 50%; border: 4px solid var(--rosa-fuerte); object-fit: cover; margin-bottom: 20px; }
-        .btn-entrar { padding: 15px 40px; background: var(--rosa-fuerte); color: white; border: none; border-radius: 30px; cursor: pointer; font-family: 'Montserrat'; font-weight: 600; }
+        #overlay .foto-fondo {
+            position: absolute; width: 100%; height: 100%; 
+            background: var(--img-portada) center center no-repeat; background-size: cover;
+            filter: brightness(0.7); z-index: -1;
+        }
+        .btn-entrar { 
+            padding: 20px 50px; font-size: 1.2rem; background: var(--rosa-fuerte); 
+            color: white; border: none; border-radius: 50px; cursor: pointer;
+            font-weight: bold; box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
 
-        /* --- BOCINA DE MÚSICA --- */
-        .bocina { position: fixed; top: 20px; right: 20px; z-index: 4000; background: white; width: 45px; height: 45px; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; border: 1px solid var(--rosa-fuerte); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-
-        /* --- SECCIÓN PORTADA (DIFUMINADA) --- */
+        /* --- PORTADA CON DIFUMINACIÓN --- */
         header {
             height: 100vh;
-            background: linear-gradient(to bottom, rgba(0,0,0,0) 60%, #fffafb 100%), var(--bg-overlay) center center no-repeat;
-            background-size: cover; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative; color: white;
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 50%, #fffafb 100%), var(--img-portada) center center no-repeat;
+            background-size: cover; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white;
         }
-        h1 { font-family: 'Parisienne', cursive; font-size: 5.5rem; text-shadow: 2px 2px 10px rgba(0,0,0,0.4); margin-bottom: 10px; }
-        .subtitulo { font-size: 1.2rem; letter-spacing: 5px; text-transform: uppercase; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); }
+        header h1 { font-family: 'Great Vibes', cursive; font-size: 6rem; text-shadow: 3px 3px 15px rgba(0,0,0,0.6); }
+        .sub-header { font-size: 1.5rem; letter-spacing: 5px; text-transform: uppercase; font-weight: 700; }
 
-        .mariposa { position: absolute; width: 30px; opacity: 0.7; animation: volar 10s infinite linear; pointer-events: none; }
+        /* --- MARIPOSAS --- */
+        .mariposa { position: absolute; width: 35px; opacity: 0.6; animation: volar 12s infinite linear; }
         @keyframes volar {
-            0% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
-            20% { opacity: 0.7; }
-            100% { transform: translate(150px, -400px) rotate(45deg); opacity: 0; }
+            0% { transform: translate(0,0) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.6; }
+            100% { transform: translate(200px, -500px) rotate(45deg); opacity: 0; }
         }
 
         /* --- CONTADOR --- */
-        #contador { padding: 60px 20px; background: #fffafb; }
-        .timer-container { display: flex; justify-content: center; gap: 10px; margin-top: 25px; }
-        .timer-box { background: var(--rosa-principal); padding: 15px; border-radius: 10px; min-width: 75px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        .timer-box span { display: block; font-size: 1.6rem; font-weight: bold; color: white; }
-        .timer-box label { font-size: 0.6rem; text-transform: uppercase; color: #666; }
+        #contador { padding: 80px 20px; background: white; }
+        .timer-grid { display: flex; justify-content: center; gap: 15px; margin-top: 30px; }
+        .timer-box { background: var(--rosa-pastel); padding: 20px; border-radius: 15px; min-width: 85px; }
+        .timer-box span { display: block; font-size: 2rem; font-weight: bold; color: var(--rosa-fuerte); }
 
-        /* --- MENSAJE --- */
-        .seccion-texto { padding: 80px 30px; background: var(--bg-patron); font-style: italic; font-size: 1.1rem; line-height: 1.8; }
+        /* --- TEXTOS --- */
+        .seccion-texto { padding: 100px 30px; line-height: 1.8; font-size: 1.2rem; font-style: italic; color: var(--texto); }
+        h3 { font-family: 'Great Vibes', cursive; font-size: 3.5rem; color: var(--rosa-fuerte); margin-bottom: 20px; }
 
-        /* --- GALERIA --- */
+        /* --- GALERÍA --- */
         .galeria { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 20px; }
-        .galeria img { width: 100%; height: 250px; object-fit: cover; border-radius: 10px; border: 5px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .galeria img { width: 100%; height: 300px; object-fit: cover; border-radius: 10px; border: 8px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
 
-        /* --- ITINERARIO --- */
-        .itinerario { padding: 60px 20px; background: #fdf2f5; }
-        .item-itinerario { margin-bottom: 35px; }
-        .item-itinerario i { color: var(--rosa-fuerte); font-size: 1.8rem; margin-bottom: 10px; }
-        .item-itinerario h4 { font-family: 'Montserrat'; letter-spacing: 2px; font-size: 0.9rem; }
+        /* --- UBICACIÓN E ITINERARIO --- */
+        .card { padding: 80px 20px; background: #fdf2f5; margin: 20px 0; }
+        .img-det { width: 100%; max-width: 600px; border-radius: 20px; margin: 25px 0; border: 10px solid white; }
+        .btn-accion { display: inline-block; padding: 18px 40px; background: var(--rosa-fuerte); color: white; text-decoration: none; border-radius: 50px; font-weight: bold; margin-top: 20px; }
 
-        /* --- UBICACIÓN --- */
-        .ubicacion { padding: 60px 20px; }
-        .img-salon { width: 100%; max-width: 500px; border-radius: 15px; margin: 20px 0; border: 8px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .btn { display: inline-block; padding: 15px 35px; background: var(--rosa-fuerte); color: white; text-decoration: none; border-radius: 30px; font-weight: 600; margin-top: 15px; box-shadow: 0 5px 15px rgba(212, 165, 185, 0.4); }
+        /* --- REPRODUCTOR --- */
+        #player { position: fixed; bottom: -100px; }
+        .btn-musica { position: fixed; top: 20px; right: 20px; z-index: 6000; background: white; width: 50px; height: 50px; border-radius: 50%; border: 2px solid var(--rosa-fuerte); cursor: pointer; }
 
-        /* --- SECCIONES FINALES --- */
-        .vestimenta { padding: 80px 20px; background: var(--rosa-principal); color: white; }
-        .sobres { padding: 80px 20px; background: white; }
-
-        footer { padding: 50px 20px; background: #333; color: white; font-size: 0.7rem; letter-spacing: 2px; }
+        footer { padding: 60px 20px; background: #333; color: white; font-size: 0.8rem; letter-spacing: 2px; }
     </style>
 </head>
 <body>
@@ -90,86 +91,85 @@
     <div id="player"></div>
 
     <div id="overlay">
-        <img src="https://www.dropbox.com/scl/fi/lqbh8cojt4pkullly42a9/ROCHI-1.jpg?rlkey=wtzlhzkci1bczsxe15eelswms&raw=1" class="foto-circulo">
-        <h2 style="font-family: 'Parisienne'; font-size: 3.5rem; color: var(--rosa-fuerte);">Bienvenida</h2>
-        <p style="margin-bottom: 30px; letter-spacing: 2px;">Invitación para el evento de Rochy</p>
+        <div class="foto-fondo"></div>
+        <h2 style="font-family: 'Great Vibes'; font-size: 4rem; color: white; margin-bottom: 10px;">Rochy</h2>
+        <p style="color: white; margin-bottom: 30px; letter-spacing: 3px;">BIENVENIDO A MI INVITACIÓN</p>
         <button class="btn-entrar" onclick="comenzar()">VER INVITACIÓN</button>
     </div>
 
-    <div class="bocina" onclick="toggleMusic()">
-        <i id="music-icon" class="fa-solid fa-volume-high" style="color: var(--rosa-fuerte);"></i>
-    </div>
+    <button class="btn-musica" onclick="toggleMute()"><i id="m-icon" class="fa-solid fa-music" style="color: var(--rosa-fuerte);"></i></button>
 
     <header>
-        <div class="mariposa" style="top: 20%; left: 10%;"><img src="https://cdn-icons-png.flaticon.com/512/3233/3233306.png" width="30"></div>
-        <div class="mariposa" style="top: 50%; right: 15%; animation-delay: 3s;"><img src="https://cdn-icons-png.flaticon.com/512/3233/3233306.png" width="30"></div>
-        <p class="subtitulo">Celebrando a</p>
+        <div class="mariposa" style="top: 30%; left: 10%;"><i class="fa-solid fa-butterfly" style="color: white;"></i></div>
+        <div class="mariposa" style="top: 60%; right: 10%; animation-delay: 4s;"><i class="fa-solid fa-butterfly" style="color: white;"></i></div>
+        <p class="sub-header">Celebrando a</p>
         <h1>Rochy</h1>
-        <p style="letter-spacing: 3px;">23 DE MAYO | 3:00 PM</p>
+        <p class="sub-header">23 DE MAYO | 3:00 PM</p>
     </header>
 
-    <div class="seccion-texto">
+    <section class="seccion-texto">
         <p>“Hay momentos en la vida que son especiales por sí solos, pero compartirlos con las personas que más queremos los hace inolvidables. Gracias por ser parte de mi historia.”</p>
-    </div>
+    </section>
 
-    <div id="contador">
-        <h3 style="letter-spacing: 3px; color: #aaa; font-size: 0.8rem;">FALTAN:</h3>
-        <div class="timer-container">
-            <div class="timer-box"><span id="dias">00</span><label>Días</label></div>
-            <div class="timer-box"><span id="horas">00</span><label>Hrs</label></div>
-            <div class="timer-box"><span id="minutos">00</span><label>Min</label></div>
-            <div class="timer-box"><span id="segundos">00</span><label>Seg</label></div>
+    <section id="contador">
+        <h3 style="font-size: 2.5rem;">Faltan:</h3>
+        <div class="timer-grid">
+            <div class="timer-box"><span id="d">00</span>Días</div>
+            <div class="timer-box"><span id="h">00</span>Hrs</div>
+            <div class="timer-box"><span id="m">00</span>Min</div>
+            <div class="timer-box"><span id="s">00</span>Seg</div>
         </div>
-    </div>
+    </section>
 
-    <div class="seccion-texto" style="background: white;">
-        <h3 style="font-family: 'Parisienne'; font-size: 3rem; color: var(--rosa-fuerte); margin-bottom: 20px;">Nuestros Momentos</h3>
+    <section style="background: white; padding-bottom: 80px;">
+        <h3>Nuestros Momentos</h3>
+        <p style="margin-bottom: 30px;">Cada foto cuenta una parte de este hermoso camino.</p>
         <div class="galeria">
             <img src="https://www.dropbox.com/scl/fi/lqbh8cojt4pkullly42a9/ROCHI-1.jpg?rlkey=wtzlhzkci1bczsxe15eelswms&raw=1">
             <img src="https://www.dropbox.com/scl/fi/ct3vqhngyuwd1n95mat5c/ROCHY-2.jpg?rlkey=w1e681zhti3ybzq9fwgqlzouc&raw=1">
             <img src="https://www.dropbox.com/scl/fi/uxhlesvenzofrrjtp1ie3/ROCHY-3.jpg?rlkey=qgowtjxhb12kns9ztbve6gxa7&raw=1">
             <img src="https://www.dropbox.com/scl/fi/l0ers5w3zm8rtigo12gyd/ROCHY-4.jpg?rlkey=ivnjwkvxki1p8gf2frrhyh0l0&raw=1">
         </div>
-    </div>
+    </section>
 
-    <div class="itinerario">
-        <h3 style="font-family: 'Parisienne'; font-size: 3rem; color: var(--rosa-fuerte); margin-bottom: 40px;">ITINERARIO</h3>
-        <div class="item-itinerario"><i class="fa-solid fa-martini-glass-citrus"></i><h4>3:00 PM - BIENVENIDA</h4><p>Recepción y brindis inicial.</p></div>
-        <div class="item-itinerario"><i class="fa-solid fa-utensils"></i><h4>4:30 PM - BANQUETE</h4><p>Comida especial en honor a Rochy.</p></div>
-        <div class="item-itinerario"><i class="fa-solid fa-cake-candles"></i><h4>6:00 PM - PASTEL</h4><p>Momento de celebrar y bailar.</p></div>
-    </div>
+    <section class="card">
+        <h3>Itinerario</h3>
+        <div style="margin-top: 30px;">
+            <p><strong>3:00 PM</strong> - Bienvenida y Brindis</p><br>
+            <p><strong>4:30 PM</strong> - Banquete de Gala</p><br>
+            <p><strong>6:00 PM</strong> - Pastel y Celebración</p>
+        </div>
+    </section>
 
-    <div class="ubicacion">
-        <h3 style="font-family: 'Parisienne'; font-size: 3rem; color: var(--rosa-fuerte);">UBICACIÓN</h3>
+    <section style="padding: 80px 20px;">
+        <h3>Ubicación</h3>
         <p>Salón El Jardín</p>
-        <img class="img-salon" src="https://www.dropbox.com/scl/fi/cftmtmmtec94szn38lllg/SALON-EL-JARDIN.jpg?rlkey=6pmex78frbjd5v3jqil1egz3s&raw=1">
+        <img src="https://www.dropbox.com/scl/fi/cftmtmmtec94szn38lllg/SALON-EL-JARDIN.jpg?rlkey=6pmex78frbjd5v3jqil1egz3s&raw=1" class="img-det">
         <br>
-        <a href="https://maps.app.goo.gl/L4iqsTkdurSwgjws9?g_st=aw" class="btn" target="_blank">VER EN GOOGLE MAPS</a>
-    </div>
+        <a href="https://maps.app.goo.gl/L4iqsTkdurSwgjws9?g_st=aw" class="btn-accion" target="_blank">VER EN GOOGLE MAPS</a>
+    </section>
 
-    <div class="vestimenta">
-        <i class="fa-solid fa-user-tie" style="font-size: 2.5rem; margin-bottom: 15px;"></i>
-        <h3 style="font-family: 'Parisienne'; font-size: 3rem;">VESTIMENTA</h3>
-        <p style="letter-spacing: 3px;">FORMAL</p>
-    </div>
+    <section class="card" style="background: var(--rosa-pastel);">
+        <h3 style="color: white;">Código de Vestimenta</h3>
+        <p style="color: white; font-weight: bold; letter-spacing: 3px;">FORMAL</p>
+    </section>
 
-    <div class="sobres">
-        <i class="fa-solid fa-envelope-open-text" style="font-size: 2.5rem; color: var(--rosa-fuerte); margin-bottom: 15px;"></i>
-        <h3 style="font-family: 'Parisienne'; font-size: 3rem; color: var(--rosa-fuerte);">LLUVIA DE SOBRES</h3>
-        <p style="max-width: 300px; margin: 0 auto;">Si deseas hacerme un presente, lo recibiré con mucho cariño en efectivo el día del evento.</p>
-    </div>
+    <section style="padding: 80px 20px;">
+        <h3>Lluvia de Sobres</h3>
+        <p style="max-width: 400px; margin: 0 auto;">Si deseas hacerme un presente, lo recibiré con mucho cariño en efectivo el día del evento.</p>
+    </section>
 
-    <div style="padding: 80px 20px; background: white; border-top: 1px solid #eee;">
-        <h3 style="font-family: 'Parisienne'; font-size: 3rem; color: var(--rosa-fuerte);">¿NOS ACOMPAÑAS?</h3>
-        <p style="margin-bottom: 30px;">Por favor confirma tu asistencia antes del 15 de mayo.</p>
-        <a href="https://wa.me/529931795286?text=¡Hola! Confirmo mi asistencia al evento de Rochy." class="btn" style="background: #25d366;">
+    <section class="card" style="background: white;">
+        <h3>¿Nos acompañas?</h3>
+        <p>Por favor confirma tu asistencia antes del 15 de mayo.</p>
+        <a href="https://wa.me/529931795286?text=¡Hola! Confirmo mi asistencia al evento de Rochy." class="btn-accion" style="background: #25d366;">
             <i class="fa-brands fa-whatsapp"></i> CONFIRMAR POR WHATSAPP
         </a>
-    </div>
+    </section>
 
     <footer>
-        <p>Invitación creada para Rochy</p>
-        <a href="https://miGrandia.mx" style="color:#666; text-decoration:none; display:block; margin-top:10px;">MIGRANDIA.MX</a>
+        <p>Invitación exclusiva para Rochy</p>
+        <p>© 2026 - Todos los derechos reservados</p>
     </footer>
 
     <script src="https://www.youtube.com/iframe_api"></script>
@@ -188,26 +188,25 @@
             player.playVideo();
         }
 
-        function toggleMusic() {
-            var icon = document.getElementById('music-icon');
-            if (player.getPlayerState() == 1) {
-                player.pauseVideo();
-                icon.className = "fa-solid fa-volume-xmark";
+        function toggleMute() {
+            if (player.isMuted()) {
+                player.unMute();
+                document.getElementById('m-icon').className = "fa-solid fa-music";
             } else {
-                player.playVideo();
-                icon.className = "fa-solid fa-volume-high";
+                player.mute();
+                document.getElementById('m-icon').className = "fa-solid fa-volume-xmark";
             }
         }
 
-        const fechaEvento = new Date('May 23, 2026 15:00:00').getTime();
-        setInterval(function() {
+        const fin = new Date('May 23, 2026 15:00:00').getTime();
+        setInterval(() => {
             const ahora = new Date().getTime();
-            const distancia = fechaEvento - ahora;
-            if (distancia > 0) {
-                document.getElementById("dias").innerText = Math.floor(distancia / (1000 * 60 * 60 * 24)).toString().padStart(2,'0');
-                document.getElementById("horas").innerText = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2,'0');
-                document.getElementById("minutos").innerText = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2,'0');
-                document.getElementById("segundos").innerText = Math.floor((distancia % (1000 * 60)) / 1000).toString().padStart(2,'0');
+            const d = fin - ahora;
+            if (d > 0) {
+                document.getElementById('d').innerText = Math.floor(d / (1000*60*60*24)).toString().padStart(2,'0');
+                document.getElementById('h').innerText = Math.floor((d % (1000*60*60*24)) / (1000*60*60)).toString().padStart(2,'0');
+                document.getElementById('m').innerText = Math.floor((d % (1000*60*60)) / (1000*60)).toString().padStart(2,'0');
+                document.getElementById('s').innerText = Math.floor((d % (1000*60)) / 1000).toString().padStart(2,'0');
             }
         }, 1000);
     </script>
