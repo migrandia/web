@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Invitación Especial - Rochy</title>
     
-    <meta property="og:title" content="¡Estás invitado al evento de Rochy!">
+    <meta property="og:title" content="¡Estás invitado al cumple de Rochy!">
     <meta property="og:description" content="Acompáñanos a celebrar este día tan especial.">
     <meta property="og:image" content="https://www.dropbox.com/scl/fi/lqbh8cojt4pkullly42a9/ROCHI-1.jpg?rlkey=wtzlhzkci1bczsxe15eelswms&raw=1">
 
@@ -17,11 +17,9 @@
             --rosa-principal: #f8c8dc;
             --rosa-fuerte: #d4a5b9;
             --texto: #4a4a4a;
-            /* URLS EDITABLES */
             --bg-general: url('https://www.transparenttextures.com/patterns/flowers.png');
             --img-portada: url('https://www.dropbox.com/scl/fi/lqbh8cojt4pkullly42a9/ROCHI-1.jpg?rlkey=wtzlhzkci1bczsxe15eelswms&raw=1');
             --img-salon: url('https://www.dropbox.com/scl/fi/cftmtmmtec94szn38lllg/SALON-EL-JARDIN.jpg?rlkey=6pmex78frbjd5v3jqil1egz3s&raw=1');
-            /* ICONOS SECCIONES (EDITABLES) */
             --icono-vestimenta: url('https://cdn-icons-png.flaticon.com/512/3534/3534312.png');
             --icono-sobres: url('https://cdn-icons-png.flaticon.com/512/3064/3064044.png');
         }
@@ -34,6 +32,7 @@
             color: var(--texto); 
             overflow-x: hidden; 
             width: 100%;
+            text-align: center;
         }
 
         /* SEGURIDAD: OVERLAY */
@@ -45,15 +44,23 @@
         #overlay::before {
             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: var(--img-portada) center center no-repeat; background-size: cover;
-            filter: brightness(0.6); z-index: -1;
+            filter: brightness(0.5); z-index: -1;
         }
+
+        /* BOTÓN DE PAUSA FIJO */
+        .btn-audio {
+            position: fixed; top: 20px; right: 20px; z-index: 6000;
+            background: rgba(255, 255, 255, 0.8); border: none; width: 40px; height: 40px;
+            border-radius: 50%; color: var(--rosa-fuerte); cursor: pointer; display: none;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
         .btn-entrar {
             padding: 15px 45px; font-size: 1.2rem; background: var(--rosa-fuerte);
             color: white; border: none; border-radius: 50px; cursor: pointer;
             font-weight: bold; letter-spacing: 2px; box-shadow: 0 5px 20px rgba(0,0,0,0.3);
         }
 
-        /* PORTADA CON DIFUMINADO INFERIOR */
         header {
             height: 100vh;
             background: linear-gradient(to bottom, rgba(0,0,0,0) 60%, #fffafb 100%), var(--img-portada) center center no-repeat;
@@ -63,22 +70,17 @@
         header h1 { font-family: 'Great Vibes', cursive; font-size: 6rem; text-shadow: 2px 2px 15px rgba(0,0,0,0.5); }
         .subtitulo { font-size: 1.5rem; letter-spacing: 6px; text-transform: uppercase; font-weight: 300; }
 
-        /* CONTADOR INTEGRADO EN PORTADA */
-        .count-portada {
-            margin-top: 30px; display: flex; gap: 15px;
-        }
+        .count-portada { margin-top: 30px; display: flex; gap: 15px; justify-content: center; }
         .count-item {
             background: rgba(255,255,255,0.2); backdrop-filter: blur(5px);
             padding: 10px; border-radius: 10px; min-width: 65px; border: 1px solid rgba(255,255,255,0.3);
         }
         .count-item span { display: block; font-size: 1.5rem; font-weight: bold; }
 
-        /* SECCIONES */
-        section { padding: 80px 20px; text-align: center; }
+        section { padding: 80px 20px; }
         .titulo-elegante { font-family: 'Great Vibes', cursive; font-size: 4rem; color: var(--rosa-fuerte); margin-bottom: 20px; }
         p { line-height: 1.8; font-size: 1.1rem; max-width: 500px; margin: 0 auto; }
 
-        /* CARRUSEL DE FOTOS */
         .carousel {
             display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
             gap: 15px; padding: 20px; scrollbar-width: none;
@@ -91,13 +93,11 @@
         }
         .photo-card img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* ICONOS EDITABLES */
         .icon-box {
             width: 80px; height: 80px; margin: 0 auto 20px;
             background-size: contain; background-repeat: no-repeat; background-position: center;
         }
 
-        /* BOTONES */
         .btn-confirmar {
             display: inline-block; margin-top: 30px; padding: 18px 40px;
             background: var(--rosa-fuerte); color: white; text-decoration: none;
@@ -111,15 +111,16 @@
 <body>
 
     <div id="player"></div>
+    <button class="btn-audio" id="muteBtn" onclick="toggleAudio()"><i class="fa-solid fa-music"></i></button>
 
     <div id="overlay">
         <h2 style="font-family: 'Great Vibes'; font-size: 4rem; color: white; margin-bottom: 10px;">Rochy</h2>
-        <p style="color: white; letter-spacing: 3px; margin-bottom: 30px;">BIENVENIDO A MI INVITACIÓN</p>
-        <button class="btn-entrar" onclick="comenzar()">VER INVITACIÓN</button>
+        <p style="color: white; font-style: italic; max-width: 300px; margin-bottom: 30px;">"La vida es un regalo y compartirla contigo es mi mayor alegría. ¡Te espero!"</p>
+        <button class="btn-entrar" onclick="comenzar()">ENTRAR</button>
     </div>
 
     <header>
-        <p class="subtitulo">Te invito a celebrar</p>
+        <p class="subtitulo">MIS CUMPLEAÑOS</p>
         <h1>Rochy</h1>
         <p style="font-weight: 600; letter-spacing: 2px;">23 DE MAYO | 3:00 PM</p>
         
@@ -132,44 +133,45 @@
     </header>
 
     <section>
-        <p style="font-style: italic;">“Hay momentos en la vida que son especiales por sí solos, compartirlos con las personas que más queremos los hace inolvidables. Gracias por ser parte de mi historia.”</p>
+        <p style="font-style: italic;">“Un año más de vida para agradecer, para soñar y para celebrar junto a las personas que hacen mi mundo más brillante.”</p>
     </section>
 
     <section style="background: white;">
-        <h3 class="titulo-elegante">Nuestros Momentos</h3>
+        <h3 class="titulo-elegante">Instantes Especiales</h3>
+        <p style="margin-bottom: 20px;">Recuerdos que guardo en el corazón y que quiero seguir creando junto a ti.</p>
         <div class="carousel">
             <div class="photo-card"><img src="https://www.dropbox.com/scl/fi/lqbh8cojt4pkullly42a9/ROCHI-1.jpg?rlkey=wtzlhzkci1bczsxe15eelswms&raw=1"></div>
             <div class="photo-card"><img src="https://www.dropbox.com/scl/fi/ct3vqhngyuwd1n95mat5c/ROCHY-2.jpg?rlkey=w1e681zhti3ybzq9fwgqlzouc&raw=1"></div>
             <div class="photo-card"><img src="https://www.dropbox.com/scl/fi/uxhlesvenzofrrjtp1ie3/ROCHY-3.jpg?rlkey=qgowtjxhb12kns9ztbve6gxa7&raw=1"></div>
             <div class="photo-card"><img src="https://www.dropbox.com/scl/fi/l0ers5w3zm8rtigo12gyd/ROCHY-4.jpg?rlkey=ivnjwkvxki1p8gf2frrhyh0l0&raw=1"></div>
         </div>
-        <p style="font-size: 0.8rem; color: #bbb; margin-top: 10px;">(Desliza para ver más fotos)</p>
+        <p style="font-size: 0.8rem; color: #bbb; margin-top: 10px;">(Desliza para ver más)</p>
     </section>
 
     <section>
         <h3 class="titulo-elegante">Itinerario</h3>
         <div style="margin-bottom: 30px;">
-            <i class="fa-solid fa-star" style="color: var(--rosa-fuerte);"></i>
+            <i class="fa-solid fa-cake-candles" style="color: var(--rosa-fuerte);"></i>
             <h4>3:00 PM - BIENVENIDA</h4>
             <p>Recepción de invitados y brindis inicial.</p>
         </div>
         <div style="margin-bottom: 30px;">
             <i class="fa-solid fa-utensils" style="color: var(--rosa-fuerte);"></i>
             <h4>4:30 PM - BANQUETE</h4>
-            <p>Comida especial preparada para disfrutar juntos.</p>
+            <p>Comida preparada con mucho cariño.</p>
         </div>
         <div>
-            <i class="fa-solid fa-music" style="color: var(--rosa-fuerte);"></i>
+            <i class="fa-solid fa-champagne-glasses" style="color: var(--rosa-fuerte);"></i>
             <h4>6:00 PM - CELEBRACIÓN</h4>
-            <p>Momento de pastel, risas y baile.</p>
+            <p>Música, pastel y buenos deseos.</p>
         </div>
     </section>
 
     <section style="background: white;">
         <h3 class="titulo-elegante">Ubicación</h3>
         <p>Salón El Jardín</p>
-        <p style="font-size: 0.9rem; margin-top: 10px;">Te espero con mucha alegría en este hermoso lugar para celebrar juntos.</p>
-        <img src="https://www.dropbox.com/scl/fi/cftmtmmtec94szn38lllg/SALON-EL-JARDIN.jpg?rlkey=6pmex78frbjd5v3jqil1egz3s&raw=1" class="photo-card" style="width: 100%; height: auto; max-width: 500px; border-radius: 15px;">
+        <p style="font-size: 0.9rem; margin-top: 10px;">¡Celebremos en grande! Aquí te dejo la ubicación del evento:</p>
+        <img src="https://www.dropbox.com/scl/fi/cftmtmmtec94szn38lllg/SALON-EL-JARDIN.jpg?rlkey=6pmex78frbjd5v3jqil1egz3s&raw=1" class="photo-card" style="width: 100%; height: auto; max-width: 500px; border-radius: 15px; margin: 20px auto;">
         <br>
         <a href="https://maps.app.goo.gl/L4iqsTkdurSwgjws9?g_st=aw" target="_blank" class="btn-confirmar">VER EN MAPS</a>
     </section>
@@ -177,27 +179,27 @@
     <section style="background: var(--rosa-principal); color: white;">
         <div class="icon-box" style="background-image: var(--icono-vestimenta); filter: brightness(0) invert(1);"></div>
         <h3 class="titulo-elegante" style="color: white;">Vestimenta</h3>
-        <p>CÓDIGO: FORMAL</p>
-        <p style="font-size: 0.9rem; margin-top: 10px;">Tu presencia elegante es el mejor regalo para mi fiesta.</p>
+        <p>FORMAL</p>
+        <p style="font-size: 0.9rem; margin-top: 10px;">Tu presencia elegante hará mi día aún más especial.</p>
     </section>
 
     <section>
         <div class="icon-box" style="background-image: var(--icono-sobres);"></div>
         <h3 class="titulo-elegante">Lluvia de Sobres</h3>
-        <p>Tu presencia es lo más importante, pero si deseas hacerme un presente, lo recibiré con mucho cariño en efectivo el día del evento.</p>
+        <p>Si deseas darme un detalle, contaré con lluvia de sobres en la entrada del salón.</p>
     </section>
 
     <section style="background: white;">
-        <h3 class="titulo-elegante">¿Nos acompañas?</h3>
-        <p>Mi celebración no estaría completa sin ti. Por favor, confirma tu asistencia para esperarte con todo listo.</p>
-        <a href="https://wa.me/529931795286?text=¡Hola! Confirmo mi asistencia al evento de Rochy." class="btn-confirmar">
+        <h3 class="titulo-elegante">¿Me acompañas?</h3>
+        <p>Espero contar con tu presencia para celebrar la vida juntos.</p>
+        <a href="https://wa.me/529931795286?text=¡Hola! Confirmo mi asistencia al cumple de Rochy." class="btn-confirmar">
             <i class="fa-brands fa-whatsapp"></i> CONFIRMAR ASISTENCIA
         </a>
     </section>
 
     <footer>
-        <h2 style="font-family: 'Great Vibes'; font-size: 3rem; color: var(--rosa-fuerte);">Rochy</h2>
-        <p class="creacion">CREACIÓN DE MIGRANDIA.MX</p>
+        <h2 style="font-family: 'Great Vibes'; font-size: 3rem; color: var(--rosa-fuerte); text-align: center;">Rochy</h2>
+        <p class="creacion" style="text-align: center;">CREACIÓN DE MIGRANDIA.MX</p>
     </footer>
 
     <script src="https://www.youtube.com/iframe_api"></script>
@@ -212,11 +214,23 @@
 
         function comenzar() {
             document.getElementById('overlay').style.opacity = '0';
-            setTimeout(() => { document.getElementById('overlay').style.display = 'none'; }, 1000);
+            setTimeout(() => { 
+                document.getElementById('overlay').style.display = 'none'; 
+                document.getElementById('muteBtn').style.display = 'block';
+            }, 1000);
             player.playVideo();
         }
 
-        // CONTADOR FUNCIONAL
+        function toggleAudio() {
+            if (player.getPlayerState() == 1) {
+                player.pauseVideo();
+                document.getElementById('muteBtn').innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+            } else {
+                player.playVideo();
+                document.getElementById('muteBtn').innerHTML = '<i class="fa-solid fa-music"></i>';
+            }
+        }
+
         const fecha = new Date('May 23, 2026 15:00:00').getTime();
         setInterval(() => {
             const ahora = new Date().getTime();
