@@ -6,302 +6,236 @@
     <title>Invitación Especial - Rochy</title>
     
     <meta property="og:title" content="¡Estás invitado al evento de Rochy!">
-    <meta property="og:description" content="Acompáñanos a celebrar este día tan especial.">
+    <meta property="og:description" content="Te esperamos para celebrar juntos este día tan especial.">
     <meta property="og:image" content="https://www.dropbox.com/scl/fi/lqbh8cojt4pkullly42a9/ROCHI-1.jpg?rlkey=wtzlhzkci1bczsxe15eelswms&raw=1">
-    <meta property="og:url" content="https://tu-link-aqui.com">
 
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <style>
         :root {
-            --rosa-principal: #f8c8dc; /* Rosa pastel */
+            /* --- VARIABLES EDITABLES --- */
             --rosa-fuerte: #d4a5b9;
-            --dorado: #d4af37;
-            --texto: #5d5d5d;
-            /* URLS EDITABLES DE FONDOS */
-            --bg-overlay: url('https://www.dropbox.com/scl/fi/lqbh8cojt4pkullly42a9/ROCHI-1.jpg?rlkey=wtzlhzkci1bczsxe15eelswms&raw=1');
-            --bg-patron: url('https://www.transparenttextures.com/patterns/flowers.png');
+            --rosa-pastel: #f8c8dc;
+            --texto-oscuro: #4a4a4a;
+            --url-portada: url('https://www.dropbox.com/scl/fi/lqbh8cojt4pkullly42a9/ROCHI-1.jpg?rlkey=wtzlhzkci1bczsxe15eelswms&raw=1');
+            --url-salon: url('https://www.dropbox.com/scl/fi/cftmtmmtec94szn38lllg/SALON-EL-JARDIN.jpg?rlkey=6pmex78frbjd5v3jqil1egz3s&raw=1');
+            --url-vestimenta: url('https://images.unsplash.com/photo-1512353087810-25dfcd100962?q=80&w=1000&auto=format&fit=crop');
+            --url-sobres: url('https://images.unsplash.com/photo-1512909006721-3d6018887383?q=80&w=1000&auto=format&fit=crop');
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; background-color: #fffafb; color: var(--texto-oscuro); overflow-x: hidden; text-align: center; }
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #fffafb;
-            color: var(--texto);
-            overflow-x: hidden;
-            text-align: center;
-        }
-
-        /* --- SEGURIDAD: OVERLAY DE ENTRADA --- */
+        /* --- SEGURIDAD: PANTALLA DE ENTRADA --- */
         #overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: white;
-            z-index: 1000;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 1s ease;
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: white; z-index: 5000; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; transition: 1s ease;
         }
+        #overlay.hidden { opacity: 0; pointer-events: none; }
+        .foto-entrada { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; border: 3px solid var(--rosa-fuerte); margin-bottom: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .btn-abrir { padding: 15px 40px; background: var(--rosa-fuerte); color: white; border: none; border-radius: 50px; font-family: 'Cinzel'; cursor: pointer; letter-spacing: 2px; }
 
-        #overlay::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), var(--bg-overlay) center center no-repeat;
-            background-size: cover;
-            filter: blur(8px);
-            z-index: -1;
-        }
+        /* --- CONTROL DE MÚSICA (BOCINA) --- */
+        .bocina { position: fixed; top: 20px; right: 20px; z-index: 4000; background: white; width: 45px; height: 45px; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.1); border: 1px solid var(--rosa-fuerte); }
 
-        .btn-entrar {
-            padding: 15px 40px;
-            font-size: 1.2rem;
-            background: var(--rosa-fuerte);
-            color: white;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        /* --- SECCIÓN PORTADA --- */
+        /* --- PORTADA CON DIFUMINACIÓN --- */
         header {
             height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background: var(--bg-overlay) center center no-repeat;
-            background-size: cover;
-            position: relative;
-            color: white;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            background: linear-gradient(to bottom, rgba(255,255,255,0) 60%, #fffafb 100%), var(--url-portada) center center no-repeat;
+            background-size: cover; display: flex; flex-direction: column; justify-content: center; align-items: center; position: relative;
         }
+        header h1 { font-family: 'Parisienne', cursive; font-size: 6rem; color: white; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
+        .sub-header { font-family: 'Cinzel'; color: white; letter-spacing: 5px; text-transform: uppercase; }
 
-        .mariposa {
-            position: absolute;
-            width: 40px;
-            opacity: 0.7;
-            animation: volar 10s infinite linear;
-        }
-
-        @keyframes volar {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            50% { transform: translate(100px, -100px) rotate(20deg); }
-            100% { transform: translate(0, -200px) rotate(-20deg); opacity: 0; }
-        }
-
-        h1 { font-family: 'Great Vibes', cursive; font-size: 5rem; margin-bottom: 10px; }
-        .subtitulo { font-size: 1.5rem; letter-spacing: 5px; text-transform: uppercase; }
+        /* --- MARIPOSAS --- */
+        .butterfly { position: absolute; width: 25px; height: 25px; background: url('https://cdn-icons-png.flaticon.com/512/3233/3233306.png') no-repeat; background-size: contain; opacity: 0.6; animation: volar 12s infinite linear; }
+        @keyframes volar { 0% { transform: translate(0,0) rotate(0deg); opacity: 0; } 10% { opacity: 0.6; } 90% { opacity: 0.6; } 100% { transform: translate(150px, -500px) rotate(45deg); opacity: 0; } }
 
         /* --- CONTADOR --- */
-        #contador {
-            padding: 50px 20px;
-            background: white;
-        }
-        .timer-container {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        .timer-box {
-            background: var(--rosa-principal);
-            padding: 15px;
-            border-radius: 10px;
-            min-width: 70px;
-        }
-        .timer-box span { display: block; font-size: 1.5rem; font-weight: bold; }
+        #contador { padding: 80px 20px; background: white; }
+        .timer-grid { display: flex; justify-content: center; gap: 15px; margin-top: 30px; }
+        .time-box { background: #fdf2f5; padding: 15px; border-radius: 10px; min-width: 80px; border: 1px solid var(--rosa-pastel); }
+        .time-box span { display: block; font-size: 2rem; color: var(--rosa-fuerte); font-weight: 600; }
+        .time-box label { font-size: 0.7rem; letter-spacing: 1px; color: #999; text-transform: uppercase; }
 
         /* --- MENSAJE --- */
-        .seccion-texto {
-            padding: 60px 30px;
-            background: var(--bg-patron);
-            line-height: 1.8;
-            font-style: italic;
-        }
+        .mensaje-sec { padding: 100px 40px; background: white; font-family: 'Parisienne'; font-size: 2.2rem; color: var(--rosa-fuerte); line-height: 1.3; }
 
-        /* --- GALERIA --- */
-        .galeria {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            padding: 10px;
-        }
-        .galeria img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 5px;
-        }
-
-        /* --- ITINERARIO --- */
-        .itinerario {
-            padding: 50px 20px;
-            background: #fdf2f5;
-        }
-        .item-itinerario {
-            margin-bottom: 30px;
-            position: relative;
-        }
-        .item-itinerario i { color: var(--rosa-fuerte); font-size: 1.5rem; }
+        /* --- CARRUSEL ELEGANTE --- */
+        .swiper { width: 100%; padding: 50px 0; }
+        .swiper-slide { width: 300px; height: 450px; border: 10px solid white; box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .swiper-slide img { width: 100%; height: 100%; object-fit: cover; }
 
         /* --- UBICACIÓN --- */
-        .ubicacion { padding: 50px 20px; }
-        .img-salon { width: 100%; max-width: 500px; border-radius: 15px; margin: 20px 0; border: 5px solid white; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 25px;
-            background: var(--rosa-fuerte);
-            color: white;
-            text-decoration: none;
-            border-radius: 25px;
-        }
+        .sec-img { padding: 80px 20px; }
+        .img-det { width: 100%; max-width: 550px; border-radius: 15px; margin-bottom: 30px; border: 5px solid white; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .btn-gala { display: inline-block; padding: 15px 40px; background: var(--rosa-fuerte); color: white; text-decoration: none; border-radius: 50px; font-family: 'Cinzel'; letter-spacing: 2px; margin-top: 10px; }
 
-        /* --- BOTONES FINALES --- */
-        .sobres { padding: 50px 20px; background: white; }
-        .vestimenta { padding: 50px 20px; background: var(--rosa-principal); color: white; }
+        /* --- VESTIMENTA Y SOBRES --- */
+        .info-card { height: 400px; background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; position: relative; }
+        .info-card::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.4); }
+        .info-card * { z-index: 2; position: relative; }
+        .info-card h2 { font-family: 'Parisienne'; font-size: 4rem; }
 
-        footer { padding: 40px 20px; background: #333; color: white; font-size: 0.8rem; }
+        /* --- FOOTER --- */
+        footer { padding: 60px 20px; }
+        .logo-final { font-family: 'Parisienne'; font-size: 4.5rem; color: var(--rosa-fuerte); }
+        .credits { font-size: 0.6rem; letter-spacing: 4px; color: #ccc; text-decoration: none; margin-top: 20px; display: block; }
     </style>
 </head>
 <body>
 
-    <iframe id="musica" width="0" height="0" src="https://www.youtube.com/embed/nG33640ZyzY?autoplay=0" frameborder="0" allow="autoplay"></iframe>
+    <div id="player" style="display:none;"></div>
 
     <div id="overlay">
-        <h2 style="font-family: 'Great Vibes'; font-size: 3rem; color: var(--rosa-fuerte);">Bienvenido</h2>
-        <p style="margin-bottom: 20px;">Invitación para el evento de Rochy</p>
-        <button class="btn-entrar" onclick="comenzar()">VER INVITACIÓN</button>
+        <img src="https://www.dropbox.com/scl/fi/lqbh8cojt4pkullly42a9/ROCHI-1.jpg?rlkey=wtzlhzkci1bczsxe15eelswms&raw=1" class="foto-entrada">
+        <h2 style="font-family: 'Parisienne'; font-size: 3rem; color: var(--rosa-fuerte);">Bienvenida</h2>
+        <p style="font-family: 'Cinzel'; letter-spacing: 3px; margin-bottom: 30px;">Acompáñanos a celebrar</p>
+        <button class="btn-abrir" onclick="comenzar()">VER INVITACIÓN</button>
+    </div>
+
+    <div class="bocina" onclick="toggleMúsica()">
+        <i id="icono-musica" class="fa-solid fa-volume-high" style="color: var(--rosa-fuerte);"></i>
     </div>
 
     <header>
-        <div class="mariposa" style="top: 20%; left: 10%;"><i class="fa-solid fa-🦋"></i></div>
-        <div class="mariposa" style="top: 50%; right: 15%; animation-delay: 2s;"><i class="fa-solid fa-🦋"></i></div>
-        <p class="subtitulo">Celebrando a</p>
+        <div id="mariposas-container"></div>
+        <p class="sub-header">Celebrando a</p>
         <h1>Rochy</h1>
-        <p>23 DE MAYO | 3:00 PM</p>
+        <p class="sub-header">23 de Mayo | 3:00 PM</p>
     </header>
 
-    <div class="seccion-texto">
-        <i class="fa-solid fa-quote-left" style="color: var(--rosa-fuerte); font-size: 2rem;"></i>
-        <p>“Hay momentos en la vida que son especiales por sí solos, pero compartirlos con las personas que más queremos los hace inolvidables. Gracias por ser parte de mi historia.”</p>
-    </div>
+    <section class="mensaje-sec">
+        “Hay momentos en la vida que son especiales por sí solos, pero compartirlos contigo los hace inolvidables.”
+    </section>
 
-    <div id="contador">
-        <h3>FALTAN:</h3>
-        <div class="timer-container">
-            <div class="timer-box"><span id="dias">00</span>Días</div>
-            <div class="timer-box"><span id="horas">00</span>Hrs</div>
-            <div class="timer-box"><span id="minutos">00</span>Min</div>
-            <div class="timer-box"><span id="segundos">00</span>Seg</div>
+    <section id="contador">
+        <h3 style="font-family: 'Cinzel'; letter-spacing: 4px; color: #aaa; font-size: 0.9rem;">FALTAN:</h3>
+        <div class="timer-grid">
+            <div class="time-box"><span id="d">00</span><label>Días</label></div>
+            <div class="time-box"><span id="h">00</span><label>Hrs</label></div>
+            <div class="time-box"><span id="m">00</span><label>Min</label></div>
+            <div class="time-box"><span id="s">00</span><label>Seg</label></div>
         </div>
-    </div>
+    </section>
 
-    <div class="seccion-texto">
-        <h3>Nuestros Momentos</h3>
-        <p style="font-size: 0.9rem; margin-bottom: 20px;">Cada foto cuenta una parte de este hermoso camino.</p>
-        <div class="galeria">
-            <img src="https://www.dropbox.com/scl/fi/lqbh8cojt4pkullly42a9/ROCHI-1.jpg?rlkey=wtzlhzkci1bczsxe15eelswms&raw=1" alt="Rochy 1">
-            <img src="https://www.dropbox.com/scl/fi/ct3vqhngyuwd1n95mat5c/ROCHY-2.jpg?rlkey=w1e681zhti3ybzq9fwgqlzouc&raw=1" alt="Rochy 2">
-            <img src="https://www.dropbox.com/scl/fi/uxhlesvenzofrrjtp1ie3/ROCHY-3.jpg?rlkey=qgowtjxhb12kns9ztbve6gxa7&raw=1" alt="Rochy 3">
-            <img src="https://www.dropbox.com/scl/fi/l0ers5w3zm8rtigo12gyd/ROCHY-4.jpg?rlkey=ivnjwkvxki1p8gf2frrhyh0l0&raw=1" alt="Rochy 4">
+    <section style="background: white; padding-bottom: 80px;">
+        <h3 style="font-family: 'Cinzel'; letter-spacing: 3px; margin-bottom: 20px;">Nuestros Momentos</h3>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/lqbh8cojt4pkullly42a9/ROCHI-1.jpg?rlkey=wtzlhzkci1bczsxe15eelswms&raw=1"></div>
+                <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/ct3vqhngyuwd1n95mat5c/ROCHY-2.jpg?rlkey=w1e681zhti3ybzq9fwgqlzouc&raw=1"></div>
+                <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/uxhlesvenzofrrjtp1ie3/ROCHY-3.jpg?rlkey=qgowtjxhb12kns9ztbve6gxa7&raw=1"></div>
+                <div class="swiper-slide"><img src="https://www.dropbox.com/scl/fi/l0ers5w3zm8rtigo12gyd/ROCHY-4.jpg?rlkey=ivnjwkvxki1p8gf2frrhyh0l0&raw=1"></div>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <div class="itinerario">
-        <h3 style="margin-bottom: 30px;">ITINERARIO</h3>
-        <div class="item-itinerario">
-            <i class="fa-solid fa-church"></i>
-            <h4>3:00 PM - BIENVENIDA</h4>
-            <p>Recepción de invitados y brindis inicial.</p>
+    <section style="padding: 80px 20px;">
+        <h3 style="font-family: 'Cinzel'; letter-spacing: 4px; color: var(--rosa-fuerte); margin-bottom: 40px;">ITINERARIO</h3>
+        <div style="margin-bottom: 30px;">
+            <p style="font-weight: 600; color: var(--rosa-fuerte);">3:00 PM</p>
+            <p style="font-family: 'Cinzel';">Bienvenida y Brindis</p>
         </div>
-        <div class="item-itinerario">
-            <i class="fa-solid fa-utensils"></i>
-            <h4>4:30 PM - BANQUETE</h4>
-            <p>Comida especial en honor a Rochy.</p>
+        <div style="margin-bottom: 30px;">
+            <p style="font-weight: 600; color: var(--rosa-fuerte);">4:30 PM</p>
+            <p style="font-family: 'Cinzel';">Comida de Gala</p>
         </div>
-        <div class="item-itinerario">
-            <i class="fa-solid fa-cake-candles"></i>
-            <h4>6:00 PM - PASTEL Y MÚSICA</h4>
-            <p>Momento de celebrar y bailar.</p>
+        <div>
+            <p style="font-weight: 600; color: var(--rosa-fuerte);">6:00 PM</p>
+            <p style="font-family: 'Cinzel';">Corte de Pastel y Baile</p>
         </div>
-    </div>
+    </section>
 
-    <div class="ubicacion">
-        <h3>UBICACIÓN</h3>
-        <p>Salón El Jardín</p>
-        <img class="img-salon" src="https://www.dropbox.com/scl/fi/cftmtmmtec94szn38lllg/SALON-EL-JARDIN.jpg?rlkey=6pmex78frbjd5v3jqil1egz3s&raw=1" alt="Salón El Jardín">
+    <section class="sec-img">
+        <h3 style="font-family: 'Cinzel'; letter-spacing: 4px; margin-bottom: 20px;">Ubicación</h3>
+        <p style="margin-bottom: 20px; color: #777;">Acompáñanos en el Salón El Jardín para este gran festejo.</p>
+        <img src="https://www.dropbox.com/scl/fi/cftmtmmtec94szn38lllg/SALON-EL-JARDIN.jpg?rlkey=6pmex78frbjd5v3jqil1egz3s&raw=1" class="img-det">
         <br>
-        <a href="https://maps.app.goo.gl/L4iqsTkdurSwgjws9?g_st=aw" class="btn" target="_blank">VER EN GOOGLE MAPS</a>
-    </div>
+        <a href="https://maps.app.goo.gl/L4iqsTkdurSwgjws9?g_st=aw" target="_blank" class="btn-gala">VER MAPA</a>
+    </section>
 
-    <div class="vestimenta">
-        <i class="fa-solid fa-tie-tie" style="font-size: 2rem; margin-bottom: 10px;"></i>
-        <h3>CÓDIGO DE VESTIMENTA</h3>
-        <p>FORMAL</p>
-        <p style="font-size: 0.8rem; margin-top: 10px;">Tu presencia es el mejor regalo.</p>
-    </div>
+    <section class="info-card" style="background-image: var(--url-vestimenta);">
+        <h2>Vestimenta</h2>
+        <p style="font-family: 'Cinzel'; letter-spacing: 3px;">Código: FORMAL</p>
+    </section>
 
-    <div class="sobres">
-        <i class="fa-solid fa-envelope-open-text" style="font-size: 2rem; color: var(--rosa-fuerte);"></i>
-        <h3>LLUVIA DE SOBRES</h3>
-        <p>Si deseas hacerme un presente, lo recibiré con mucho cariño en efectivo a través de lluvia de sobres el día del evento.</p>
-    </div>
+    <section class="info-card" style="background-image: var(--url-sobres);">
+        <h2>Obsequios</h2>
+        <p style="max-width: 300px; font-size: 0.9rem;">Tu presencia es mi mejor regalo, pero si deseas tener un detalle, agradeceré tu muestra de cariño en lluvia de sobres.</p>
+    </section>
 
-    <div style="padding: 60px 20px; background: #fff;">
-        <h3>¿NOS ACOMPAÑAS?</h3>
-        <p>Por favor confirma tu asistencia antes del 15 de mayo.</p>
-        <a href="https://wa.me/529931795286?text=¡Hola! Confirmo mi asistencia al evento de Rochy. ¡Allí estaré!" class="btn" style="background: #25d366;">
-            <i class="fa-brands fa-whatsapp"></i> CONFIRMAR POR WHATSAPP
+    <section style="padding: 100px 20px;">
+        <h3 style="font-family: 'Parisienne'; font-size: 3.5rem; color: var(--rosa-fuerte);">¿Nos acompañas?</h3>
+        <p style="margin-bottom: 30px;">Por favor, confirma tu asistencia para esperarte con alegría.</p>
+        <a href="https://wa.me/529931795286?text=¡Hola! Confirmo con mucho gusto mi asistencia al evento de Rochy." class="btn-gala" style="background: #25d366; border: none;">
+            <i class="fa-brands fa-whatsapp"></i> CONFIRMAR ASISTENCIA
         </a>
-    </div>
+    </section>
 
     <footer>
-        <p>Invitación creada para Rochy</p>
-        <p>© 2024 - Todos los derechos reservados</p>
+        <div class="logo-final">Rochy</div>
+        <a href="https://miGrandia.mx" target="_blank" class="credits">CREADO POR MIGRANDIA.MX</a>
     </footer>
 
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        // Función para quitar el overlay y poner música
-        function comenzar() {
-            document.getElementById('overlay').style.opacity = '0';
-            setTimeout(() => {
-                document.getElementById('overlay').style.display = 'none';
-            }, 1000);
-            
-            // Intento de reproducir música (algunos navegadores requieren interacción)
-            let iframe = document.getElementById('musica');
-            iframe.src += "&autoplay=1";
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: '0', width: '0',
+                videoId: 'nG33640ZyzY',
+                playerVars: { 'autoplay': 0, 'controls': 0, 'loop': 1, 'playlist': 'nG33640ZyzY' }
+            });
         }
 
-        // --- CONTADOR ---
-        const fechaEvento = new Date('May 23, 2024 15:00:00').getTime();
+        function comenzar() {
+            document.getElementById('overlay').classList.add('hidden');
+            player.playVideo();
+            crearMariposas();
+        }
 
-        const x = setInterval(function() {
-            const ahora = new Date().getTime();
-            const distancia = fechaEvento - ahora;
+        function toggleMúsica() {
+            var icon = document.getElementById('icono-musica');
+            if (player.getPlayerState() == 1) {
+                player.pauseVideo();
+                icon.className = "fa-solid fa-volume-xmark";
+            } else {
+                player.playVideo();
+                icon.className = "fa-solid fa-volume-high";
+            }
+        }
 
-            const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
-            const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
-            const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+        function crearMariposas() {
+            const cont = document.getElementById('mariposas-container');
+            for(let i=0; i<6; i++) {
+                let b = document.createElement('div');
+                b.className = 'butterfly';
+                b.style.left = Math.random() * 100 + '%';
+                b.style.top = '80%';
+                b.style.animationDelay = (Math.random() * 5) + 's';
+                cont.appendChild(b);
+            }
+        }
 
-            document.getElementById("dias").innerHTML = dias;
-            document.getElementById("horas").innerHTML = horas;
-            document.getElementById("minutos").innerHTML = minutos;
-            document.getElementById("segundos").innerHTML = segundos;
+        const swiper = new Swiper(".mySwiper", {
+            effect: "cards", grabCursor: true, autoplay: { delay: 3000 }
+        });
 
-            if (distancia < 0) {
-                clearInterval(x);
-                document.getElementById("contador").innerHTML = "<h3>¡ES HOY!</h3>";
+        // Contador
+        const target = new Date('May 23, 2026 15:00:00').getTime();
+        setInterval(() => {
+            const now = new Date().getTime();
+            const diff = target - now;
+            if (diff > 0) {
+                document.getElementById('d').innerText = Math.floor(diff / (1000*60*60*24)).toString().padStart(2,'0');
+                document.getElementById('h').innerText = Math.floor((diff % (1000*60*60*24)) / (1000*60*60)).toString().padStart(2,'0');
+                document.getElementById('m').innerText = Math.floor((diff % (1000*60*60)) / (1000*60)).toString().padStart(2,'0');
+                document.getElementById('s').innerText = Math.floor((diff % (1000*60)) / 1000).toString().padStart(2,'0');
             }
         }, 1000);
     </script>
