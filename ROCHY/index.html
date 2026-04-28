@@ -19,12 +19,17 @@
             --texto: #4a4a4a;
             --bg-general: url('https://www.transparenttextures.com/patterns/flowers.png');
             --img-portada: url('https://www.dropbox.com/scl/fi/lqbh8cojt4pkullly42a9/ROCHI-1.jpg?rlkey=wtzlhzkci1bczsxe15eelswms&raw=1');
-            --img-salon: url('https://www.dropbox.com/scl/fi/cftmtmmtec94szn38lllg/SALON-EL-JARDIN.jpg?rlkey=6pmex78frbjd5v3jqil1egz3s&raw=1');
-            --icono-vestimenta: url('https://cdn-icons-png.flaticon.com/512/3534/3534312.png');
-            --icono-sobres: url('https://cdn-icons-png.flaticon.com/512/3064/3064044.png');
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        /* SEGURIDAD CSS: EVITAR SELECCIÓN DE TEXTO */
+        * { 
+            margin: 0; padding: 0; box-sizing: border-box; 
+            -webkit-user-select: none; /* Chrome, Safari, Opera */
+            -moz-user-select: none;    /* Firefox */
+            -ms-user-select: none;     /* IE/Edge */
+            user-select: none;         /* Estándar */
+        }
+
         body { 
             font-family: 'Montserrat', sans-serif; 
             background-color: #fffafb; 
@@ -35,7 +40,6 @@
             text-align: center;
         }
 
-        /* SEGURIDAD: OVERLAY */
         #overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: white; z-index: 5000; display: flex; flex-direction: column;
@@ -47,7 +51,6 @@
             filter: brightness(0.5); z-index: -1;
         }
 
-        /* BOTÓN DE PAUSA FIJO */
         .btn-audio {
             position: fixed; top: 20px; right: 20px; z-index: 6000;
             background: rgba(255, 255, 255, 0.8); border: none; width: 40px; height: 40px;
@@ -91,12 +94,7 @@
             height: 450px; border-radius: 20px; overflow: hidden;
             box-shadow: 0 10px 20px rgba(0,0,0,0.1); border: 10px solid white;
         }
-        .photo-card img { width: 100%; height: 100%; object-fit: cover; }
-
-        .icon-box {
-            width: 80px; height: 80px; margin: 0 auto 20px;
-            background-size: contain; background-repeat: no-repeat; background-position: center;
-        }
+        .photo-card img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
 
         .btn-confirmar {
             display: inline-block; margin-top: 30px; padding: 18px 40px;
@@ -108,9 +106,7 @@
         .creacion { font-size: 0.7rem; color: #aaa; margin-top: 20px; letter-spacing: 2px; }
     </style>
 </head>
-<body>
-
-    <div id="player"></div>
+<body oncontextmenu="return false;"> <div id="player"></div>
     <button class="btn-audio" id="muteBtn" onclick="toggleAudio()"><i class="fa-solid fa-music"></i></button>
 
     <div id="overlay">
@@ -138,55 +134,12 @@
 
     <section style="background: white;">
         <h3 class="titulo-elegante">Instantes Especiales</h3>
-        <p style="margin-bottom: 20px;">Recuerdos que guardo en el corazón y que quiero seguir creando junto a ti.</p>
         <div class="carousel">
             <div class="photo-card"><img src="https://www.dropbox.com/scl/fi/lqbh8cojt4pkullly42a9/ROCHI-1.jpg?rlkey=wtzlhzkci1bczsxe15eelswms&raw=1"></div>
             <div class="photo-card"><img src="https://www.dropbox.com/scl/fi/ct3vqhngyuwd1n95mat5c/ROCHY-2.jpg?rlkey=w1e681zhti3ybzq9fwgqlzouc&raw=1"></div>
             <div class="photo-card"><img src="https://www.dropbox.com/scl/fi/uxhlesvenzofrrjtp1ie3/ROCHY-3.jpg?rlkey=qgowtjxhb12kns9ztbve6gxa7&raw=1"></div>
             <div class="photo-card"><img src="https://www.dropbox.com/scl/fi/l0ers5w3zm8rtigo12gyd/ROCHY-4.jpg?rlkey=ivnjwkvxki1p8gf2frrhyh0l0&raw=1"></div>
         </div>
-        <p style="font-size: 0.8rem; color: #bbb; margin-top: 10px;">(Desliza para ver más)</p>
-    </section>
-
-    <section>
-        <h3 class="titulo-elegante">Itinerario</h3>
-        <div style="margin-bottom: 30px;">
-            <i class="fa-solid fa-cake-candles" style="color: var(--rosa-fuerte);"></i>
-            <h4>3:00 PM - BIENVENIDA</h4>
-            <p>Recepción de invitados y brindis inicial.</p>
-        </div>
-        <div style="margin-bottom: 30px;">
-            <i class="fa-solid fa-utensils" style="color: var(--rosa-fuerte);"></i>
-            <h4>4:30 PM - BANQUETE</h4>
-            <p>Comida preparada con mucho cariño.</p>
-        </div>
-        <div>
-            <i class="fa-solid fa-champagne-glasses" style="color: var(--rosa-fuerte);"></i>
-            <h4>6:00 PM - CELEBRACIÓN</h4>
-            <p>Música, pastel y buenos deseos.</p>
-        </div>
-    </section>
-
-    <section style="background: white;">
-        <h3 class="titulo-elegante">Ubicación</h3>
-        <p>Salón El Jardín</p>
-        <p style="font-size: 0.9rem; margin-top: 10px;">¡Celebremos en grande! Aquí te dejo la ubicación del evento:</p>
-        <img src="https://www.dropbox.com/scl/fi/cftmtmmtec94szn38lllg/SALON-EL-JARDIN.jpg?rlkey=6pmex78frbjd5v3jqil1egz3s&raw=1" class="photo-card" style="width: 100%; height: auto; max-width: 500px; border-radius: 15px; margin: 20px auto;">
-        <br>
-        <a href="https://maps.app.goo.gl/L4iqsTkdurSwgjws9?g_st=aw" target="_blank" class="btn-confirmar">VER EN MAPS</a>
-    </section>
-
-    <section style="background: var(--rosa-principal); color: white;">
-        <div class="icon-box" style="background-image: var(--icono-vestimenta); filter: brightness(0) invert(1);"></div>
-        <h3 class="titulo-elegante" style="color: white;">Vestimenta</h3>
-        <p>FORMAL</p>
-        <p style="font-size: 0.9rem; margin-top: 10px;">Tu presencia elegante hará mi día aún más especial.</p>
-    </section>
-
-    <section>
-        <div class="icon-box" style="background-image: var(--icono-sobres);"></div>
-        <h3 class="titulo-elegante">Lluvia de Sobres</h3>
-        <p>Si deseas darme un detalle, contaré con lluvia de sobres en la entrada del salón.</p>
     </section>
 
     <section style="background: white;">
@@ -198,12 +151,21 @@
     </section>
 
     <footer>
-        <h2 style="font-family: 'Great Vibes'; font-size: 3rem; color: var(--rosa-fuerte); text-align: center;">Rochy</h2>
-        <p class="creacion" style="text-align: center;">CREACIÓN DE MIGRANDIA.MX</p>
+        <h2 style="font-family: 'Great Vibes'; font-size: 3rem; color: var(--rosa-fuerte);">Rochy</h2>
+        <p class="creacion">CREACIÓN DE MIGRANDIA.MX</p>
     </footer>
 
     <script src="https://www.youtube.com/iframe_api"></script>
     <script>
+        // SEGURIDAD: BLOQUEO DE TECLAS (F12, CTRL+U, CTRL+I)
+        document.onkeydown = function(e) {
+            if(e.keyCode == 123) return false; // F12
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) return false; // Ctrl+Shift+I
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) return false; // Ctrl+Shift+C
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) return false; // Ctrl+Shift+J
+            if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false; // Ctrl+U
+        };
+
         var player;
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('player', {
