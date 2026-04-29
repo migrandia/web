@@ -14,14 +14,19 @@
 
     <style>
         :root {
-            --rosa-principal: #f8c8dc;
-            --rosa-fuerte: #d4a5b9;
-            --texto: #4a4a4a;
+            /* --- 1. IMÁGENES Y FONDOS --- */
             --bg-general: url('https://www.dropbox.com/scl/fi/pygpfc0ev8agnidpyb8mg/mariposas-rosas.jpg?rlkey=stlc1zv852w1ddj373fymts67&raw=1');
             --img-portada: url('https://www.dropbox.com/scl/fi/lqbh8cojt4pkullly42a9/ROCHI-1.jpg?rlkey=wtzlhzkci1bczsxe15eelswms&raw=1');
             --icono-vestimenta: url('https://cdn-icons-png.flaticon.com/512/3534/3534312.png');
             --icono-sobres: url('https://cdn-icons-png.flaticon.com/512/3064/3064044.png');
+
+            /* --- 2. COLORES DE LETRAS (CÁMBIALOS AQUÍ) --- */
+            --color-titulos: #d4a5b9; /* Color de los títulos grandes */
+            --color-cuerpo: #4a4a4a;   /* Color de los textos normales */
+            --color-frases: #666666;   /* Color de las frases en cursiva */
+            --rosa-fuerte: #d4a5b9;
             
+            /* --- 3. FUENTES --- */
             --fuente-titulos: 'Great Vibes', cursive;
             --fuente-cuerpo: 'Montserrat', sans-serif;
             --fuente-frases: 'Playfair Display', serif;
@@ -38,25 +43,24 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            color: var(--texto); 
+            color: var(--color-cuerpo); 
             overflow-x: hidden; 
             width: 100%;
             text-align: center;
         }
 
-        /* Ajuste de Header para que la foto esté hasta arriba */
+        /* FOTO DE PORTADA CON DIFUMINADO MÁS PROFUNDO */
         header {
             height: 100vh;
             width: 100%;
-            background: var(--img-portada) center top no-repeat; /* 'top' para asegurar que inicie arriba */
+            background: var(--img-portada) center top no-repeat;
             background-size: cover; 
-            /* Efecto de recorte suave solo abajo */
-            -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
-            mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+            /* Se cambió el 90% por 65% para que se difumine mucho más la parte de abajo */
+            -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
             display: flex; flex-direction: column;
             justify-content: center; align-items: center; color: white; 
             position: relative;
-            margin-top: 0; /* Asegura que no haya espacio arriba */
         }
 
         section { 
@@ -65,6 +69,10 @@
             margin: 20px 10px;
             border-radius: 20px;
         }
+
+        h1, h3 { color: var(--color-titulos); }
+        p { color: var(--color-cuerpo); }
+        .frase-especial { color: var(--color-frases); font-family: var(--fuente-frases); font-style: italic; }
 
         #overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -90,18 +98,17 @@
             font-weight: bold; letter-spacing: 2px; box-shadow: 0 5px 20px rgba(0,0,0,0.3);
         }
 
-        header h1 { font-family: var(--fuente-titulos); font-size: 6rem; text-shadow: 2px 2px 15px rgba(0,0,0,0.5); }
-        .subtitulo { font-size: 1.5rem; letter-spacing: 6px; text-transform: uppercase; font-weight: 300; }
+        header h1 { font-family: var(--fuente-titulos); font-size: 6rem; text-shadow: 2px 2px 15px rgba(0,0,0,0.5); color: white; }
+        .subtitulo { font-size: 1.5rem; letter-spacing: 6px; text-transform: uppercase; font-weight: 300; color: white; }
 
-        .count-portada { margin-top: 30px; display: flex; gap: 15px; justify-content: center; }
+        .count-portada { margin-top: 30px; display: flex; gap: 15px; justify-content: center; color: white; }
         .count-item {
             background: rgba(255,255,255,0.2); backdrop-filter: blur(5px);
             padding: 10px; border-radius: 10px; min-width: 65px; border: 1px solid rgba(255,255,255,0.3);
         }
         .count-item span { display: block; font-size: 1.5rem; font-weight: bold; }
 
-        .titulo-elegante { font-family: var(--fuente-titulos); font-size: 4rem; color: var(--rosa-fuerte); margin-bottom: 20px; }
-        p { line-height: 1.8; font-size: 1.1rem; max-width: 500px; margin: 0 auto; }
+        .titulo-elegante { font-family: var(--fuente-titulos); font-size: 4rem; margin-bottom: 20px; }
 
         .carousel {
             display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
@@ -115,24 +122,17 @@
         }
         .photo-card img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
 
-        .icon-box {
-            width: 80px; height: 80px; margin: 0 auto 20px;
-            background-size: contain; background-repeat: no-repeat; background-position: center;
-        }
-
         .btn-confirmar {
             display: inline-block; margin-top: 30px; padding: 18px 40px;
             background: var(--rosa-fuerte); color: white; text-decoration: none;
             border-radius: 50px; font-weight: bold; letter-spacing: 1px;
         }
 
-        .img-itinerario {
-            width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 10px;
-        }
+        .img-itinerario { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 10px; }
 
         footer { padding: 50px; background: rgba(255,255,255,0.9); border-top: 1px solid #eee; }
         .creacion { font-size: 0.7rem; color: #aaa; margin-top: 20px; letter-spacing: 2px; }
-        .creacion a { color: #aaa; text-decoration: none; }
+        .creacion a { color: #aaa; text-decoration: none; font-weight: bold; }
     </style>
 </head>
 <body oncontextmenu="return false;">
@@ -159,7 +159,7 @@
     </header>
 
     <section>
-        <p style="font-family: var(--fuente-frases);">“Un año más de vida para agradecer, para soñar y para celebrar junto a las personas que hacen mi mundo más brillante.”</p>
+        <p class="frase-especial">“Un año más de vida para agradecer, para soñar y para celebrar junto a las personas que hacen mi mundo más brillante.”</p>
     </section>
 
     <section>
@@ -170,7 +170,7 @@
             <div class="photo-card"><img src="https://www.dropbox.com/scl/fi/uxhlesvenzofrrjtp1ie3/ROCHY-3.jpg?rlkey=qgowtjxhb12kns9ztbve6gxa7&raw=1"></div>
             <div class="photo-card"><img src="https://www.dropbox.com/scl/fi/l0ers5w3zm8rtigo12gyd/ROCHY-4.jpg?rlkey=ivnjwkvxki1p8gf2frrhyh0l0&raw=1"></div>
         </div>
-        <p style="margin-top: 20px; font-family: var(--fuente-frases);">Recuerdos que guardo en el corazón.</p>
+        <p class="frase-especial" style="margin-top: 20px;">Recuerdos que guardo en el corazón.</p>
         <p style="font-size: 0.8rem; color: #bbb;">(Desliza para ver más)</p>
     </section>
 
@@ -178,17 +178,17 @@
         <h3 class="titulo-elegante">Itinerario</h3>
         <div style="margin-bottom: 30px;">
             <img src="https://cdn-icons-png.flaticon.com/512/3468/3468192.png" class="img-itinerario" alt="Bienvenida">
-            <h4> BIENVENIDA</h4>
+            <h4 style="color: var(--color-titulos);"> BIENVENIDA</h4>
             <p>Recepción de invitados y brindis inicial.</p>
         </div>
         <div style="margin-bottom: 30px;">
             <img src="https://cdn-icons-png.flaticon.com/512/3468/3468157.png" class="img-itinerario" alt="Banquete">
-            <h4>BANQUETE</h4>
+            <h4 style="color: var(--color-titulos);">BANQUETE</h4>
             <p>Comida preparada con mucho cariño.</p>
         </div>
         <div>
             <img src="https://cdn-icons-png.flaticon.com/512/3168/3168127.png" class="img-itinerario" alt="Celebración">
-            <h4>CELEBRACIÓN</h4>
+            <h4 style="color: var(--color-titulos);">CELEBRACIÓN</h4>
             <p>Música, pastel y buenos deseos.</p>
         </div>
     </section>
@@ -196,8 +196,7 @@
     <section>
         <h3 class="titulo-elegante">Ubicación</h3>
         <p><strong>Salón El Jardín</strong></p>
-        <p style="font-size: 0.9rem; color: var(--rosa-fuerte); margin-top: 5px;">¡Te esperamos con mucha alegría!</p>
-        
+        <p style="font-size: 0.9rem; margin-top: 5px;">¡Te esperamos con mucha alegría!</p>
         <img src="https://www.dropbox.com/scl/fi/cftmtmmtec94szn38lllg/SALON-EL-JARDIN.jpg?rlkey=6pmex78frbjd5v3jqil1egz3s&raw=1" class="photo-card" style="width: 100%; height: auto; max-width: 500px; border-radius: 15px; margin: 20px auto;">
         <br>
         <a href="https://maps.google.com" target="_blank" class="btn-confirmar">VER EN MAPS</a>
@@ -221,7 +220,7 @@
         <a href="https://wa.me/529931795286?text=¡Hola! Confirmo mi asistencia al cumple de Rochy." class="btn-confirmar">
             <i class="fa-brands fa-whatsapp"></i> CONFIRMAR ASISTENCIA
         </a>
-        <p style="margin-top: 20px; font-family: var(--fuente-frases); font-weight: 600;">"Su presencia es el mejor regalo que puedo recibir."</p>
+        <p class="frase-especial" style="margin-top: 20px; font-weight: 600;">"Su presencia es el mejor regalo que puedo recibir."</p>
     </section>
 
     <footer>
@@ -231,6 +230,13 @@
 
     <script src="https://www.youtube.com/iframe_api"></script>
     <script>
+        // SEGURIDAD: Bloqueo de teclas
+        document.onkeydown = function(e) {
+            if(e.keyCode == 123 || (e.ctrlKey && (e.keyCode == 'U'.charCodeAt(0) || e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0) || e.keyCode == 'C'.charCodeAt(0))))) {
+                return false;
+            }
+        };
+
         var player;
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('player', {
