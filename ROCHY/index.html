@@ -22,7 +22,6 @@
             --icono-vestimenta: url('https://cdn-icons-png.flaticon.com/512/3534/3534312.png');
             --icono-sobres: url('https://cdn-icons-png.flaticon.com/512/3064/3064044.png');
             
-            /* --- CAMBIA LAS FUENTES AQUÍ --- */
             --fuente-titulos: 'Great Vibes', cursive;
             --fuente-cuerpo: 'Montserrat', sans-serif;
             --fuente-frases: 'Playfair Display', serif;
@@ -38,17 +37,16 @@
             background-image: var(--bg-general);
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Fix para que el fondo no se corte */
+            background-attachment: fixed;
             color: var(--texto); 
             overflow-x: hidden; 
             width: 100%;
             text-align: center;
         }
 
-        /* Capa para legibilidad de letras sobre el fondo nuevo */
         section { 
             padding: 80px 20px; 
-            background: rgba(255, 255, 255, 0.85); /* Fondo blanco traslúcido */
+            background: rgba(255, 255, 255, 0.65); /* Más transparente como pediste */
             margin: 20px 10px;
             border-radius: 20px;
         }
@@ -61,7 +59,7 @@
         #overlay::before {
             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: var(--img-portada) center center no-repeat; background-size: cover;
-            filter: brightness(0.5); z-index: -1;
+            filter: brightness(0.4); z-index: -1;
         }
 
         .btn-audio {
@@ -80,7 +78,11 @@
         header {
             height: 100vh;
             background: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(255,255,255,0.8) 100%), var(--img-portada) center center no-repeat;
-            background-size: cover; display: flex; flex-direction: column;
+            background-size: cover; 
+            /* Efecto tipo recorte/desvanecido abajo */
+            -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+            display: flex; flex-direction: column;
             justify-content: center; align-items: center; color: white; position: relative;
         }
         header h1 { font-family: var(--fuente-titulos); font-size: 6rem; text-shadow: 2px 2px 15px rgba(0,0,0,0.5); }
@@ -125,6 +127,7 @@
 
         footer { padding: 50px; background: rgba(255,255,255,0.9); border-top: 1px solid #eee; }
         .creacion { font-size: 0.7rem; color: #aaa; margin-top: 20px; letter-spacing: 2px; }
+        .creacion a { color: #aaa; text-decoration: none; }
     </style>
 </head>
 <body oncontextmenu="return false;">
@@ -133,8 +136,8 @@
     <button class="btn-audio" id="muteBtn" onclick="toggleAudio()"><i class="fa-solid fa-music"></i></button>
 
     <div id="overlay">
-        <h2 style="font-family: var(--fuente-titulos); font-size: 4rem; color: #d4a5b9; margin-bottom: 10px;">Rochy</h2>
-        <p style="color: #4a4a4a; font-style: italic; max-width: 300px; margin-bottom: 30px;">"La vida es un regalo y compartirla contigo es mi mayor alegría. ¡Te espero!"</p>
+        <h2 style="font-family: var(--fuente-titulos); font-size: 4rem; color: #ffffff; margin-bottom: 10px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5);">Rochy</h2>
+        <p style="color: #ffffff; font-style: italic; max-width: 300px; margin-bottom: 30px; text-shadow: 1px 1px 5px rgba(0,0,0,0.5);">"La vida es un regalo y compartirla contigo es mi mayor alegría. ¡Te espero!"</p>
         <button class="btn-entrar" onclick="comenzar()">ENTRAR</button>
     </div>
 
@@ -195,7 +198,7 @@
         <a href="https://maps.google.com" target="_blank" class="btn-confirmar">VER EN MAPS</a>
     </section>
 
-    <section style="background: rgba(248, 200, 220, 0.9);">
+    <section style="background: rgba(248, 200, 220, 0.8);">
         <div class="icon-box" style="background-image: var(--icono-vestimenta); filter: brightness(0) invert(1);"></div>
         <h3 class="titulo-elegante" style="color: white;">Vestimenta</h3>
         <p style="color: white;">FORMAL</p>
@@ -218,7 +221,7 @@
 
     <footer>
         <h2 style="font-family: var(--fuente-titulos); font-size: 3rem; color: var(--rosa-fuerte);">Rochy</h2>
-        <p class="creacion">CREACIÓN DE MIGRANDIA.MX</p>
+        <p class="creacion">CREACIÓN DE <a href="https://migrandia.mx" target="_blank">MIGRANDIA.MX</a></p>
     </footer>
 
     <script src="https://www.youtube.com/iframe_api"></script>
