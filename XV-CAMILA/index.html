@@ -69,7 +69,6 @@
           padding: 10px 15px; border-radius: 50px; cursor: pointer; display: none;
       }
 
-      /* SECCIÓN CORREGIDA: Transición fluida y centrado */
       .hero-v3 {
           height: 100vh;
           background-repeat: no-repeat;
@@ -78,9 +77,9 @@
           display: flex;
           flex-direction: column;
           justify-content: flex-end;
-          padding-bottom: 50px;
+          padding-bottom: 20px;
           position: relative;
-          text-align: center; /* Centrado para todos los elementos */
+          text-align: center;
       }
 
       .hero-v3::after {
@@ -98,10 +97,9 @@
           position: relative;
           z-index: 2;
           background: transparent;
-          padding-top: 20px;
-          display: flex; /* Flex para centrar */
+          display: flex;
           flex-direction: column;
-          align-items: center; /* Centrado horizontal */
+          align-items: center;
       }
 
       .hero-v3 h2 { 
@@ -115,14 +113,14 @@
       
       .hero-v3 h1 { font-family: 'Cinzel'; font-size: 4rem; color: white; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
 
-      /* CORRECCIÓN DE LA FECHA Y EL CONTADOR CENTRADO */
+      /* AJUSTE: Se aumentó el margin-top para bajar el contador al cuadro rosado */
       .timer-v3 { 
           display: flex; 
-          justify-content: center; /* Centrado */
+          justify-content: center; 
           gap: 12px; 
-          margin-top: 30px; 
+          margin-top: 85px; 
           margin-bottom: 20px; 
-          width: 100%; /* Asegurar ancho */
+          width: 100%; 
       }
       .t-unit { background: rgba(255,255,255,0.6); border: 1px solid var(--gold-glow); padding: 12px; border-radius: 10px; min-width: 65px; }
       .t-num { font-family: 'Cinzel'; font-size: 1.5rem; display: block; color: #4a4a4a; }
@@ -132,7 +130,7 @@
           display: inline-block; background: white; color: var(--gold-glow);
           border: 1px solid var(--gold-glow); padding: 10px 20px; border-radius: 5px;
           text-decoration: none; font-size: 0.7rem; letter-spacing: 2px; font-family: 'Cinzel';
-          margin-top: 15px; /* Separación del contador */
+          margin-top: 5px;
       }
 
       .glass-card {
@@ -207,6 +205,7 @@
               <h2>MIS XV AÑOS</h2>
               <h1>CAMILA</h1>
               <p style="letter-spacing: 4px; font-weight: 600; margin-top: 10px; color: #ffffff; font-size: 1.1rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">12 . JUNIO . 2026</p>
+              
               <div class="timer-v3">
                   <div class="t-unit"><span id="days" class="t-num">00</span><span class="t-txt">Días</span></div>
                   <div class="t-unit"><span id="hours" class="t-num">00</span><span class="t-txt">Hrs</span></div>
@@ -234,7 +233,6 @@
           </div>
       </div>
 
-      
       <div class="glass-card reveal" style="padding: 20px 0;">
           <h2 class="section-title">Itinerario</h2>
           <img id="img-itinerario" style="width: 100%; pointer-events: none;">
@@ -251,14 +249,14 @@
               <div class="swiper-button-prev"></div>
           </div>
       </div>
-    <div class="glass-card reveal">
+
+      <div class="glass-card reveal">
           <h2 class="section-title">Ceremonia Religiosa</h2>
           <img src="https://www.dropbox.com/scl/fi/bubpnp5r0k28ogqbhkwtn/mensaje.jpg?rlkey=h845kh8o4jh0md7bibi424fu3&raw=1" class="img-rounded">
           <h3 style="font-family:'Cinzel'; color:var(--gold-glow);">PARROQUIA DE SANTA FE</h3>
           <p style="margin-top:10px;">5:00 PM</p>
           <a href="https://maps.google.com" target="_blank" class="btn-confirm" style="font-size:0.8rem; background: var(--gold-glow);">Ver Ubicación</a>
       </div>
-
 
       <div class="glass-card reveal">
           <h2 class="section-title">Recepción</h2>
@@ -270,9 +268,6 @@
 
       <div class="glass-card reveal">
           <h2 class="section-title">Un Detalle de Cariño</h2>
-          <p style="font-family:'Montserrat'; font-size:0.85rem; line-height: 1.5; color: #4a4a4a; margin-bottom: 15px;">
-              Tu presencia es mi mejor regalo, pero si deseas tener un detalle conmigo, puedes hacerlo a través de:
-          </p>
           <div class="gift-container">
               <div>
                   <img src="https://www.dropbox.com/scl/fi/zbe5nl1vvo3nht2ufny2k/CAJA-DE-REGALO.png?rlkey=hhj5unurtj4hqjkuc2kayffig&raw=1" class="gift-img">
@@ -283,7 +278,6 @@
                   <p style="font-size:0.6rem; margin-top:5px; font-weight: bold;">LLUVIA DE SOBRES</p>
               </div>
           </div>
-          <p style="font-family:'Dancing Script'; font-size:1.4rem; color: var(--rosa-viejo); margin-top: 10px;">¡Muchas gracias!</p>
       </div>
 
       <div class="glass-card reveal">
@@ -300,28 +294,19 @@
               </div>
           </div>
           <div style="margin-top: 20px;">
-              <div class="no-red-circle">
-                <div class="dual-fill">
-                  <div class="half-rosa"></div>
-                  <div class="half-gold"></div>
-                </div>
-              </div>
-              <p class="dress-note">⚠️ NOTA IMPORTANTE: FAVOR DE NO VESTIR DE COLOR ROSADO O DORADO (RESERVADO PARA LA QUINCEAÑERA)</p>
+              <div class="no-red-circle"><div class="dual-fill"><div class="half-rosa"></div><div class="half-gold"></div></div></div>
+              <p class="dress-note">⚠️ FAVOR DE NO VESTIR ROSADO O DORADO</p>
           </div>
       </div>
 
       <div class="glass-card reveal">
           <h2 class="section-title" style="font-size: 2.5rem;">Clima</h2>
-          <div class="weather-container">
-            <a class="weatherwidget-io" href="https://forecast7.com/es/22d16n100d99/san-luis-potosi/" data-label_1="SAN LUIS POTOSI" data-label_2="CLIMA" data-days="5" data-theme="beige" data-basecolor="rgba(248, 246, 241, 0.97)" data-lowcolor="#f881ce" >SAN LUIS POTOSI CLIMA</a>
-            <script>
-            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
-            </script>
-          </div>
+          <a class="weatherwidget-io" href="https://forecast7.com/es/22d16n100d99/san-luis-potosi/" data-label_1="SAN LUIS POTOSI" data-label_2="CLIMA" data-days="5" data-theme="beige" data-basecolor="rgba(248, 246, 241, 0.97)" data-lowcolor="#f881ce" >SAN LUIS POTOSI CLIMA</a>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');</script>
       </div>
 
       <div class="glass-card reveal" style="border: 2px solid var(--gold-glow);">
-          <h2 class="section-title" style="font-size:2.8rem;">Confirmar</h2>
+          <h2 class="section-title">Confirmar</h2>
           <p id="saludo-familia" style="font-family:'Cinzel'; font-size: 1.2rem; margin-bottom:10px;"></p>
           <p id="lugares-mensaje" style="margin-bottom: 15px; font-size: 0.9rem;"></p>
           <select id="num-asistentes"></select>
@@ -365,8 +350,7 @@
 
           swiper = new Swiper(".mySwiper", {
               navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
-              loop: true,
-              autoplay: { delay: 3000, disableOnInteraction: false },
+              loop: true, autoplay: { delay: 3000, disableOnInteraction: false },
           });
           ScrollReveal().reveal('.reveal', { distance: '20px', duration: 1000, origin: 'bottom', interval: 100 });
       }
@@ -387,7 +371,6 @@
       }, 1000);
 
       window.onload = function() {
-          // HERO: Usamos el fondo sin degradados negros para que la transición blanca funcione
           document.getElementById('hero-bg').style.backgroundImage = `url('${URL_HERO_BG}')`;
           document.getElementById('img-historia').src = URL_IMG_HISTORIA;
           document.getElementById('img-itinerario').src = URL_IMG_ITINERARIO;
@@ -417,17 +400,12 @@
           }
 
           const cant = (c && c.trim() !== "") ? parseInt(c) : 5; 
-          if(n && (c && c.trim() !== "")) {
-                msgLugares.innerHTML = `Hemos reservado <b>${cant} lugar(es)</b> para ti.`;
-            } else {
-                msgLugares.innerHTML = `Por favor, selecciona el número de personas que asistirán.`;
-            }
+          msgLugares.innerHTML = n ? `Hemos reservado <b>${cant} lugar(es)</b> para ti.` : `Por favor, selecciona el número de personas que asistirán.`;
 
           const s = document.getElementById('num-asistentes');
           for (let i = 1; i <= cant; i++) {
               let o = document.createElement('option'); 
-              o.value = i; 
-              o.textContent = i + (i > 1 ? " Personas" : " Persona");
+              o.value = i; o.textContent = i + (i > 1 ? " Personas" : " Persona");
               if(i === cant) o.selected = true;
               s.appendChild(o);
           }
