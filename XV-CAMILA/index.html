@@ -69,30 +69,25 @@
           padding: 10px 15px; border-radius: 50px; cursor: pointer; display: none;
       }
 
-      /* AJUSTE EN HERO: Foto completa SIN difuminado abajo */
       .hero-v3 {
           height: 100vh;
           background-repeat: no-repeat;
-          background-position: center top; /* Centrada arriba */
-          background-size: contain; /* Foto completa sin cortarse */
+          background-position: center top;
+          background-size: contain;
           display: flex;
           flex-direction: column;
           justify-content: flex-end;
           padding-bottom: 80px;
           position: relative;
-          /* Eliminado el pseudo-elemento ::after que creaba el degradado */
       }
       
-      /* Contenedor de texto ajustado al quitar el degradado */
       .hero-text-key {
           position: relative;
           z-index: 2;
-          /* Añadido un pequeño fondo semi-transparente para asegurar legibilidad si la foto es clara */
           background: linear-gradient(to bottom, rgba(74, 74, 74, 0) 0%, rgba(74, 74, 74, 0.4) 100%);
           padding-top: 20px;
       }
 
-      /* TÍTULO GRANDE */
       .hero-v3 h2 { 
           font-family: 'Cinzel'; 
           letter-spacing: 8px; 
@@ -227,7 +222,10 @@
       </div>
 
       <div class="glass-card reveal">
-          <h2 class="section-title">Mi Álbum</h2>
+          <h2 class="section-title">Momentos Inolvidables</h2>
+          <p style="font-family:'Montserrat'; font-size:0.9rem; margin-bottom: 20px; color: #666; font-style: italic;">
+              "Cada foto guarda un recuerdo que llevaré siempre en el corazón."
+          </p>
           <div class="swiper mySwiper">
               <div class="swiper-wrapper" id="album-wrapper"></div>
               <div class="swiper-button-next"></div>
@@ -244,17 +242,21 @@
       </div>
 
       <div class="glass-card reveal">
-          <h2 class="section-title">Mesa de Regalos</h2>
+          <h2 class="section-title">Un Detalle de Cariño</h2>
+          <p style="font-family:'Montserrat'; font-size:0.85rem; line-height: 1.5; color: #4a4a4a; margin-bottom: 15px;">
+              Tu presencia es mi mejor regalo, pero si deseas tener un detalle conmigo, puedes hacerlo a través de:
+          </p>
           <div class="gift-container">
               <div>
                   <img src="https://www.dropbox.com/scl/fi/zbe5nl1vvo3nht2ufny2k/CAJA-DE-REGALO.png?rlkey=hhj5unurtj4hqjkuc2kayffig&raw=1" class="gift-img">
-                  <p style="font-size:0.6rem; margin-top:5px;">REGALO SORPRESA</p>
+                  <p style="font-size:0.6rem; margin-top:5px; font-weight: bold;">REGALO SORPRESA</p>
               </div>
               <div>
                   <img src="https://www.dropbox.com/scl/fi/k1dnluy76x7efa20qmrfa/SOBRE-CON-MO-O.png?rlkey=xzf8wh4nmdfukogdatpew8rrs&raw=1" class="gift-img">
-                  <p style="font-size:0.6rem; margin-top:5px;">LLUVIA DE SOBRES</p>
+                  <p style="font-size:0.6rem; margin-top:5px; font-weight: bold;">LLUVIA DE SOBRES</p>
               </div>
           </div>
+          <p style="font-family:'Dancing Script'; font-size:1.4rem; color: var(--rosa-viejo); margin-top: 10px;">¡Muchas gracias!</p>
       </div>
 
       <div class="glass-card reveal">
