@@ -69,6 +69,7 @@
           padding: 10px 15px; border-radius: 50px; cursor: pointer; display: none;
       }
 
+      /* SECCIÓN CORREGIDA: Transición fluida */
       .hero-v3 {
           height: 100vh;
           background-repeat: no-repeat;
@@ -77,14 +78,26 @@
           display: flex;
           flex-direction: column;
           justify-content: flex-end;
-          padding-bottom: 80px;
+          padding-bottom: 50px;
           position: relative;
+      }
+
+      /* El efecto de desvanecimiento para que no se vea el corte feo */
+      .hero-v3::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 35vh;
+          background: linear-gradient(to bottom, rgba(253, 244, 244, 0) 0%, rgba(253, 244, 244, 1) 100%);
+          z-index: 1;
       }
       
       .hero-text-key {
           position: relative;
           z-index: 2;
-          background: linear-gradient(to bottom, rgba(74, 74, 74, 0) 0%, rgba(74, 74, 74, 0.4) 100%);
+          background: transparent; /* Quitamos el negro transparente */
           padding-top: 20px;
       }
 
@@ -94,9 +107,10 @@
           font-size: 2.5rem; 
           color: var(--gold-glow); 
           margin-bottom: 5px; 
+          text-shadow: 1px 1px 4px rgba(0,0,0,0.4); /* Sombra para resaltar sin el fondo negro */
       }
       
-      .hero-v3 h1 { font-family: 'Cinzel'; font-size: 4rem; color: white; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
+      .hero-v3 h1 { font-family: 'Cinzel'; font-size: 4rem; color: white; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
 
       .timer-v3 { display: flex; justify-content: center; gap: 12px; margin-top: 30px; margin-bottom: 20px; }
       .t-unit { background: rgba(255,255,255,0.6); border: 1px solid var(--gold-glow); padding: 12px; border-radius: 10px; min-width: 65px; }
@@ -361,11 +375,12 @@
       }, 1000);
 
       window.onload = function() {
-          document.getElementById('hero-bg').style.backgroundImage = `linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('${URL_HERO_BG}')`;
+          // HERO: Usamos el fondo sin degradados negros para que la transición blanca funcione
+          document.getElementById('hero-bg').style.backgroundImage = `url('${URL_HERO_BG}')`;
           document.getElementById('img-historia').src = URL_IMG_HISTORIA;
           document.getElementById('img-itinerario').src = URL_IMG_ITINERARIO;
           document.getElementById('img-salon').src = URL_IMG_SALON;
-          document.getElementById('app-content').style.background = `linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('${URL_FONDO_GENERAL}')`;
+          document.getElementById('app-content').style.background = `linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('${URL_FONDO_GENERAL}')`;
 
           const albumWrapper = document.getElementById('album-wrapper');
           URLS_ALBUM.forEach(url => {
