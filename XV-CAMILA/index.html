@@ -8,6 +8,10 @@
     <meta property="og:title" content="Mis XV Años | Camila">
     <meta property="og:description" content="¡Estás invitado a celebrar mis XV años! Haz clic para ver los detalles.">
     <meta property="og:image" content="https://www.dropbox.com/scl/fi/y6f3m46ckfwdoup5fhn1f/Portada.jpg?rlkey=rbn93ehavtrqiqu9cfkuq45ad&raw=1">
+    <meta property="og:image:secure_url" content="https://www.dropbox.com/scl/fi/y6f3m46ckfwdoup5fhn1f/Portada.jpg?rlkey=rbn93ehavtrqiqu9cfkuq45ad&raw=1">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:type" content="website">
     
     <title>Mis XV | Camila</title>
@@ -18,10 +22,9 @@
 
     <style>
         :root {
-            --old-rose: #e2a6a6; /* Rosa viejo */
-            --gold-glow: #d4af37; /* Dorado metálico */
-            --white-clean: #ffffff;
-            --glass: rgba(255, 255, 255, 0.8);
+            --wine-red: #a50000; 
+            --gold-glow: #fbbf24;
+            --glass: rgba(255, 255, 255, 0.15);
             --ancho-max: 480px;
         }
 
@@ -32,118 +35,101 @@
         }
 
         body {
-            background-color: #f4f4f4; color: #4a4a4a;
+            background-color: #4a0000; color: #fff;
             font-family: 'Montserrat', sans-serif; text-align: center; overflow-x: hidden;
         }
 
         #overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center;
-            color: #4a4a4a; padding: 30px; text-align: center;
+            color: white; padding: 30px; text-align: center;
         }
         #overlay::before {
             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.9)), url('https://www.dropbox.com/scl/fi/bubpnp5r0k28ogqbhkwtn/mensaje.jpg?rlkey=h845kh8o4jh0md7bibi424fu3&raw=1') center center no-repeat;
-            background-size: cover; filter: blur(5px); z-index: -1;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.9)), url('https://www.dropbox.com/scl/fi/bubpnp5r0k28ogqbhkwtn/mensaje.jpg?rlkey=h845kh8o4jh0md7bibi424fu3&raw=1') center center no-repeat;
+            background-size: cover; filter: blur(5px); opacity: 0.8; z-index: -1;
         }
 
         #overlay h2 { font-family: 'Cinzel'; font-size: 1.2rem; letter-spacing: 5px; color: var(--gold-glow); }
-        #overlay h1 { font-family: 'Cinzel'; font-size: 3.5rem; margin-bottom: 25px; color: var(--old-rose); }
+        #overlay h1 { font-family: 'Cinzel'; font-size: 3.5rem; margin-bottom: 25px; }
         #overlay p { font-family: 'Dancing Script'; font-size: 1.8rem; margin-bottom: 40px; line-height: 1.4; }
-        #overlay button { padding: 20px 40px; background: var(--gold-glow); border: none; border-radius: 50px; font-weight: 700; cursor: pointer; text-transform: uppercase; color: #fff; box-shadow: 0 5px 20px rgba(0,0,0,0.2); }
+        #overlay button { padding: 20px 40px; background: var(--gold-glow); border: none; border-radius: 50px; font-weight: 700; cursor: pointer; text-transform: uppercase; color: #000; box-shadow: 0 5px 20px rgba(0,0,0,0.5); }
 
         .app-wrapper {
             max-width: var(--ancho-max); margin: 0 auto;
-            background: #fff;
+            background: linear-gradient(180deg, #600000 0%, #a50000 50%, #600000 100%);
+            background-attachment: fixed; background-size: cover;
             position: relative; min-height: 100vh; display: none;
         }
 
         #music-pill {
             position: fixed; bottom: 20px; right: 20px; z-index: 1000;
-            background: rgba(255,255,255,0.9); border: 2px solid var(--gold-glow);
+            background: rgba(0,0,0,0.7); border: 2px solid var(--gold-glow);
             padding: 10px 15px; border-radius: 50px; cursor: pointer; display: none;
         }
 
-        /* AJUSTE PORTADA: Imagen completa y difuminado inferior */
         .hero-v3 {
             height: 100vh;
-            background-repeat: no-repeat;
-            background-position: top center;
-            background-size: contain; /* Para que salga la foto completa */
-            display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 80px;
-            position: relative;
-            background-color: #fff;
+            background-size: cover; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 80px;
         }
-        
-        /* Efecto difuminado bajo la foto de portada */
-        .hero-v3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 40%; /* Altura del difuminado */
-            background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 90%);
-            pointer-events: none;
-        }
-
-        .hero-v3 h2, .hero-v3 h1, .hero-v3 p, .hero-v3 .timer-v3, .hero-v3 .btn-calendar {
-            position: relative; z-index: 2; /* Para que queden sobre el difuminado */
-        }
-
-        .hero-v3 h2 { font-family: 'Cinzel'; letter-spacing: 8px; font-size: 1rem; color: var(--gold-glow); margin-bottom: 15px; }
-        .hero-v3 h1 { font-family: 'Cinzel'; font-size: 3.5rem; color: var(--old-rose); text-shadow: 1px 1px 5px rgba(255,255,255,0.8); }
+        /* MEJORA DE VISIBILIDAD EN PORTADA */
+        .hero-v3 h2 { font-family: 'Cinzel'; letter-spacing: 8px; font-size: 1rem; color: #fff; margin-bottom: 15px; text-shadow: 0 0 8px rgba(255,255,255,0.6), 2px 2px 4px rgba(0,0,0,0.9); }
+        .hero-v3 h1 { font-family: 'Cinzel'; font-size: 4rem; color: #fff; text-shadow: 2px 2px 10px rgba(0,0,0,0.9); }
+        .hero-v3 p { color: #fff; text-shadow: 1px 1px 4px rgba(0,0,0,0.9); }
 
         .timer-v3 { display: flex; justify-content: center; gap: 12px; margin-top: 30px; margin-bottom: 20px; }
-        .t-unit { background: rgba(255,255,255,0.8); border: 1px solid var(--gold-glow); padding: 12px; border-radius: 10px; min-width: 65px; }
-        .t-num { font-family: 'Cinzel'; font-size: 1.5rem; display: block; color: var(--old-rose); }
-        .t-txt { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 1px; color: #4a4a4a; }
+        .t-unit { background: rgba(0,0,0,0.5); border: 1px solid var(--gold-glow); padding: 12px; border-radius: 10px; min-width: 65px; }
+        .t-num { font-family: 'Cinzel'; font-size: 1.5rem; display: block; color: var(--gold-glow); }
+        .t-txt { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 1px; color: #fff; }
 
         .btn-calendar {
-            display: inline-block; background: var(--gold-glow); color: #fff;
-            padding: 10px 20px; border-radius: 5px;
+            display: inline-block; background: transparent; color: var(--gold-glow);
+            border: 1px solid var(--gold-glow); padding: 10px 20px; border-radius: 5px;
             text-decoration: none; font-size: 0.7rem; letter-spacing: 2px;
             font-family: 'Cinzel';
         }
 
         .glass-card {
-            background: var(--white-clean);
-            border: 1px solid var(--old-rose); margin: 25px 15px;
+            background: var(--glass); backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.3); margin: 25px 15px;
             padding: 40px 25px; border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
-        .section-title { font-family: 'Dancing Script', cursive; font-size: 3.2rem; color: var(--old-rose); margin-bottom: 25px; }
+        .section-title { font-family: 'Dancing Script', cursive; font-size: 3.2rem; color: var(--gold-glow); margin-bottom: 25px; }
         .img-rounded { width: 100%; border-radius: 15px; border: 2px solid var(--gold-glow); margin-bottom: 25px; }
 
         .swiper { width: 100%; height: 400px; border-radius: 15px; border: 2px solid var(--gold-glow); }
         .swiper-slide img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
 
-        .card-family { background: rgba(226, 166, 166, 0.1); padding: 20px; border-radius: 10px; border-bottom: 2px solid var(--gold-glow); margin-bottom: 15px; text-align: center; }
+        .card-family { background: rgba(0,0,0,0.2); padding: 20px; border-radius: 10px; border-bottom: 2px solid var(--gold-glow); margin-bottom: 15px; text-align: center; }
         .role { font-size: 0.7rem; text-transform: uppercase; color: var(--gold-glow); font-weight: bold; display: block; margin-bottom: 5px; }
 
-        .btn-confirm {
-            display: block; background: var(--old-rose); color: #fff; padding: 18px;
-            border-radius: 10px; text-decoration: none; font-weight: bold; margin-top: 20px;
-            border: none; text-transform: uppercase; letter-spacing: 2px; width: 100%;
-        }
-        
-        select { width: 100%; padding: 15px; border-radius: 10px; background: #fff; color: #000; border: 1px solid var(--old-rose); font-weight: bold; margin-bottom: 15px; }
-        
-        .dress-icon { width: 85px; filter: sepia(1) saturate(2) hue-rotate(320deg); opacity: 0.9; pointer-events: none; }
-        .dress-note { font-size: 0.8rem; color: var(--old-rose); margin-top: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        .gift-container { display: flex; justify-content: space-around; margin: 25px 0; }
+        .gift-img { width: 70px; height: 70px; object-fit: contain; pointer-events: none; }
 
-        .no-red-circle {
+        .btn-confirm {
+            display: block; background: #000; color: var(--gold-glow); padding: 18px;
+            border-radius: 10px; text-decoration: none; font-weight: bold; margin-top: 20px;
+            border: 2px solid var(--gold-glow); text-transform: uppercase; letter-spacing: 2px; width: 100%;
+        }
+        select { width: 100%; padding: 15px; border-radius: 10px; background: #fff; color: #000; font-weight: bold; margin-bottom: 15px; }
+        
+        .dress-code-icons { display: flex; justify-content: center; gap: 30px; margin: 20px 0; }
+        .dress-icon { width: 85px; filter: invert(1) sepia(1) saturate(5) hue-rotate(360deg); opacity: 0.9; pointer-events: none; }
+        .dress-note { font-size: 0.8rem; color: #ffcccc; margin-top: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* CÍRCULOS DE COLORES PROHIBIDOS */
+        .no-color-group { display: flex; justify-content: center; gap: 20px; margin-bottom: 10px; }
+        .no-color-circle {
             position: relative; width: 45px; height: 45px;
-            border: 4px solid var(--old-rose); border-radius: 50%;
+            border: 4px solid #ff0000; border-radius: 50%;
             display: inline-flex; align-items: center; justify-content: center;
-            margin: 0 auto 10px auto;
         }
-        .no-red-circle::after {
+        .no-color-circle::after {
             content: ''; position: absolute; width: 100%; height: 4px;
-            background-color: var(--old-rose); transform: rotate(-45deg);
+            background-color: #ff0000; transform: rotate(-45deg);
         }
-        .color-prohibido { width: 25px; height: 25px; background-color: var(--old-rose); border-radius: 50%; }
+        .color-inner { width: 25px; height: 25px; border-radius: 50%; }
 
         .footer-link {
             text-decoration: none; color: var(--gold-glow); font-weight: bold;
@@ -157,7 +143,7 @@
     <div id="overlay">
         <h2>MIS XV AÑOS</h2>
         <h1>CAMILA</h1>
-        <p>Nos complace invitarte a celebrar este momento tan especial en mi vida.</p>
+        <p>Nos complace invitarte a celebrar este momento tan especial en mi vida, un día que será aún más especial porque tú estarás ahí.</p>
         <button onclick="startApp()">ENTRAR A INVITACIÓN 💎</button>
     </div>
 
@@ -172,18 +158,18 @@
         <div class="hero-v3" id="hero-bg">
             <h2>MIS XV AÑOS</h2>
             <h1>CAMILA</h1>
-            <p style="letter-spacing: 4px; font-weight: 600; margin-top: 10px; color: var(--gold-glow);">12 . JULIO . 2026</p>
+            <p style="letter-spacing: 4px; font-weight: 200; margin-top: 10px;">15 . MAYO . 2026</p>
             <div class="timer-v3">
                 <div class="t-unit"><span id="days" class="t-num">00</span><span class="t-txt">Días</span></div>
                 <div class="t-unit"><span id="hours" class="t-num">00</span><span class="t-txt">Hrs</span></div>
                 <div class="t-unit"><span id="mins" class="t-num">00</span><span class="t-txt">Min</span></div>
                 <div class="t-unit"><span id="secs" class="t-num">00</span><span class="t-txt">Seg</span></div>
             </div>
-            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mis+XV+A%C3%B1os+Camila&dates=20260712T193000/20260713T020000&details=Celebraci%C3%B3n+de+mis+XV+A%C3%B1os&location=Sal%C3%B3n+Bella+Luna" target="_blank" class="btn-calendar">AGENDAR EVENTO</a>
+            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mis+XV+A%C3%B1os+Camila&dates=20260515T193000/20260516T020000&details=Celebraci%C3%B3n+de+mis+XV+A%C3%B1os&location=Sal%C3%B3n+Bella+Luna" target="_blank" class="btn-calendar">AGENDAR EVENTO</a>
         </div>
 
         <div class="glass-card reveal">
-            <p style="font-family:'Dancing Script'; font-size:1.9rem; line-height:1.3; margin-bottom: 25px; color: var(--old-rose);">
+            <p style="font-family:'Dancing Script'; font-size:1.9rem; line-height:1.3; margin-bottom: 25px;">
                 "La vida se mide en momentos como este, y quiero que seas parte de mi historia."
             </p>
             <img id="img-historia" class="img-rounded">
@@ -207,18 +193,58 @@
         <div class="glass-card reveal">
             <h2 class="section-title">Mi Álbum</h2>
             <div class="swiper mySwiper">
-                <div class="swiper-wrapper" id="album-wrapper"></div>
+                <div class="swiper-wrapper" id="album-wrapper">
+                </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
+            </div>
+            <p style="font-family:'Dancing Script'; font-size:1.2rem; margin-top:15px; color: var(--gold-glow);">"Momentos capturados que guardaré por siempre en mi corazón."</p>
+        </div>
+
+        <div class="glass-card reveal">
+            <h2 class="section-title">Ubicaciones</h2>
+            
+            <div style="margin-bottom: 40px;">
+                <h3 style="font-family:'Cinzel'; color:var(--gold-glow); font-size: 1.4rem;">CEREMONIA RELIGIOSA</h3>
+                <img src="https://www.dropbox.com/scl/fi/pu0zsq8mszn4kw7af4i70/SOFIA-SENTADA.jpg?rlkey=b00v2mz5n312e2hjr598f4ev1&raw=1" class="img-rounded" style="margin-top: 15px;">
+                <h4 style="font-family:'Cinzel'; margin-top:10px;">CATEDRAL</h4>
+                <p>6:00 PM</p>
+                <a href="https://maps.google.com" target="_blank" class="btn-confirm" style="font-size:0.8rem;">Ver Mapa Iglesia</a>
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid rgba(255,215,0,0.3); margin-bottom: 40px;">
+
+            <div>
+                <h3 style="font-family:'Cinzel'; color:var(--gold-glow); font-size: 1.4rem;">RECEPCIÓN</h3>
+                <img id="img-salon" class="img-rounded" style="pointer-events: none; margin-top: 15px;">
+                <h4 style="font-family:'Cinzel'; margin-top:10px;">SALÓN BELLA LUNA</h4>
+                <p>7:30 PM</p>
+                <a href="https://maps.google.com/?q=Salón+Bella+Luna" target="_blank" class="btn-confirm" style="font-size:0.8rem;">Ver Mapa Salón</a>
             </div>
         </div>
 
         <div class="glass-card reveal">
-            <h2 class="section-title">Ubicación</h2>
-            <img id="img-salon" class="img-rounded">
-            <h3 style="font-family:'Cinzel'; color:var(--gold-glow);">SALÓN BELLA LUNA</h3>
-            <p style="margin-top:10px;">7:30 PM</p>
-            <a href="https://maps.google.com/?q=Salón+Bella+Luna" target="_blank" class="btn-confirm">Ver Mapa</a>
+            <h2 class="section-title">El Clima</h2>
+            <a class="weatherwidget-io" href="https://forecast7.com/es/19d25n99d10/mexico-city/" data-label_1="CIUDAD DE MEXICO" data-label_2="CLIMA" data-font="Arial Rounded MT Bold" data-icons="Climacons Animated" data-days="5" data-theme="salmon" data-highcolor="#f82727" data-lowcolor="#1f5a6f" data-mooncolor="#f6e7e7" data-cloudfill="rgba(111, 31, 31, 0.03)" data-raincolor="#4138de" >CIUDAD DE MEXICO CLIMA</a>
+            <script>
+            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+            </script>
+        </div>
+
+        <div class="glass-card reveal">
+            <h2 class="section-title">Mesa de Regalos</h2>
+            <p style="font-family:'Dancing Script'; font-size:1.6rem; color: var(--gold-glow);">"Tu mejor regalo es compartir mi alegría en este día."</p>
+            
+            <div class="gift-container">
+                <div>
+                    <img src="https://www.dropbox.com/scl/fi/zbe5nl1vvo3nht2ufny2k/CAJA-DE-REGALO.png?rlkey=hhj5unurtj4hqjkuc2kayffig&raw=1" class="gift-img">
+                    <p style="font-size:0.6rem; margin-top:5px;">REGALO SORPRESA</p>
+                </div>
+                <div>
+                    <img src="https://www.dropbox.com/scl/fi/k1dnluy76x7efa20qmrfa/SOBRE-CON-MO-O.png?rlkey=xzf8wh4nmdfukogdatpew8rrs&raw=1" class="gift-img">
+                    <p style="font-size:0.6rem; margin-top:5px;">LLUVIA DE SOBRES</p>
+                </div>
+            </div>
         </div>
 
         <div class="glass-card reveal">
@@ -234,30 +260,40 @@
                     <p style="font-size: 0.7rem; margin-top: 5px;">MUJERES</p>
                 </div>
             </div>
+            
             <div style="margin-top: 20px;">
-                <div class="no-red-circle"><div class="color-prohibido"></div></div>
-                <p class="dress-note">⚠️ FAVOR DE NO VESTIR DE COLOR ROSADO O DORADO</p>
+                <div class="no-color-group">
+                    <div class="no-color-circle"><div class="color-inner" style="background:#ffcccc;"></div></div>
+                    <div class="no-color-circle"><div class="color-inner" style="background:#fbbf24;"></div></div>
+                </div>
+                <p class="dress-note">⚠️ NOTA IMPORTANTE: FAVOR DE NO VESTIR DE COLOR ROSADO O DORADO (RESERVADO PARA LA QUINCEAÑERA)</p>
             </div>
         </div>
 
         <div class="glass-card reveal" style="border: 2px solid var(--gold-glow);">
             <h2 class="section-title" style="font-size:2.8rem;">Confirmar</h2>
             <p id="saludo-familia" style="font-family:'Cinzel'; font-size: 1.2rem; margin-bottom:10px;"></p>
+            <p style="font-style: italic; margin-bottom: 15px; color: var(--gold-glow);">"Nos encantaría contar con tu presencia. Por favor, confírmanos tu asistencia."</p>
             <p id="lugares-mensaje" style="margin-bottom:20px;"></p>
+            <p style="font-weight: bold; font-size: 0.9rem; margin-bottom: 10px; color: var(--gold-glow);">¿CUÁNTOS CONFIRMAN?</p>
             <select id="num-asistentes"></select>
             <button onclick="enviarWhatsApp()" class="btn-confirm">CONFIRMAR ASISTENCIA</button>
         </div>
 
-        <footer style="padding:60px 20px; background: #fff;">
-            <div style="font-family:'Cinzel'; color:var(--old-rose); font-size:2.5rem; margin-bottom:10px;">CAMILA</div>
-            <p style="font-size:0.7rem; opacity:0.6; letter-spacing: 2px;">MI GRAN DÍA • PINK & GOLD EDITION</p>
+        <footer style="padding:60px 20px;">
+            <div style="font-family:'Cinzel'; color:var(--gold-glow); font-size:2.5rem; margin-bottom:10px;">CAMILA</div>
+            <p style="font-size:0.7rem; opacity:0.6; letter-spacing: 2px;">MI GRAN DÍA • DIAMOND COLLECTION</p>
             <a href="https://migrandia.mx" target="_blank" class="footer-link">MIGRANDIA.MX</a>
         </footer>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
+        /* --- SEGURIDAD --- */
+        document.addEventListener('contextmenu', event => event.preventDefault()); 
+
         const URL_MUSICA = "https://www.dropbox.com/scl/fi/cwufk4iw6mn327f390kyp/Lana-Del-Rey-Young-and-Beautiful-from-The-Great-Gatsby-Soundtrack.mp3?rlkey=7jaeztoic45cr319mvvdh1hvr&raw=1";
+        const URL_FONDO_GENERAL = "https://www.dropbox.com/scl/fi/rc9azx6rl79fjuu3nj2ib/FONDO-DE-ROSAS.jpg?rlkey=rxdc64ddpq1yx0gi0vaamy80k&raw=1";
         const URL_HERO_BG = "https://www.dropbox.com/scl/fi/y6f3m46ckfwdoup5fhn1f/Portada.jpg?rlkey=rbn93ehavtrqiqu9cfkuq45ad&raw=1";
         const URL_IMG_HISTORIA = "https://www.dropbox.com/scl/fi/bubpnp5r0k28ogqbhkwtn/mensaje.jpg?rlkey=h845kh8o4jh0md7bibi424fu3&raw=1";
         const URL_IMG_ITINERARIO = "https://www.dropbox.com/scl/fi/5h3xc5xt0ycglyh5ttyb4/tinerario-bueno-2.png?rlkey=g07gxf3jn0j6sdtt5ofxgiphy&raw=1";
@@ -268,7 +304,7 @@
             "https://www.dropbox.com/scl/fi/xk6m32z6r1483hb9hbpju/Galeria3.jpg?rlkey=9vmr799kzi1rpmolmxxk82hpp&raw=1",
             "https://www.dropbox.com/scl/fi/x83r4svigqgg8jsrzbhhd/galeria2.jpg?rlkey=xf1m3pufv911usflbs21wskks&raw=1",
             "https://www.dropbox.com/scl/fi/1qwohiazd4vtepousxr8i/Galer-a1.jpg?rlkey=fecf2sptggmmdgail95qtv56g&raw=1",
-            "https://www.dropbox.com/scl/fi/y6f3m46ckfwdoup5fhn1f/Portada.jpg?rlkey=rbn93ehavtrqiqu9cfkuq45ad&raw=1"
+            "https://www.dropbox.com/scl/fi/y6f3m46ckfwdoup5fhn1f/Portada.jpg?rlkey=rbn93ehavtrqiqu9cfkuq45ad&raw=1",
         ];
 
         var track = document.getElementById('track');
@@ -292,8 +328,7 @@
             else { track.pause(); document.getElementById('m-status').textContent = "▶"; }
         }
 
-        // FECHA ACTUALIZADA: 12 DE JULIO
-        const target = new Date("July 12, 2026 19:30:00").getTime();
+        const target = new Date("May 15, 2026 19:30:00").getTime();
         setInterval(() => {
             const now = new Date().getTime();
             const d = target - now;
@@ -305,10 +340,14 @@
 
         window.onload = function() {
             document.getElementById('track').src = URL_MUSICA;
-            document.getElementById('hero-bg').style.backgroundImage = `url('${URL_HERO_BG}')`;
+            document.getElementById('hero-bg').style.backgroundImage = `linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.6)), url('${URL_HERO_BG}')`;
             document.getElementById('img-historia').src = URL_IMG_HISTORIA;
             document.getElementById('img-itinerario').src = URL_IMG_ITINERARIO;
             document.getElementById('img-salon').src = URL_IMG_SALON;
+
+            if(URL_FONDO_GENERAL !== "") {
+                document.getElementById('app-content').style.background = `linear-gradient(rgba(74,0,0,0.7), rgba(74,0,0,0.7)), url('${URL_FONDO_GENERAL}')`;
+            }
 
             const albumWrapper = document.getElementById('album-wrapper');
             URLS_ALBUM.forEach(url => {
@@ -321,12 +360,23 @@
             const urlParams = new URLSearchParams(window.location.search);
             const n = urlParams.get('n'); 
             const c = urlParams.get('c');
+            const t = urlParams.get('t');
             const etiquetaSaludo = document.getElementById('saludo-familia');
             const nombreDecodificado = n ? decodeURIComponent(n).toUpperCase() : "INVITADO ESPECIAL";
-            etiquetaSaludo.textContent = n ? `FAMILIA ${nombreDecodificado}` : "¡TE ESPERAMOS!";
+
+            if (t === 'a') {
+                etiquetaSaludo.textContent = `¡HOLA ${nombreDecodificado}!`;
+            } else {
+                etiquetaSaludo.textContent = n ? `FAMILIA ${nombreDecodificado}` : "¡TE ESPERAMOS!";
+            }
             
             const cant = (c && c.trim() !== "") ? parseInt(c) : 5; 
-            document.getElementById('lugares-mensaje').innerHTML = `Hemos reservado <b>${cant} lugar(es)</b> para ti.`;
+            
+            if(n && (c && c.trim() !== "")) {
+                document.getElementById('lugares-mensaje').innerHTML = `Hemos reservado <b>${cant} lugar(es)</b> para ti.`;
+            } else {
+                document.getElementById('lugares-mensaje').innerHTML = `Por favor, selecciona el número de personas que asistirán.`;
+            }
 
             const s = document.getElementById('num-asistentes');
             for (let i = 1; i <= cant; i++) {
@@ -342,7 +392,15 @@
             const num = document.getElementById('num-asistentes').value;
             const urlParams = new URLSearchParams(window.location.search);
             const n = urlParams.get('n') ? decodeURIComponent(urlParams.get('n')) : "Invitado";
-            let textoConfirmacion = `¡Hola Camila! Confirmo la asistencia de la Familia ${n} con ${num} persona(s). ¡Ahí estaremos!`;
+            const t = urlParams.get('t');
+
+            let textoConfirmacion;
+            if (t === 'a') {
+                textoConfirmacion = `¡Hola Camila! Soy ${n}, confirmo mi asistencia con ${num} persona(s). ¡Ahí nos vemos!`;
+            } else {
+                textoConfirmacion = `¡Hola Camila! Confirmo la asistencia de la Familia ${n} con ${num} persona(s). ¡Ahí estaremos!`;
+            }
+
             const msg = encodeURIComponent(textoConfirmacion);
             window.open(`https://wa.me/${WHATSAPP_NUM}?text=${msg}`, '_blank');
         }
