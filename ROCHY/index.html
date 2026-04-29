@@ -14,126 +14,58 @@
 
     <style>
         :root {
-            /* --- 1. IMÁGENES Y FONDOS --- */
             --bg-general: url('https://www.dropbox.com/scl/fi/pygpfc0ev8agnidpyb8mg/mariposas-rosas.jpg?rlkey=stlc1zv852w1ddj373fymts67&raw=1');
             --img-portada: url('https://www.dropbox.com/scl/fi/lqbh8cojt4pkullly42a9/ROCHI-1.jpg?rlkey=wtzlhzkci1bczsxe15eelswms&raw=1');
             --icono-vestimenta: url('https://www.dropbox.com/scl/fi/4h6yhrok6ldy70abeseig/CODIGO-DE-VSETIENTE-FORMAL-EN-BLANCO.png?rlkey=3tq2d20oj8o4qe43lyhuqsr53&raw=1');
             --icono-sobres: url('https://www.dropbox.com/scl/fi/xnyirhnix47mpn8hx9bnp/LLUVIA-DE-SOBRES.png?rlkey=lh7kw4y126d44ybgw1otjd8cj&raw=1');
-
-            /* --- 2. COLORES EDITABLES --- */
-            --color-portada: #ffffff;    /* Color de nombre, fecha y hora en la foto principal */
-            --color-contador: #ffffff;   /* Color de los números del reloj */
-            --color-titulos: #d4a5b9;    /* Color de los títulos en las secciones blancas */
-            --color-cuerpo: #4a4a4a;     /* Color de los textos normales */
-            --color-frases: #666666;     /* Color de las frases en cursiva */
-            --rosa-fuerte: #d4a5b9;      /* Color de botones y detalles */
-            
-            /* --- 3. FUENTES --- */
+            --color-portada: #ffffff;
+            --color-contador: #ffffff;
+            --color-titulos: #d4a5b9;
+            --color-cuerpo: #4a4a4a;
+            --color-frases: #666666;
+            --rosa-fuerte: #d4a5b9;
             --fuente-titulos: 'Great Vibes', cursive;
             --fuente-cuerpo: 'Montserrat', sans-serif;
             --fuente-frases: 'Playfair Display', serif;
         }
 
-        * { 
-            margin: 0; padding: 0; box-sizing: border-box; 
-            -webkit-user-select: none; user-select: none;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-user-select: none; user-select: none; }
+        body { font-family: var(--fuente-cuerpo); background-image: var(--bg-general); background-size: cover; background-position: center; background-attachment: fixed; color: var(--color-cuerpo); overflow-x: hidden; width: 100%; text-align: center; }
 
-        body { 
-            font-family: var(--fuente-cuerpo); 
-            background-image: var(--bg-general);
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: var(--color-cuerpo); 
-            overflow-x: hidden; 
-            width: 100%;
-            text-align: center;
-        }
-
-        /* HEADER CON DIFUMINADO EXTENDIDO */
         header {
-            height: 100vh;
-            width: 100%;
-            background: var(--img-portada) center top no-repeat;
-            background-size: cover; 
+            height: 100vh; width: 100%; background: var(--img-portada) center top no-repeat; background-size: cover; 
             -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
             mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
-            display: flex; flex-direction: column;
-            justify-content: center; align-items: center; 
-            color: var(--color-portada); /* Controlado por variable */
-            position: relative;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; color: var(--color-portada); position: relative;
         }
 
-        section { 
-            padding: 80px 20px; 
-            background: rgba(255, 255, 255, 0.65); 
-            margin: 20px 10px;
-            border-radius: 20px;
-        }
-
+        section { padding: 80px 20px; background: rgba(255, 255, 255, 0.65); margin: 20px 10px; border-radius: 20px; }
         h1, h3, h4 { color: var(--color-titulos); }
-        p { color: var(--color-cuerpo); }
         .frase-especial { color: var(--color-frases); font-family: var(--fuente-frases); font-style: italic; }
-
-        /* Estilos específicos de Portada */
         header h1 { font-family: var(--fuente-titulos); font-size: 6rem; text-shadow: 2px 2px 15px rgba(0,0,0,0.5); color: var(--color-portada); }
         .subtitulo { font-size: 1.5rem; letter-spacing: 6px; text-transform: uppercase; font-weight: 300; color: var(--color-portada); }
         .fecha-portada { font-weight: 600; letter-spacing: 2px; color: var(--color-portada); }
 
-        /* Estilos del Contador */
         .count-portada { margin-top: 30px; display: flex; gap: 15px; justify-content: center; color: var(--color-contador); }
-        .count-item {
-            background: rgba(255,255,255,0.2); backdrop-filter: blur(5px);
-            padding: 10px; border-radius: 10px; min-width: 65px; border: 1px solid rgba(255,255,255,0.3);
-        }
+        .count-item { background: rgba(255,255,255,0.2); backdrop-filter: blur(5px); padding: 10px; border-radius: 10px; min-width: 65px; border: 1px solid rgba(255,255,255,0.3); }
         .count-item span { display: block; font-size: 1.5rem; font-weight: bold; color: var(--color-contador); }
 
-        #overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: white; z-index: 5000; display: flex; flex-direction: column;
-            justify-content: center; align-items: center; text-align: center;
-        }
-        #overlay::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: var(--img-portada) center center no-repeat; background-size: cover;
-            filter: brightness(0.4); z-index: -1;
-        }
+        #overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; z-index: 5000; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        #overlay::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: var(--img-portada) center center no-repeat; background-size: cover; filter: brightness(0.4); z-index: -1; }
 
-        .btn-audio {
-            position: fixed; top: 20px; right: 20px; z-index: 6000;
-            background: rgba(255, 255, 255, 0.8); border: none; width: 45px; height: 45px;
-            border-radius: 50%; color: var(--rosa-fuerte); cursor: pointer; display: none;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1); font-size: 1.2rem;
-        }
-
-        .btn-entrar {
-            padding: 15px 45px; font-size: 1.2rem; background: var(--rosa-fuerte);
-            color: white; border: none; border-radius: 50px; cursor: pointer;
-            font-weight: bold; letter-spacing: 2px; box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-        }
-
+        .btn-audio { position: fixed; top: 20px; right: 20px; z-index: 6000; background: rgba(255, 255, 255, 0.8); border: none; width: 45px; height: 45px; border-radius: 50%; color: var(--rosa-fuerte); cursor: pointer; display: none; box-shadow: 0 2px 10px rgba(0,0,0,0.1); font-size: 1.2rem; }
+        .btn-entrar { padding: 15px 45px; font-size: 1.2rem; background: var(--rosa-fuerte); color: white; border: none; border-radius: 50px; cursor: pointer; font-weight: bold; letter-spacing: 2px; box-shadow: 0 5px 20px rgba(0,0,0,0.3); }
         .titulo-elegante { font-family: var(--fuente-titulos); font-size: 4rem; margin-bottom: 20px; }
 
-        .carousel {
-            display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
-            gap: 15px; padding: 20px; scrollbar-width: none;
-        }
+        .carousel { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 15px; padding: 20px; scrollbar-width: none; }
         .carousel::-webkit-scrollbar { display: none; }
-        .photo-card {
-            min-width: 85%; scroll-snap-align: center; position: relative;
-            height: 450px; border-radius: 20px; overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1); border: 10px solid white;
-        }
+        .photo-card { min-width: 85%; scroll-snap-align: center; position: relative; height: 450px; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border: 10px solid white; }
         .photo-card img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
 
-        .btn-confirmar {
-            display: inline-block; margin-top: 30px; padding: 18px 40px;
-            background: var(--rosa-fuerte); color: white; text-decoration: none;
-            border-radius: 50px; font-weight: bold; letter-spacing: 1px;
-        }
-
+        .btn-confirmar { display: inline-block; margin-top: 30px; padding: 18px 40px; background: var(--rosa-fuerte); color: white; text-decoration: none; border-radius: 50px; font-weight: bold; letter-spacing: 1px; }
         .img-itinerario { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 10px; }
+
+        .numero-invitados { font-size: 2.2rem; font-weight: bold; color: var(--rosa-fuerte); margin: 15px 0; letter-spacing: 3px; }
 
         footer { padding: 50px; background: rgba(255,255,255,0.9); border-top: 1px solid #eee; }
         .creacion { font-size: 0.7rem; color: #aaa; margin-top: 20px; letter-spacing: 2px; }
@@ -173,10 +105,9 @@
             <div class="photo-card"><img src="https://www.dropbox.com/scl/fi/lqbh8cojt4pkullly42a9/ROCHI-1.jpg?rlkey=wtzlhzkci1bczsxe15eelswms&raw=1"></div>
             <div class="photo-card"><img src="https://www.dropbox.com/scl/fi/ct3vqhngyuwd1n95mat5c/ROCHY-2.jpg?rlkey=w1e681zhti3ybzq9fwgqlzouc&raw=1"></div>
             <div class="photo-card"><img src="https://www.dropbox.com/scl/fi/uxhlesvenzofrrjtp1ie3/ROCHY-3.jpg?rlkey=qgowtjxhb12kns9ztbve6gxa7&raw=1"></div>
-            <div class="photo-card"><img src="https://www.dropbox.com/scl/fi/l0ers5w3zm8rtigo12gyd/ROCHY-4.jpg?rlkey=ivnjwkvxki1p8gf2frrhyh0l0&6;"></div>
+            <div class="photo-card"><img src="https://www.dropbox.com/scl/fi/l0ers5w3zm8rtigo12gyd/ROCHY-4.jpg?rlkey=ivnjwkvxki1p8gf2frrhyh0l0&raw=1"></div>
         </div>
         <p class="frase-especial" style="margin-top: 20px;">Recuerdos que guardo en el corazón.</p>
-        <p style="font-size: 0.8rem; color: #bbb;">(Desliza para ver más)</p>
     </section>
 
     <section>
@@ -201,17 +132,14 @@
     <section>
         <h3 class="titulo-elegante">Ubicación</h3>
         <p><strong>Salón El Jardín</strong></p>
-        <p style="font-size: 0.9rem; margin-top: 5px;">¡Te esperamos con mucha alegría!</p>
         <img src="https://www.dropbox.com/scl/fi/cftmtmmtec94szn38lllg/SALON-EL-JARDIN.jpg?rlkey=6pmex78frbjd5v3jqil1egz3s&raw=1" class="photo-card" style="width: 100%; height: auto; max-width: 500px; border-radius: 15px; margin: 20px auto;">
-        <br>
-        <a href="https://maps.app.goo.gl/L4iqsTkdurSwgjws9?g_st=aw" target="_blank" class="btn-confirmar">VER EN MAPS</a>
+        <br><a href="https://maps.app.goo.gl/L4iqsTkdurSwgjws9?g_st=aw" target="_blank" class="btn-confirmar">VER EN MAPS</a>
     </section>
 
     <section style="background: rgba(248, 200, 220, 0.8);">
         <div class="icon-box" style="background-image: var(--icono-vestimenta); filter: brightness(0) invert(1); width: 240px; height: 240px; margin: -40px auto -30px; background-size: contain; background-repeat: no-repeat; background-position: center;"></div>
         <h3 class="titulo-elegante" style="color: white;">Vestimenta</h3>
         <p style="color: white;">FORMAL</p>
-        <p style="font-size: 0.9rem; margin-top: 10px; color: white;">Tu presencia hará mi día aún más especial.</p>
     </section>
 
     <section>
@@ -222,7 +150,16 @@
 
     <section>
         <h3 class="titulo-elegante">¿Me acompañas?</h3>
-        <a href="https://wa.me/529931795286?text=¡Hola! Confirmo mi asistencia al cumple de Rochy." class="btn-confirmar">
+        
+        <div id="seccion-familia">
+            <p class="frase-especial" id="nombre-familia" style="font-size: 1.8rem; margin-bottom: 10px;">Familia e Invitados</p>
+            <p>Hemos reservado para ustedes:</p>
+            <div class="numero-invitados" id="num-pases">1, 2, 3, 4, 5</div>
+            <p>Lugares en nuestra celebración.</p>
+            <br>
+        </div>
+
+        <a id="btn-wa" href="https://wa.me/529931795286?text=¡Hola! Confirmo mi asistencia al cumple de Rochy." class="btn-confirmar">
             <i class="fa-brands fa-whatsapp"></i> CONFIRMAR ASISTENCIA
         </a>
         <p class="frase-especial" style="margin-top: 20px; font-weight: 600;">"Su presencia es el mejor regalo que puedo recibir."</p>
@@ -235,37 +172,40 @@
 
     <script src="https://www.youtube.com/iframe_api"></script>
     <script>
-        document.onkeydown = function(e) {
-            if(e.keyCode == 123 || (e.ctrlKey && (e.keyCode == 'U'.charCodeAt(0) || e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0) || e.keyCode == 'C'.charCodeAt(0))))) {
-                return false;
+        // LÓGICA DE PASES
+        const urlParams = new URLSearchParams(window.location.search);
+        const familia = urlParams.get('familia');
+        const pases = urlParams.get('pases');
+
+        if (familia) {
+            document.getElementById('nombre-familia').innerText = familia;
+        }
+
+        // SI HAY PASES EN EL URL (EJ: 10), MUESTRA DEL 10 AL 1. SI NO, DEJA EL 1 AL 5 POR DEFECTO.
+        if (pases && parseInt(pases) > 5) {
+            let listaPases = "";
+            for (let i = parseInt(pases); i >= 1; i--) {
+                listaPases += i + (i > 1 ? ", " : "");
             }
-        };
+            document.getElementById('num-pases').innerText = listaPases;
+        }
+
+        document.onkeydown = function(e) { if(e.keyCode == 123 || (e.ctrlKey && (e.keyCode == 'U'.charCodeAt(0) || e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0) || e.keyCode == 'C'.charCodeAt(0))))) return false; };
 
         var player;
         function onYouTubeIframeAPIReady() {
-            player = new YT.Player('player', {
-                height: '0', width: '0', videoId: 'G7KNmW9a75Y',
-                playerVars: { 'autoplay': 0, 'controls': 0, 'loop': 1, 'playlist': 'G7KNmW9a75Y' }
-            });
+            player = new YT.Player('player', { height: '0', width: '0', videoId: 'G7KNmW9a75Y', playerVars: { 'autoplay': 0, 'controls': 0, 'loop': 1, 'playlist': 'G7KNmW9a75Y' } });
         }
 
         function comenzar() {
             document.getElementById('overlay').style.opacity = '0';
-            setTimeout(() => { 
-                document.getElementById('overlay').style.display = 'none'; 
-                document.getElementById('muteBtn').style.display = 'block';
-            }, 1000);
+            setTimeout(() => { document.getElementById('overlay').style.display = 'none'; document.getElementById('muteBtn').style.display = 'block'; }, 1000);
             player.playVideo();
         }
 
         function toggleAudio() {
-            if (player.getPlayerState() == 1) {
-                player.pauseVideo();
-                document.getElementById('muteBtn').innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
-            } else {
-                player.playVideo();
-                document.getElementById('muteBtn').innerHTML = '<i class="fa-solid fa-music"></i>';
-            }
+            if (player.getPlayerState() == 1) { player.pauseVideo(); document.getElementById('muteBtn').innerHTML = '<i class="fa-solid fa-volume-xmark"></i>'; } 
+            else { player.playVideo(); document.getElementById('muteBtn').innerHTML = '<i class="fa-solid fa-music"></i>'; }
         }
 
         const fecha = new Date('May 23, 2026 15:00:00').getTime();
