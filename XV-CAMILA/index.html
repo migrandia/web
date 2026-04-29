@@ -69,11 +69,46 @@
           padding: 10px 15px; border-radius: 50px; cursor: pointer; display: none;
       }
 
+      /* AJUSTE EN HERO: Foto completa y difuminado abajo */
       .hero-v3 {
           height: 100vh;
-          background-size: cover; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 80px;
+          background-repeat: no-repeat;
+          background-position: center top; /* Centrada arriba */
+          background-size: contain; /* Foto completa sin cortarse */
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          padding-bottom: 80px;
+          position: relative;
       }
-      .hero-v3 h2 { font-family: 'Cinzel'; letter-spacing: 8px; font-size: 1rem; color: var(--gold-glow); margin-bottom: 15px; }
+      
+      /* Degradado para difuminar la parte de abajo de la foto */
+      .hero-v3::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 30vh; /* Altura del difuminado */
+          background: linear-gradient(to bottom, rgba(212, 165, 165, 0) 0%, rgba(212, 165, 165, 1) 100%);
+          z-index: 1;
+      }
+
+      /* Contenedor de texto para estar sobre el degradado */
+      .hero-text-key {
+          position: relative;
+          z-index: 2;
+      }
+
+      /* CAMBIO: TÍTULO 2 VECES MÁS GRANDE */
+      .hero-v3 h2 { 
+          font-family: 'Cinzel'; 
+          letter-spacing: 8px; 
+          font-size: 2.5rem; /* Aumentado de 1rem */
+          color: var(--gold-glow); 
+          margin-bottom: 5px; 
+      }
+      
       .hero-v3 h1 { font-family: 'Cinzel'; font-size: 4rem; color: white; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
 
       .timer-v3 { display: flex; justify-content: center; gap: 12px; margin-top: 30px; margin-bottom: 20px; }
@@ -155,16 +190,18 @@
   <div class="app-wrapper" id="app-content">
       
       <div class="hero-v3" id="hero-bg">
-          <h2>MIS XV AÑOS</h2>
-          <h1>CAMILA</h1>
-          <p style="letter-spacing: 4px; font-weight: 400; margin-top: 10px; color: white;">12 . JUNIO . 2026</p>
-          <div class="timer-v3">
-              <div class="t-unit"><span id="days" class="t-num">00</span><span class="t-txt">Días</span></div>
-              <div class="t-unit"><span id="hours" class="t-num">00</span><span class="t-txt">Hrs</span></div>
-              <div class="t-unit"><span id="mins" class="t-num">00</span><span class="t-txt">Min</span></div>
-              <div class="t-unit"><span id="secs" class="t-num">00</span><span class="t-txt">Seg</span></div>
+          <div class="hero-text-key">
+              <h2>MIS XV AÑOS</h2>
+              <h1>CAMILA</h1>
+              <p style="letter-spacing: 4px; font-weight: 400; margin-top: 10px; color: white;">12 . JUNIO . 2026</p>
+              <div class="timer-v3">
+                  <div class="t-unit"><span id="days" class="t-num">00</span><span class="t-txt">Días</span></div>
+                  <div class="t-unit"><span id="hours" class="t-num">00</span><span class="t-txt">Hrs</span></div>
+                  <div class="t-unit"><span id="mins" class="t-num">00</span><span class="t-txt">Min</span></div>
+                  <div class="t-unit"><span id="secs" class="t-num">00</span><span class="t-txt">Seg</span></div>
+              </div>
+              <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mis+XV+A%C3%B1os+Camila&dates=20260612T193000/20260613T020000&details=Celebraci%C3%B3n+de+mis+XV+A%C3%B1os&location=Sal%C3%B3n+Bella+Luna" target="_blank" class="btn-calendar">AGENDAR EVENTO</a>
           </div>
-          <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mis+XV+A%C3%B1os+Camila&dates=20260612T193000/20260613T020000&details=Celebraci%C3%B3n+de+mis+XV+A%C3%B1os&location=Sal%C3%B3n+Bella+Luna" target="_blank" class="btn-calendar">AGENDAR EVENTO</a>
       </div>
 
       <div class="glass-card reveal">
@@ -184,6 +221,14 @@
           </div>
       </div>
 
+      <div class="glass-card reveal">
+          <h2 class="section-title">Ceremonia Religiosa</h2>
+          <img src="https://www.dropbox.com/scl/fi/bubpnp5r0k28ogqbhkwtn/mensaje.jpg?rlkey=h845kh8o4jh0md7bibi424fu3&raw=1" class="img-rounded">
+          <h3 style="font-family:'Cinzel'; color:var(--gold-glow);">PARROQUIA DE SANTA FE</h3>
+          <p style="margin-top:10px;">5:00 PM</p>
+          <a href="https://maps.google.com" target="_blank" class="btn-confirm" style="font-size:0.8rem; background: var(--gold-glow);">Ver Ubicación</a>
+      </div>
+
       <div class="glass-card reveal" style="padding: 20px 0;">
           <h2 class="section-title">Itinerario</h2>
           <img id="img-itinerario" style="width: 100%; pointer-events: none;">
@@ -196,14 +241,6 @@
               <div class="swiper-button-next"></div>
               <div class="swiper-button-prev"></div>
           </div>
-      </div>
-
-      <div class="glass-card reveal">
-          <h2 class="section-title">Ceremonia Religiosa</h2>
-          <img src="https://www.dropbox.com/scl/fi/bubpnp5r0k28ogqbhkwtn/mensaje.jpg?rlkey=h845kh8o4jh0md7bibi424fu3&raw=1" class="img-rounded">
-          <h3 style="font-family:'Cinzel'; color:var(--gold-glow);">PARROQUIA DE SANTA FE</h3>
-          <p style="margin-top:10px;">5:00 PM</p>
-          <a href="https://maps.google.com" target="_blank" class="btn-confirm" style="font-size:0.8rem; background: var(--gold-glow);">Ver Ubicación</a>
       </div>
 
       <div class="glass-card reveal">
@@ -250,16 +287,13 @@
               </div>
               <p class="dress-note">⚠️ NOTA IMPORTANTE: FAVOR DE NO VESTIR DE COLOR ROSADO O DORADO (RESERVADO PARA LA QUINCEAÑERA)</p>
           </div>
-      </div>
 
-      <div class="glass-card reveal">
-        <h2 class="section-title" style="font-size: 2.5rem;">El Clima</h2>
-        <div style="border-radius: 15px; overflow: hidden; border: 1px solid var(--gold-glow);">
+          <div class="weather-container">
             <a class="weatherwidget-io" href="https://forecast7.com/es/22d16n100d99/san-luis-potosi/" data-label_1="SAN LUIS POTOSI" data-label_2="CLIMA" data-days="5" data-theme="beige" data-basecolor="rgba(248, 246, 241, 0.97)" data-lowcolor="#f881ce" >SAN LUIS POTOSI CLIMA</a>
             <script>
             !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
             </script>
-        </div>
+          </div>
       </div>
 
       <div class="glass-card reveal" style="border: 2px solid var(--gold-glow);">
@@ -296,21 +330,16 @@
       ];
 
       var track = document.getElementById('track');
-      track.src = URL_MUSICA; // Cargamos el audio desde el inicio
+      var swiper;
 
       function startApp() {
-          // 1. Música primero para evitar retrasos
-          track.play().then(() => {
-              console.log("Música iniciada");
-          }).catch(e => console.log("Interacción requerida"));
-
-          // 2. Mostrar contenido
           document.getElementById('overlay').style.display = 'none';
           document.getElementById('app-content').style.display = 'block';
           document.getElementById('music-pill').style.display = 'block';
+          track.src = URL_MUSICA; 
+          track.play().catch(e => console.log("Audio listo"));
 
-          // 3. Inicializar efectos
-          var swiper = new Swiper(".mySwiper", {
+          swiper = new Swiper(".mySwiper", {
               navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
               loop: true,
               autoplay: { delay: 3000, disableOnInteraction: false },
@@ -323,7 +352,6 @@
           else { track.pause(); document.getElementById('m-status').textContent = "▶"; }
       }
 
-      // CUENTA REGRESIVA
       const target = new Date("June 12, 2026 19:30:00").getTime();
       setInterval(() => {
           const now = new Date().getTime();
