@@ -44,9 +44,24 @@
             text-align: center;
         }
 
+        /* Ajuste de Header para que la foto esté hasta arriba */
+        header {
+            height: 100vh;
+            width: 100%;
+            background: var(--img-portada) center top no-repeat; /* 'top' para asegurar que inicie arriba */
+            background-size: cover; 
+            /* Efecto de recorte suave solo abajo */
+            -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center; color: white; 
+            position: relative;
+            margin-top: 0; /* Asegura que no haya espacio arriba */
+        }
+
         section { 
             padding: 80px 20px; 
-            background: rgba(255, 255, 255, 0.65); /* Más transparente como pediste */
+            background: rgba(255, 255, 255, 0.65); 
             margin: 20px 10px;
             border-radius: 20px;
         }
@@ -75,16 +90,6 @@
             font-weight: bold; letter-spacing: 2px; box-shadow: 0 5px 20px rgba(0,0,0,0.3);
         }
 
-        header {
-            height: 100vh;
-            background: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(255,255,255,0.8) 100%), var(--img-portada) center center no-repeat;
-            background-size: cover; 
-            /* Efecto tipo recorte/desvanecido abajo */
-            -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
-            mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
-            display: flex; flex-direction: column;
-            justify-content: center; align-items: center; color: white; position: relative;
-        }
         header h1 { font-family: var(--fuente-titulos); font-size: 6rem; text-shadow: 2px 2px 15px rgba(0,0,0,0.5); }
         .subtitulo { font-size: 1.5rem; letter-spacing: 6px; text-transform: uppercase; font-weight: 300; }
 
@@ -226,12 +231,6 @@
 
     <script src="https://www.youtube.com/iframe_api"></script>
     <script>
-        document.onkeydown = function(e) {
-            if(e.keyCode == 123 || (e.ctrlKey && (e.keyCode == 'U'.charCodeAt(0) || e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0) || e.keyCode == 'C'.charCodeAt(0))))) {
-                return false;
-            }
-        };
-
         var player;
         function onYouTubeIframeAPIReady() {
             player = new YT.Player('player', {
