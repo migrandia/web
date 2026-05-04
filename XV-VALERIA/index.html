@@ -116,9 +116,11 @@
 </head>
 <body id="global-body">
 
-    <audio id="invitation-music" loop preload="auto"></audio>
     <div id="music-control" onclick="toggleMusic()">
         <span id="music-icon" style="color: var(--dorado);">▶</span>
+        <audio id="invitation-music" loop preload="auto">
+            <source src="https://www.dropbox.com/scl/fi/1z96r5ulnuuw42diawzlk/No-Crezcas-Mas.mp3?rlkey=pwxxnhu3bfj3kzlmj5k6ej9g6&raw=1" type="audio/mpeg">
+        </audio>
     </div>
 
     <section class="hero" id="bg-portada">
@@ -195,56 +197,50 @@
     </footer>
 
     <script>
-        // CARGAR DATOS
-        const audio = document.getElementById('invitation-music');
-        audio.src = CONFIG.musica_url;
-
+        // CARGAR DATOS INICIALES
         document.getElementById('global-body').style.backgroundImage = `url('${CONFIG.url_fondo_global}')`;
         document.getElementById('bg-portada').style.backgroundImage = `url('${CONFIG.url_fondo_portada}')`;
         document.getElementById('nombre-madre').textContent = CONFIG.madre;
         document.getElementById('msg-xv').textContent = CONFIG.mensaje_quinceañera;
         document.getElementById('foto-historia').src = CONFIG.foto_historia;
-        
         document.getElementById('img-misa').src = CONFIG.foto_misa;
         document.getElementById('loc-misa').textContent = CONFIG.texto_ubicacion_misa;
         document.getElementById('btn-misa').href = CONFIG.url_mapa_misa;
-        
         document.getElementById('img-recepcion').src = CONFIG.foto_recepcion;
         document.getElementById('loc-recepcion').textContent = CONFIG.texto_ubicacion_recepcion;
         document.getElementById('btn-recepcion').href = CONFIG.url_mapa_recepcion;
-
         document.getElementById('sobre-img').src = CONFIG.url_imagen_sobre;
         document.getElementById('go-rsvp').href = CONFIG.url_whatsapp_rsvp;
 
         const dateObj = new Date(CONFIG.fecha_evento);
         document.getElementById('hero-fecha').textContent = dateObj.toLocaleDateString('es-ES', { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' }).toUpperCase();
 
-        // MUSICA
+        // SISTEMA DE MUSICA (MISMO QUE LUCIANA)
+        const audio = document.getElementById('invitation-music');
+        const mIcon = document.getElementById('music-icon');
         let musicStarted = false;
+
         function toggleMusic() {
             if (audio.paused) {
                 audio.play();
-                document.getElementById('music-icon').textContent = "II";
+                mIcon.textContent = "II";
                 musicStarted = true;
             } else {
                 audio.pause();
-                document.getElementById('music-icon').textContent = "▶";
+                mIcon.textContent = "▶";
             }
         }
 
-        // ACTIVAR MUSICA CON CUALQUIER ACCIÓN
-        const startMusic = () => {
-            if (!musicStarted) {
+        window.addEventListener('scroll', function() {
+            if (!musicStarted && window.pageYOffset > 50) {
                 audio.play().then(() => {
-                    document.getElementById('music-icon').textContent = "II";
+                    mIcon.textContent = "II";
                     musicStarted = true;
-                }).catch(() => {});
+                }).catch(err => {
+                    console.log("Interacción requerida");
+                });
             }
-        };
-
-        window.addEventListener('scroll', startMusic, {once: true});
-        document.body.addEventListener('click', startMusic, {once: true});
-        document.body.addEventListener('touchstart', startMusic, {once: true});
+        });
 
         // CONTADOR
         const target = new Date(CONFIG.fecha_evento).getTime();
