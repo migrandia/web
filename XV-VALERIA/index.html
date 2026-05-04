@@ -8,41 +8,29 @@
     <meta name="description" content="Acompáñame a celebrar mis XV años. ¡Será una noche mágica!">
     
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://valerialamadrid.com/"> <meta property="og:title" content="Mis XV | Valeria Lamadrid Pérez">
+    <meta property="og:url" content="https://valerialamadrid.com/"> 
+    <meta property="og:title" content="Mis XV | Valeria Lamadrid Pérez">
     <meta property="og:description" content="Estás cordialmente invitado a celebrar conmigo este día tan especial.">
     <meta property="og:image" content="https://www.dropbox.com/scl/fi/nm44i882g13044o8idz6k/xv1.jpg?rlkey=wn8xf4ne3yp5fz4vkzpsvbz4p&raw=1">
 
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Mis XV | Valeria Lamadrid Pérez">
-    <meta property="twitter:description" content="Estás cordialmente invitado a celebrar conmigo este día tan especial.">
-    <meta property="twitter:image" content="https://www.dropbox.com/scl/fi/nm44i882g13044o8idz6k/xv1.jpg?rlkey=wn8xf4ne3yp5fz4vkzpsvbz4p&raw=1">
-
     <script>
         const CONFIG = {
-            // FONDOS
             url_fondo_global: "https://www.dropbox.com/scl/fi/fcgqk5mscou0534kw00c8/Fondo-de-Pantalla-Blanco-Minimalista_20260405_030125_0000.png?rlkey=wlv8vqgafm0btsjcazr3rwc29&raw=1",
             url_fondo_portada: "https://www.dropbox.com/scl/fi/nm44i882g13044o8idz6k/xv1.jpg?rlkey=wn8xf4ne3yp5fz4vkzpsvbz4p&raw=1",
-            
-            // FOTOS
             foto_historia: "https://www.dropbox.com/scl/fi/tmehprhryocd8vr9hfphl/xv2.jpg?rlkey=nzdubrk5wd1cg68gpbnck9r5t&raw=1",
             foto_misa: "https://www.dropbox.com/scl/fi/n1fvnd10aw7y282g3118w/IGLESIA-JALISCO-BUENA.jpg?rlkey=kqvsg120eoovqvs36f5px1p0e&raw=1",
             foto_recepcion: "https://www.dropbox.com/scl/fi/6t54th9rwsol7r9e278p4/QUINTA-JALISCO.jpg?rlkey=a9dnl3r393oqnxe7q0u5wzwih&raw=1",
             url_imagen_sobre: "https://www.dropbox.com/scl/fi/o42d0wgeb2so41w6nz18a/mo-o-lluvia.png?rlkey=s7uryk85xgwpvncastuj87h5n&raw=1", 
-
-            // EVENTO
             fecha_evento: "June 6, 2026 00:00:00",
             musica_url: "https://www.dropbox.com/scl/fi/6js2r20osm40mmncn0jiq/Justin-Bieber-Beauty-And-A-Beat-ft.-Nicki-Minaj-Official-Audio.mp3?rlkey=fm62cep3p0h1eimtbd511oumx&raw=1",
-            
             mensaje_quinceañera: "Hoy celebro no solo mis quince años, sino el inicio de una nueva etapa llena de sueños e ilusiones. Gracias por acompañarme en esta noche mágica.",
             madre: "Karina Pérez Mejía",
             padrinos: "Carlos Martínez & Elena Guzmán",
-
             texto_ubicacion_misa: "Iglesia Jesucristo Sumo y Eterno Pontifice",
             url_mapa_misa: "https://maps.apple/p/jZnNj8CMYA4-DV",
             texto_ubicacion_recepcion: "Quinta San Nicolás",
             url_mapa_recepcion: "https://maps.apple/p/8WV11gVeWK4cuW",
-
-            url_whatsapp_rsvp: "https://wa.me/525654252153?text=%C2%A1Hola%21%20Confirmo%20mi%20asistencia%20a%20los%20XV%20de%20Valeria%20Lamadrid%20P%C3%A9rez."
+            url_whatsapp_rsvp: "https://wa.me/521234567890?text=%C2%A1Hola%21%20Confirmo%20mi%20asistencia%20a%20los%20XV%20de%20Valeria%20Lamadrid%20P%C3%A9rez."
         };
     </script>
 
@@ -59,24 +47,43 @@
         body { 
             margin: 0; font-family: 'Montserrat', sans-serif; color: var(--texto);
             -webkit-user-select: none; user-select: none; background-color: #f9f7f2;
-            line-height: 1.6; overflow-x: hidden; width: 100%;
+            line-height: 1.6; overflow: hidden; width: 100%;
         }
 
+        /* Splash Screen - Pantalla de Entrada */
+        #overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: white; z-index: 9999; display: flex; flex-direction: column;
+            align-items: center; justify-content: center; text-align: center;
+        }
+        #overlay-img {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover; opacity: 0.4; filter: grayscale(30%);
+        }
+        #overlay-content { position: relative; z-index: 10000; padding: 20px; }
+        #overlay h2 { font-family: 'Monsieur La Doulaise', cursive; font-size: 4rem; color: var(--dorado); margin: 0; }
+        #overlay p { font-family: 'Montserrat'; letter-spacing: 4px; font-size: 0.8rem; margin-bottom: 30px; }
+        
+        .btn-entrar {
+            padding: 15px 40px; background: var(--dorado); color: white;
+            text-decoration: none; border-radius: 50px; font-weight: 600;
+            letter-spacing: 2px; text-transform: uppercase; cursor: pointer;
+            box-shadow: 0 4px 15px rgba(212, 180, 131, 0.4); display: inline-flex; align-items: center; gap: 10px;
+            transition: 0.3s; border: none;
+        }
+
+        /* El resto del estilo original */
         img { pointer-events: none; -webkit-user-drag: none; max-width: 100%; border-radius: 4px; }
 
         #music-control {
             position: fixed; bottom: 20px; right: 20px; z-index: 1000;
             background: var(--blanco); border: 1px solid var(--dorado);
             width: 45px; height: 45px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
+            display: none; align-items: center; justify-content: center;
             cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        .hero {
-            height: 100vh; background-size: cover; background-position: center;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
-            color: white; text-align: center; position: relative; width: 100%;
-        }
+        .hero { height: 100vh; background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; position: relative; width: 100%; }
         .hero::before { content: ""; position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.3); }
         .hero-content { z-index: 2; padding: 20px; width: 100%; box-sizing: border-box; }
         .hero h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin: 5px 0; font-weight: 400; text-transform: uppercase; letter-spacing: 5px; }
@@ -93,28 +100,13 @@
 
         .info-box { background: white; padding: 40px; border: 1px solid #eee; margin: 25px 0; border-radius: 4px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); }
         
-        .carousel-container { 
-            display: flex; overflow-x: auto; scroll-snap-type: x mandatory;
-            gap: 15px; padding: 20px 0; scrollbar-width: none; -ms-overflow-style: none;
-        }
+        .carousel-container { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 15px; padding: 20px 0; scrollbar-width: none; -ms-overflow-style: none; }
         .carousel-container::-webkit-scrollbar { display: none; }
-        .carousel-item { 
-            flex: 0 0 80%; scroll-snap-align: center; 
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden;
-        }
+        .carousel-item { flex: 0 0 80%; scroll-snap-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden; }
         .carousel-item img { height: 400px; object-fit: cover; width: 100%; display: block; }
 
-        .btn-action {
-            display: inline-block; padding: 12px 25px; background: var(--dorado);
-            color: white; text-decoration: none; font-size: 0.7rem; font-weight: 700;
-            text-transform: uppercase; letter-spacing: 2px; border-radius: 2px;
-            margin-top: 20px; transition: 0.3s;
-        }
-        .btn-confirm {
-            display: inline-block; padding: 18px 45px; background: var(--texto);
-            color: white; text-decoration: none; font-weight: 600; border-radius: 50px;
-            letter-spacing: 2px; margin-top: 30px; font-size: 0.85rem; text-transform: uppercase;
-        }
+        .btn-action { display: inline-block; padding: 12px 25px; background: var(--dorado); color: white; text-decoration: none; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; border-radius: 2px; margin-top: 20px; transition: 0.3s; }
+        .btn-confirm { display: inline-block; padding: 18px 45px; background: var(--texto); color: white; text-decoration: none; font-weight: 600; border-radius: 50px; letter-spacing: 2px; margin-top: 30px; font-size: 0.85rem; text-transform: uppercase; }
 
         .img-location { margin-bottom: 20px; height: 200px; object-fit: cover; width: 100%; }
         .center-img { display: block; margin: 30px auto 0 auto; border: 10px solid white; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
@@ -122,8 +114,20 @@
 </head>
 <body id="global-body">
 
+    <div id="overlay">
+        <img id="overlay-img" src="https://www.dropbox.com/scl/fi/nm44i882g13044o8idz6k/xv1.jpg?rlkey=wn8xf4ne3yp5fz4vkzpsvbz4p&raw=1">
+        <div id="overlay-content">
+            <p>ESTÁS INVITADO A LOS XV DE</p>
+            <h2>Valeria</h2>
+            <p style="margin-top: 10px; font-style: italic;">"Una noche mágica espera..."</p>
+            <button class="btn-entrar" onclick="entrar()">
+                💎 ABRIR INVITACIÓN
+            </button>
+        </div>
+    </div>
+
     <div id="music-control" onclick="toggleMusic()">
-        <span id="music-icon" style="color: var(--dorado);">▶</span>
+        <span id="music-icon" style="color: var(--dorado);">II</span>
         <audio id="invitation-music" loop preload="auto">
             <source src="https://www.dropbox.com/scl/fi/6js2r20osm40mmncn0jiq/Justin-Bieber-Beauty-And-A-Beat-ft.-Nicki-Minaj-Official-Audio.mp3?rlkey=fm62cep3p0h1eimtbd511oumx&raw=1" type="audio/mpeg">
         </audio>
@@ -199,6 +203,32 @@
     </footer>
 
     <script>
+        function entrar() {
+            const audio = document.getElementById('invitation-music');
+            audio.play(); // Al hacer clic aquí, el audio tiene permiso total
+            
+            document.getElementById('overlay').style.transition = "opacity 0.8s ease";
+            document.getElementById('overlay').style.opacity = "0";
+            setTimeout(() => {
+                document.getElementById('overlay').style.display = "none";
+                document.body.style.overflow = "auto";
+                document.getElementById('music-control').style.display = "flex";
+            }, 800);
+        }
+
+        function toggleMusic() {
+            const audio = document.getElementById('invitation-music');
+            const mIcon = document.getElementById('music-icon');
+            if (audio.paused) {
+                audio.play();
+                mIcon.textContent = "II";
+            } else {
+                audio.pause();
+                mIcon.textContent = "▶";
+            }
+        }
+
+        // Carga de datos CONFIG
         document.getElementById('global-body').style.backgroundImage = `url('${CONFIG.url_fondo_global}')`;
         document.getElementById('bg-portada').style.backgroundImage = `url('${CONFIG.url_fondo_portada}')`;
         document.getElementById('nombre-madre').textContent = CONFIG.madre;
@@ -215,39 +245,6 @@
 
         const dateObj = new Date(CONFIG.fecha_evento);
         document.getElementById('hero-fecha').textContent = dateObj.toLocaleDateString('es-ES', { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' }).toUpperCase();
-
-        const audio = document.getElementById('invitation-music');
-        const mIcon = document.getElementById('music-icon');
-        let musicStarted = false;
-
-        function startMusic() {
-            if (!musicStarted) {
-                audio.play().then(() => {
-                    mIcon.textContent = "II";
-                    musicStarted = true;
-                }).catch(err => {
-                    console.log("Esperando interacción del usuario...");
-                });
-            }
-        }
-
-        function toggleMusic() {
-            if (audio.paused) {
-                audio.play();
-                mIcon.textContent = "II";
-                musicStarted = true;
-            } else {
-                audio.pause();
-                mIcon.textContent = "▶";
-            }
-        }
-
-        // Activadores: Scroll o cualquier toque en la pantalla
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 10) { startMusic(); }
-        });
-        window.addEventListener('touchstart', startMusic);
-        window.addEventListener('click', startMusic);
 
         const target = new Date(CONFIG.fecha_evento).getTime();
         setInterval(() => {
