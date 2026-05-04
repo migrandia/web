@@ -50,7 +50,6 @@
             line-height: 1.6; overflow: hidden; width: 100%;
         }
 
-        /* Splash Screen - Pantalla de Entrada */
         #overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: white; z-index: 9999; display: flex; flex-direction: column;
@@ -72,7 +71,6 @@
             transition: 0.3s; border: none;
         }
 
-        /* El resto del estilo original */
         img { pointer-events: none; -webkit-user-drag: none; max-width: 100%; border-radius: 4px; }
 
         #music-control {
@@ -109,7 +107,7 @@
         .btn-confirm { display: inline-block; padding: 18px 45px; background: var(--texto); color: white; text-decoration: none; font-weight: 600; border-radius: 50px; letter-spacing: 2px; margin-top: 30px; font-size: 0.85rem; text-transform: uppercase; }
 
         .img-location { margin-bottom: 20px; height: 200px; object-fit: cover; width: 100%; }
-        .center-img { display: block; margin: 30px auto 0 auto; border: 10px solid white; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .center-img { display: block; margin: 30px auto 0 auto; border: 10px solid white; box-shadow: 0 10px 25px rgba(0,0,0,0.1); max-width: 90%; }
     </style>
 </head>
 <body id="global-body">
@@ -152,7 +150,9 @@
         <h2 class="title">Con la bendición de mi madre</h2>
         <p style="font-size: 1.5rem; font-family: 'Playfair Display';" id="nombre-madre"></p>
         <p id="msg-xv" style="font-style: italic; color: #666; font-size: 1.05rem; margin-top: 30px;"></p>
-        <img id="foto-historia" class="center-img">
+        <div style="width: 100%; display: flex; justify-content: center;">
+            <img id="foto-historia" class="center-img">
+        </div>
     </section>
 
     <section class="section" style="background-color: var(--rosa-soft); max-width: 100%;">
@@ -202,13 +202,18 @@
 
     <footer style="padding: 60px 20px; text-align: center; background: #fff;">
         <span class="manuscrito" style="font-size: 2.5rem; color: var(--dorado);">V-L-P</span>
-        <p style="font-size: 0.7rem; letter-spacing: 4px; color: #999; margin-top: 10px;">MI GRAN DIA COLECCIÓN</p>
+        <p style="font-size: 0.7rem; letter-spacing: 4px; color: #999; margin-top: 10px; text-transform: uppercase;">
+            MI GRAN DIA COLECCIÓN
+        </p>
+        <p style="font-size: 0.7rem; letter-spacing: 4px; margin-top: 5px;">
+            <a href="https://migrandia.mx" target="_blank" style="text-decoration: none; color: #999;">MIGRANDIA.MX</a>
+        </p>
     </footer>
 
     <script>
         function entrar() {
             const audio = document.getElementById('invitation-music');
-            audio.play(); // Al hacer clic aquí, el audio tiene permiso total
+            audio.play(); 
             
             document.getElementById('overlay').style.transition = "opacity 0.8s ease";
             document.getElementById('overlay').style.opacity = "0";
@@ -231,7 +236,6 @@
             }
         }
 
-        // Carga de datos CONFIG
         document.getElementById('global-body').style.backgroundImage = `url('${CONFIG.url_fondo_global}')`;
         document.getElementById('bg-portada').style.backgroundImage = `url('${CONFIG.url_fondo_portada}')`;
         document.getElementById('nombre-madre').textContent = CONFIG.madre;
