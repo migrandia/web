@@ -7,32 +7,26 @@
 
     <script>
         const CONFIG = {
-            // FONDOS
             url_fondo_global: "https://www.dropbox.com/scl/fi/fcgqk5mscou0534kw00c8/Fondo-de-Pantalla-Blanco-Minimalista_20260405_030125_0000.png?rlkey=wlv8vqgafm0btsjcazr3rwc29&raw=1",
             url_fondo_portada: "https://www.dropbox.com/scl/fi/nm44i882g13044o8idz6k/xv1.jpg?rlkey=wn8xf4ne3yp5fz4vkzpsvbz4p&raw=1",
             
-            // FOTOS
             foto_historia: "https://www.dropbox.com/scl/fi/tmehprhryocd8vr9hfphl/xv2.jpg?rlkey=nzdubrk5wd1cg68gpbnck9r5t&raw=1",
             foto_misa: "https://www.dropbox.com/scl/fi/uto2ye86n835yyishiaps/IGLESI-SAN-LUIS.jpg?rlkey=p2m2q4e6r9o8idsuludie2cyj&raw=1",
             foto_recepcion: "https://www.dropbox.com/scl/fi/rcfyhoy96drbx0m2l9pn9/SALON-TALLER.jpg?rlkey=5q4hwkmloqg0acdp01hg2zv9v&raw=1",
             url_imagen_sobre: "https://www.dropbox.com/scl/fi/o42d0wgeb2so41w6nz18a/mo-o-lluvia.png?rlkey=s7uryk85xgwpvncastuj87h5n&raw=1", 
 
-            // EVENTO
-            fecha_evento: "June 6, 2026 00:00:00",
+            fecha_evento: "June 6, 2026 18:00:00",
             musica_url: "https://www.dropbox.com/scl/fi/1z96r5ulnuuw42diawzlk/No-Crezcas-Mas.mp3?rlkey=pwxxnhu3bfj3kzlmj5k6ej9g6&raw=1",
             
             mensaje_quinceañera: "Hoy celebro no solo mis quince años, sino el inicio de una nueva etapa llena de sueños e ilusiones. Gracias por acompañarme en esta noche mágica.",
-            padres: "Ricardo Valdez & Sofía Méndez",
+            madre: "Karina Pérez Mejía",
             padrinos: "Carlos Martínez & Elena Guzmán",
 
             texto_ubicacion_misa: "Catedral Metropolitana, Centro Histórico, CDMX.",
-            url_mapa_misa: "https://maps.google.com/?q=Catedral+Metropolitana+CDMX",
+            url_mapa_misa: "https://maps.app.goo.gl/4",
             texto_ubicacion_recepcion: "Hotel St. Regis, Salón de Gala, Av. Paseo de la Reforma.",
-            url_mapa_recepcion: "https://maps.google.com/?q=Hotel+St.+Regis+CDMX",
+            url_mapa_recepcion: "https://maps.app.goo.gl/5",
 
-            banco: "BBVA México",
-            clabe: "0123 4567 8901 2345 67",
-            titular: "Sofía Isabella Valdez",
             url_whatsapp_rsvp: "https://wa.me/521234567890?text=¡Hola!%20Confirmo%20mi%20asistencia%20a%20tus%20XV"
         };
     </script>
@@ -47,18 +41,13 @@
             --blanco: #ffffff;
         }
 
-        body { 
-            margin: 0; font-family: 'Montserrat', sans-serif; color: var(--texto);
-            -webkit-user-select: none; user-select: none; background-color: #f9f7f2;
-            line-height: 1.6; overflow-x: hidden;
-        }
+        html, body { overflow-x: hidden; width: 100%; position: relative; margin: 0; padding: 0; }
+        body { font-family: 'Montserrat', sans-serif; color: var(--texto); background-color: #f9f7f2; line-height: 1.6; }
 
-        img { pointer-events: none; -webkit-user-drag: none; width: 100%; border-radius: 4px; }
-
-        /* MUSICA PILL */
+        /* MUSICA */
         #music-control {
             position: fixed; bottom: 20px; right: 20px; z-index: 1000;
-            background: var(--blanco); border: 1px solid var(--dorado);
+            background: rgba(255,255,255,0.9); border: 1px solid var(--dorado);
             width: 45px; height: 45px; border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
             cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -71,51 +60,54 @@
             color: white; text-align: center; position: relative;
         }
         .hero::before { content: ""; position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.3); }
-        .hero-content { z-index: 2; padding: 20px; }
-        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin: 5px 0; font-weight: 400; text-transform: uppercase; letter-spacing: 5px; }
+        .hero-content { z-index: 2; padding: 20px; width: 90%; }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin: 5px 0; font-weight: 400; text-transform: uppercase; letter-spacing: 5px; }
         .manuscrito { font-family: 'Monsieur La Doulaise', cursive; font-size: 3.5rem; color: var(--dorado); display: block; margin-top: -15px; }
 
         /* CONTADOR */
-        .countdown { display: flex; gap: 15px; margin-top: 30px; justify-content: center; }
-        .count-box { border-bottom: 2px solid var(--dorado); padding: 10px; min-width: 65px; }
-        .count-box span { display: block; font-size: 1.5rem; font-weight: 300; }
-        .count-box small { letter-spacing: 2px; font-size: 0.6rem; opacity: 0.8; }
+        .countdown { display: flex; gap: 10px; margin-top: 30px; justify-content: center; }
+        .count-box { border-bottom: 2px solid var(--dorado); padding: 5px; min-width: 60px; }
+        .count-box span { display: block; font-size: 1.4rem; font-weight: 300; }
+        .count-box small { letter-spacing: 1px; font-size: 0.5rem; opacity: 0.8; }
 
-        .section { padding: 80px 25px; text-align: center; max-width: 700px; margin: auto; }
+        .section { padding: 80px 20px; text-align: center; max-width: 100%; box-sizing: border-box; }
+        .inner-section { max-width: 700px; margin: auto; }
         .title { font-family: 'Playfair Display', serif; color: var(--texto); font-size: 2rem; margin-bottom: 30px; font-style: italic; position: relative; display: inline-block; }
         .title::after { content: ""; width: 50%; height: 1px; background: var(--dorado); position: absolute; bottom: -5px; left: 25%; }
 
-        .info-box { background: white; padding: 40px; border: 1px solid #eee; margin: 25px 0; border-radius: 4px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); }
+        .info-box { background: white; padding: 30px; border: 1px solid #eee; margin: 25px 0; border-radius: 4px; }
         
-        /* BOTONES */
+        /* GRID DE FOTOS */
+        .photo-album { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 30px; }
+        .photo-album img { width: 100%; height: 150px; object-fit: cover; border-radius: 4px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+
+        .img-location { width: 100%; height: 200px; object-fit: cover; margin-bottom: 20px; border-radius: 4px; }
+
         .btn-action {
             display: inline-block; padding: 12px 25px; background: var(--dorado);
             color: white; text-decoration: none; font-size: 0.7rem; font-weight: 700;
-            text-transform: uppercase; letter-spacing: 2px; border-radius: 2px;
-            margin-top: 20px; transition: 0.3s;
+            text-transform: uppercase; letter-spacing: 2px; margin-top: 20px;
         }
         .btn-confirm {
-            display: inline-block; padding: 18px 45px; background: var(--texto);
+            display: inline-block; padding: 18px 40px; background: var(--texto);
             color: white; text-decoration: none; font-weight: 600; border-radius: 50px;
-            letter-spacing: 2px; margin-top: 30px; font-size: 0.85rem; text-transform: uppercase;
+            letter-spacing: 2px; margin-top: 30px; font-size: 0.8rem; text-transform: uppercase;
         }
-
-        .img-location { margin-bottom: 20px; height: 200px; object-fit: cover; }
     </style>
 </head>
 <body id="global-body">
 
-    <audio id="invitation-music" loop></audio>
+    <audio id="invitation-music" loop preload="auto"></audio>
     <div id="music-control" onclick="toggleMusic()">
         <span id="music-icon" style="color: var(--dorado);">▶</span>
     </div>
 
     <section class="hero" id="bg-portada">
         <div class="hero-content">
-            <p style="letter-spacing: 8px; font-size: 0.8rem;">MIS QUINCE AÑOS</p>
+            <p style="letter-spacing: 8px; font-size: 0.7rem;">MIS QUINCE AÑOS</p>
             <h1>Mis XV</h1>
-            <span class="manuscrito">Valerai Lamadrid Pérez </span>
-            <p id="hero-fecha" style="font-size: 1.1rem; margin: 25px 0; font-weight: 300; letter-spacing: 3px;"></p>
+            <span class="manuscrito">Valeria Lamadrid</span>
+            <p id="hero-fecha" style="font-size: 1rem; margin: 20px 0; font-weight: 300; letter-spacing: 3px;"></p>
             <div class="countdown">
                 <div class="count-box"><span id="d">00</span><small>DÍAS</small></div>
                 <div class="count-box"><span id="h">00</span><small>HRS</small></div>
@@ -126,92 +118,118 @@
     </section>
 
     <section class="section">
-        <h2 class="title">Un Sueño Hecho Realidad</h2>
-        <p id="msg-xv" style="font-style: italic; color: #666; font-size: 1.05rem;"></p>
-        <img id="foto-historia" style="margin-top:30px; border: 10px solid white; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+        <div class="inner-section">
+            <h2 class="title">Con la bendición de</h2>
+            <div class="info-box">
+                <p style="letter-spacing: 2px; font-size: 0.7rem; color: var(--dorado); margin-bottom: 10px;">MI MADRE</p>
+                <p style="font-family: 'Playfair Display'; font-size: 1.5rem;" id="val-madre"></p>
+            </div>
+            <div class="info-box">
+                <p style="letter-spacing: 2px; font-size: 0.7rem; color: var(--dorado); margin-bottom: 10px;">MIS PADRINOS</p>
+                <p style="font-family: 'Playfair Display'; font-size: 1.5rem;" id="val-padrinos"></p>
+            </div>
+        </div>
     </section>
 
-    <section class="section" style="background-color: var(--rosa-soft); max-width: 100%;">
-        <div style="max-width: 700px; margin: auto;">
+    <section class="section" style="background-color: var(--rosa-soft);">
+        <div class="inner-section">
             <h2 class="title">Dónde y Cuándo</h2>
             
             <div class="info-box">
                 <img id="img-misa" class="img-location">
-                <h3 style="font-family: 'Playfair Display'; color: var(--dorado); text-transform: uppercase; letter-spacing: 2px;">Misa de Acción de Gracias</h3>
-                <p id="loc-misa" style="margin-top:10px;"></p>
+                <h3 style="font-family: 'Playfair Display'; color: var(--dorado); text-transform: uppercase; letter-spacing: 2px;">Ceremonia Religiosa</h3>
+                <p id="loc-misa"></p>
                 <a id="btn-misa" target="_blank" class="btn-action">Ver Ubicación</a>
             </div>
 
             <div class="info-box">
                 <img id="img-recepcion" class="img-location">
                 <h3 style="font-family: 'Playfair Display'; color: var(--dorado); text-transform: uppercase; letter-spacing: 2px;">Recepción de Gala</h3>
-                <p id="loc-recepcion" style="margin-top:10px;"></p>
+                <p id="loc-recepcion"></p>
                 <a id="btn-recepcion" target="_blank" class="btn-action">Ver Mapa</a>
             </div>
         </div>
     </section>
 
     <section class="section">
-        <h2 class="title">Lluvia de Regalos</h2>
-        <div style="padding: 40px; border: 1px solid var(--dorado); background: white; margin-top: 30px; border-radius: 8px;">
-            <img id="sobre-img" src="" style="width: 70px; margin-bottom: 20px;">
-            <p><b id="b-nom"></b></p>
-            <p>CLABE: <span id="b-clabe"></span></p>
-            <p>A nombre de: <span id="b-tit"></span></p>
+        <div class="inner-section">
+            <h2 class="title">Momentos Especiales</h2>
+            <p>Un pequeño vistazo a este gran camino...</p>
+            <div class="photo-album">
+                <img src="https://www.dropbox.com/scl/fi/tmehprhryocd8vr9hfphl/xv2.jpg?rlkey=nzdubrk5wd1cg68gpbnck9r5t&raw=1" alt="Foto 1">
+                <img src="https://www.dropbox.com/scl/fi/nm44i882g13044o8idz6k/xv1.jpg?rlkey=wn8xf4ne3yp5fz4vkzpsvbz4p&raw=1" alt="Foto 2">
+                <img src="https://www.dropbox.com/scl/fi/tmehprhryocd8vr9hfphl/xv2.jpg?rlkey=nzdubrk5wd1cg68gpbnck9r5t&raw=1" alt="Foto 3">
+                <img src="https://www.dropbox.com/scl/fi/nm44i882g13044o8idz6k/xv1.jpg?rlkey=wn8xf4ne3yp5fz4vkzpsvbz4p&raw=1" alt="Foto 4">
+            </div>
         </div>
     </section>
 
-    <section class="section" style="background: var(--dorado); color: white; max-width: 100%;">
-        <h2 class="title" style="color: white;">Confirmación</h2>
-        <p>¡Sería un honor que me acompañes!</p>
-        <a id="go-rsvp" href="#" class="btn-confirm" style="background: white; color: var(--texto);">Confirmar por WhatsApp</a>
+    <section class="section">
+        <div class="inner-section">
+            <h2 class="title">Lluvia de Regalos</h2>
+            <div style="padding: 40px; border: 1px solid var(--dorado); background: white; border-radius: 8px;">
+                <img id="sobre-img" style="width: 60px; margin-bottom: 20px;">
+                <p style="font-style: italic; font-size: 1.1rem; color: #555;">
+                    "Tu presencia en mi fiesta es el mejor regalo que puedo recibir. Pero si deseas obsequiarme algo más, te agradecería que fuera en efectivo en el sobre que recibirás en la entrada."
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="background: var(--dorado); color: white;">
+        <h2 class="title" style="color: white; border-color: white;">Confirmación</h2>
+        <p>¡Espero contar con tu compañía!</p>
+        <a id="go-rsvp" href="#" class="btn-confirm" style="background: white; color: var(--texto);">Confirmar Asistencia</a>
     </section>
 
     <footer style="padding: 60px 20px; text-align: center; background: #fff;">
-        <span class="manuscrito" style="font-size: 2.5rem; color: var(--dorado);">V-L-P</span>
-        <p style="font-size: 0.7rem; letter-spacing: 4px; color: #999; margin-top: 10px;">MI GRAN DIA COLECCIÓN</p>
+        <span class="manuscrito" style="font-size: 2.5rem; color: var(--dorado);">V - L</span>
+        <p style="font-size: 0.6rem; letter-spacing: 4px; color: #999; margin-top: 10px;">MI GRAN DIA COLECCIÓN</p>
     </footer>
 
     <script>
-        // CARGAR DATOS
         const audio = document.getElementById('invitation-music');
-        audio.src = CONFIG.musica_url;
+        let musicStarted = false;
 
+        // Carga de datos
+        audio.src = CONFIG.musica_url;
         document.getElementById('global-body').style.backgroundImage = `url('${CONFIG.url_fondo_global}')`;
         document.getElementById('bg-portada').style.backgroundImage = `url('${CONFIG.url_fondo_portada}')`;
-        document.getElementById('msg-xv').textContent = CONFIG.mensaje_quinceañera;
-        document.getElementById('foto-historia').src = CONFIG.foto_historia;
-        
-        // Ubicaciones
+        document.getElementById('val-madre').textContent = CONFIG.madre;
+        document.getElementById('val-padrinos').textContent = CONFIG.padrinos;
         document.getElementById('img-misa').src = CONFIG.foto_misa;
         document.getElementById('loc-misa').textContent = CONFIG.texto_ubicacion_misa;
         document.getElementById('btn-misa').href = CONFIG.url_mapa_misa;
-        
         document.getElementById('img-recepcion').src = CONFIG.foto_recepcion;
         document.getElementById('loc-recepcion').textContent = CONFIG.texto_ubicacion_recepcion;
         document.getElementById('btn-recepcion').href = CONFIG.url_mapa_recepcion;
-
         document.getElementById('sobre-img').src = CONFIG.url_imagen_sobre;
-        document.getElementById('b-nom').textContent = CONFIG.banco;
-        document.getElementById('b-clabe').textContent = CONFIG.clabe;
-        document.getElementById('b-tit').textContent = CONFIG.titular;
         document.getElementById('go-rsvp').href = CONFIG.url_whatsapp_rsvp;
 
         const dateObj = new Date(CONFIG.fecha_evento);
         document.getElementById('hero-fecha').textContent = dateObj.toLocaleDateString('es-ES', { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' }).toUpperCase();
 
-        // MUSICA
+        // Control de Música
         function toggleMusic() {
             if (audio.paused) {
                 audio.play();
                 document.getElementById('music-icon').textContent = "II";
+                musicStarted = true;
             } else {
                 audio.pause();
                 document.getElementById('music-icon').textContent = "▶";
             }
         }
 
-        // CONTADOR
+        // Música al bajar (Scroll)
+        window.onscroll = function() {
+            if (!musicStarted && window.scrollY > 50) {
+                toggleMusic();
+                musicStarted = true;
+            }
+        };
+
+        // Contador
         const target = new Date(CONFIG.fecha_evento).getTime();
         setInterval(() => {
             const now = new Date().getTime();
@@ -223,11 +241,6 @@
                 document.getElementById('s').textContent = Math.floor((d % (1000 * 60)) / 1000).toString().padStart(2, '0');
             }
         }, 1000);
-
-        // Auto-play attempt al primer click
-        document.body.addEventListener('click', () => {
-            if(audio.paused && audio.currentTime == 0) toggleMusic();
-        }, {once: true});
     </script>
 </body>
 </html>
