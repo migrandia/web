@@ -25,7 +25,8 @@
             musica_url: "https://www.dropbox.com/scl/fi/6js2r20osm40mmncn0jiq/Justin-Bieber-Beauty-And-A-Beat-ft.-Nicki-Minaj-Official-Audio.mp3?rlkey=fm62cep3p0h1eimtbd511oumx&raw=1",
             mensaje_quinceañera: "Hoy celebro no solo mis quince años, sino el inicio de una nueva etapa llena de sueños e ilusiones. Gracias por acompañarme en esta noche mágica.",
             madre: "Karina Pérez Mejía",
-            padrinos: "Carlos Martínez & Elena Guzmán",
+            padre: "Guillermo Lamadrid de la Torre",
+            padrinos: "Tania Cecilia Rodriguez Silva & Pablo Cesar Baca Saavedra",
             texto_ubicacion_misa: "Iglesia Jesucristo Sumo y Eterno Pontifice",
             url_mapa_misa: "https://maps.apple/p/jZnNj8CMYA4-DV",
             texto_ubicacion_recepcion: "Quinta San Nicolás",
@@ -147,9 +148,16 @@
     </section>
 
     <section class="section">
-        <h2 class="title">Con la bendición de mi madre</h2>
-        <p style="font-size: 1.5rem; font-family: 'Playfair Display';" id="nombre-madre"></p>
-        <p id="msg-xv" style="font-style: italic; color: #666; font-size: 1.05rem; margin-top: 30px;"></p>
+        <h2 class="title">En compañía de mis padres</h2>
+        <div style="margin-bottom: 40px;">
+            <p style="font-size: 1.3rem; font-family: 'Playfair Display'; margin: 5px 0;" id="nombre-madre"></p>
+            <p style="font-size: 1.3rem; font-family: 'Playfair Display'; margin: 5px 0;" id="nombre-padre"></p>
+        </div>
+        
+        <h2 class="title">Y mis padrinos</h2>
+        <p style="font-size: 1.3rem; font-family: 'Playfair Display';" id="nombre-padrinos"></p>
+
+        <p id="msg-xv" style="font-style: italic; color: #666; font-size: 1.05rem; margin-top: 50px;"></p>
         <div style="width: 100%; display: flex; justify-content: center;">
             <img id="foto-historia" class="center-img">
         </div>
@@ -239,6 +247,8 @@
         document.getElementById('global-body').style.backgroundImage = `url('${CONFIG.url_fondo_global}')`;
         document.getElementById('bg-portada').style.backgroundImage = `url('${CONFIG.url_fondo_portada}')`;
         document.getElementById('nombre-madre').textContent = CONFIG.madre;
+        document.getElementById('nombre-padre').textContent = CONFIG.padre;
+        document.getElementById('nombre-padrinos').textContent = CONFIG.padrinos;
         document.getElementById('msg-xv').textContent = CONFIG.mensaje_quinceañera;
         document.getElementById('foto-historia').src = CONFIG.foto_historia;
         document.getElementById('img-misa').src = CONFIG.foto_misa;
