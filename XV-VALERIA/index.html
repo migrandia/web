@@ -111,6 +111,13 @@
 
         .img-location { margin-bottom: 20px; height: 200px; object-fit: cover; width: 100%; }
         .center-img { display: block; margin: 30px auto 0 auto; border: 10px solid white; box-shadow: 0 10px 25px rgba(0,0,0,0.1); max-width: 90%; }
+
+        /* ESTILOS CÓDIGO DE VESTIMENTA */
+        .dress-code-icons { display: flex; justify-content: center; gap: 40px; margin-top: 20px; }
+        .dress-icon { width: 60px !important; height: auto; margin-bottom: 10px; }
+        .color-prohibido { width: 30px; height: 30px; background: #d4b483; border-radius: 50%; margin: 10px auto; border: 2px solid #fff; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
+        .dress-note { font-size: 0.75rem; font-weight: 600; letter-spacing: 1px; color: var(--texto); margin-top: 15px; text-transform: uppercase; }
+        .no-red-circle { position: relative; display: inline-block; }
     </style>
 </head>
 <body id="global-body">
@@ -180,6 +187,26 @@
                 <p id="loc-recepcion" style="margin-top:10px;"></p>
                 <a id="btn-recepcion" target="_blank" class="btn-action">Ver Mapa</a>
             </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="title">Código de Vestimenta</h2>
+        <p style="font-family:'Playfair Display'; color: var(--dorado); letter-spacing: 2px; margin-bottom: 15px; font-weight: bold;">FORMAL / GALA</p>
+        <div class="dress-code-icons">
+            <div>
+                <img src="https://www.dropbox.com/scl/fi/vm1fgd9dfsoz8g424tuo3/HOMBRE-VESTIMENTA.png?rlkey=a2ygqvlb13hfbqutm282pqzza&raw=1" class="dress-icon">
+                <p style="font-size: 0.7rem; margin-top: 5px; font-weight: 600;">HOMBRES</p>
+            </div>
+            <div>
+                <img src="https://www.dropbox.com/scl/fi/buqkyagsuay3qtk8fy3kn/MUJER-VESTIMENTA.png?rlkey=zh3k2p9c6wd4y8b72v527h46t&raw=1" class="dress-icon">
+                <p style="font-size: 0.7rem; margin-top: 5px; font-weight: 600;">MUJERES</p>
+            </div>
+        </div>
+        
+        <div style="margin-top: 30px;">
+            <div class="no-red-circle"><div class="color-prohibido"></div></div>
+            <p class="dress-note">⚠️ NOTA IMPORTANTE: FAVOR DE NO VESTIR DE COLOR DORADO (RESERVADO PARA LA QUINCEAÑERA)</p>
         </div>
     </section>
 
