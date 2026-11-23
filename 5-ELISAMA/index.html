@@ -55,7 +55,7 @@
             foto_salon: "https://www.dropbox.com/scl/fi/qivf1qf8dh6tewjv6d97r/villa-lucila.jpeg?rlkey=iq0uzbyi0u4w1m309e948qgah&raw=1",
             nombre_salon: "Villa Lucila",
             direccion_salon: "Calle 34 Carretera a Chuc,Tunkás,Yucatan · 6:00 PM",
-            url_mapa: "https://www.google.com/search?q=villa+lucila+tunkas&oq=villa&gs_lcrp=EgZjaHJvbWUqBggAECMYJzIGCAAQIxgnMgwIARAuGBQYhwIYgAQyDAgCEC4YFBiHAhiABDIHCAMQABiABDIHCAQQABiABDIHCAUQABiABDIHCAYQLhiABDIHCAcQLhiABDIHCAgQLhiABNIBCDI4MzdqMGo0qAIAsAIB&sourceid=chrome&source=chrome.ob&ie=UTF-8a",
+            url_mapa: "https://maps.app.goo.gl/WUzgx28PFRYtgjJA9?g_st=aw",
 
             // Enlace pie de página
             url_pagina_principal: "https://migrandia.mx"
@@ -407,8 +407,8 @@
 </head>
 <body id="global-body">
 
-    <audio id="musica-fondo" loop preload="auto"></audio>
-    <button id="btn-musica" class="btn-music" onclick="alternarMusica()">▶ MÚSICA</button>
+    <audio id="musica-fondo" autoplay loop playsinline preload="auto"></audio>
+    <button id="btn-musica" class="btn-music" type="button" onclick="alternarMusica()">▶ MÚSICA</button>
 
     <!-- 1. NOMBRE LEGIBLE Y PRIMERA FOTO EN VERTICAL -->
     <header class="portada">
@@ -500,37 +500,61 @@
         document.getElementById('link-mapa').href = CONFIG.url_mapa;
         document.getElementById('link-pie').href = CONFIG.url_pagina_principal;
 
-        // MÚSICA (MISMA CANCIÓN)
+        // MÚSICA AUTOMÁTICA CON OPCIÓN DE PAUSAR/REPRODUCIR
         const audio = document.getElementById('musica-fondo');
         const btnMusica = document.getElementById('btn-musica');
+        let pausadoManualmente = false;
+
         audio.src = CONFIG.url_musica;
+        audio.load();
 
         function actualizarBotonMusica() {
             btnMusica.textContent = audio.paused ? '▶ MÚSICA' : 'II PAUSAR';
         }
 
-        function intentarReproducir() {
-            if (!CONFIG.url_musica) return;
-            audio.play().then(actualizarBotonMusica).catch(actualizarBotonMusica);
+        function intentarAutoplay() {
+            if (!CONFIG.url_musica || pausadoManualmente) return;
+            const promesa = audio.play();
+            if (promesa && typeof promesa.then === 'function') {
+                promesa.then(() => {
+                    actualizarBotonMusica();
+                }).catch(() => {
+                    actualizarBotonMusica();
+                });
+            } else {
+                actualizarBotonMusica();
+            }
         }
 
-        function alternarMusica() {
+        function alternarMusica(event) {
+            if (event) event.stopPropagation();
             if (audio.paused) {
+                pausadoManualmente = false;
                 audio.play().then(actualizarBotonMusica).catch(actualizarBotonMusica);
             } else {
+                pausadoManualmente = true;
                 audio.pause();
                 actualizarBotonMusica();
             }
         }
 
-        window.addEventListener('DOMContentLoaded', intentarReproducir);
-        window.addEventListener('load', intentarReproducir);
-        document.addEventListener('pointerdown', function iniciarAlTocar() {
-            if (audio.paused) {
-                intentarReproducir();
+        audio.addEventListener('play', actualizarBotonMusica);
+        audio.addEventListener('pause', actualizarBotonMusica);
+        audio.addEventListener('canplay', intentarAutoplay);
+
+        window.addEventListener('DOMContentLoaded', intentarAutoplay);
+        window.addEventListener('load', intentarAutoplay);
+
+        function desbloquearAudioEnInteraccion() {
+            if (!pausadoManualmente && audio.paused) {
+                intentarAutoplay();
             }
-            document.removeEventListener('pointerdown', iniciarAlTocar);
-        }, { once: true });
+        }
+
+        document.addEventListener('pointerdown', desbloquearAudioEnInteraccion, { passive: true });
+        document.addEventListener('touchstart', desbloquearAudioEnInteraccion, { passive: true });
+        document.addEventListener('click', desbloquearAudioEnInteraccion, { passive: true });
+        document.addEventListener('scroll', desbloquearAudioEnInteraccion, { passive: true });
 
         // CARRUSEL DE 10 FOTOS
         const contenedorSlides = document.getElementById('carrusel-slides');
