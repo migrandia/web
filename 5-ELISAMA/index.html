@@ -10,15 +10,15 @@
     <meta id="og-image" property="og:image" content="https://www.dropbox.com/scl/fi/nm44i882g13044o8idz6k/xv1.jpg?rlkey=wn8xf4ne3yp5fz4vkzpsvbz4p&raw=1">
     <meta property="og:type" content="website">
 
-    <title>Mis 5 Años | Elisama ESTRELLA PACHECO</title>
+    <title>Mis 5 Años | Elisama Estrella Pacheco</title>
 
     <script>
         /* =====================================================================
            PANEL DE CONTROL TOTAL - REEMPLAZA AQUÍ TODAS TUS URLS Y DATOS
            ===================================================================== */
         const CONFIG = {
-            nombre_festejada: "Elisama ESTRELLA PACHECO",
-            fecha_evento: "December 12, 2026 18:00:00",
+            nombre_festejada: "Elisama Estrella Pacheco",
+            fecha_evento_iso: "2026-12-12T18:00:00",
             texto_fecha: "Sábado 12 de Diciembre · 6:00 PM",
 
             // Vista previa al compartir enlace y música
@@ -51,7 +51,8 @@
             frase_salmo: "“Herencia de Jehová son los hijos; cosa de estima el fruto del vientre.”",
             cita_salmo: "SALMO 127:3",
 
-            // Ubicación del salón
+            // Sala de fiesta (foto, nombre, dirección y mapa)
+            foto_salon: "https://www.dropbox.com/scl/fi/m4q1xkzxavamflx30f9qe/IMG-20260423-WA0030.jpg?rlkey=mm9zbwy0v4wk6enj2v65zpo9o&raw=1",
             nombre_salon: "Salón Princesa Rosa",
             direccion_salon: "Calle Principal #123, Centro · 6:00 PM",
             url_mapa: "https://maps.google.com/?q=Salon+Princesa+Rosa",
@@ -89,16 +90,12 @@
         body {
             font-family: 'Montserrat', sans-serif;
             color: var(--texto);
-            -webkit-user-select: none;
-            user-select: none;
             background-color: var(--rosa-suave);
             line-height: 1.65;
             text-align: center;
         }
 
         img {
-            pointer-events: none;
-            -webkit-user-drag: none;
             max-width: 100%;
         }
 
@@ -148,7 +145,7 @@
 
         .nombre-legible {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.45rem;
+            font-size: 1.4rem;
             font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -309,11 +306,11 @@
         .mensaje-texto {
             font-style: italic;
             color: var(--texto);
-            font-size: 1.05rem;
+            font-size: 1.08rem;
             margin-bottom: 26px;
         }
 
-        /* SALMO Y UBICACIÓN */
+        /* SALMO Y SALA DE FIESTA */
         .info-box {
             background: var(--blanco);
             padding: 32px 24px;
@@ -336,6 +333,16 @@
             font-weight: 700;
             color: var(--rosa-acento);
             text-transform: uppercase;
+        }
+
+        .foto-salon {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 18px;
+            border: 4px solid var(--rosa-suave);
+            display: block;
         }
 
         .salon-nombre {
@@ -398,10 +405,10 @@
         }
     </style>
 </head>
-<body id="global-body" oncontextmenu="return false;">
+<body id="global-body">
 
-    <audio id="musica-fondo" autoplay loop></audio>
-    <button id="btn-musica" class="btn-music" onclick="alternarMusica()">♪ MÚSICA</button>
+    <audio id="musica-fondo" loop preload="auto"></audio>
+    <button id="btn-musica" class="btn-music" onclick="alternarMusica()">▶ MÚSICA</button>
 
     <!-- 1. NOMBRE LEGIBLE Y PRIMERA FOTO EN VERTICAL -->
     <header class="portada">
@@ -411,10 +418,10 @@
         <img id="foto-vertical-1" src="" alt="Foto vertical principal de Elisama" class="foto-vertical">
     </header>
 
-    <!-- 2. CONTADOR JUSTO DEBAJO DE LA PRIMERA FOTO -->
+    <!-- 2. CONTADOR JUSTO DEBAJO DE LA PRIMERA FOTO (12 DE DICIEMBRE · 6:00 PM) -->
     <section class="section section-compacta">
         <h2 class="title">Falta Poco</h2>
-        <p id="texto-fecha" class="fecha-evento"></p>
+        <p id="texto-fecha" class="fecha-evento">Sábado 12 de Diciembre · 6:00 PM</p>
         <div class="countdown">
             <div class="count-box"><span id="d">00</span><small>DÍAS</small></div>
             <div class="count-box"><span id="h">00</span><small>HRS</small></div>
@@ -438,7 +445,7 @@
     <!-- 4. MENSAJE DE INVITACIÓN CON SEGUNDA FOTO EN VERTICAL -->
     <section class="section">
         <h2 class="title">Te Invito a Celebrar</h2>
-        <p id="mensaje-invitacion" class="mensaje-texto"></p>
+        <p id="mensaje-invitacion" class="mensaje-texto">Quiero celebrar contigo mis primeros 5 años llenos de alegría, juegos y sonrisas. ¡Acompáñame en este día tan especial!</p>
         <img id="foto-vertical-2" src="" alt="Segunda foto vertical de Elisama" class="foto-vertical">
     </section>
 
@@ -447,19 +454,20 @@
         <div class="section-inner">
             <h2 class="title">Con la Bendición de Dios</h2>
             <div class="info-box">
-                <p id="frase-salmo" class="salmo-frase"></p>
-                <span id="cita-salmo" class="salmo-cita"></span>
+                <p id="frase-salmo" class="salmo-frase">“Herencia de Jehová son los hijos; cosa de estima el fruto del vientre.”</p>
+                <span id="cita-salmo" class="salmo-cita">SALMO 127:3</span>
             </div>
         </div>
     </section>
 
-    <!-- 6. UBICACIÓN DEL SALÓN -->
+    <!-- 6. SALA DE FIESTA: FOTO, NOMBRE Y DIRECCIÓN -->
     <section class="section">
-        <h2 class="title">Ubicación del Salón</h2>
+        <h2 class="title">Sala de Fiesta</h2>
         <div class="info-box">
-            <div id="nombre-salon" class="salon-nombre"></div>
-            <p id="direccion-salon" style="margin: 0;"></p>
-            <a id="link-mapa" href="#" target="_blank" rel="noopener noreferrer" class="btn-mapa">Ver Ubicación</a>
+            <img id="foto-salon" src="" alt="Foto de la sala de fiesta" class="foto-salon">
+            <div id="nombre-salon" class="salon-nombre">Salón Princesa Rosa</div>
+            <p id="direccion-salon" style="margin: 0;">Calle Principal #123, Centro · 6:00 PM</p>
+            <a id="link-mapa" href="#" target="_blank" rel="noopener noreferrer" class="btn-mapa">Ver en Mapa</a>
         </div>
     </section>
 
@@ -471,12 +479,102 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        document.onkeydown = function(e) {
-            if (e.keyCode == 123) return false;
-            if (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0) || e.keyCode == 'C'.charCodeAt(0))) return false;
-            if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false;
-        };
-
         document.title = `Mis 5 Años | ${CONFIG.nombre_festejada}`;
         document.getElementById('og-title').setAttribute('content', `Mis 5 Años | ${CONFIG.nombre_festejada}`);
-        document.getElementById('og-image').setAttribute('
+        document.getElementById('og-image').setAttribute('content', CONFIG.url_preview_compartir);
+
+        if (CONFIG.url_fondo_global) {
+            document.getElementById('global-body').style.backgroundImage = `url('${CONFIG.url_fondo_global}')`;
+        }
+
+        document.getElementById('nombre-festejada').textContent = CONFIG.nombre_festejada;
+        document.getElementById('foto-vertical-1').src = CONFIG.foto_vertical_1;
+        document.getElementById('foto-vertical-2').src = CONFIG.foto_vertical_2;
+        document.getElementById('mensaje-invitacion').textContent = CONFIG.mensaje_invitacion;
+        document.getElementById('texto-fecha').textContent = CONFIG.texto_fecha;
+        document.getElementById('frase-salmo').textContent = CONFIG.frase_salmo;
+        document.getElementById('cita-salmo').textContent = CONFIG.cita_salmo;
+        document.getElementById('foto-salon').src = CONFIG.foto_salon;
+        document.getElementById('nombre-salon').textContent = CONFIG.nombre_salon;
+        document.getElementById('direccion-salon').textContent = CONFIG.direccion_salon;
+        document.getElementById('link-mapa').href = CONFIG.url_mapa;
+        document.getElementById('link-pie').href = CONFIG.url_pagina_principal;
+
+        // MÚSICA (MISMA CANCIÓN)
+        const audio = document.getElementById('musica-fondo');
+        const btnMusica = document.getElementById('btn-musica');
+        audio.src = CONFIG.url_musica;
+
+        function actualizarBotonMusica() {
+            btnMusica.textContent = audio.paused ? '▶ MÚSICA' : 'II PAUSAR';
+        }
+
+        function intentarReproducir() {
+            if (!CONFIG.url_musica) return;
+            audio.play().then(actualizarBotonMusica).catch(actualizarBotonMusica);
+        }
+
+        function alternarMusica() {
+            if (audio.paused) {
+                audio.play().then(actualizarBotonMusica).catch(actualizarBotonMusica);
+            } else {
+                audio.pause();
+                actualizarBotonMusica();
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', intentarReproducir);
+        window.addEventListener('load', intentarReproducir);
+        document.addEventListener('pointerdown', function iniciarAlTocar() {
+            if (audio.paused) {
+                intentarReproducir();
+            }
+            document.removeEventListener('pointerdown', iniciarAlTocar);
+        }, { once: true });
+
+        // CARRUSEL DE 10 FOTOS
+        const contenedorSlides = document.getElementById('carrusel-slides');
+        CONFIG.fotos_carrusel_10.slice(0, 10).forEach((url, i) => {
+            const slide = document.createElement('div');
+            slide.className = 'swiper-slide';
+            slide.innerHTML = `<img src="${url}" alt="Foto ${i + 1} de ${CONFIG.nombre_festejada}">`;
+            contenedorSlides.appendChild(slide);
+        });
+
+        new Swiper('.miCarrusel', {
+            loop: true,
+            autoplay: {
+                delay: 2800,
+                disableOnInteraction: false
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev'
+            }
+        });
+
+        // CONTADOR AL 12 DE DICIEMBRE A LAS 6:00 PM
+        function actualizarContador() {
+            const ahora = new Date();
+            let destino = new Date(CONFIG.fecha_evento_iso);
+            if (destino.getTime() <= ahora.getTime()) {
+                destino = new Date(ahora.getFullYear() + 1, 11, 12, 18, 0, 0);
+            }
+            const diff = Math.max(0, destino.getTime() - ahora.getTime());
+
+            const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const mins = Math.floor((diff / (1000 * 60)) % 60);
+            const segs = Math.floor((diff / 1000) % 60);
+
+            document.getElementById('d').textContent = String(dias).padStart(2, '0');
+            document.getElementById('h').textContent = String(horas).padStart(2, '0');
+            document.getElementById('m').textContent = String(mins).padStart(2, '0');
+            document.getElementById('s').textContent = String(segs).padStart(2, '0');
+        }
+
+        actualizarContador();
+        setInterval(actualizarContador, 1000);
+    </script>
+</body>
+</html>
