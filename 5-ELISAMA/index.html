@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ETIQUETAS PARA QUE SALGA LA FOTO AL COMPARTIR -->
+    <meta id="og-title" property="og:title" content="Mis 5 Años | Valentina">
+    <meta id="og-desc" property="og:description" content="¡Acompáñame a celebrar mis 5 años! Haz clic para ver los detalles.">
+    <meta id="og-image" property="og:image" content="https://www.dropbox.com/scl/fi/90s9txvvh2414ub9l6200/file_0000000042d871f792e1a16440ed528f.png?rlkey=4sksov3h62nlkefa24wsqe0ay&raw=1">
+    <meta property="og:type" content="website">
+
+    <title>Mis 5 Años | Valentina</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Dancing+Script:wght@600;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+        :root {
+            --primary: #ff6b9d;
+            --secondary: #ffd166;
+            --bg-dark: #2b0d21;
+            --glass: rgba(255, 255, 255, 0.14);
+            --ancho-max: 480px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #190613;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        /* OVERLAY DE ENTRADA */
+        #overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            background: radial-gradient(circle at top, #541640, #190613 80%);
+        }
+
+        #overlay h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            letter-spacing: 5px;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+
+        #overlay h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        #overlay p {
+            font-size: 0.95rem;
+            max-width: 340px;
+            line-height: 1.6;
+            margin-bottom: 35px;
+            opacity: 0.9;
+        }
+
+        #overlay button {
+            padding: 16px 34px;
+            background: var(--secondary);
+            color: #190613;
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(255, 209, 102, 0.35);
+        }
+
+        /* CONTENEDOR PRINCIPAL */
+        .app-wrapper {
+            max-width: var(--ancho-max);
+            margin: 0 auto;
+            min-height: 100vh;
+            background: linear-gradient(180deg, #3b102d 0%, #6b1d4f 50%, #2b0d21 100%);
+            display: none;
+            padding-bottom: 50px;
+        }
+
+        /* BOTÓN DE MÚSICA */
+        #music-pill {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.75);
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+            font-weight: 700;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        /* FOTO PRINCIPAL Y NOMBRE */
+        .hero {
+            padding: 35px 20px 25px;
+        }
+
+        .hero-badge {
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            letter-spacing: 5px;
+            color: var(--secondary);
+            margin-bottom: 8px;
+        }
+
+        .hero-name {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4.2rem;
+            line-height: 1.05;
+            color: #fff;
+            text-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+            margin-bottom: 22px;
+        }
+
+        .hero-photo {
+            width: 100%;
+            max-height: 440px;
+            object-fit: cover;
+            border-radius: 22px;
+            border: 3px solid var(--secondary);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+        }
+
+        /* TARJETAS */
+        .card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 209, 102, 0.35);
+            border-radius: 20px;
+            margin: 20px 15px;
+            padding: 28px 20px;
+        }
+
+        .card-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.6rem;
+            color: var(--secondary);
+            margin-bottom: 14px;
+        }
+
+        /* CONTADOR */
+        .timer {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .t-box {
+            background: rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 209, 102, 0.5);
+            border-radius: 12px;
+            padding: 12px 6px;
+        }
+
+        .t-num {
+            font-family: 'Cinzel', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            display: block;
+        }
+
+        .t-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.85;
+        }
+
+        /* SALMO */
+        .salmo-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.9rem;
+            line-height: 1.35;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .salmo-ref {
+            font-family: 'Cinzel', serif;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            color: var(--secondary);
+        }
+
+        /* GALERÍA DE 10 FOTOS */
+        .swiper {
+            width: 100%;
+            height: 360px;
+            border-radius: 15px;
+            border: 2px solid var(--secondary);
+            overflow: hidden;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: var(--secondary) !important;
+        }
+
+        /* UBICACIÓN */
+        .salon-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: var(--secondary);
+            margin-bottom: 6px;
+        }
+
+        .salon-info {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 18px;
+            opacity: 0.95;
+        }
+
+        .btn-map {
+            display: inline-block;
+            background: var(--secondary);
+            color: #190613;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 14px 26px;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PANTALLA INICIAL -->
+    <div id="overlay">
+        <h2>MIS 5 AÑOS</h2>
+        <h1 id="overlay-nombre">Valentina</h1>
+        <p>Toca el botón para abrir la invitación con música y sorpresas.</p>
+        <button onclick="iniciarInvitacion()">Abrir Invitación</button>
+    </div>
+
+    <!-- AUDIO -->
+    <audio id="musica" loop></audio>
+
+    <!-- BOTÓN PAUSAR / REPRODUCIR MÚSICA -->
+    <button id="music-pill" onclick="alternarMusica()" aria-label="Música">II</button>
+
+    <!-- INVITACIÓN -->
+    <div class="app-wrapper" id="app">
+
+        <!-- FOTO PRINCIPAL Y NOMBRE -->
+        <section class="hero">
+            <div class="hero-badge">MIS 5 AÑOS</div>
+            <h1 class="hero-name" id="nombre-nina">Valentina</h1>
+            <img id="foto-principal" class="hero-photo" alt="Foto principal">
+        </section>
+
+        <!-- CONTADOR -->
+        <section class="card">
+            <h2 class="card-title">Falta Poco</h2>
+            <p class="salon-info" id="texto-fecha">Sábado 15 de Mayo de 2027 · 4:00 PM</p>
+            <div class="timer">
+                <div class="t-box"><span id="dias" class="t-num">00</span><span class="t-label">Días</span></div>
+                <div class="t-box"><span id="horas" class="t-num">00</span><span class="t-label">Hrs</span></div>
+                <div class="t-box"><span id="mins" class="t-num">00</span><span class="t-label">Min</span></div>
+                <div class="t-box"><span id="segs" class="t-num">00</span><span class="t-label">Seg</span></div>
+            </div>
+        </section>
+
+        <!-- FRASE DE UN SALMO -->
+        <section class="card">
+            <h2 class="card-title">Bendición</h2>
+            <p class="salmo-text" id="frase-salmo">“Herencia de Jehová son los hijos; cosa de estima el fruto del vientre.”</p>
+            <div class="salmo-ref" id="cita-salmo">SALMO 127:3</div>
+        </section>
+
+        <!-- GALERÍA DE 10 FOTOS (AUTOMÁTICA Y MANUAL) -->
+        <section class="card">
+            <h2 class="card-title">Mis Fotos</h2>
+            <div class="swiper miGaleria">
+                <div class="swiper-wrapper" id="galeria-slides"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </section>
+
+        <!-- UBICACIÓN DEL SALÓN -->
+        <section class="card">
+            <h2 class="card-title">Ubicación</h2>
+            <div class="salon-name" id="nombre-salon">Salón Fantasía Infantil</div>
+            <p class="salon-info" id="direccion-salon">Calle Principal #123, Centro · 4:00 PM</p>
+            <a id="link-mapa" href="#" target="_blank" rel="noopener noreferrer" class="btn-map">Ver en Google Maps</a>
+        </section>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        /* =====================================================================
+           CONFIGURACIÓN DE URLS Y DATOS (REEMPLAZA AQUÍ TODO LO NECESARIO)
+           ===================================================================== */
+        const NOMBRE_NINA = "Valentina";
+        const FECHA_EVENTO = "2027-05-15T16:00:00"; // Año-Mes-DíaTHora:Minuto:Segundo
+        const TEXTO_FECHA = "Sábado 15 de Mayo de 2027 · 4:00 PM";
+
+        const FRASE_SALMO = "“Herencia de Jehová son los hijos; cosa de estima el fruto del vientre.”";
+        const CITA_SALMO = "SALMO 127:3";
+
+        const URL_PREVIEW_COMPARTIR = "https://www.dropbox.com/scl/fi/90s9txvvh2414ub9l6200/file_0000000042d871f792e1a16440ed528f.png?rlkey=4sksov3h62nlkefa24wsqe0ay&raw=1";
+        const URL_FOTO_PRINCIPAL = "https://www.dropbox.com/scl/fi/90s9txvvh2414ub9l6200/file_0000000042d871f792e1a16440ed528f.png?rlkey=4sksov3h62nlkefa24wsqe0ay&raw=1";
+        const URL_MUSICA = "https://www.dropbox.com/scl/fi/80hypdxkg24wx6x7oael2/En-Tus-Manos-Se-or.mp3?rlkey=j4di62c9sgj4txgwbpikcngp3&raw=1";
+
+        const NOMBRE_SALON = "Salón Fantasía Infantil";
+        const DIRECCION_SALON = "Calle Principal #123, Centro · 4:00 PM";
+        const URL_MAPA = "https://maps.google.com/?q=Salon+Fantasia+Infantil";
+
+        // Galería de 10 fotos (reemplaza cada enlace por tus 10 fotos)
+        const FOTOS_GALERIA_10 = [
+            "https://www.dropbox.com/scl/fi/90s9txvvh2414ub9l6200/file_0000000042d871f792e1a16440ed528f.png?rlkey=4sksov3h62nlkefa24wsqe0ay&raw=1",
+            "https://www.dropbox.com/scl/fi/r0jo5d2ktyy94zn0dwaeq/file_0000000019d071f5a05cb19c2cdf8040.png?rlkey=0mmdohsa74mzc0e5vheh9qu1f&raw=1",
+            "https://www.dropbox.com/scl/fi/j5iklqlaj1mj949edvths/file_0000000052d071f79be79227d67fa792.png?rlkey=1k78rkb3sdysy7yynhjjneu7r&raw=1",
+            "https://www.dropbox.com/scl/fi/m4q1xkzxavamflx30f9qe/IMG-20260423-WA0030.jpg?rlkey=mm9zbwy0v4wk6enj2v65zpo9o&raw=1",
+            "https://www.dropbox.com/scl/fi/6ssyg4vdt21o40ixlgybo/IMG-20260423-WA0028.jpg?rlkey=dbpesn9dowwhqy9n7a5vzg1m8&raw=1",
+            "https://www.dropbox.com/scl/fi/ylqro8gly50hox491p7vq/IMG-20260423-WA0029.jpg?rlkey=7mfbif82c2bxzath6lyq2nq5c&raw=1",
+            "https://www.dropbox.com/scl/fi/90s9txvvh2414ub9l6200/file_0000000042d871f792e1a16440ed528f.png?rlkey=4sksov3h62nlkefa24wsqe0ay&raw=1",
+            "https://www.dropbox.com/scl/fi/r0jo5d2ktyy94zn0dwaeq/file_0000000019d071f5a05cb19c2cdf8040.png?rlkey=0mmdohsa74mzc0e5vheh9qu1f&raw=1",
+            "https://www.dropbox.com/scl/fi/j5iklqlaj1mj949edvths/file_0000000052d071f79be79227d67fa792.png?rlkey=1k78rkb3sdysy7yynhjjneu7r&raw=1",
+            "https://www.dropbox.com/scl/fi/m4q1xkzxavamflx30f9qe/IMG-20260423-WA0030.jpg?rlkey=mm9zbwy0v4wk6enj2v65zpo9o&raw=1"
+        ];
+        /* ===================================================================== */
+
+        const audioEl = document.getElementById("musica");
+        let galeriaSwiper;
+
+        document.title = `Mis 5 Años | ${NOMBRE_NINA}`;
+        document.getElementById("og-title").setAttribute("content", `Mis 5 Años | ${NOMBRE_NINA}`);
+        document.getElementById("og-image").setAttribute("content", URL_PREVIEW_COMPARTIR);
+
+        document.getElementById("overlay-nombre").textContent = NOMBRE_NINA;
+        document.getElementById("nombre-nina").textContent = NOMBRE_NINA;
+        document.getElementById("foto-principal").src = URL_FOTO_PRINCIPAL;
+        document.getElementById("texto-fecha").textContent = TEXTO_FECHA;
+        document.getElementById("frase-salmo").textContent = FRASE_SALMO;
+        document.getElementById("cita-salmo").textContent = CITA_SALMO;
+        document.getElementById("nombre-salon").textContent = NOMBRE_SALON;
+        document.getElementById("direccion-salon").textContent = DIRECCION_SALON;
+        document.getElementById("link-mapa").href = URL_MAPA;
+        audioEl.src = URL_MUSICA;
+
+        const slidesContainer = document.getElementById("galeria-slides");
+        FOTOS_GALERIA_10.slice(0, 10).forEach((url, index) => {
+            const slide = document.createElement("div");
+            slide.className = "swiper-slide";
+            slide.innerHTML = `<img src="${url}" alt="Foto ${index + 1}">`;
+            slidesContainer.appendChild(slide);
+        });
+
+        function iniciarInvitacion() {
+            document.getElementById("overlay").style.display = "none";
+            document.getElementById("app").style.display = "block";
+            document.getElementById("music-pill").style.display = "flex";
+
+            audioEl.play().catch(() => {});
+
+            galeriaSwiper = new Swiper(".miGaleria", {
+                loop: true,
+                autoplay: {
+                    delay: 2800,
+                    disableOnInteraction: false
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev"
+                }
+            });
+        }
+
+        function alternarMusica() {
+            const btn = document.getElementById("music-pill");
+            if (audioEl.paused) {
+                audioEl.play().catch(() => {});
+                btn.textContent = "II";
+            } else {
+                audioEl.pause();
+                btn.textContent = "▶";
+            }
+        }
+
+        const metaFecha = new Date(FECHA_EVENTO).getTime();
+        setInterval(() => {
+            const ahora = new Date().getTime();
+            const diff = Math.max(0, metaFecha - ahora);
+
+            document.getElementById("dias").textContent = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, "0");
+            document.getElementById("horas").textContent = String(Math.floor((diff / (1000 * 60 * 60)) % 24)).padStart(2, "0");
+            document.getElementById("mins").textContent = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, "0");
+            document.getElementById("segs").textContent = String(Math.floor((diff / 1000) % 60)).padStart(2, "0");
+        }, 1000);
+    </script>
+</body>
+</html>
