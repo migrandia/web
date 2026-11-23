@@ -408,7 +408,7 @@
 <body id="global-body">
 
     <audio id="musica-fondo" autoplay loop playsinline preload="auto"></audio>
-    <button id="btn-musica" class="btn-music" type="button" onclick="alternarMusica()">▶ MÚSICA</button>
+    <button id="btn-musica" class="btn-music" type="button" onclick="alternarMusica(event)">▶ MÚSICA</button>
 
     <!-- 1. NOMBRE LEGIBLE Y PRIMERA FOTO EN VERTICAL -->
     <header class="portada">
@@ -500,10 +500,11 @@
         document.getElementById('link-mapa').href = CONFIG.url_mapa;
         document.getElementById('link-pie').href = CONFIG.url_pagina_principal;
 
-        // MÚSICA AUTOMÁTICA CON OPCIÓN DE PAUSAR/REPRODUCIR
+        // MÚSICA AUTOMÁTICA Y AL DESLIZAR CON OPCIÓN DE PAUSAR/REPRODUCIR
         const audio = document.getElementById('musica-fondo');
         const btnMusica = document.getElementById('btn-musica');
         let pausadoManualmente = false;
+        let inicioY = null;
 
         audio.src = CONFIG.url_musica;
         audio.load();
@@ -518,6 +519,7 @@
             if (promesa && typeof promesa.then === 'function') {
                 promesa.then(() => {
                     actualizarBotonMusica();
+                    quitarListenersDesbloqueo();
                 }).catch(() => {
                     actualizarBotonMusica();
                 });
@@ -530,7 +532,10 @@
             if (event) event.stopPropagation();
             if (audio.paused) {
                 pausadoManualmente = false;
-                audio.play().then(actualizarBotonMusica).catch(actualizarBotonMusica);
+                audio.play().then(() => {
+                    actualizarBotonMusica();
+                    quitarListenersDesbloqueo();
+                }).catch(actualizarBotonMusica);
             } else {
                 pausadoManualmente = true;
                 audio.pause();
@@ -538,23 +543,42 @@
             }
         }
 
-        audio.addEventListener('play', actualizarBotonMusica);
+        function alDeslizarOCambiar(event) {
+            if (pausadoManualmente || !audio.paused) return;
+            if (event && event.type === 'touchstart' && event.touches && event.touches.length > 0) {
+                inicioY = event.touches[0].clientY;
+                return;
+            }
+            if (event && event.type === 'touchmove' && inicioY !== null && event.touches && event.touches.length > 0) {
+                if (Math.abs(event.touches[0].clientY - inicioY) < 6) return;
+            }
+            intentarAutoplay();
+        }
+
+        function quitarListenersDesbloqueo() {
+            window.removeEventListener('scroll', alDeslizarOCambiar);
+            window.removeEventListener('wheel', alDeslizarOCambiar);
+            window.removeEventListener('touchstart', alDeslizarOCambiar);
+            window.removeEventListener('touchmove', alDeslizarOCambiar);
+            window.removeEventListener('pointerdown', alDeslizarOCambiar);
+            window.removeEventListener('click', alDeslizarOCambiar);
+        }
+
+        audio.addEventListener('play', () => {
+            actualizarBotonMusica();
+            quitarListenersDesbloqueo();
+        });
         audio.addEventListener('pause', actualizarBotonMusica);
         audio.addEventListener('canplay', intentarAutoplay);
 
         window.addEventListener('DOMContentLoaded', intentarAutoplay);
         window.addEventListener('load', intentarAutoplay);
-
-        function desbloquearAudioEnInteraccion() {
-            if (!pausadoManualmente && audio.paused) {
-                intentarAutoplay();
-            }
-        }
-
-        document.addEventListener('pointerdown', desbloquearAudioEnInteraccion, { passive: true });
-        document.addEventListener('touchstart', desbloquearAudioEnInteraccion, { passive: true });
-        document.addEventListener('click', desbloquearAudioEnInteraccion, { passive: true });
-        document.addEventListener('scroll', desbloquearAudioEnInteraccion, { passive: true });
+        window.addEventListener('scroll', alDeslizarOCambiar, { passive: true });
+        window.addEventListener('wheel', alDeslizarOCambiar, { passive: true });
+        window.addEventListener('touchstart', alDeslizarOCambiar, { passive: true });
+        window.addEventListener('touchmove', alDeslizarOCambiar, { passive: true });
+        window.addEventListener('pointerdown', alDeslizarOCambiar, { passive: true });
+        window.addEventListener('click', alDeslizarOCambiar, { passive: true });
 
         // CARRUSEL DE 10 FOTOS
         const contenedorSlides = document.getElementById('carrusel-slides');
