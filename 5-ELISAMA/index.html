@@ -4,450 +4,511 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- ETIQUETAS PARA QUE SALGA LA FOTO AL COMPARTIR -->
+    <!-- ETIQUETAS PARA VISTA PREVIA AL COMPARTIR -->
     <meta id="og-title" property="og:title" content="Mis 5 Años | Elisama ESTRELLA PACHECO">
     <meta id="og-desc" property="og:description" content="¡Te invito a celebrar mis 5 años! Haz clic para ver los detalles.">
-    <meta id="og-image" property="og:image" content="https://www.dropbox.com/scl/fi/90s9txvvh2414ub9l6200/file_0000000042d871f792e1a16440ed528f.png?rlkey=4sksov3h62nlkefa24wsqe0ay&raw=1">
+    <meta id="og-image" property="og:image" content="https://www.dropbox.com/scl/fi/nm44i882g13044o8idz6k/xv1.jpg?rlkey=wn8xf4ne3yp5fz4vkzpsvbz4p&raw=1">
     <meta property="og:type" content="website">
 
     <title>Mis 5 Años | Elisama ESTRELLA PACHECO</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Dancing+Script:wght@600;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <script>
+        /* =====================================================================
+           PANEL DE CONTROL TOTAL - REEMPLAZA AQUÍ TODAS TUS URLS Y DATOS
+           ===================================================================== */
+        const CONFIG = {
+            nombre_festejada: "Elisama ESTRELLA PACHECO",
+            fecha_evento: "May 15, 2027 16:00:00",
+            texto_fecha: "Sábado 15 de Mayo de 2027 · 4:00 PM",
+
+            // Vista previa al compartir enlace y música
+            url_preview_compartir: "https://www.dropbox.com/scl/fi/nm44i882g13044o8idz6k/xv1.jpg?rlkey=wn8xf4ne3yp5fz4vkzpsvbz4p&raw=1",
+            url_musica: "https://www.dropbox.com/scl/fi/80hypdxkg24wx6x7oael2/En-Tus-Manos-Se-or.mp3?rlkey=j4di62c9sgj4txgwbpikcngp3&raw=1",
+
+            // Fondos y fotos verticales (1a foto vertical y 2a foto vertical)
+            url_fondo_global: "https://www.dropbox.com/scl/fi/fcgqk5mscou0534kw00c8/Fondo-de-Pantalla-Blanco-Minimalista_20260405_030125_0000.png?rlkey=wlv8vqgafm0btsjcazr3rwc29&raw=1",
+            foto_vertical_1: "https://www.dropbox.com/scl/fi/nm44i882g13044o8idz6k/xv1.jpg?rlkey=wn8xf4ne3yp5fz4vkzpsvbz4p&raw=1",
+            foto_vertical_2: "https://www.dropbox.com/scl/fi/tmehprhryocd8vr9hfphl/xv2.jpg?rlkey=nzdubrk5wd1cg68gpbnck9r5t&raw=1",
+
+            // Carrusel de 10 fotos (automático y manual)
+            fotos_carrusel_10: [
+                "https://www.dropbox.com/scl/fi/nm44i882g13044o8idz6k/xv1.jpg?rlkey=wn8xf4ne3yp5fz4vkzpsvbz4p&raw=1",
+                "https://www.dropbox.com/scl/fi/tmehprhryocd8vr9hfphl/xv2.jpg?rlkey=nzdubrk5wd1cg68gpbnck9r5t&raw=1",
+                "https://www.dropbox.com/scl/fi/90s9txvvh2414ub9l6200/file_0000000042d871f792e1a16440ed528f.png?rlkey=4sksov3h62nlkefa24wsqe0ay&raw=1",
+                "https://www.dropbox.com/scl/fi/r0jo5d2ktyy94zn0dwaeq/file_0000000019d071f5a05cb19c2cdf8040.png?rlkey=0mmdohsa74mzc0e5vheh9qu1f&raw=1",
+                "https://www.dropbox.com/scl/fi/j5iklqlaj1mj949edvths/file_0000000052d071f79be79227d67fa792.png?rlkey=1k78rkb3sdysy7yynhjjneu7r&raw=1",
+                "https://www.dropbox.com/scl/fi/m4q1xkzxavamflx30f9qe/IMG-20260423-WA0030.jpg?rlkey=mm9zbwy0v4wk6enj2v65zpo9o&raw=1",
+                "https://www.dropbox.com/scl/fi/6ssyg4vdt21o40ixlgybo/IMG-20260423-WA0028.jpg?rlkey=dbpesn9dowwhqy9n7a5vzg1m8&raw=1",
+                "https://www.dropbox.com/scl/fi/ylqro8gly50hox491p7vq/IMG-20260423-WA0029.jpg?rlkey=7mfbif82c2bxzath6lyq2nq5c&raw=1",
+                "https://www.dropbox.com/scl/fi/nm44i882g13044o8idz6k/xv1.jpg?rlkey=wn8xf4ne3yp5fz4vkzpsvbz4p&raw=1",
+                "https://www.dropbox.com/scl/fi/tmehprhryocd8vr9hfphl/xv2.jpg?rlkey=nzdubrk5wd1cg68gpbnck9r5t&raw=1"
+            ],
+
+            // Mensaje de invitación
+            mensaje_invitacion: "Quiero celebrar contigo mis primeros 5 años llenos de alegría, juegos y sonrisas. ¡Acompáñame en este día tan especial!",
+
+            // Frase de un salmo
+            frase_salmo: "“Herencia de Jehová son los hijos; cosa de estima el fruto del vientre.”",
+            cita_salmo: "SALMO 127:3",
+
+            // Ubicación del salón
+            nombre_salon: "Salón Princesa Rosa",
+            direccion_salon: "Calle Principal #123, Centro · 4:00 PM",
+            url_mapa: "https://maps.google.com/?q=Salon+Princesa+Rosa",
+
+            // Enlace pie de página
+            url_pagina_principal: "https://migrandia.mx"
+        };
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;600&family=Monsieur+La+Doulaise&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <style>
         :root {
-            --rosa-fuerte: #ff4d8d;
-            --rosa-claro: #ffc2d9;
-            --oro-suave: #ffe082;
-            --glass: rgba(255, 255, 255, 0.16);
-            --ancho-max: 480px;
+            --rosa-suave: #fff5f8;
+            --rosa-borde: #f7c6d8;
+            --rosa-acento: #d86c97;
+            --rosa-oscuro: #7d3552;
+            --texto: #4a353e;
+            --blanco: #ffffff;
         }
 
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
         }
 
         body {
-            background-color: #260919;
-            color: #fff;
+            margin: 0;
             font-family: 'Montserrat', sans-serif;
+            color: var(--texto);
+            -webkit-user-select: none;
+            user-select: none;
+            background-color: var(--rosa-suave);
+            line-height: 1.65;
             text-align: center;
-            overflow-x: hidden;
         }
 
-        /* PANTALLA DE ENTRADA */
-        #overlay {
-            position: fixed;
-            inset: 0;
-            z-index: 9999;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 30px;
-            background: radial-gradient(circle at top, #7a1c4b, #260919 82%);
+        img {
+            pointer-events: none;
+            -webkit-user-drag: none;
         }
 
-        #overlay h2 {
-            font-family: 'Cinzel', serif;
-            font-size: 1.05rem;
-            letter-spacing: 5px;
-            color: var(--oro-suave);
-            margin-bottom: 10px;
-        }
-
-        #overlay h1 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 3.3rem;
-            line-height: 1.1;
-            color: #fff;
-            margin-bottom: 20px;
-        }
-
-        #overlay p {
-            font-size: 0.95rem;
-            max-width: 340px;
-            line-height: 1.6;
-            margin-bottom: 32px;
-            color: var(--rosa-claro);
-        }
-
-        #overlay button {
-            padding: 16px 34px;
-            background: linear-gradient(135deg, #ff7eb3, #ff4d8d);
-            color: #fff;
-            border: 2px solid var(--oro-suave);
-            border-radius: 50px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            cursor: pointer;
-            box-shadow: 0 8px 25px rgba(255, 77, 141, 0.4);
-        }
-
-        /* CONTENEDOR PRINCIPAL */
-        .app-wrapper {
-            max-width: var(--ancho-max);
-            margin: 0 auto;
-            min-height: 100vh;
-            background: linear-gradient(180deg, #521334 0%, #8f2459 48%, #360c22 100%);
-            display: none;
-            padding-bottom: 50px;
-        }
-
-        /* BOTÓN DE MÚSICA */
-        #music-pill {
+        /* BOTÓN FLOTANTE DE MÚSICA */
+        .btn-music {
             position: fixed;
             bottom: 20px;
             right: 20px;
             z-index: 1000;
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: rgba(38, 9, 25, 0.85);
-            border: 2px solid var(--oro-suave);
-            color: var(--oro-suave);
-            font-weight: 700;
-            display: none;
-            align-items: center;
-            justify-content: center;
+            background: var(--rosa-acento);
+            color: var(--blanco);
+            border: 2px solid var(--blanco);
+            border-radius: 30px;
+            padding: 10px 18px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1px;
             cursor: pointer;
+            box-shadow: 0 6px 16px rgba(125, 53, 82, 0.25);
         }
 
-        /* PORTADA / PRIMERA FOTO VERTICAL */
-        .hero {
-            padding: 32px 18px 20px;
+        /* 1. PORTADA CON NOMBRE Y PRIMERA FOTO VERTICAL */
+        .portada {
+            max-width: 520px;
+            margin: 0 auto;
+            padding: 45px 20px 30px;
         }
 
-        .hero-badge {
-            font-family: 'Cinzel', serif;
-            font-size: 0.9rem;
-            letter-spacing: 5px;
-            color: var(--oro-suave);
-            margin-bottom: 8px;
+        .portada .subtitulo {
+            letter-spacing: 6px;
+            font-size: 0.78rem;
+            color: var(--rosa-oscuro);
+            text-transform: uppercase;
+            margin-bottom: 6px;
         }
 
-        .hero-name {
-            font-family: 'Dancing Script', cursive;
-            font-size: 3.3rem;
-            line-height: 1.08;
-            color: #fff;
-            text-shadow: 0 4px 16px rgba(0, 0, 0, 0.55);
-            margin-bottom: 20px;
+        .portada h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.6rem;
+            margin: 0;
+            font-weight: 400;
+            color: var(--rosa-oscuro);
+        }
+
+        .manuscrito {
+            font-family: 'Monsieur La Doulaise', cursive;
+            font-size: 3.6rem;
+            line-height: 1.05;
+            color: var(--rosa-acento);
+            display: block;
+            margin: 4px 0 22px;
         }
 
         .foto-vertical {
             width: 100%;
             aspect-ratio: 3 / 4;
             object-fit: cover;
-            border-radius: 22px;
-            border: 3px solid var(--oro-suave);
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+            display: block;
+            background: var(--blanco);
+            border: 10px solid var(--blanco);
+            border-radius: 6px;
+            box-shadow: 0 12px 26px rgba(125, 53, 82, 0.14);
         }
 
-        /* TARJETAS */
-        .card {
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 224, 130, 0.35);
-            border-radius: 20px;
-            margin: 20px 15px;
-            padding: 26px 20px;
+        /* SECCIONES */
+        .section {
+            padding: 55px 22px;
+            max-width: 560px;
+            margin: 0 auto;
         }
 
-        .card-title {
-            font-family: 'Dancing Script', cursive;
-            font-size: 2.6rem;
-            color: var(--oro-suave);
-            margin-bottom: 14px;
+        .section-rosa {
+            background-color: rgba(255, 228, 238, 0.75);
+            border-top: 1px solid var(--rosa-borde);
+            border-bottom: 1px solid var(--rosa-borde);
+            max-width: 100%;
         }
 
-        /* CARRUSEL DE 10 FOTOS */
+        .section-inner {
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        .title {
+            font-family: 'Playfair Display', serif;
+            color: var(--rosa-oscuro);
+            font-size: 1.9rem;
+            margin-bottom: 24px;
+            font-style: italic;
+            font-weight: 400;
+            position: relative;
+            display: inline-block;
+        }
+
+        .title::after {
+            content: "";
+            width: 55%;
+            height: 2px;
+            background: var(--rosa-borde);
+            position: absolute;
+            bottom: -6px;
+            left: 22.5%;
+        }
+
+        /* 2. CARRUSEL DE 10 FOTOS */
         .swiper {
             width: 100%;
             aspect-ratio: 3 / 4;
-            border-radius: 16px;
-            border: 2px solid var(--oro-suave);
+            border: 10px solid var(--blanco);
+            border-radius: 8px;
+            box-shadow: 0 12px 26px rgba(125, 53, 82, 0.14);
             overflow: hidden;
+            background: var(--blanco);
         }
 
         .swiper-slide img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
         .swiper-button-next,
         .swiper-button-prev {
-            color: var(--oro-suave) !important;
+            color: var(--rosa-acento) !important;
+            background: rgba(255, 255, 255, 0.82);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
         }
 
-        /* MENSAJE DE INVITACIÓN + SEGUNDA FOTO VERTICAL */
-        .mensaje-invitacion {
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.85rem;
-            line-height: 1.35;
-            color: #fff;
-            margin-bottom: 20px;
-        }
-
-        /* CONTADOR */
-        .timer {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            margin-top: 10px;
-        }
-
-        .t-box {
-            background: rgba(0, 0, 0, 0.35);
-            border: 1px solid rgba(255, 224, 130, 0.5);
-            border-radius: 12px;
-            padding: 12px 6px;
-        }
-
-        .t-num {
-            font-family: 'Cinzel', serif;
-            font-size: 1.5rem;
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            font-size: 1rem;
             font-weight: 700;
-            color: var(--oro-suave);
-            display: block;
         }
 
-        .t-label {
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            opacity: 0.9;
+        /* 3. MENSAJE DE INVITACIÓN */
+        .mensaje-texto {
+            font-style: italic;
+            color: var(--texto);
+            font-size: 1.05rem;
+            margin-bottom: 26px;
         }
 
-        /* SALMO */
-        .salmo-text {
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.9rem;
-            line-height: 1.35;
-            color: #fff;
-            margin-bottom: 10px;
-        }
-
-        .salmo-ref {
-            font-family: 'Cinzel', serif;
-            font-size: 0.85rem;
+        /* 4. CONTADOR */
+        .fecha-evento {
+            font-size: 0.95rem;
             letter-spacing: 2px;
-            color: var(--oro-suave);
+            color: var(--rosa-oscuro);
+            margin-bottom: 18px;
+            text-transform: uppercase;
         }
 
-        /* UBICACIÓN */
-        .salon-name {
-            font-family: 'Cinzel', serif;
-            font-size: 1.2rem;
-            color: var(--oro-suave);
+        .countdown {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .count-box {
+            background: var(--blanco);
+            border: 1px solid var(--rosa-borde);
+            border-bottom: 3px solid var(--rosa-acento);
+            border-radius: 6px;
+            padding: 12px 10px;
+            min-width: 72px;
+        }
+
+        .count-box span {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: var(--rosa-oscuro);
+        }
+
+        .count-box small {
+            letter-spacing: 2px;
+            font-size: 0.65rem;
+            color: var(--rosa-acento);
+            font-weight: 600;
+        }
+
+        /* 5. SALMO Y 6. UBICACIÓN */
+        .info-box {
+            background: var(--blanco);
+            padding: 32px 24px;
+            border: 1px solid var(--rosa-borde);
+            border-radius: 8px;
+            box-shadow: 0 8px 20px rgba(125, 53, 82, 0.06);
+        }
+
+        .salmo-frase {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.25rem;
+            color: var(--rosa-oscuro);
+            margin-bottom: 12px;
+        }
+
+        .salmo-cita {
+            letter-spacing: 3px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--rosa-acento);
+            text-transform: uppercase;
+        }
+
+        .salon-nombre {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            color: var(--rosa-oscuro);
+            margin-bottom: 8px;
+        }
+
+        .btn-mapa {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 14px 32px;
+            background: var(--rosa-acento);
+            color: var(--blanco);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            letter-spacing: 1.5px;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        /* FOOTER */
+        .footer-promo {
+            padding: 45px 20px;
+            background: var(--blanco);
+            border-top: 1px solid var(--rosa-borde);
+        }
+
+        .footer-initials {
+            font-family: 'Monsieur La Doulaise', cursive;
+            font-size: 3.2rem;
+            color: var(--rosa-acento);
+            display: block;
+            line-height: 1;
             margin-bottom: 6px;
         }
 
-        .salon-info {
-            font-size: 0.9rem;
-            line-height: 1.5;
-            margin-bottom: 18px;
-            opacity: 0.95;
+        .footer-collection {
+            font-size: 0.7rem;
+            letter-spacing: 4px;
+            color: #9c7a88;
+            display: block;
+            margin-bottom: 8px;
         }
 
-        .btn-map {
-            display: inline-block;
-            background: var(--oro-suave);
-            color: #260919;
+        .footer-link {
+            font-size: 0.85rem;
+            color: var(--texto);
             text-decoration: none;
-            font-weight: 700;
-            font-size: 0.8rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            padding: 14px 26px;
-            border-radius: 12px;
+        }
+
+        .footer-link b {
+            color: var(--rosa-acento);
         }
     </style>
 </head>
-<body>
+<body id="global-body" oncontextmenu="return false;">
 
-    <!-- PANTALLA INICIAL -->
-    <div id="overlay">
-        <h2>MIS 5 AÑOS</h2>
-        <h1 id="overlay-nombre">Elisama ESTRELLA PACHECO</h1>
-        <p>Toca el botón para abrir la invitación con música y sorpresas.</p>
-        <button onclick="iniciarInvitacion()">Abrir Invitación</button>
-    </div>
+    <audio id="musica-fondo" loop></audio>
+    <button id="btn-musica" class="btn-music" onclick="alternarMusica()">♪ MÚSICA</button>
 
-    <!-- MÚSICA -->
-    <audio id="musica" loop></audio>
+    <!-- 1. NOMBRE Y PRIMERA FOTO EN VERTICAL -->
+    <header class="portada">
+        <div class="subtitulo">MIS CINCO AÑOS</div>
+        <h1>Mis 5 Años</h1>
+        <span class="manuscrito" id="nombre-festejada">Elisama ESTRELLA PACHECO</span>
+        <img id="foto-vertical-1" src="" alt="Foto vertical principal de Elisama" class="foto-vertical">
+    </header>
 
-    <!-- BOTÓN DE MÚSICA -->
-    <button id="music-pill" onclick="alternarMusica()" aria-label="Música">II</button>
-
-    <!-- CONTENIDO PRINCIPAL -->
-    <div class="app-wrapper" id="app">
-
-        <!-- 1. NOMBRE Y PRIMERA FOTO VERTICAL -->
-        <section class="hero">
-            <div class="hero-badge">MIS 5 AÑOS</div>
-            <h1 class="hero-name" id="nombre-nina">Elisama ESTRELLA PACHECO</h1>
-            <img id="foto-principal-vertical" class="foto-vertical" alt="Foto principal de Elisama">
-        </section>
-
-        <!-- 2. CARRUSEL DE 10 FOTOS (AUTOMÁTICO Y MANUAL) -->
-        <section class="card">
-            <h2 class="card-title">Mis Fotos</h2>
-            <div class="swiper miGaleria">
-                <div class="swiper-wrapper" id="galeria-slides"></div>
+    <!-- 2. CARRUSEL DE 10 FOTOS (AUTOMÁTICO Y MANUAL) -->
+    <section class="section section-rosa">
+        <div class="section-inner">
+            <h2 class="title">Mis Momentos</h2>
+            <div class="swiper miCarrusel">
+                <div class="swiper-wrapper" id="carrusel-slides"></div>
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- 3. MENSAJE DE INVITACIÓN Y SEGUNDA FOTO VERTICAL -->
-        <section class="card">
-            <h2 class="card-title">¡Estás Invitado!</h2>
-            <p class="mensaje-invitacion" id="texto-invitacion">
-                Quiero celebrar contigo mis primeros 5 años llenos de alegría, juegos y sonrisas. ¡Acompáñame en este día tan especial!
-            </p>
-            <img id="foto-invitacion-vertical" class="foto-vertical" alt="Foto de invitación de Elisama">
-        </section>
+    <!-- 3. MENSAJE DE INVITACIÓN CON SEGUNDA FOTO EN VERTICAL -->
+    <section class="section">
+        <h2 class="title">Te Invito a Celebrar</h2>
+        <p id="mensaje-invitacion" class="mensaje-texto"></p>
+        <img id="foto-vertical-2" src="" alt="Segunda foto vertical de Elisama" class="foto-vertical">
+    </section>
 
-        <!-- 4. CONTADOR -->
-        <section class="card">
-            <h2 class="card-title">Falta Poco</h2>
-            <p class="salon-info" id="texto-fecha">Sábado 15 de Mayo de 2027 · 4:00 PM</p>
-            <div class="timer">
-                <div class="t-box"><span id="dias" class="t-num">00</span><span class="t-label">Días</span></div>
-                <div class="t-box"><span id="horas" class="t-num">00</span><span class="t-label">Hrs</span></div>
-                <div class="t-box"><span id="mins" class="t-num">00</span><span class="t-label">Min</span></div>
-                <div class="t-box"><span id="segs" class="t-num">00</span><span class="t-label">Seg</span></div>
+    <!-- 4. CONTADOR -->
+    <section class="section section-rosa">
+        <div class="section-inner">
+            <h2 class="title">Falta Poco</h2>
+            <p id="texto-fecha" class="fecha-evento"></p>
+            <div class="countdown">
+                <div class="count-box"><span id="d">00</span><small>DÍAS</small></div>
+                <div class="count-box"><span id="h">00</span><small>HRS</small></div>
+                <div class="count-box"><span id="m">00</span><small>MIN</small></div>
+                <div class="count-box"><span id="s">00</span><small>SEG</small></div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- 5. FRASE DE UN SALMO -->
-        <section class="card">
-            <h2 class="card-title">Bendición</h2>
-            <p class="salmo-text" id="frase-salmo">“Herencia de Jehová son los hijos; cosa de estima el fruto del vientre.”</p>
-            <div class="salmo-ref" id="cita-salmo">SALMO 127:3</div>
-        </section>
+    <!-- 5. FRASE DE UN SALMO -->
+    <section class="section">
+        <h2 class="title">Con la Bendición de Dios</h2>
+        <div class="info-box">
+            <p id="frase-salmo" class="salmo-frase"></p>
+            <span id="cita-salmo" class="salmo-cita"></span>
+        </div>
+    </section>
 
-        <!-- 6. UBICACIÓN DEL SALÓN -->
-        <section class="card">
-            <h2 class="card-title">Ubicación</h2>
-            <div class="salon-name" id="nombre-salon">Salón Princesa Rosa</div>
-            <p class="salon-info" id="direccion-salon">Calle Principal #123, Centro · 4:00 PM</p>
-            <a id="link-mapa" href="#" target="_blank" rel="noopener noreferrer" class="btn-map">Ver en Google Maps</a>
-        </section>
+    <!-- 6. UBICACIÓN DEL SALÓN -->
+    <section class="section section-rosa">
+        <div class="section-inner">
+            <h2 class="title">Ubicación del Salón</h2>
+            <div class="info-box">
+                <div id="nombre-salon" class="salon-nombre"></div>
+                <p id="direccion-salon" style="margin: 0;"></p>
+                <a id="link-mapa" href="#" target="_blank" rel="noopener noreferrer" class="btn-mapa">Ver Ubicación</a>
+            </div>
+        </div>
+    </section>
 
-    </div>
+    <footer class="footer-promo">
+        <span class="footer-initials">E - P</span>
+        <span class="footer-collection">MI GRAN DIA COLECCION</span>
+        <a id="link-pie" href="https://migrandia.mx" target="_blank" rel="noopener noreferrer" class="footer-link">Creado por <b>migrandia.mx</b></a>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
-        /* =====================================================================
-           CONFIGURACIÓN DE URLS Y DATOS (REEMPLAZA AQUÍ TODO LO NECESARIO)
-           ===================================================================== */
-        const NOMBRE_NINA = "Elisama ESTRELLA PACHECO";
-        const FECHA_EVENTO = "2027-05-15T16:00:00"; // Año-Mes-DíaTHora:Minuto:Segundo
-        const TEXTO_FECHA = "Sábado 15 de Mayo de 2027 · 4:00 PM";
+        document.onkeydown = function(e) {
+            if (e.keyCode == 123) return false;
+            if (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0) || e.keyCode == 'C'.charCodeAt(0))) return false;
+            if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) return false;
+        };
 
-        const MENSAJE_INVITACION = "Quiero celebrar contigo mis primeros 5 años llenos de alegría, juegos y sonrisas. ¡Acompáñame en este día tan especial!";
-        const FRASE_SALMO = "“Herencia de Jehová son los hijos; cosa de estima el fruto del vientre.”";
-        const CITA_SALMO = "SALMO 127:3";
+        document.title = `Mis 5 Años | ${CONFIG.nombre_festejada}`;
+        document.getElementById('og-title').setAttribute('content', `Mis 5 Años | ${CONFIG.nombre_festejada}`);
+        document.getElementById('og-image').setAttribute('content', CONFIG.url_preview_compartir);
 
-        const URL_PREVIEW_COMPARTIR = "https://www.dropbox.com/scl/fi/90s9txvvh2414ub9l6200/file_0000000042d871f792e1a16440ed528f.png?rlkey=4sksov3h62nlkefa24wsqe0ay&raw=1";
-        const URL_FOTO_VERTICAL_1 = "https://www.dropbox.com/scl/fi/90s9txvvh2414ub9l6200/file_0000000042d871f792e1a16440ed528f.png?rlkey=4sksov3h62nlkefa24wsqe0ay&raw=1";
-        const URL_FOTO_VERTICAL_2 = "https://www.dropbox.com/scl/fi/r0jo5d2ktyy94zn0dwaeq/file_0000000019d071f5a05cb19c2cdf8040.png?rlkey=0mmdohsa74mzc0e5vheh9qu1f&raw=1";
-        const URL_MUSICA = "https://www.dropbox.com/scl/fi/80hypdxkg24wx6x7oael2/En-Tus-Manos-Se-or.mp3?rlkey=j4di62c9sgj4txgwbpikcngp3&raw=1";
+        if (CONFIG.url_fondo_global) {
+            document.getElementById('global-body').style.backgroundImage = `url('${CONFIG.url_fondo_global}')`;
+        }
 
-        const NOMBRE_SALON = "Salón Princesa Rosa";
-        const DIRECCION_SALON = "Calle Principal #123, Centro · 4:00 PM";
-        const URL_MAPA = "https://maps.google.com/?q=Salon+Princesa+Rosa";
+        document.getElementById('nombre-festejada').textContent = CONFIG.nombre_festejada;
+        document.getElementById('foto-vertical-1').src = CONFIG.foto_vertical_1;
+        document.getElementById('foto-vertical-2').src = CONFIG.foto_vertical_2;
+        document.getElementById('mensaje-invitacion').textContent = CONFIG.mensaje_invitacion;
+        document.getElementById('texto-fecha').textContent = CONFIG.texto_fecha;
+        document.getElementById('frase-salmo').textContent = CONFIG.frase_salmo;
+        document.getElementById('cita-salmo').textContent = CONFIG.cita_salmo;
+        document.getElementById('nombre-salon').textContent = CONFIG.nombre_salon;
+        document.getElementById('direccion-salon').textContent = CONFIG.direccion_salon;
+        document.getElementById('link-mapa').href = CONFIG.url_mapa;
+        document.getElementById('link-pie').href = CONFIG.url_pagina_principal;
 
-        // Galería de 10 fotos (reemplaza cada enlace por tus 10 fotos)
-        const FOTOS_GALERIA_10 = [
-            "https://www.dropbox.com/scl/fi/90s9txvvh2414ub9l6200/file_0000000042d871f792e1a16440ed528f.png?rlkey=4sksov3h62nlkefa24wsqe0ay&raw=1",
-            "https://www.dropbox.com/scl/fi/r0jo5d2ktyy94zn0dwaeq/file_0000000019d071f5a05cb19c2cdf8040.png?rlkey=0mmdohsa74mzc0e5vheh9qu1f&raw=1",
-            "https://www.dropbox.com/scl/fi/j5iklqlaj1mj949edvths/file_0000000052d071f79be79227d67fa792.png?rlkey=1k78rkb3sdysy7yynhjjneu7r&raw=1",
-            "https://www.dropbox.com/scl/fi/m4q1xkzxavamflx30f9qe/IMG-20260423-WA0030.jpg?rlkey=mm9zbwy0v4wk6enj2v65zpo9o&raw=1",
-            "https://www.dropbox.com/scl/fi/6ssyg4vdt21o40ixlgybo/IMG-20260423-WA0028.jpg?rlkey=dbpesn9dowwhqy9n7a5vzg1m8&raw=1",
-            "https://www.dropbox.com/scl/fi/ylqro8gly50hox491p7vq/IMG-20260423-WA0029.jpg?rlkey=7mfbif82c2bxzath6lyq2nq5c&raw=1",
-            "https://www.dropbox.com/scl/fi/90s9txvvh2414ub9l6200/file_0000000042d871f792e1a16440ed528f.png?rlkey=4sksov3h62nlkefa24wsqe0ay&raw=1",
-            "https://www.dropbox.com/scl/fi/r0jo5d2ktyy94zn0dwaeq/file_0000000019d071f5a05cb19c2cdf8040.png?rlkey=0mmdohsa74mzc0e5vheh9qu1f&raw=1",
-            "https://www.dropbox.com/scl/fi/j5iklqlaj1mj949edvths/file_0000000052d071f79be79227d67fa792.png?rlkey=1k78rkb3sdysy7yynhjjneu7r&raw=1",
-            "https://www.dropbox.com/scl/fi/m4q1xkzxavamflx30f9qe/IMG-20260423-WA0030.jpg?rlkey=mm9zbwy0v4wk6enj2v65zpo9o&raw=1"
-        ];
-        /* ===================================================================== */
+        const audio = document.getElementById('musica-fondo');
+        const btnMusica = document.getElementById('btn-musica');
+        audio.src = CONFIG.url_musica;
 
-        const audioEl = document.getElementById("musica");
-        let galeriaSwiper;
-
-        document.title = `Mis 5 Años | ${NOMBRE_NINA}`;
-        document.getElementById("og-title").setAttribute("content", `Mis 5 Años | ${NOMBRE_NINA}`);
-        document.getElementById("og-image").setAttribute("content", URL_PREVIEW_COMPARTIR);
-
-        document.getElementById("overlay-nombre").textContent = NOMBRE_NINA;
-        document.getElementById("nombre-nina").textContent = NOMBRE_NINA;
-        document.getElementById("foto-principal-vertical").src = URL_FOTO_VERTICAL_1;
-        document.getElementById("texto-invitacion").textContent = MENSAJE_INVITACION;
-        document.getElementById("foto-invitacion-vertical").src = URL_FOTO_VERTICAL_2;
-        document.getElementById("texto-fecha").textContent = TEXTO_FECHA;
-        document.getElementById("frase-salmo").textContent = FRASE_SALMO;
-        document.getElementById("cita-salmo").textContent = CITA_SALMO;
-        document.getElementById("nombre-salon").textContent = NOMBRE_SALON;
-        document.getElementById("direccion-salon").textContent = DIRECCION_SALON;
-        document.getElementById("link-mapa").href = URL_MAPA;
-        audioEl.src = URL_MUSICA;
-
-        const slidesContainer = document.getElementById("galeria-slides");
-        FOTOS_GALERIA_10.slice(0, 10).forEach((url, index) => {
-            const slide = document.createElement("div");
-            slide.className = "swiper-slide";
-            slide.innerHTML = `<img src="${url}" alt="Foto ${index + 1}">`;
-            slidesContainer.appendChild(slide);
-        });
-
-        function iniciarInvitacion() {
-            document.getElementById("overlay").style.display = "none";
-            document.getElementById("app").style.display = "block";
-            document.getElementById("music-pill").style.display = "flex";
-
-            audioEl.play().catch(() => {});
-
-            galeriaSwiper = new Swiper(".miGaleria", {
-                loop: true,
-                autoplay: {
-                    delay: 2800,
-                    disableOnInteraction: false
-                },
-                navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev"
-                }
-            });
+        function actualizarBotonMusica() {
+            btnMusica.textContent = audio.paused ? '▶ MÚSICA' : 'II PAUSAR';
         }
 
         function alternarMusica() {
-            const btn = document.getElementById("music-pill");
-            if (audioEl.paused) {
-                audioEl.play().catch(() => {});
-                btn.textContent = "II";
+            if (audio.paused) {
+                audio.play().catch(() => {});
             } else {
-                audioEl.pause();
-                btn.textContent = "▶";
+                audio.pause();
             }
+            actualizarBotonMusica();
         }
 
-        const metaFecha = new Date(FECHA_EVENTO).getTime();
-        setInterval(() => {
-            const ahora = new Date().getTime();
-            const diff = Math.max(0, metaFecha - ahora);
+        document.addEventListener('click', function iniciarAudioEnPrimerToque() {
+            if (audio.paused && CONFIG.url_musica) {
+                audio.play().then(actualizarBotonMusica).catch(() => {});
+            }
+            document.removeEventListener('click', iniciarAudioEnPrimerToque);
+        }, { once: true });
 
-            document.getElementById("dias").textContent = String(Math.floor(diff / (1000 * 60 * 60 * 24))).padStart(2, "0");
-            document.getElementById("horas").textContent = String(Math.floor((diff / (1000 * 60 * 60)) % 24)).padStart(2, "0");
-            document.getElementById("mins").textContent = String(Math.floor((diff / (1000 * 60)) % 60)).padStart(2, "0");
-            document.getElementById("segs").textContent = String(Math.floor((diff / 1000) % 60)).padStart(2, "0");
+        const contenedorSlides = document.getElementById('carrusel-slides');
+        CONFIG.fotos_carrusel_10.slice(0, 10).forEach((url, i) => {
+            const slide = document.createElement('div');
+            slide.className = 'swiper-slide';
+            slide.innerHTML = `<img src="${url}" alt="Foto ${i + 1} de ${CONFIG.nombre_festejada}">`;
+            contenedorSlides.appendChild(slide);
+        });
+
+        new Swiper('.miCarrusel', {
+            loop: true,
+            autoplay: {
+                delay: 2800,
+                disableOnInteraction: false
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev'
+            }
+        });
+
+        const target = new Date(CONFIG.fecha_evento).getTime();
+        setInterval(() => {
+            const now = new Date().getTime();
+            const d = Math.max(0, target - now);
+            document.getElementById('d').textContent = Math.floor(d / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+            document.getElementById('h').textContent = Math.floor((d % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+            document.getElementById('m').textContent = Math.floor((d % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+            document.getElementById('s').textContent = Math.floor((d % (1000 * 60)) / 1000).toString().padStart(2, '0');
         }, 1000);
     </script>
 </body>
